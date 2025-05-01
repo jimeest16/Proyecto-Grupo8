@@ -19,5 +19,15 @@ class ArrayQueueTest {
             throw new RuntimeException(e);
         }
     }
+
+    @Test
+    public void testPerson(){
+
+        ArrayQueue queue= new ArrayQueue(25); // para 25 personas
+
+        for( int i =0;i< 20;i++){
+
+        }
+    }
 }
 
