@@ -45,7 +45,7 @@ public class HelloController {
 
     @FXML
     public void ArithmeticOnAction(ActionEvent actionEvent) {
-        load("arithmeticConverter.fxml");
+        load("queueToStack.fxml");
     }
 
     }
