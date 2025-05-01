@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.HelloController">
+    <left>
+        <VBox prefHeight="699.0" prefWidth="221.0" style="-fx-background-color: #daddce;" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#Home" prefHeight="62.0" prefWidth="219.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Home" textFill="#000000b2">
+                <font>
+                    <Font name="Arial Bold Italic" size="30.0" />
+                </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="72.0" mnemonicParsing="false" onAction="#PriorityQueue" prefHeight="62.0" prefWidth="219.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Priority Queue" textFill="#000000b2">
+                <font>
+                    <Font name="Arial Bold Italic" size="22.0" />
+                </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="72.0" mnemonicParsing="false" onAction="#ArithmeticOnAction" prefHeight="62.0" prefWidth="219.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Arithmetic Converter" textFill="#000000b2">
+                <font>
+                    <Font name="Arial Bold Italic" size="19.0" />
+                </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="196.0" mnemonicParsing="false" onAction="#Exit" prefHeight="62.0" prefWidth="219.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Exit" textFill="#000000b2">
+                <font>
+                    <Font name="Arial Bold Italic" size="30.0" />
+                </font>
+            </Button>
+        </VBox>
+    </left>
+    <center>
+        <AnchorPane fx:id="ap" prefHeight="684.0" prefWidth="775.0" style="-fx-background-color: #b6be9c;" BorderPane.alignment="CENTER">
+            <Text fx:id="txtMessage" fill="#f7f7f7" layoutX="4.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" style="visibility: #dde7ba;" text="Laboratory No. 7" textAlignment="CENTER" wrappingWidth="781.94921875">
+                <font>
+                    <Font name="Elephant" size="55.0" />
+                </font>
+            </Text>
+        </AnchorPane>
+    </center>
+</BorderPane>

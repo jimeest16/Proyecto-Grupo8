@@ -34,4 +34,13 @@ public class Person {
     public void setAttentionTime(int attentionTime) {
         this.attentionTime = attentionTime;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "name='" + name + '\'' +
+                ",mood='" + mood + '\'' +
+                ",attentionTime=" + attentionTime +
+                '}';
+    }
 }
