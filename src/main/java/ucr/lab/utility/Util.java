@@ -1,6 +1,10 @@
 package ucr.lab.utility;
 
 
+import ucr.lab.domain.LinkedStack;
+import ucr.lab.domain.Stack;
+import ucr.lab.domain.StackException;
+
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -91,6 +95,225 @@ public class Util {
             default:
                 return 2; // Unknown
         }
+    }
+
+    public static String infixToPostfixConverter(String exp) throws StackException {
+        LinkedStack stack = new LinkedStack(); // Pila para operadores
+        String expPostFix = "";
+
+        for (char c : exp.toCharArray()) {
+            if (Character.isLetterOrDigit(c)) {
+                expPostFix += c; // Si es operando, añadir directamente al resultado
+            } else if (c == '(') {
+                stack.push(c); // Apilar paréntesis izquierdo
+            } else if (c == ')') {
+                // Desapilar hasta encontrar paréntesis izquierdo
+                while (!stack.isEmpty() && (char) stack.peek() != '(')
+                    expPostFix += stack.pop();
+                if (!stack.isEmpty())
+                    stack.pop(); // eliminar '('
+            } else { // operador
+                // Mientras el operador en la pila tenga mayor o igual prioridad
+                while (!stack.isEmpty() && getPriority(c) <= getPriority((char) stack.peek()))
+                    expPostFix += stack.pop(); // Desapilar operador
+                stack.push(c); // Apilar el operador actual
+            }
+        }
+
+        while (!stack.isEmpty()) // Añadir todos los operadores restantes
+            expPostFix += stack.pop();
+
+        // Si es una expresión numérica, calcular y agregar el resultado
+        return  exp.matches("[0-9+\\-*/()]+")
+                ? expPostFix + " = " + evaluatePostfix(expPostFix)
+                : expPostFix;
+    }
+    // infijo a prefijo
+    public static String infixToPrefixConverter(String exp) throws StackException {
+        LinkedStack stack = new LinkedStack(); // Pila para operadores
+        StringBuilder result = new StringBuilder(); // Resultado en prefijo
+        String reversed = new StringBuilder(exp).reverse().toString();// Invertir la expresión
+
+        // Aplicar lógica similar entendiendo ')' por '(' y viceversa.
+        // Siempre insertando al principio en el resultado
+        for (char c : reversed.toCharArray()) {
+            if (Character.isLetterOrDigit(c))
+                result.insert(0, c); // Agregar operandos directamente
+
+            else if (c == ')')
+                stack.push(c); // Apilar paréntesis
+
+            else if (c == '(') {
+                while (!stack.isEmpty() && (char) stack.peek() != ')')
+                    result.insert(0, stack.pop()); // Desapilar hasta ')'
+
+                stack.pop(); // Eliminar ')'
+
+            } else {
+                // Prioridad de operadores
+                while (!stack.isEmpty() && getPriority(c) < getPriority((char) stack.peek()))
+                    result.insert(0, stack.pop());
+                stack.push(c);
+            }
+        }
+
+        while (!stack.isEmpty()) // Añadir operadores restantes
+            result.insert(0, stack.pop());
+        String prefix = result.toString();
+
+        return exp.matches("[0-9+\\-*/()]+")
+                ? prefix + " = " + evaluatePrefix(prefix)
+                : prefix;
+    }
+    // postfijo a infijo
+    public static String postfixToInfixConverter(String exp) throws StackException{
+        LinkedStack stack = new LinkedStack();
+        for(char c: exp.toCharArray()){
+            if(Character.isLetterOrDigit(c)){
+                stack.push(String.valueOf(c)); // Si es operando, se apila como cadena
+            }else { // seria mi operador
+                // Desapilar dos operandos
+                String oper2= (String) stack.pop();
+                String oper1= (String) stack.pop();
+                // Combinar en notación infija con paréntesis
+                String res= "(" + oper1+c+oper2+")"; // operando operador operando
+                stack.push(res); // Apilar resultado parcial
+            }
+        }
+        String result = (String) stack.pop();
+        return exp.matches("[0-9+\\-*/]+") // Evaluar si es numérica
+                ? result + " = " + evaluatePostfix(exp)
+                : result;
+    }
+    // postfijo a prefijo
+    public static String postfixToPrefixConverter(String exp) throws StackException {
+        LinkedStack stack = new LinkedStack(); // Pila para operandos
+        for (char c : exp.toCharArray()) {
+            if (Character.isLetterOrDigit(c)) {
+                stack.push(String.valueOf(c)); // Apilar operandos
+            } else {
+                // Desapilar dos operandos
+                String oper2 = (String) stack.pop();
+                String oper1 = (String) stack.pop();
+                String res = c + oper1 + oper2; // Combinar en prefijo
+                stack.push(res);
+            }
+        }
+        String result = (String) stack.pop(); // Resultado final
+        return exp.matches("[0-9+\\-*/]+") // Evaluar si es numérica
+                ? result + " = " + evaluatePostfix(exp)
+                : result;
+    }
+    //prefijo a postfijo
+    public static String prefixToPostfixConverter(String exp) throws StackException {
+        LinkedStack stack = new LinkedStack(); // Pila para operandos
+        String reversed = new StringBuilder(exp).reverse().toString();// Invertir la expresión
+        for (char c : reversed.toCharArray()) {
+            if (Character.isLetterOrDigit(c))
+                stack.push(String.valueOf(c)); // Apilar operandos
+            else {
+                // Desapilar los dos operandos
+                String oper1 = (String) stack.pop();
+                String oper2 = (String) stack.pop();
+                // Formar la expresión en postfijo: oper1 oper2 operador
+                String res = oper1 + oper2 + c;
+                stack.push(res); // Apilar el resultado parcial
+            }
+        }
+        String result = (String) stack.pop(); // Resultado final
+        return exp.matches("[0-9+\\-*/]+") // Evaluar si es numérica
+                ? result + " = " + evaluatePostfix(exp)
+                : result;
+    }
+// prefijo a infijo
+
+    public static String prefixToInfixConverter(String exp) throws StackException {
+        LinkedStack stack = new LinkedStack();
+
+        String reversed= new StringBuilder(exp).reverse().toString();
+
+        for(char c:reversed.toCharArray()){
+            if(Character.isLetterOrDigit(c)){
+                stack.push(String.valueOf(c));
+            }else{
+                String oper1= (String) stack.pop();
+                String ope2= (String) stack.pop();
+                String resultado= "("+ oper1+ c+ ope2+")";
+                stack.push(resultado);
+            }
+        }
+        String result= (String) stack.pop();
+        return exp.matches("[0-9+\\-*/]+")
+                ?result+"="+ evaluatePrefix(exp):result;
+    }
+    private static int getPriority(char c) {
+        return switch (c) {
+            case '+', '-' -> 1; //prioridad mas baja
+            case '*', '/' -> 2;
+            case '^' -> 3;
+            default -> 0;
+        };
+    }
+
+    public static int evaluatePostfix(String exp) throws StackException {
+        LinkedStack stack = new LinkedStack();
+        for (char c : exp.toCharArray()) {
+            if (Character.isDigit(c)) {
+                stack.push(c - '0');
+            } else {
+                int val2 = (int) stack.pop();
+                int val1 = (int) stack.pop();
+                switch (c) {
+                    case '+': stack.push(val1 + val2); break;
+                    case '-': stack.push(val1 - val2); break;
+                    case '*': stack.push(val1 * val2); break;
+                    case '/': stack.push(val1 / val2); break;
+                }
+            }
+        }
+        return (int) stack.pop();
+    }
+
+    public static int evaluatePrefix(String exp) throws StackException {
+        LinkedStack stack = new LinkedStack();
+        for (int i = exp.length() - 1; i >= 0; i--) {
+            char c = exp.charAt(i);
+            if (Character.isDigit(c)) {
+                stack.push(c - '0');
+            } else {
+                int val1 = (int) stack.pop();
+                int val2 = (int) stack.pop();
+                switch (c) {
+                    case '+': stack.push(val1 + val2); break;
+                    case '-': stack.push(val1 - val2); break;
+                    case '*': stack.push(val1 * val2); break;
+                    case '/': stack.push(val1 / val2); break;
+                }
+            }
+        }
+        return (int) stack.pop();
+    }
+
+    public static String decimalTo(Stack stack, int base, int decimal) throws StackException {
+        if (decimal == 0)
+            return "0";
+        int n;
+        StringBuilder res = new StringBuilder();
+
+        while (decimal > 0) {
+            n = decimal%base;
+            if (n >= 10)
+                stack.push(Character.toString((char)(n+55)));
+            else
+                stack.push(n);
+            decimal = decimal/base;
+        }
+
+        while (!stack.isEmpty())
+            res.append(stack.pop());
+
+        //Para bases menores que 10 el resultado debe invertirse
+        return base >= 10? res.toString() : res.reverse().toString();
     }
 
     // Método para obtener el tipo de instancia de dos objetos

@@ -11,9 +11,9 @@ import java.util.Objects;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/ucr/hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        String css = Objects.requireNonNull(HelloApplication.class.getResource("stylesheet.css")).toExternalForm();
+        String css = Objects.requireNonNull(HelloApplication.class.getResource("/ucr/stylesheet.css")).toExternalForm();
         scene.getStylesheets().add(css);
         stage.setTitle("Laboratory 7");
         stage.setScene(scene);

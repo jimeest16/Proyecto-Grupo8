@@ -6,7 +6,8 @@ module ucr.lab {
 
     opens ucr.lab to javafx.fxml;
     exports ucr.lab;
-
+    exports ucr.lab.controller;
+    opens ucr.lab.controller to javafx.fxml;
 
 
     /*exports ucr.lab.domain;
