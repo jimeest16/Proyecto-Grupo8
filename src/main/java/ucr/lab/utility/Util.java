@@ -118,20 +118,21 @@ public class Util {
 
     }
 
-    public static void getPlace() {
-        String[] place = {
+    public static String getPlace() {
+        String[] places = {
                 "San José", "Ciudad Quesada", "Paraíso", "Turrialba", "Limón", "Liberia",
                 "Puntarenas", "San Ramón", "Puerto Viejo", "Volcán Irazú", "Pérez Zeledón",
                 "Palmares", "Orotina", "El coco", "Ciudad Neilly", "Sixaola", "Guápiles",
                 "Siquirres", "El Guarco", "Cartago", "Santa Bárbara", "Jacó", "Manuel Antonio",
                 "Quepos", "Santa Cruz", "Nicoya"
         };
+        return places[random(places.length-1)];
     }
-    public static void getWeather(){
-        String[] weather = {
+    public static String getWeather(){
+        String[] weathers = {
                 "rainy", "thunderstorm", "sunny", "cloudy", "foggy"
         };
-
+        return weathers[random(weathers.length-1)];
     }
 }
 

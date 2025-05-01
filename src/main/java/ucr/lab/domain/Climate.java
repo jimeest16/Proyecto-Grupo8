@@ -27,9 +27,6 @@ public class Climate {
 
     @Override
     public String toString() {
-        return "Climate{" +
-                "place=" + place +
-                ", weather=" + weather +
-                '}';
+        return "Climate {" + place + " - " + weather +'}';
     }
 }
