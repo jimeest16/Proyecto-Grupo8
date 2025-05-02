@@ -24,7 +24,7 @@ public class Util {
     }
 
     // Método para generar un número aleatorio en un rango
-    public static int Random(int min, int max) {
+    public static int random(int min, int max) {
         // Generación de un número aleatorio en el rango [min, max]
         return 1 + random.nextInt(max - min + 1);
     }
@@ -37,7 +37,7 @@ public class Util {
     // Método para llenar un arreglo con valores aleatorios
     public static void fillArray(int[] a, int min, int max) {
         for (int i = 0; i < a.length; i++) {
-            a[i] = Random(min, max);
+            a[i] = random(min, max);
         }
     }
 
@@ -91,9 +91,14 @@ public class Util {
                 return ch1.compareTo(ch2) < 0 ? -1 : ch1.compareTo(ch2) > 0 ? 1 : 0;
 
             case "Climate":
-                Character c1 = (Character) a;
-                Character c2 = (Character) b;
+                Climate cl1 = (Climate) a; String c1 = a.toString();
+                Climate cl2 = (Climate) b; String c2 = b.toString();
                 return c1.compareTo(c2) < 0 ? -1 : c1.compareTo(c2) > 0 ? 1 : 0;
+
+            case "Person":
+                Person p1 = (Person) a; String n1 = p1.getName();
+                Person p2 = (Person) b; String n2 = p2.getName();
+                return n1.compareTo(n2) < 0 ? -1 : n1.compareTo(n2) > 0 ? 1 : 0;
 
             default:
                 return 2; // Unknown
@@ -325,7 +330,7 @@ public class Util {
         if (a instanceof String && b instanceof String) return "String";
         if (a instanceof Character && b instanceof Character) return "Character";
         if (a instanceof Climate && b instanceof Climate) return "Climate";
-
+        if (a instanceof Person && b instanceof Person) return "Person";
         return "Unknown";
     }
 
@@ -340,8 +345,6 @@ public class Util {
 
     public static String dateFormat(Date value) {
         return new SimpleDateFormat("dd/MM/yyyy").format(value);
-
-
     }
 
     public static String getPlace() {
@@ -354,11 +357,33 @@ public class Util {
         };
         return places[random(places.length-1)];
     }
+
     public static String getWeather(){
         String[] weathers = {
                 "rainy", "thunderstorm", "sunny", "cloudy", "foggy"
         };
         return weathers[random(weathers.length-1)];
+    }
+
+    public static String getMood() {
+        String[] mood = {
+                "Happiness", "Sadness", "Anger", "Sickness", "Cheerful", "Reflective",
+                "Gloomy", "Romantic", "Calm", "Hopeful", "Fearful",
+                "Tense", "Lonely"
+        };
+        return mood[random(mood.length-1)];
+    }
+
+    public static String getName() {
+        String[] names = {
+                "Alana", "Pablo", "Ana", "María", "Victoria", "Nicole",
+                "Mateo", "Fabiana", "Natalia", "Valeria",
+                "Luis", "Elena", "Raúl", "César", "Lucas",
+                "Clara", "Diego", "Sara", "Iván", "Julia",
+                "David", "Noa", "Bruno", "Emma", "Luz",
+                "Gael", "Iris", "Hugo", "Vera", "Leo"
+        };
+        return names[random(names.length-1)];
     }
 
     public static void setQueueClimate(LinkedQueue queueClimate) {

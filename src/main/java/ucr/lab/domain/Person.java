@@ -12,7 +12,18 @@ public class Person {
         this.name = name;
         this.mood = mood;
         this.attention = time;
+        this.priority = priority;
+    }
+
+    public Person(String name, String mood, int time, int priority) {
+        this.name = name;
+        this.mood = mood;
+        this.attention = time;
         this.priority = String.valueOf(priority);
+    }
+
+    public Person(String name) {
+        this.name = name;
     }
 
     // Getters y Setters
