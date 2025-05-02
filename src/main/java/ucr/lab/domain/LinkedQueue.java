@@ -88,21 +88,14 @@ public class LinkedQueue implements Queue {
     }
 
     public boolean contains(Object element) throws QueueException {
-        if(isEmpty())
-            throw new QueueException("Linked Queue is Empty");
-        LinkedQueue aux = new LinkedQueue();
-        boolean finded = false;
-        while(!isEmpty()){
-            if(Util.compare(front(), element)==0){
-                finded = true;
+        Node current = front;
+        while (current != null) {
+            if (current.data.equals(element)) {
+                return true;
             }
-            aux.enQueue(deQueue());
-        }//while
-        //al final dejamos la cola en su estado original
-        while(!aux.isEmpty()){
-            enQueue(aux.deQueue());
+            current = current.next;
         }
-        return finded;
+        return false;
     }
     @Override
     public Object peek() throws QueueException {

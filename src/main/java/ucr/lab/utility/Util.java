@@ -1,9 +1,7 @@
 package ucr.lab.utility;
 
 
-import ucr.lab.domain.LinkedStack;
-import ucr.lab.domain.Stack;
-import ucr.lab.domain.StackException;
+import ucr.lab.domain.*;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -15,7 +13,8 @@ import java.util.Random;
 
 public class Util {
     private static Random random;
-
+    private static LinkedStack stackList;
+    private static LinkedQueue queueList;
     //constructor estatico, inicializador estatico
     static {
         // semilla para el random
@@ -91,6 +90,10 @@ public class Util {
                 Character ch2 = (Character) b;
                 return ch1.compareTo(ch2) < 0 ? -1 : ch1.compareTo(ch2) > 0 ? 1 : 0;
 
+            case "Climate":
+                Character c1 = (Character) a;
+                Character c2 = (Character) b;
+                return c1.compareTo(c2) < 0 ? -1 : c1.compareTo(c2) > 0 ? 1 : 0;
 
             default:
                 return 2; // Unknown
@@ -321,7 +324,7 @@ public class Util {
         if (a instanceof Integer && b instanceof Integer) return "Integer";
         if (a instanceof String && b instanceof String) return "String";
         if (a instanceof Character && b instanceof Character) return "Character";
-
+        if (a instanceof Climate && b instanceof Climate) return "Climate";
 
         return "Unknown";
     }
@@ -356,6 +359,24 @@ public class Util {
                 "rainy", "thunderstorm", "sunny", "cloudy", "foggy"
         };
         return weathers[random(weathers.length-1)];
+    }
+
+    public static void setQueueClimate(LinkedQueue queueClimate) {
+        Util.queueList = queueClimate;
+    }
+
+    public static LinkedQueue getClimateQueue() {
+        if(queueList== null) {
+            queueList = new LinkedQueue();
+        }
+        return queueList;
+    }
+
+    public static LinkedStack getStack() {
+        if(stackList== null) {
+            stackList = new LinkedStack();
+        }
+        return stackList;
     }
 }
 
