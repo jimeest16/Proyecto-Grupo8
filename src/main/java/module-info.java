@@ -3,12 +3,14 @@ module ucr.lab {
     requires javafx.fxml;
     requires jdk.jshell;
     requires jdk.jfr;
+    requires java.desktop;
+    requires javafx.base;
 
     opens ucr.lab to javafx.fxml;
     exports ucr.lab;
     exports ucr.lab.controller;
     opens ucr.lab.controller to javafx.fxml;
-
+    opens ucr.lab.domain to javafx.base;
 
     /*exports ucr.lab.domain;
     opens ucr.lab.domain to javafx.fxml;*/

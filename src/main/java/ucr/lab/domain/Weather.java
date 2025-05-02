@@ -17,6 +17,6 @@ private String weatherDescription;
 
     @Override
     public String toString() {
-        return " Weather: " + weatherDescription;
+        return weatherDescription;
     }
 }

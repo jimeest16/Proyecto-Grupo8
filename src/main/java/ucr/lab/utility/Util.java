@@ -1,6 +1,11 @@
 package ucr.lab.utility;
 
 
+import ucr.lab.domain.ArrayQueue;
+import ucr.lab.domain.ArrayStack;
+import ucr.lab.domain.LinkedQueue;
+import ucr.lab.domain.LinkedStack;
+
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -11,7 +16,8 @@ import java.util.Random;
 
 public class Util {
     private static Random random;
-
+    private static LinkedQueue queueClimate;
+    private static LinkedStack stack;
     //constructor estatico, inicializador estatico
     static {
         // semilla para el random
@@ -133,6 +139,22 @@ public class Util {
                 "rainy", "thunderstorm", "sunny", "cloudy", "foggy"
         };
         return weathers[random(weathers.length-1)];
+    }
+    public static LinkedQueue getClimateQueue() {
+        if(queueClimate== null) {
+            queueClimate = new LinkedQueue();
+        }
+        return queueClimate;
+    }
+    public static LinkedStack getStack() {
+        if(stack== null) {
+            stack = new LinkedStack();
+        }
+        return stack;
+    }
+
+    public static void setQueueClimate(LinkedQueue queueClimate) {
+        Util.queueClimate = queueClimate;
     }
 }
 
