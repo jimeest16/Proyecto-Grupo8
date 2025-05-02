@@ -40,7 +40,7 @@ public class HelloController {
 
     @FXML
     public void PriorityQueue(ActionEvent actionEvent) {
-        load("priorityQueue.fxml");
+        load("/ucr/priorityQueue.fxml");
     }
 
     @FXML

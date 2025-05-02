@@ -1,15 +1,25 @@
 package ucr.lab.domain;
 
+
+
+import java.util.Objects;
+
 public class Person {
     private String name;
     private String mood;
-    private int attentionTime;
+    private int attention;
+    private int priority;
 
-    public Person(String name, String mood, int attentionTime) {
+    public Person(String name, String mood, int time, int priority) {
         this.name = name;
         this.mood = mood;
-        this.attentionTime = attentionTime;
+        this.attention = time;
+        this.priority = priority;
     }
+
+    // Getters y Setters
+
+
 
     public String getName() {
         return name;
@@ -27,20 +37,39 @@ public class Person {
         this.mood = mood;
     }
 
-    public int getAttentionTime() {
-        return attentionTime;
+    public int getAttention() {
+        return attention;
     }
 
-    public void setAttentionTime(int attentionTime) {
-        this.attentionTime = attentionTime;
+    public String setAttention(int attention) {
+        this.attention = attention;
+        return null;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return name.equals(person.name) && mood.equals(person.mood); // Compara nombre y estado de ánimo
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, mood); // un hash basado en nombre y estado de ánimo
+    }
+
+
+    @Override
     public String toString() {
-        return "{" +
-                "name='" + name + '\'' +
-                ",mood='" + mood + '\'' +
-                ",attentionTime=" + attentionTime +
-                '}';
+        return "Name: " + name + ", Mood: " + mood + ", Priority: " + priority;
     }
 }

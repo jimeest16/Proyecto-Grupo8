@@ -15,8 +15,9 @@ public int priority;
     public Node() {
         this.next = null;
     }
-    public Node(Object element, int priority){
-        this.data = element;
+
+    public Node(Object data, int priority){
+        this.data = data;
         this.next = null;
         this.priority=priority;
 
