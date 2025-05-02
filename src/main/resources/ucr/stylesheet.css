@@ -215,4 +215,28 @@
 .choice-box > .label {
     -fx-text-fill: salmon;
     -fx-font: 30px "Arial";
+
+
+    /* Estilo para el ComboBox */
+    .combo-box {
+        -fx-background-color: #3498db;  /* Color de fondo del ComboBox */
+        -fx-text-fill: white;           /* Color del texto dentro del ComboBox */
+        -fx-font-size: 14px;            /* Tamaño de la fuente */
+        -fx-padding: 5px;               /* Espaciado dentro del ComboBox */
+        -fx-border-radius: 5px;        /* Bordes redondeados */
+        -fx-border-color: #2980b9;     /* Color del borde */
+        -fx-border-width: 2px;         /* Grosor del borde */
+    }
+
+    /* Estilo del ComboBox cuando se abre el menú */
+    .combo-box .list-cell {
+        -fx-background-color: #ecf0f1;  /* Fondo de las opciones */
+        -fx-text-fill: #2c3e50;         /* Color del texto de las opciones */
+    }
+
+    .combo-box .list-cell:selected {
+        -fx-background-color: #2980b9;  /* Fondo seleccionado */
+        -fx-text-fill: white;           /* Color del texto seleccionado */
+    }
+
 }

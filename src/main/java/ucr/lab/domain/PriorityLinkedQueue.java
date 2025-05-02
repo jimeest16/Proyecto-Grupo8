@@ -1,7 +1,6 @@
 package ucr.lab.domain;
 
 import ucr.lab.utility.Util;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +35,7 @@ public class PriorityLinkedQueue implements Queue {
         if (isEmpty()) throw new QueueException("Queue is empty");
 
         PriorityLinkedQueue aux = new PriorityLinkedQueue();
-        int index = -1, i = 1;
+        int index = -1, i = 0;
 
         while (!isEmpty()) {
             Object current = front();
@@ -63,25 +62,57 @@ public class PriorityLinkedQueue implements Queue {
         counter++;
     }
 
-    public void enQueue(Object element, int priority) throws QueueException {
+
+    public void enQueue(Object element, String priority) throws QueueException {
+        // Verificamos si la prioridad es nula o no válida
+        if (priority == null || (!priority.equals("High") && !priority.equals("Medium") && !priority.equals("Low"))) {
+            throw new QueueException("Priority must be one of: High, Medium, Low");
+        }
+
+        // Creamos el nuevo nodo con el elemento y la prioridad
         Node newNode = new Node(element, priority);
+
+        // Si la cola está vacía, el nuevo nodo se convierte en el frente y el final
         if (isEmpty()) {
             front = rear = newNode;
         } else {
-            if (priority > front.priority) {
+            Node current = front;
+            // Si la nueva prioridad es más alta que la del nodo en el frente, lo insertamos al principio
+            if (newNode.priority.equals("High")) {
                 newNode.next = front;
                 front = newNode;
             } else {
-                Node current = front;
-                while (current.next != null && current.next.priority >= priority) {
+                // Buscamos el lugar correcto para insertar el nuevo nodo según su prioridad
+                while (current.next != null && comparePriorities(current.next.priority, newNode.priority) >= 0) {
                     current = current.next;
                 }
+                // Insertamos el nuevo nodo en la posición encontrada
                 newNode.next = current.next;
                 current.next = newNode;
-                if (newNode.next == null) rear = newNode;
+
+                // Si se inserta al final, actualizamos el 'rear'
+                if (newNode.next == null) {
+                    rear = newNode;
+                }
             }
         }
+
+        // Incrementamos el contador de elementos
         counter++;
+    }
+
+
+    private int comparePriorities(String priority1, String priority2) {
+
+        if (priority1.equals("High")) {
+            return 1;
+        } else if (priority1.equals("Medium") && !priority2.equals("High")) {
+            return 1;
+        } else if (priority1.equals("Low") && priority2.equals("Low")) {
+            return 0;
+        } else {
+            return -1;
+        }
     }
 
     @Override
@@ -99,18 +130,18 @@ public class PriorityLinkedQueue implements Queue {
     public boolean contains(Object element) throws QueueException {
         if (isEmpty()) return false;
 
-        PriorityLinkedQueue aux = new PriorityLinkedQueue();
+        PriorityLinkedQueue colaAux = new PriorityLinkedQueue();
         boolean found = false;
 
         while (!isEmpty()) {
-            Object current = front();
-            if (Util.compare(current, element) == 0) {
+            Object nodoAux = front();
+            if (nodoAux.equals(element)) {
                 found = true;
             }
-            aux.enQueue(deQueue());
+            colaAux.enQueue(deQueue());
         }
 
-        restore(aux);
+        restore(colaAux);
         return found;
     }
 
@@ -124,7 +155,7 @@ public class PriorityLinkedQueue implements Queue {
         if (isEmpty()) throw new QueueException("Queue is empty");
         return front.data;
     }
-// trae la lista
+
     public List<Person> getList() {
         List<Person> result = new ArrayList<>();
         Node current = front;
@@ -137,8 +168,8 @@ public class PriorityLinkedQueue implements Queue {
 
     private void restore(PriorityLinkedQueue aux) throws QueueException {
         while (!aux.isEmpty()) {
-            Person pe = (Person) aux.deQueue();
-            enQueue(pe, pe.getPriority());
+            Node node = aux.front;
+            enQueue(aux.deQueue(), node.priority); // conserva prioridad original
         }
     }
 
@@ -154,12 +185,12 @@ public class PriorityLinkedQueue implements Queue {
     public String toString() {
         if (isEmpty()) return "Queue is empty";
 
-        StringBuilder sb = new StringBuilder("Priority Queue:\n");
+        String result = "Priority Queue:\n";
         Node current = front;
         while (current != null) {
-            sb.append(current.data).append("\n");
+            result += current.data.toString() + "\n";
             current = current.next;
         }
-        return sb.toString();
+        return result;
     }
 }

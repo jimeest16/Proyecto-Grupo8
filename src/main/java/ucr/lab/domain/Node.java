@@ -4,7 +4,7 @@ public class Node {
     public Object data;
 //    public Node prev; //apuntador al nodo anterior
  public Node next; //apuntador al nodo siguiente
-public int priority;
+public String priority;
 
     //Constructor 1
     public Node(Object data) {
@@ -16,7 +16,7 @@ public int priority;
         this.next = null;
     }
 
-    public Node(Object data, int priority){
+    public Node(Object data, String priority){
         this.data = data;
         this.next = null;
         this.priority=priority;

@@ -1,25 +1,21 @@
 package ucr.lab.domain;
 
-
-
-import java.util.Objects;
-
 public class Person {
     private String name;
     private String mood;
     private int attention;
-    private int priority;
+    private String priority;
 
-    public Person(String name, String mood, int time, int priority) {
+
+
+    public Person(String name, String mood, int time, String priority) {
         this.name = name;
         this.mood = mood;
         this.attention = time;
-        this.priority = priority;
+        this.priority = String.valueOf(priority);
     }
 
     // Getters y Setters
-
-
 
     public String getName() {
         return name;
@@ -43,30 +39,30 @@ public class Person {
 
     public String setAttention(int attention) {
         this.attention = attention;
-        return null;
+        return "Tiempo asignado: " + attention + " minutos";
     }
 
-    public int getPriority() {
+    public String getPriority() {
         return priority;
     }
 
-    public void setPriority(int priority) {
+    public void setPriority(String priority) {
         this.priority = priority;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return name.equals(person.name) && mood.equals(person.mood); // Compara nombre y estado de ánimo
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Person person = (Person) obj;
+        return name.equalsIgnoreCase(person.name) && mood.equalsIgnoreCase(person.mood);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, mood); // un hash basado en nombre y estado de ánimo
+        return name.toLowerCase().hashCode() + mood.toLowerCase().hashCode();
     }
-
 
     @Override
     public String toString() {

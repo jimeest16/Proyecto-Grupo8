@@ -11,9 +11,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="463.0" prefWidth="828.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.priorityController">
+<AnchorPane prefHeight="566.0" prefWidth="828.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.priorityController">
+
     <children>
-        <Pane prefHeight="66.0" prefWidth="828.0" style="-fx-background-color: #b7dabf;">
+        <Pane layoutX="22.0" prefHeight="66.0" prefWidth="806.0" style="-fx-background-color: #b7dabf;">
             <children>
                 <Text layoutX="288.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Priority Queue Management" wrappingWidth="325.13671875">
                <font>
@@ -29,7 +30,7 @@
                </font></Text>
             </children>
         </Pane>
-        <Pane layoutX="87.0" layoutY="126.0" prefHeight="107.0" prefWidth="261.0" style="-fx-background-color: #e1e3e1;">
+        <Pane layoutX="72.0" layoutY="116.0" prefHeight="117.0" prefWidth="276.0" style="-fx-background-color: #e1e3e1;">
             <children>
                 <TextField fx:id="nameField" layoutX="98.0" layoutY="21.0" />
                 <Text layoutX="38.0" layoutY="39.0" text="Name:" />
@@ -39,32 +40,32 @@
                 <ComboBox fx:id="priorityComboBox" layoutX="97.0" layoutY="81.0" prefWidth="150.0" />
             </children>
         </Pane>
-        <Pane layoutX="376.0" layoutY="126.0" prefHeight="107.0" prefWidth="172.0" style="-fx-background-color: #f1f1f1;">
+        <Pane layoutX="435.0" layoutY="123.0" prefHeight="81.0" prefWidth="325.0" style="-fx-background-color: #e1e3e1;">
             <children>
-                <Button fx:id="enqueueButton" layoutX="76.0" layoutY="14.0" onAction="#onEnqueue" text="Enqueue" />
-                <Button fx:id="clearButton" layoutX="86.0" layoutY="81.0" onAction="#onClear" text="Clear" />
+                <Button fx:id="enqueueButton" layoutX="44.0" layoutY="29.0" onAction="#onEnqueue" style="-fx-background-color: #85dc9e;" text="Enqueue" />
+                <Button fx:id="clearButton" layoutX="177.0" layoutY="29.0" onAction="#onClear" style="-fx-background-color: #85dc9e;" text="Clear" />
 
 
             </children>
         </Pane>
-        <Pane layoutX="3.0" layoutY="239.0" prefHeight="183.0" prefWidth="806.0">
+        <Pane layoutX="13.0" layoutY="239.0" prefHeight="249.0" prefWidth="796.0">
             <children>
-                <TableView fx:id="personColumn" layoutX="14.0" prefHeight="172.0" prefWidth="382.0">
+                <TableView fx:id="personColumn" layoutX="21.0" prefHeight="249.0" prefWidth="382.0">
                     <columns>
                         <TableColumn fx:id="nameColumn" prefWidth="83.0" text="Name:" />
                         <TableColumn fx:id="moodColumn" prefWidth="104.0" text="Mood:" />
                         <TableColumn fx:id="attentionColumn" prefWidth="113.0" text="Attention Time" />
-                        <TableColumn fx:id="priorityColumn" prefWidth="70.0" text="Priority" />
+                        <TableColumn fx:id="priorityColumn" text="Priority" />
                     </columns>
                 </TableView>
-                <TextArea fx:id="attentionProcessTextArea" layoutX="421.0" prefHeight="172.0" prefWidth="371.0" />
+                <TextArea fx:id="attentionProcessTextArea" editable="false" layoutX="421.0" layoutY="11.0" prefHeight="241.0" prefWidth="371.0" />
             </children>
         </Pane>
-        <Pane layoutX="122.0" layoutY="418.0" prefHeight="45.0" prefWidth="426.0">
+        <Pane layoutX="172.0" layoutY="492.0" prefHeight="45.0" prefWidth="426.0">
             <children>
-                <Button fx:id="autoEnqueueButton" layoutX="14.0" layoutY="10.0" onAction="#autoEnqueue" text="Auto Enqueue" />
+                <Button fx:id="autoEnqueueButton" layoutX="14.0" layoutY="10.0" onAction="#autoEnqueue" style="-fx-background-color: #85dc9e;" text="Auto Enqueue" />
 
-                <Button fx:id="attentionButton" layoutX="269.0" layoutY="10.0" onAction="#onAttentionProcess" text="Attention Process" />
+                <Button fx:id="attentionButton" layoutX="269.0" layoutY="10.0" onAction="#onAttentionProcess" style="-fx-background-color: #85dc9e;" text="Attention Process" />
             </children>
         </Pane>
     </children>
