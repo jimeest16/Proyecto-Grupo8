@@ -6,24 +6,26 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="690.0" prefWidth="785.0" style="-fx-background-color: #d1f0ff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.queueToStackController">
+<AnchorPane prefHeight="690.0" prefWidth="785.0" style="-fx-background-color: #e8f1f1;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.queueToStackController">
    <children>
-      <Pane layoutX="-1.0" prefHeight="124.0" prefWidth="785.0" style="-fx-background-color: #449ecb;">
+      <Pane layoutX="-1.0" prefHeight="124.0" prefWidth="785.0" style="-fx-background-color: #7cb6ba;">
          <children>
-            <Label layoutX="75.0" layoutY="37.0" text="Queue to Stack / Stack to Queue" textFill="WHITE">
+            <Label layoutX="46.0" layoutY="34.0" text="Queue to Stack / Stack to Queue" textFill="WHITE">
                <font>
-                  <Font size="44.0" />
+                  <Font name="Elephant" size="44.0" />
                </font>
             </Label>
          </children>
       </Pane>
       <Label layoutX="285.0" layoutY="131.0" text="Weather condition">
          <font>
-            <Font size="26.0" />
+            <Font name="System Bold" size="26.0" />
          </font>
       </Label>
       <Label layoutX="152.0" layoutY="235.0" text="Weather:">
@@ -37,66 +39,76 @@
          </font>
       </Label>
       <TextField fx:id="txtPlace" layoutX="270.0" layoutY="176.0" prefHeight="39.0" prefWidth="175.0" />
-      <Pane layoutX="14.0" layoutY="289.0" prefHeight="314.0" prefWidth="771.0" style="-fx-background-color: #449ecb;">
+      <Pane layoutX="14.0" layoutY="289.0" prefHeight="314.0" prefWidth="771.0" style="-fx-background-color: #bff1f5;">
          <children>
             <TableView fx:id="tvQueue" layoutX="11.0" layoutY="51.0" prefHeight="254.0" prefWidth="298.0">
               <columns>
-                <TableColumn fx:id="tcPlaceQueue" prefWidth="75.0" text="Place" />
-                <TableColumn fx:id="tcWeatherQueue" prefWidth="180.0" text="Weather" />
+                <TableColumn fx:id="tcPlaceQueue" prefWidth="127.0" text="Place" />
+                <TableColumn fx:id="tcWeatherQueue" prefWidth="170.0" text="Weather" />
               </columns>
             </TableView>
             <TableView fx:id="tvStack" layoutX="476.0" layoutY="51.0" prefHeight="254.0" prefWidth="287.0">
               <columns>
-                <TableColumn fx:id="tcPlaceStack" prefWidth="75.0" text="Place" />
-                <TableColumn fx:id="tcWeatherStack" prefWidth="166.0" text="Weather" />
+                <TableColumn fx:id="tcPlaceStack" prefWidth="136.0" text="Place" />
+                <TableColumn fx:id="tcWeatherStack" prefWidth="150.0" text="Weather" />
               </columns>
             </TableView>
             <Label layoutX="123.0" layoutY="13.0" text="Queue" textFill="WHITE">
                <font>
-                  <Font size="26.0" />
+                  <Font name="Microsoft Tai Le" size="26.0" />
                </font>
             </Label>
             <Label layoutX="598.0" layoutY="13.0" text="Stack" textFill="WHITE">
                <font>
-                  <Font size="26.0" />
+                  <Font name="Microsoft New Tai Lue" size="26.0" />
                </font>
             </Label>
-            <Pane layoutX="312.0" layoutY="109.0" prefHeight="138.0" prefWidth="158.0" style="-fx-background-color: e0ecb9;">
+            <Pane layoutX="309.0" layoutY="109.0" prefHeight="138.0" prefWidth="168.0" style="-fx-background-color: #9fcfd3;">
                <children>
-                  <Label layoutX="72.0" layoutY="56.0" text="To">
+                  <Label layoutX="66.0" layoutY="63.0" text="To">
                      <font>
                         <Font size="23.0" />
                      </font>
                   </Label>
-                  <Button layoutX="104.0" layoutY="58.0" mnemonicParsing="false" onAction="#stackToQueue" text="←">
+                  <Button layoutX="96.0" layoutY="58.0" mnemonicParsing="false" onAction="#stackToQueue" prefHeight="44.0" prefWidth="66.0" style="-fx-background-color: #c5c7c8;" text="←">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <Button layoutY="58.0" minWidth="41.0" mnemonicParsing="false" onAction="#queueToStack" prefHeight="30.0" prefWidth="66.0" text="→">
+                  <Button layoutY="58.0" minWidth="41.0" mnemonicParsing="false" onAction="#queueToStack" prefHeight="30.0" prefWidth="66.0" style="-fx-background-color: #c5c7c8;" text="→">
                      <font>
                         <Font size="21.0" />
                      </font>
                   </Button>
                </children>
             </Pane>
+            <ImageView fitHeight="56.0" fitWidth="43.0" layoutX="352.0" layoutY="219.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@click1.png" />
+            </image>
+            </ImageView>
          </children>
       </Pane>
-      <Button fx:id="btEnqueue" layoutX="472.0" layoutY="176.0" mnemonicParsing="false" onAction="#enQueue" text="EnQueue">
+      <Button fx:id="btEnqueue" layoutX="472.0" layoutY="176.0" mnemonicParsing="false" onAction="#enQueue" style="-fx-background-color: #cbdedf;" text="EnQueue">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="472.0" layoutY="234.0" mnemonicParsing="false" onAction="#clear" prefHeight="39.0" prefWidth="97.0" text="Clear">
+      <Button layoutX="472.0" layoutY="234.0" mnemonicParsing="false" onAction="#clear" prefHeight="39.0" prefWidth="97.0" style="-fx-background-color: #cbdedf;" text="Clear">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="341.0" layoutY="628.0" mnemonicParsing="false" onAction="#autoEnQueue" text="Auto  EnQueue">
+      <Button layoutX="341.0" layoutY="628.0" mnemonicParsing="false" onAction="#autoEnQueue" style="-fx-background-color: #cbdedf;" text="Auto  EnQueue">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
       <ComboBox fx:id="weatherCB" layoutX="270.0" layoutY="229.0" prefHeight="38.0" prefWidth="175.0" />
+      <ImageView fitHeight="138.0" fitWidth="134.0" layoutX="598.0" layoutY="148.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@clima.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
