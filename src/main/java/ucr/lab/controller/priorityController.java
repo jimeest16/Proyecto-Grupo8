@@ -17,14 +17,14 @@ public class priorityController {
 
     @FXML private TextField nameField;
     @FXML private ComboBox<String> moodComboBox;
-    @FXML private ComboBox<String> priorityComboBox;  // Cambié a String
+    @FXML private ComboBox<String> priorityComboBox;
     @FXML private Button enqueueButton;
     @FXML private Button autoEnqueueButton;
     @FXML private Button attentionButton;
     @FXML private TableView<Person> personColumn;
     @FXML private TableColumn<Person, String> nameColumn;
     @FXML private TableColumn<Person, String> moodColumn;
-    @FXML private TableColumn<Person, String> priorityColumn;  // Cambié a String
+    @FXML private TableColumn<Person, String> priorityColumn;
     @FXML private TableColumn<Person, Integer> attentionColumn;
     @FXML private TextArea attentionProcessTextArea;
 
@@ -157,7 +157,7 @@ public class priorityController {
             attentionProcessTextArea.appendText("Error: " + e.getMessage() + "\n");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error!");
-            alert.setContentText("Attntion Process failed, please try again!" + e.getMessage());
+            alert.setContentText("Attention Process failed, please try again!" + e.getMessage());
             alert.show();
         }
     }
