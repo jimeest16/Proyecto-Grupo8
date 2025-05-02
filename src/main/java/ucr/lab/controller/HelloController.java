@@ -44,8 +44,8 @@ public class HelloController {
     }
 
     @FXML
-    public void ArithmeticOnAction(ActionEvent actionEvent) {
-        load("queueToStack.fxml");
+    public void QueueToStackOnAction(ActionEvent actionEvent) {
+        load("/ucr/queueToStack.fxml");
     }
 
 }
