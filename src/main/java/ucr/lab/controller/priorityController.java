@@ -61,6 +61,10 @@ public class priorityController {
 
         if (name == null || name.isEmpty() || mood == null || priority == null) { // falta llenar
             attentionProcessTextArea.appendText(" Complete all fields first.\n");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Enqueue failed");
+            alert.setContentText("You must filled all the fields");
+            alert.show();
             return;
         }
 
@@ -71,14 +75,14 @@ public class priorityController {
                 queueList.enQueue(person, priority);
                 updateTable();
                 clearFields();
-                attentionProcessTextArea.appendText("Person added successfully.\n");
+                attentionProcessTextArea.appendText("Person added successfully,press attention Process to see results.\n");
             } else {
                 attentionProcessTextArea.appendText("Duplicate person not added.\n");
             }
         } catch (QueueException e) {
             Alert alert=new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR!");
-            alert.setContentText("Something was wrong"+ e.getMessage());
+            alert.setContentText("You must filled all the fields"+ e.getMessage());
             alert.show();
         }
     }
@@ -122,13 +126,18 @@ public class priorityController {
                     enqueuedCount++; // Incrementar el contador
                 } catch (QueueException e) {
                     attentionProcessTextArea.appendText("Error adding person: " + e.getMessage() + "\n");
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Auto-Enqueue failed!");
+                    alert.setContentText("Try again to auto-enqueue" + e.getMessage());
+                    alert.show();
                 }
             }
         }
 
         // Actualiza la tabla después de agregar las personas
         updateTable();
-        attentionProcessTextArea.appendText("Auto-enqueued 20 unique persons.\n");
+        attentionProcessTextArea.appendText("Auto-enqueued 20 unique persons, press on attention process!.\n");
+
     }
 
     @FXML
@@ -146,6 +155,10 @@ public class priorityController {
 
         } catch (QueueException e) {
             attentionProcessTextArea.appendText("Error: " + e.getMessage() + "\n");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error!");
+            alert.setContentText("Attntion Process failed, please try again!" + e.getMessage());
+            alert.show();
         }
     }
 
