@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(#eef9fa,#a6d7dd);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.HelloController">
+
+    <children>
+        <Pane layoutX="146.0" layoutY="208.0" prefHeight="200.0" prefWidth="281.0">
+            <children>
+                <Button layoutX="11.0" layoutY="47.0" onAction="#handleLoginAdmin" style="-fx-background-color: #97adb0;" text="Login Admin">
+                    <font>
+                        <Font name="Nirmala Text Semilight" size="14.0" />
+                    </font>
+                </Button>
+                <Button layoutX="153.0" layoutY="47.0" onAction="#handleLoginUser" style="-fx-background-color: #97adb0;" text="Login Usuario">
+                    <font>
+                        <Font name="Nirmala Text Semilight" size="14.0" />
+                    </font>
+                </Button>
+                <ImageView fitHeight="60.0" fitWidth="61.0" layoutX="173.0" layoutY="90.0" preserveRatio="false" style="-fx-image: #97adb0;">
+                    <image>
+                        <Image url="@imageUser.png" />
+                    </image>
+                </ImageView>
+
+                <ImageView fitHeight="69.0" fitWidth="77.0" layoutX="20.0" layoutY="86.0" preserveRatio="false">
+                    <image>
+                        <Image url="@imageAdmin.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
+        <Pane layoutX="34.0" layoutY="24.0" prefHeight="200.0" prefWidth="515.0">
+            <children>
+                <Label layoutX="20.0" layoutY="100.0" prefHeight="27.0" prefWidth="476.0" style="-fx-font-size: 18px;">
+                    <font>
+                        <Font name="MingLiU-ExtB" size="25.0" />
+                    </font>
+                </Label>
+                <Text fill="#3a6169" fontSmoothingType="LCD" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema de gestión" wrappingWidth="499.33333333333326">
+                    <font>
+                        <Font name="Bodoni MT Black" size="52.0" />
+                    </font>
+                </Text>
+                <Text layoutX="116.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aeropuertos-Rutas de Vuelo">
+                    <font>
+                        <Font name="Bell MT" size="23.0" />
+                    </font>
+                </Text>
+
+                <ImageView fitHeight="77.0" fitWidth="85.0" layoutX="220.0" layoutY="144.0" preserveRatio="false">
+                    <image>
+                        <Image url="@avion.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
+        <Pane layoutX="465.0" layoutY="364.0" prefHeight="51.0" prefWidth="143.0">
+            <children>
+                <Button layoutX="83.0" layoutY="13.0" onAction="#exitButton" style="-fx-background-color: #97adb0;" text="Salir" />
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

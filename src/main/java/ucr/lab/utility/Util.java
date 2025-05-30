@@ -1,6 +1,10 @@
 package ucr.lab.utility;
 
 
+import ucr.lab.TDA.LinkedQueue;
+import ucr.lab.TDA.LinkedStack;
+import ucr.lab.TDA.Stack;
+import ucr.lab.TDA.StackException;
 import ucr.lab.domain.*;
 
 import java.text.DecimalFormat;
@@ -90,15 +94,15 @@ public class Util {
                 Character ch2 = (Character) b;
                 return ch1.compareTo(ch2) < 0 ? -1 : ch1.compareTo(ch2) > 0 ? 1 : 0;
 
-            case "Climate":
-                Climate cl1 = (Climate) a; String c1 = a.toString();
-                Climate cl2 = (Climate) b; String c2 = b.toString();
-                return c1.compareTo(c2) < 0 ? -1 : c1.compareTo(c2) > 0 ? 1 : 0;
-
-            case "Person":
-                Person p1 = (Person) a; String n1 = p1.getName();
-                Person p2 = (Person) b; String n2 = p2.getName();
-                return n1.compareTo(n2) < 0 ? -1 : n1.compareTo(n2) > 0 ? 1 : 0;
+//            case "Climate":
+//                Climate cl1 = (Climate) a; String c1 = a.toString();
+//                Climate cl2 = (Climate) b; String c2 = b.toString();
+//                return c1.compareTo(c2) < 0 ? -1 : c1.compareTo(c2) > 0 ? 1 : 0;
+//
+//            case "Person":
+//                Person p1 = (Person) a; String n1 = p1.getName();
+//                Person p2 = (Person) b; String n2 = p2.getName();
+//                return n1.compareTo(n2) < 0 ? -1 : n1.compareTo(n2) > 0 ? 1 : 0;
 
             default:
                 return 2; // Unknown
@@ -329,8 +333,8 @@ public class Util {
         if (a instanceof Integer && b instanceof Integer) return "Integer";
         if (a instanceof String && b instanceof String) return "String";
         if (a instanceof Character && b instanceof Character) return "Character";
-        if (a instanceof Climate && b instanceof Climate) return "Climate";
-        if (a instanceof Person && b instanceof Person) return "Person";
+//        if (a instanceof Climate && b instanceof Climate) return "Climate";
+//        if (a instanceof Person && b instanceof Person) return "Person";
         return "Unknown";
     }
 

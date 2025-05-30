@@ -1,0 +1,28 @@
+[
+
+
+  {
+    "id": 1,
+    "name": "admin",
+
+    "password": "dgplq456",
+    "email": "admin@mail.com",
+    "role": "administrator"
+  },
+
+  {
+    "id": 2,
+    "name": "usuario1",
+    "password": "xvhu456",
+    "email": "user1@mail.com",
+    "role": "user"
+  },
+  {
+    "id": 3,
+    "name": "usuario2",
+    "password": "xvhu456",
+    "email": "user2@mail.com",
+    "role": "user"
+  }
+]
+

@@ -1,7 +1,6 @@
 module ucr.lab {
     requires javafx.controls;
     requires javafx.fxml;
-    requires java.desktop;
 
 
     opens ucr.lab to javafx.fxml;
@@ -15,4 +14,5 @@ module ucr.lab {
     opens ucr.lab.domain to javafx.fxml;
     requires javafx.graphics;
     requires jdk.jshell;
+    requires com.fasterxml.jackson.databind;
 }
