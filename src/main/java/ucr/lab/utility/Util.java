@@ -1,10 +1,9 @@
 package ucr.lab.utility;
 
 
-import ucr.lab.TDA.LinkedQueue;
-import ucr.lab.TDA.LinkedStack;
-import ucr.lab.TDA.Stack;
-import ucr.lab.TDA.StackException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import ucr.lab.TDA.*;
 import ucr.lab.domain.*;
 
 import java.text.DecimalFormat;
@@ -12,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
@@ -19,13 +19,57 @@ public class Util {
     private static Random random;
     private static LinkedStack stackList;
     private static LinkedQueue queueList;
-    //constructor estatico, inicializador estatico
+
     static {
         // semilla para el random
         long seed = System.currentTimeMillis();
         random = new Random(seed);
 
     }
+    ///airports list
+    private static ObservableList<AirPort> airPortList = FXCollections.observableArrayList(); //lista para airports
+    //constructor estatico, inicializador estatico
+
+    public static ObservableList<AirPort> getAirPortList() {
+        return airPortList;
+    }
+
+    public static void setAirPortList(ObservableList<AirPort> newAirPortList) {
+        airPortList.setAll(newAirPortList);
+    }
+
+    public static AirPort getAirPort(int airPortId) {
+        if (airPortList != null) {
+            for (AirPort airPort : airPortList) {
+                if (airPort.getCode() == airPortId) {
+                    return airPort;
+                }
+            }
+        }
+        return null;
+    }
+
+    // Este get es para verificar el contenido de la lista
+    public static DoublyLinkedList getAirPorts() {
+        DoublyLinkedList airPorts = new DoublyLinkedList();
+        for (AirPort airPort : airPortList) {
+            airPorts.add(airPort);
+            System.out.println(airPort);
+        }
+        return airPorts;
+    }
+
+    public static ObservableList<AirPort> getAirPortsInList() {
+        ArrayList<AirPort> airPorts = new ArrayList<>(airPortList);
+        if (!airPortList.isEmpty()) {
+            for (int i = 0; i < airPortList.size(); i++) {
+                AirPort airPort = airPortList.get(i);
+                System.out.println("AirPort en posición " + i + ": " + airPort);
+            }
+        }
+        return FXCollections.observableArrayList(airPorts);
+    }
+
 
     // Método para generar un número aleatorio en un rango
     public static int random(int min, int max) {

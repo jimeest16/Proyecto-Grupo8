@@ -1,5 +1,7 @@
 package ucr.lab.TDA;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Node {
     public Object data;
     //    public Node prev; //apuntador al nodo anterior
