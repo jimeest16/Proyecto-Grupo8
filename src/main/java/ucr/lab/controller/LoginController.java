@@ -61,13 +61,13 @@ public class LoginController {
 
     @FXML
     private void loginComoAdmin() throws ListException {
-        setRolEscogido("Administrator");
+        setRolEscogido("administrator");
         accionLogin();
     }
 
     @FXML
     private void loginComoUsuario() throws ListException {
-        setRolEscogido("Usuario");
+        setRolEscogido("usuario");
         accionLogin();
     }
 
@@ -129,7 +129,7 @@ public class LoginController {
 
     private void cargarVistaSegunRol(String rol) {
         try {
-            String fxmlChoice = rol.equals("Administrator") ? "/ucr/lab/AdministratorView.fxml" : "/ucr/lab/UserView.fxml";
+            String fxmlChoice = rol.equals("administrator") ? "/ucr/lab/AdministratorView.fxml" : "/ucr/lab/UserView.fxml";
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlChoice));
             Parent root = loader.load();
 

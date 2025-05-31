@@ -2,21 +2,24 @@ package ucr.lab.domain;
 
 import ucr.lab.TDA.SinglyLinkedList;
 
-public class Passenger {
+import java.util.ArrayList;
+import java.util.List;
 
+public class Passenger {
     private int id;
     private String name;
     private String nationality;
-    private SinglyLinkedList flightHistory;
+    private String flight_history;
 
-    public Passenger(int id, String name, String nationality) {
+    public Passenger() {
+        // Constructor requerido por Jackson
+    }
+    public Passenger(int id, String name, String nationality, String flight_history) {
         this.id = id;
         this.name = name;
         this.nationality = nationality;
-        this.flightHistory = new SinglyLinkedList();
+        this.flight_history = flight_history;
     }
-
-    // Getters y Setters
 
     public int getId() {
         return id;
@@ -30,17 +33,13 @@ public class Passenger {
         return nationality;
     }
 
-    public SinglyLinkedList getFlightHistory() {
-        return flightHistory;
+    public String getFlight_history() {
+        return flight_history;
     }
 
     @Override
     public String toString() {
-        return "Passenger{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", nationality='" + nationality + '\'' +
-                ", flightHistory=" + flightHistory +
-                '}';
+        return "Passenger{id=" + id + ", name='" + name + '\'' + ", nationality='" + nationality + '\'' + ", flight_history='" + flight_history + '\'' + '}';
     }
 }
+
