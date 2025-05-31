@@ -1,26 +1,36 @@
 package ucr.lab.controller;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.*;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import ucr.lab.HelloApplication;
 import ucr.lab.TDA.SinglyLinkedList;
 import ucr.lab.domain.AirPort;
+import ucr.lab.domain.Departures;
 import ucr.lab.utility.AirPortDatos;
 import ucr.lab.utility.FXUtil;
 import ucr.lab.utility.Util;
 
-import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 public class AirPortController {
     @FXML
@@ -42,7 +52,7 @@ public class AirPortController {
     private TableColumn<AirPort, SinglyLinkedList> cRegistro;
 
     @FXML
-    private ComboBox<Boolean> mEstado;
+    private ComboBox<String> mEstado;
 
     @FXML
     private ComboBox<SinglyLinkedList> mSalidas;
@@ -91,14 +101,17 @@ public class AirPortController {
         }
 
         // Configuración de los componentes visuales de la tabla
-        alert = FXUtil.alert("Hotels List", "Display Hotels");
+        alert = FXUtil.alert("Airports List", "Display Airports");
 
         // Asegúrate de que estos nombres coincidan con los atributos de tu clase Hotel
         cID.setCellValueFactory(new PropertyValueFactory<>("code"));
         cNombre.setCellValueFactory(new PropertyValueFactory<>("name"));
         cPais.setCellValueFactory(new PropertyValueFactory<>("country"));
         cEstado.setCellValueFactory(new PropertyValueFactory<>("status"));
+        mEstado.setItems(FXCollections.observableArrayList("Activo", "Inactivo"));
+
         cRegistro.setCellValueFactory(new PropertyValueFactory<>("departuresBoard"));
+        mSalidas.setItems(FXCollections.observableArrayList(getDepartures));//Todo lista de salidas
 
         tvAirports.setItems(observableAirports);
 
@@ -139,8 +152,11 @@ public class AirPortController {
         });
         tvAirports.getColumns().add(actionsColumn);
     }
+
+
     @javafx.fxml.FXML
     public void createAirport(ActionEvent actionEvent) throws IOException {
+        boolean status = false;
         ObservableList<AirPort> observableHotels = Util.getAirPortList();
         AirPortDatos hotelData = new AirPortDatos(file);
 
@@ -149,6 +165,15 @@ public class AirPortController {
         String pais = tfPais.getText().trim();
         String active = mEstado.toString();
 
+        if ((Objects.equals(active, "Activo"))) {
+            airportDatos.activeAirport(id);
+            status = true;
+        } else {
+            airportDatos.deactiveAirport(id);
+            status = false;
+        }
+
+        SinglyLinkedList departures = mSalidas.getValue();
 
         if (id == 0 || name.isEmpty() || pais.isEmpty() || active.isEmpty()) {
             alert.setAlertType(Alert.AlertType.ERROR);
@@ -159,13 +184,11 @@ public class AirPortController {
 
         try {
             if (!airportDatos.buscar(id)) { // CORREGIDO: solo insertar si NO existe
-                AirPort hotel = new AirPort(id, name, pais,active,d);
-                hotelData.insert(hotel); // agregar al archivo
+                AirPort airport = new AirPort(id, name, pais,status,departures);//todo terminar
+                hotelData.insert(airport); // agregar al archivo
 
-                //solicitud al server
-                HotelsController hc = new HotelsController();
-                hc.enviarSolicitudAlServidor("ADD:"+id+","+name+","+address);
-                observableHotels.add(hotel); // agregar a ObservableList
+
+                observableHotels.add(airport); // agregar a ObservableList
                 FXUtil.confirmationDialog("Hotel successfully added").showAndWait();
                 cleanFields();
             } else {
@@ -178,6 +201,14 @@ public class AirPortController {
         } catch (IOException e) {
             FXUtil.alert("File Error", "Could not write to file").showAndWait();
         }
+    }
+
+    private void cleanFields() {
+        tfID.clear();
+        tfNombre.clear();
+        tfPais.clear();
+        mEstado.setValue(null);
+        mSalidas.setValue(null);
     }
 
     @javafx.fxml.FXML
@@ -199,7 +230,7 @@ public class AirPortController {
             return;
         }
 
-        List<AirPort> airportList = Utility.getAirPortList();
+        List<AirPort> airportList = Util.getAirPortList();
         AirPort found = null;
         for (AirPort a : airportList) {
             if (a.getCode() == id) {
@@ -212,24 +243,22 @@ public class AirPortController {
                 ? "Airport with ID '" + id + "' is in the list\nAirport data: " + found
                 : "The airport with ID '" + id + "' is not in the list";
 
-        FXUtil.informationDialog("Display Airports", mensaje).showAndWait();
+        FXUtil.informationDialog("Display Airports").showAndWait();
 
-        AirPortsController apc = new AirPortsController();
-        apc.enviarSolicitudAlServidor("SEARCH:" + id);
         updateObservableList();
     }
 
     @javafx.fxml.FXML
-    public void updateAirPort(ActionEvent actionEvent) throws IOException {
+    public void updateAirport(ActionEvent actionEvent) throws IOException {
         AnchorPane anchorPane = (AnchorPane)
                 FXMLLoader.load(getClass().getResource("/updateAirport.fxml"));
         anchorPane.setPadding(new Insets(10, 0, 0, 20));
-        BorderPane borderPane = MainApp.getRoot();
+        BorderPane borderPane = HelloApplication.getRoot();
         borderPane.setCenter(anchorPane);
     }
 
     @javafx.fxml.FXML
-    public void removeAirPort(ActionEvent actionEvent) {
+    public void removeAirport(ActionEvent actionEvent) {
         TextInputDialog dialog = FXUtil.dialog("Delete an Airport", "Enter the ID of the Airport to delete:");
         dialog.setContentText("ID");
         Optional<String> result = dialog.showAndWait();
@@ -246,11 +275,9 @@ public class AirPortController {
             AirPortDatos airportData = new AirPortDatos(file);
             boolean eliminado = airportData.borrar(id);
 
-            AirPortsController apc = new AirPortsController();
-            apc.enviarSolicitudAlServidor("REMOVE:" + id);
 
             if (eliminado) {
-                Utility.getAirPortList().removeIf(a -> a.getCode() == id);
+                Util.getAirPortList().removeIf(a -> a.getCode() == id);
                 FXUtil.confirmationDialog("Airport removed successfully").showAndWait();
                 updateObservableList();
             } else {
@@ -271,7 +298,7 @@ public class AirPortController {
 
     @javafx.fxml.FXML
     public void clearOnAction(ActionEvent actionEvent) {
-        Utility.getAirPorts().clear();
+        Util.getAirPorts().clear();
         updateObservableList();
         this.alert.setContentText("The list has been cleared");
         this.alert.setAlertType(Alert.AlertType.INFORMATION);
