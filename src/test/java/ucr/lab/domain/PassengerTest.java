@@ -50,12 +50,15 @@ class PassengerTest {
         for (Passenger passenger : passengers) {
             try {
                 passengerTree.add(passenger);
+                passengerTree.add("Gloriana");
+
 
             } catch (TreeException e) {
                 e.printStackTrace();
             }
         }
         System.out.println("Pasajeros en el arbol AVL:");
+
         System.out.println(passengerTree);
     }
 }

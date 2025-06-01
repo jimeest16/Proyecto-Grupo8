@@ -111,7 +111,7 @@ public class AirPortController {
         mEstado.setItems(FXCollections.observableArrayList("Activo", "Inactivo"));
 
         cRegistro.setCellValueFactory(new PropertyValueFactory<>("departuresBoard"));
-        mSalidas.setItems(FXCollections.observableArrayList(getDepartures));//Todo lista de salidas
+        //mSalidas.setItems(FXCollections.observableArrayList(getDepartures));//Todo lista de salidas
 
         tvAirports.setItems(observableAirports);
 

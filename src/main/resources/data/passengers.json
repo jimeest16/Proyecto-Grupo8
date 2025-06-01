@@ -1,0 +1,14 @@
+[
+  {
+    "id": 101,
+    "name": "Carlos Mora",
+    "nationality": "Costa Rica",
+    "flightHistory": ["FL101", "FL202"]
+  },
+  {
+    "id": 102,
+    "name": "Jimena Salas",
+    "nationality": "España",
+    "flightHistory": ["FL102", "FL203"]
+  }
+]

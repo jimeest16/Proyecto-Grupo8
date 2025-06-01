@@ -1,6 +1,8 @@
 package ucr.lab.TDA;
 
 
+import java.util.ArrayList;
+
 import static ucr.lab.utility.Util.compare;
 
 public class AVLTree implements Tree {
@@ -446,6 +448,25 @@ public class AVLTree implements Tree {
             };
         }
 
+    public BTreeNode search(Object element) throws TreeException {
+        if (isEmpty()) {
+            throw new TreeException("AVL Binary Search Tree is empty");
+        }
+        return search(root, element);
+    }
+    private BTreeNode search(BTreeNode node, Object element) {
+        if (node == null) {
+            return null; // Elemento no encontrado
+        }
+        int comparison = compare(element, node.data);
+        if (comparison == 0) {
+            return  node; // Elemento encontrado
+        } else if (comparison < 0) {
+            return search(node.left, element); // Buscar en el subárbol izquierdo
+        } else {
+            return search(node.right, element); // Buscar en el subárbol derecho
+        }
+    }
 
     }//fin class AVL
 

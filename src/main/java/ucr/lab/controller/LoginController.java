@@ -32,7 +32,7 @@ public class LoginController {
 
     @FXML
     private Label labelRol;
-
+// para generar una lista de usuarios
     private CircularLinkedList  usersList;
 
 
