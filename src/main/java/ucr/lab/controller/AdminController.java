@@ -32,6 +32,7 @@ public class AdminController {
     public AdminController() {
         passengerTree = new AVLTree();
         loadPassengers();
+
     }
 
     private void loadPassengers() {
@@ -53,121 +54,12 @@ public class AdminController {
         }
     }
 
-    @FXML
-    private void addPassenger() {
-        try {
-            String idText = txtPassengerId.getText();
-            if (idText == null || idText.isEmpty()) {
-                appendOutput("Ingrese un ID válido");
-                return;
-            }
-            int id = Integer.parseInt(idText.trim());
-
-            String name = txtPassengerName.getText();
-            String nationality = txtPassengerNationality.getText();
-            String flightHistory = txtPassengerFlightHistory.getText();
-
-            if (name == null || name.isEmpty()) {
-                appendOutput("Ingrese un nombre válido");
-                return;
-            }
-            if (nationality == null) nationality = "";
-            if (flightHistory == null) flightHistory = "";
-
-            Passenger newPassenger = new Passenger(id, name, nationality);
-
-            if (passengerTree.contains(newPassenger)) {
-                appendOutput("Pasajero con ID " + id + " ya existe.");
-                return;
-            }
-
-            passengerTree.add(newPassenger);
-            FileReader.addPassenger(newPassenger);
-
-            appendOutput("Pasajero agregado exitosamente: " + newPassenger.toString());
-        } catch (NumberFormatException e) {
-            appendOutput("ID debe ser un número entero válido.");
-        } catch (TreeException e) {
-            e.printStackTrace();
-            appendOutput("Error al agregar pasajero: " + e.getMessage());
-        }
-    }
-
-    @FXML
-    private void searchPassenger() {
-        try {
-            String idText = txtPassengerId.getText();
-            if (idText == null || idText.isEmpty()) {
-                appendOutput("Ingrese un ID válido");
-                return;
-            }
-            int id = Integer.parseInt(idText.trim());
-
-            Passenger searchKey = new Passenger(id, "", "");
-            BTreeNode foundNode = passengerTree.search(searchKey);
-            if (foundNode != null) {
-                Passenger foundPassenger = (Passenger) foundNode.data;
-                appendOutput("Pasajero encontrado: " + foundPassenger.toString());
-            } else {
-                appendOutput("Pasajero con ID " + id + " no encontrado.");
-            }
-        } catch (NumberFormatException e) {
-            appendOutput("ID debe ser un número entero válido.");
-        } catch (TreeException e) {
-            e.printStackTrace();
-            appendOutput("Error buscando pasajero: " + e.getMessage());
-        }
-    }
-
-    @FXML
-    private void showFlightHistory() {
-        try {
-            String idText = txtPassengerId.getText();
-            if (idText == null || idText.isEmpty()) {
-                appendOutput("Ingrese un ID válido");
-                return;
-            }
-            int id = Integer.parseInt(idText.trim());
-
-            Passenger searchKey = new Passenger(id, "", "");
-            BTreeNode foundNode = passengerTree.search(searchKey);
-            if (foundNode != null) {
-                Passenger foundPassenger = (Passenger) foundNode.data;
-                appendOutput("Historial de vuelo para " + foundPassenger.getName() + ": " + foundPassenger.getFlightHistory());
-            } else {
-                appendOutput("Pasajero con ID " + id + " no encontrado.");
-            }
-        } catch (NumberFormatException e) {
-            appendOutput("ID debe ser un número entero válido.");
-        } catch (TreeException e) {
-            e.printStackTrace();
-            appendOutput("Error mostrando historial: " + e.getMessage());
-        }
-    }
-
-    @FXML
-    private void addFlight() {
-        System.out.println("Agregar vuelo...");
-        // Implementar lógica para agregar vuelo
-    }
-
-    @FXML
-    private void editFlight() {
-        System.out.println("Modificar vuelo...");
-        // Implementar lógica para modificar vuelo
-    }
-
-    @FXML
-    private void deleteFlight() {
-        System.out.println("Eliminar vuelo...");
-        // Implementar lógica para eliminar vuelo
-    }
 
     @FXML
     private void addUser () {
         // una nueva pestaña
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ucr/lab/PassengerView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ucr/lab/PassengerViewAdd.fxml"));
             Parent root = loader.load();
 
             Stage stage = new Stage();
@@ -181,14 +73,36 @@ public class AdminController {
     }
     @FXML
     private void editUser () {
-        System.out.println("Modificar usuario...");
-        // Implementar lógica para modificar usuario
+        // una nueva pestaña
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ucr/lab/PassengerViewEdit.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Información del Pasajero/Usuario");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            appendOutput("Error al abrir la ventana para agregar usuario: " + e.getMessage());
+        }
     }
 
     @FXML
     private void deleteUser () {
-        System.out.println("Eliminar usuario...");
-        // Implementar lógica para eliminar usuario
+        // una nueva pestaña
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ucr/lab/PassengerDeleteView.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Información del Pasajero/Usuario");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            appendOutput("Error al abrir la ventana para agregar usuario: " + e.getMessage());
+        }
     }
 
     @FXML

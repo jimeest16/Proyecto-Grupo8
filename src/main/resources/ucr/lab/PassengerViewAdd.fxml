@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="430.0" prefWidth="615.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="ucr.lab.controller.PassengerController">
+<AnchorPane prefHeight="430.0" prefWidth="615.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="ucr.lab.controller.PassengerAddController">
     <VBox layoutX="20" layoutY="52.0" prefHeight="355.0" prefWidth="571.0" spacing="10">
 
         <HBox spacing="10">
@@ -47,4 +47,8 @@
             <Font name="Elephant" size="29.0" />
         </font>
     </Label>
+    <Button layoutX="20.0" layoutY="433.0" onAction="#accionRetroceder" style="-fx-background-color: #65749c;" text="◀️ Retroceder" textFill="#fffafa">
+        <font>
+            <Font size="15.0" />
+        </font></Button>
 </AnchorPane>

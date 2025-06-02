@@ -21,7 +21,7 @@ public class Passenger {
     }
 
     public void addFlight(String flight) {
-        if (flight != null && !flight.isBlank()) {
+        if (flight != null && !flight.isEmpty()) {
             flightHistory.add(flight);
         }
     }
@@ -42,4 +42,11 @@ public class Passenger {
     public String toString() {
         return "ID: " + id + ", Nombre: " + name + ", Nacionalidad: " + nationality + ", Vuelos: " + flightHistory;
     }
+
+    public void clearFlightHistory() {
+
+            this.flightHistory.clear(); // Suponiendo que flightHistory es un List<String>
+        }
+
+
 }

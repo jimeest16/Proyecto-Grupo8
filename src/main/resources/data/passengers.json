@@ -1,9 +1,4 @@
 [ {
-  "id" : 1,
-  "name" : "Juan Pérez",
-  "nationality" : "Costa Rica",
-  "flightHistory" : [ "San José - Miami", "Miami - Nueva York" ]
-}, {
   "id" : 2,
   "name" : "Ana Gómez",
   "nationality" : "España",
@@ -18,4 +13,9 @@
   "name" : "Camilo Gutierrrez",
   "nationality" : "Peruano",
   "flightHistory" : [ "Mexico-Costa Rica" ]
+}, {
+  "id" : 5,
+  "name" : "Jimena Salas",
+  "nationality" : "Mexicana",
+  "flightHistory" : [ "España-Costa Rica" ]
 } ]

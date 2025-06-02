@@ -29,9 +29,9 @@
                     </Pane>
                     <Pane prefHeight="277.0" prefWidth="600.0">
                         <children>
-                            <Button layoutX="231.0" layoutY="117.0" onAction="#deleteFlight" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #d4d9dd;" text="Eliminar Vuelo" />
-                            <Button layoutX="40.0" layoutY="117.0" onAction="#editFlight" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #d4d9dd;" text="Modificar Vuelo" />
-                            <Button layoutX="417.0" layoutY="117.0" onAction="#addFlight" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #d4d9dd;" text="Agregar Vuelo" />
+                            <Button layoutX="231.0" layoutY="117.0" onAction="#editUser" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #d4d9dd;" text="Eliminar Vuelo" />
+                            <Button layoutX="40.0" layoutY="117.0" onAction="#deleteUser" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #d4d9dd;" text="Modificar Vuelo" />
+                            <Button layoutX="417.0" layoutY="117.0" onAction="#addUser" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #d4d9dd;" text="Agregar Vuelo" />
                             <Pane layoutX="-5.0" layoutY="-17.0" prefHeight="94.0" prefWidth="607.0">
                                 <children>
                                     <Text layoutX="40.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenid@ administrador@:">
@@ -124,8 +124,8 @@
                     </Pane>
                     <Pane prefHeight="236.0" prefWidth="600.0">
                         <children>
-                            <Button layoutX="231.0" layoutY="130.0" onAction="#deleteFlight" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #d4d9dd;" text="Eliminar Pasajero" />
-                            <Button layoutX="40.0" layoutY="130.0" onAction="#editFlight" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #d4d9dd;" text="Modificar Pasajero" />
+                            <Button layoutX="231.0" layoutY="130.0" onAction="#deleteUser" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #d4d9dd;" text="Eliminar Pasajero" />
+                            <Button layoutX="40.0" layoutY="130.0" onAction="#editUser" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #d4d9dd;" text="Modificar Pasajero" />
                             <Button layoutX="417.0" layoutY="130.0" onAction="#addUser" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #d4d9dd;" text="Agregar Pasajero" />
                             <Text layoutX="62.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Permite:" wrappingWidth="139.47002410888672">
                                 <font>
