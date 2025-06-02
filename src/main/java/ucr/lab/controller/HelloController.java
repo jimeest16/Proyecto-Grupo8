@@ -39,6 +39,7 @@ public class HelloController {
         }
     }
 
+    @FXML
     public void exitButton(ActionEvent actionEvent) {
         Platform.exit();
     }

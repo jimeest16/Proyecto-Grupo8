@@ -8,18 +8,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(#eef9fa,#a6d7dd);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.HelloController">
+<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e2e4e7;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.HelloController">
 
     <children>
 
         <Pane layoutX="147.0" layoutY="241.0" prefHeight="200.0" prefWidth="281.0">
             <children>
-                <Button layoutX="11.0" layoutY="47.0" onAction="#handleLoginAdmin" style="-fx-background-color: #97adb0;" text="Login Admin">
+                <Button layoutX="11.0" layoutY="47.0" onAction="#handleLoginAdmin" style="-fx-background-color: #65749c;" text="Login Admin">
                     <font>
                         <Font name="Nirmala Text Semilight" size="14.0" />
                     </font>
                 </Button>
-                <Button layoutX="153.0" layoutY="47.0" onAction="#handleLoginUser" style="-fx-background-color: #97adb0;" text="Login Usuario">
+                <Button layoutX="153.0" layoutY="47.0" onAction="#handleLoginUser" style="-fx-background-color: #65749c;" text="Login Pasajero">
                     <font>
                         <Font name="Nirmala Text Semilight" size="14.0" />
                     </font>
@@ -40,12 +40,12 @@
 
         <Pane layoutX="46.0" layoutY="35.0" prefHeight="222.0" prefWidth="519.0">
             <children>
-                <Text fill="#3a6169" fontSmoothingType="LCD" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema de gestión" wrappingWidth="499.333">
+                <Text fill="#6e91b5" fontSmoothingType="LCD" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema de gestión" wrappingWidth="499.333">
                     <font>
                         <Font name="Bodoni MT Black" size="52.0" />
                     </font>
                 </Text>
-                <Text layoutX="118.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aeropuertos - Rutas de Vuelo">
+                <Text layoutX="110.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aeropuertos - Rutas de Vuelo">
                     <font>
                         <Font name="Bell MT" size="23.0" />
                     </font>
@@ -62,7 +62,7 @@
 
         <Pane layoutX="464.0" layoutY="375.0" prefHeight="51.0" prefWidth="143.0">
             <children>
-                <Button layoutX="72.0" layoutY="25.0" onAction="#exitButton" style="-fx-background-color: #97adb0;" text="Salir" />
+                <Button layoutX="72.0" layoutY="25.0" onAction="#exitButton" style="-fx-background-color: #65749c;" text="Salir" />
             </children>
         </Pane>
 

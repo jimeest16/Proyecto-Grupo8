@@ -2,9 +2,14 @@ package ucr.lab.controller;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import ucr.lab.TDA.AVLTree;
 import ucr.lab.TDA.BTreeNode;
 import ucr.lab.TDA.TreeException;
@@ -30,7 +35,7 @@ public class AdminController {
     }
 
     private void loadPassengers() {
-        List<Passenger> passengers = FileReader.loadPassenger();
+        List<Passenger> passengers = FileReader.loadPassengers();
         for (Passenger p : passengers) {
             try {
                 passengerTree.add(p);
@@ -160,51 +165,20 @@ public class AdminController {
 
     @FXML
     private void addUser () {
+        // una nueva pestaña
         try {
-            String idText = txtPassengerId.getText();
-            if (idText == null || idText.isEmpty()) {
-                appendOutput("Ingrese un ID válido");
-                return;
-            }
-            int id = Integer.parseInt(idText.trim());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ucr/lab/PassengerView.fxml"));
+            Parent root = loader.load();
 
-            String name = txtPassengerName.getText();
-            String nationality = txtPassengerNationality.getText();
-            String flightHistory = txtPassengerFlightHistory.getText();
-
-            if (name == null || name.isEmpty()) {
-                appendOutput("Ingrese un nombre válido");
-                return;
-            }
-            if (nationality == null) nationality = "";
-            if (flightHistory == null) flightHistory = "";
-
-            Passenger newPassenger = new Passenger(id, name, nationality);
-
-            if (passengerTree.contains(newPassenger)) {
-                appendOutput("Pasajero con ID " + id + " ya existe.");
-                return;
-            }
-
-            passengerTree.add(newPassenger);
-            FileReader.addPassenger(newPassenger);
-
-            appendOutput("Pasajero agregado exitosamente: " + newPassenger.toString());
-        } catch (NumberFormatException e) {
-            appendOutput("ID debe ser un número entero válido.");
-        } catch (TreeException e) {
+            Stage stage = new Stage();
+            stage.setTitle("Información del Pasajero/Usuario");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
             e.printStackTrace();
-            appendOutput("Error al agregar pasajero: " + e.getMessage());
+            appendOutput("Error al abrir la ventana para agregar usuario: " + e.getMessage());
         }
-
-
-
-
-
-
-
     }
-
     @FXML
     private void editUser () {
         System.out.println("Modificar usuario...");

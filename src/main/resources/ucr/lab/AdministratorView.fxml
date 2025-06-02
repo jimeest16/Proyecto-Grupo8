@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -12,53 +14,159 @@
 <TabPane prefHeight="400" prefWidth="600" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.AdminController">
 
     <tabs>
-        <Tab text="Gestionar Vuelos">
+        <Tab style="-fx-background-color: #c7d1db;" text="Gestionar Vuelos">
             <content>
-                <VBox spacing="20" style="-fx-background-color: #d4d6dc;">
+                <VBox spacing="20" style="-fx-background-color: #ebedee;">
 
                     <Pane prefHeight="75.0" prefWidth="600.0">
-                  <children>
-                     <Text layoutX="111.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestor de Vuelos">
-                        <font>
-                           <Font name="Elephant" size="43.0 " />
-                        </font>
-                     </Text>
-                  </children>
+                        <children>
+                            <Text fill="#548bc1" layoutX="111.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestor de Vuelos">
+                                <font>
+                                    <Font name="Elephant" size="43.0 " />
+                                </font>
+                            </Text>
+                        </children>
                     </Pane>
+                    <Pane prefHeight="277.0" prefWidth="600.0">
+                        <children>
+                            <Button layoutX="231.0" layoutY="117.0" onAction="#deleteFlight" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #d4d9dd;" text="Eliminar Vuelo" />
+                            <Button layoutX="40.0" layoutY="117.0" onAction="#editFlight" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #d4d9dd;" text="Modificar Vuelo" />
+                            <Button layoutX="417.0" layoutY="117.0" onAction="#addFlight" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #d4d9dd;" text="Agregar Vuelo" />
+                            <Pane layoutX="-5.0" layoutY="-17.0" prefHeight="94.0" prefWidth="607.0">
+                                <children>
+                                    <Text layoutX="40.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenid@ administrador@:">
+                                        <font>
+                                            <Font size="17.0" />
+                                        </font>
+                                    </Text>
+                                    <Text layoutX="40.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pestaña funcional para administrar y controlar los vuelos..." wrappingWidth="387.4700698852539">
+                                        <font>
+                                            <Font size="15.0" />
+                                        </font>
+                                    </Text>
+                                </children>
+                            </Pane>
+                            <Text layoutX="71.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Permite:" wrappingWidth="139.47002410888672">
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                            </Text>
+                            <Text layoutX="242.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Permite:" wrappingWidth="139.47002410888672">
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                            </Text>
+                            <Text layoutX="438.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Permite:" wrappingWidth="139.47002410888672">
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                            </Text>
+                            <Text layoutX="48.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Editar " />
+                            <Text layoutX="227.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Eliminar  " />
+                            <Text layoutX="431.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Agregar " />
+                            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="459.0" layoutY="70.0">
+                                <image>
+                                    <Image url="@agregar.png" />
+                                </image>
+                            </ImageView>
 
 
-                    <Pane prefHeight="318.0" prefWidth="600.0">
-                        <VBox layoutX="11.0" layoutY="11.0" prefHeight="286.0" prefWidth="212.0" spacing="10">
-                            <Button onAction="#addFlight" prefWidth="200" text="Agregar Vuelo" />
-                            <Button onAction="#editFlight" prefWidth="200" text="Modificar Vuelo" />
-                            <Button onAction="#deleteFlight" prefHeight="25.0" prefWidth="201.0" text="Eliminar Vuelo" />
-                        </VBox>
+
+                            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="82.0" layoutY="70.0">
+                                <image>
+                                    <Image url="@modify.png" />
+                                </image>
+                            </ImageView>
+
+
+                            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="257.0" layoutY="70.0">
+                                <image>
+                                    <Image url="@eliminar.png" />
+                                </image>
+                            </ImageView>
+                        </children>
                     </Pane>
                 </VBox>
             </content>
         </Tab>
 
-        <Tab text="Gestionar Usuarios">
+        <Tab style="-fx-background-color: #b0bac5;" text="Gestionar Usuarios">
             <content>
-                <VBox spacing="20" style="-fx-padding: 20;">
+                <VBox spacing="20" style="-fx-background-color: #ebedee;">
 
-                    <Pane prefHeight="50">
-                        <Label layoutX="10" layoutY="10" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Gestor de Usuarios" />
+                    <Pane prefHeight="61.0" prefWidth="600.0">
+                        <children>
+                            <Text fill="#548bc1" layoutX="107.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestor de Usuarios">
+                                <font>
+                                    <Font name="Elephant" size="43.0 " />
+                                </font>
+                            </Text>
+
+
+                            <Pane layoutX="-95.0" layoutY="31.0" prefHeight="77.0" prefWidth="669.0">
+                                <VBox layoutX="33.0" layoutY="27.0" spacing="10" />
+                                <Pane layoutX="118.0" layoutY="69.0" prefHeight="75.0" prefWidth="446.0">
+                                    <children>
+                                        <Text layoutX="40.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenid@ administrador@:">
+                                            <font>
+                                                <Font size="17.0" />
+                                            </font>
+                                        </Text>
+                                        <Text layoutX="40.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pestaña funcional para administrar y controlar los pasajeros..." wrappingWidth="437.4700698852539">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                        </Text>
+                                    </children>
+                                </Pane>
+                            </Pane>
+                        </children>
                     </Pane>
-
-
-                    <Pane prefHeight="150">
-                        <VBox layoutX="10" layoutY="10" spacing="10">
-                            <Button onAction="#addUser" prefWidth="200" text="Agregar Usuario" />
-                            <Button onAction="#editUser" prefWidth="200" text="Modificar Usuario" />
-                            <Button onAction="#deleteUser" prefWidth="200" text="Eliminar Usuario" />
-                        </VBox>
+                    <Pane prefHeight="236.0" prefWidth="600.0">
+                        <children>
+                            <Button layoutX="231.0" layoutY="130.0" onAction="#deleteFlight" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #d4d9dd;" text="Eliminar Pasajero" />
+                            <Button layoutX="40.0" layoutY="130.0" onAction="#editFlight" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #d4d9dd;" text="Modificar Pasajero" />
+                            <Button layoutX="417.0" layoutY="130.0" onAction="#addUser" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #d4d9dd;" text="Agregar Pasajero" />
+                            <Text layoutX="62.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Permite:" wrappingWidth="139.47002410888672">
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                            </Text>
+                            <Text layoutX="241.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Permite:" wrappingWidth="139.47002410888672">
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                            </Text>
+                            <Text layoutX="437.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Permite:" wrappingWidth="139.47002410888672">
+                                <font>
+                                    <Font name="System Bold" size="12.0" />
+                                </font>
+                            </Text>
+                            <Text layoutX="47.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Editar " />
+                            <Text layoutX="227.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Eliminar  " />
+                            <Text layoutX="430.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Agregar " />
+                            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="73.0" layoutY="90.0">
+                                <image>
+                                    <Image url="@editar.png" />
+                                </image>
+                            </ImageView>
+                            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="268.0" layoutY="90.0">
+                                <image>
+                                    <Image url="@eliminarUsuario.png" />
+                                </image>
+                            </ImageView>
+                            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="459.0" layoutY="90.0">
+                                <image>
+                                    <Image url="@user.png" />
+                                </image>
+                            </ImageView>
+                        </children>
                     </Pane>
                 </VBox>
             </content>
         </Tab>
 
-        <Tab text="Cerrar Sesión">
+        <Tab style="-fx-background-color: #97a2ac;" text="Cerrar Sesión">
             <content>
                 <VBox alignment="CENTER" spacing="20" style="-fx-padding: 30;">
 

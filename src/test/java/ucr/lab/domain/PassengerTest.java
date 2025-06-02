@@ -27,7 +27,7 @@ class PassengerTest {
 
     @Test
     public void TESTPassenger() {
-        List<Passenger> passengers = FileReader.loadPassenger();
+        List<Passenger> passengers = FileReader.loadPassengers();
 
         if (passengers.isEmpty()) {
             System.out.println("No se han agregado usuarios al documento");
@@ -46,7 +46,7 @@ class PassengerTest {
         AVLTree passengerTree = new AVLTree();
 
         // cargar los passangers desde json
-        List<Passenger> passengers = FileReader.loadPassenger();
+        List<Passenger> passengers = FileReader.loadPassengers();
         for (Passenger passenger : passengers) {
             try {
                 passengerTree.add(passenger);

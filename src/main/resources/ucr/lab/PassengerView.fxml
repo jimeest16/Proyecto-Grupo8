@@ -1,14 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="PassengerView"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="430.0" prefWidth="615.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="ucr.lab.controller.PassengerController">
+    <VBox layoutX="20" layoutY="52.0" prefHeight="355.0" prefWidth="571.0" spacing="10">
 
+        <HBox spacing="10">
+            <Label text="ID:" />
+            <TextField fx:id="txtId" promptText="ID del pasajero" />
+        </HBox>
+
+        <HBox spacing="10">
+            <Label text="Nombre:" />
+            <TextField fx:id="txtName" promptText="Nombre del pasajero" />
+        </HBox>
+
+        <HBox spacing="10">
+            <Label text="Nacionalidad:" />
+            <TextField fx:id="txtNationality" prefHeight="25.0" prefWidth="167.0" promptText="Nacionalidad del pasajero" />
+        </HBox>
+
+        <HBox spacing="10">
+            <Label text="Historial de vuelos:" />
+            <TextField fx:id="txtHistory" promptText="Historial (opcional)" />
+        </HBox>
+
+        <HBox spacing="10">
+            <Button onAction="#handleAddPassenger" style="-fx-background-color: #638eb9;" text="Agregar pasajero" textFill="#fffbfb" />
+            <Button onAction="#handleSearchPassenger" style="-fx-background-color: #6fa2d5;" text="Buscar pasajero" textFill="WHITE" />
+            <Button onAction="#handleListPassengers" style="-fx-background-color: #82baf3;" text="Listar todos" textFill="#fff9f9" />
+        </HBox>
+
+        <TextArea fx:id="txtOutput" prefHeight="182.0" prefRowCount="10" prefWidth="571.0" wrapText="true" />
+
+    </VBox>
+
+    <Label layoutX="155.0" layoutY="14.0" text="Gestión de Pasajeros" textFill="#4770ac">
+        <font>
+            <Font name="Elephant" size="29.0" />
+        </font>
+    </Label>
 </AnchorPane>
