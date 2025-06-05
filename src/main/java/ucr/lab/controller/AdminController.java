@@ -106,6 +106,22 @@ public class AdminController {
     }
 
     @FXML
+    private void airportManager () {
+        // una nueva pestaña
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ucr/lab/AirPortView.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = new Stage();
+            stage.setTitle("Información del Pasajero/Usuario");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            appendOutput("Error al abrir la ventana para agregar usuario: " + e.getMessage());
+        }
+    }
+    @FXML
     private void logout() {
         Platform.exit();
     }

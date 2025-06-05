@@ -24,13 +24,13 @@ class AirPortDatosTest {
        // tempFile = File.createTempFile("airports", ".json");
         airportDatos = new AirPortDatos(tempFile);
     }
-
+/*
     @AfterEach
     void tearDown() {
         if (tempFile.exists()) {
             tempFile.delete();
         }
-    }
+    }*/
 
     @Test
     void testInsertAndGetAll() throws IOException {
