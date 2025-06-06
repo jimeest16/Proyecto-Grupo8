@@ -1,5 +1,7 @@
 package ucr.lab.controller;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,6 +29,7 @@ import ucr.lab.utility.FXUtil;
 import ucr.lab.utility.Util;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
@@ -71,7 +74,7 @@ public class AirPortController {
     private TextField tfPais;
     @FXML
     private TableView<AirPort> tvAirports;
-
+    private AirPort currentAirportToEdit; //para editar
     String rutaArchivo = "src/main/resources/data/airports.json";
     File file = new File(rutaArchivo);
 
@@ -127,15 +130,17 @@ public class AirPortController {
                 editButton.getStyleClass().add("btn-blue");
                 deleteButton.getStyleClass().add("btn-red");
                 editButton.setOnAction(event -> {
+                    AirPort airportToEdit = getTableView().getItems().get(getIndex());
                     try {
-                        updateAirport(event);
+                        updateAirport(airportToEdit);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
                 });
 
                 deleteButton.setOnAction(event -> {
-                    removeAirport(event);
+                    AirPort airportToDelete = getTableView().getItems().get(getIndex());
+                    removeAirport(airportToDelete);
                 });
             }
 
@@ -189,10 +194,10 @@ public class AirPortController {
 
 
                 observableHotels.add(airport); // agregar a ObservableList
-                FXUtil.confirmationDialog("Hotel successfully added").showAndWait();
+                FXUtil.confirmationDialog("Airport successfully added").showAndWait();
                 cleanFields();
             } else {
-                FXUtil.alert("Error", "Hotel ID already exists").showAndWait();
+                FXUtil.alert("Error", "Airport ID already exists").showAndWait();
             }
 
         } catch (NumberFormatException e) {
@@ -212,82 +217,33 @@ public class AirPortController {
     }
 
     @javafx.fxml.FXML
-    public void searchAirPort(ActionEvent actionEvent) throws IOException {
-        TextInputDialog dialog = FXUtil.dialog("Airport Search", "Enter the ID of the Airport you want to find:");
-        Optional<String> result = dialog.showAndWait();
+    public void updateAirport(AirPort airPortToEdit) throws IOException {
+        currentAirportToEdit = airPortToEdit;
+        tfID.setText(String.valueOf(airPortToEdit.getCode()));
+        tfNombre.setText(airPortToEdit.getName());
+        tfPais.setText(airPortToEdit.getCountry());
+        cEstado.setText(String.valueOf(airPortToEdit.isActive()));
+        cRegistro.setText(String.valueOf(airPortToEdit.getDeparturesBoard()));
 
-        if (result.isEmpty()) {
-            FXUtil.alert("Error", "ID is required").showAndWait();
-            return;
-        }
 
-        String idStr = result.get().trim();
-        int id;
-        try {
-            id = Integer.parseInt(idStr);
-        } catch (NumberFormatException e) {
-            FXUtil.alert("Error", "Invalid ID format (must be a number)").showAndWait();
-            return;
-        }
-
-        List<AirPort> airportList = Util.getAirPortList();
-        AirPort found = null;
-        for (AirPort a : airportList) {
-            if (a.getCode() == id) {
-                found = a;
-                break;
-            }
-        }
-
-        String mensaje = (found != null)
-                ? "Airport with ID '" + id + "' is in the list\nAirport data: " + found
-                : "The airport with ID '" + id + "' is not in the list";
-
-        FXUtil.informationDialog("Display Airports").showAndWait();
-
-        updateObservableList();
+        tfID.setEditable(false); // Prevent editing ID during update
+        btCrear.setText("Update");
     }
 
     @javafx.fxml.FXML
-    public void updateAirport(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane = (AnchorPane)
-                FXMLLoader.load(getClass().getResource("/updateAirport.fxml"));
-        anchorPane.setPadding(new Insets(10, 0, 0, 20));
-        BorderPane borderPane = HelloApplication.getRoot();
-        borderPane.setCenter(anchorPane);
-    }
+    public void removeAirport(AirPort airportToDelete) {
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirm Deletion");
+        confirmationAlert.setHeaderText("Delete Room " + airportToDelete.getCode());
+        confirmationAlert.setContentText("Are you sure you want to delete room '" + airportToDelete.getCode() + "'?");
 
-    @javafx.fxml.FXML
-    public void removeAirport(ActionEvent actionEvent) {
-        TextInputDialog dialog = FXUtil.dialog("Delete an Airport", "Enter the ID of the Airport to delete:");
-        dialog.setContentText("ID");
-        Optional<String> result = dialog.showAndWait();
-
-        try {
-            String idStr = result.orElse("").trim();
-            if (idStr.isEmpty()) {
-                FXUtil.alert("Error", "ID is required").showAndWait();
-                return;
-            }
-
-            int id = Integer.parseInt(idStr);
-            File file = new File("aeropuertos.json"); // Asegúrate de que este sea el archivo correcto
-            AirPortDatos airportData = new AirPortDatos(file);
-            boolean eliminado = airportData.borrar(id);
-
-
-            if (eliminado) {
-                Util.getAirPortList().removeIf(a -> a.getCode() == id);
-                FXUtil.confirmationDialog("Airport removed successfully").showAndWait();
-                updateObservableList();
-            } else {
-                FXUtil.alert("Error", "Airport ID not found").showAndWait();
-            }
-
-        } catch (NumberFormatException e) {
-            FXUtil.alert("Error", "Invalid ID format (must be a number)").showAndWait();
-        } catch (IOException e) {
-            FXUtil.alert("Error", "I/O error: " + e.getMessage()).showAndWait();
+        Optional<ButtonType> result = confirmationAlert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            observableAirports.remove(airportToDelete);
+            saveDataToFile();
+            this.alert.setContentText("Room deleted successfully.");
+            this.alert.setAlertType(Alert.AlertType.INFORMATION);
+            this.alert.showAndWait();
         }
     }
 
@@ -317,6 +273,15 @@ public class AirPortController {
 
         } catch (IOException e) {
             FXUtil.alert("Error", "Could not load hotel data").showAndWait();
+        }
+    }
+    private void saveDataToFile() {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (FileWriter writer = new FileWriter(file)) {
+            gson.toJson(observableAirports, writer);
+            System.out.println("Room data saved to " + file);
+        } catch (IOException e) {
+            System.err.println("Error saving room data to " + file + ": " + e.getMessage());
         }
     }
 }

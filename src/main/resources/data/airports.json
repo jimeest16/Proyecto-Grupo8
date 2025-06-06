@@ -1,1 +1,38 @@
-[{"code":4,"name":"CDG Updated","country":"France","active":false,"departuresBoard":{"sorted":false}},{"code":2,"name":"JFK","country":"USA","active":true,"departuresBoard":{"sorted":false}},{"code":1,"name":"LAX","country":"USA","active":true,"departuresBoard":{"sorted":false}}]
+[
+  {
+    "code": 1,
+    "name": "LAX",
+    "country": "USA",
+    "active": true,
+    "departuresBoard": {
+      "sorted": false
+    }
+  },
+  {
+    "code": 2,
+    "name": "JFK",
+    "country": "USA",
+    "active": true,
+    "departuresBoard": {
+      "sorted": false
+    }
+  },
+  {
+    "code": 3,
+    "name": "Aeropuerto Internacional Juan Santamaría",
+    "country": "Costa Rica",
+    "active": false,
+    "departuresBoard": {
+      "sorted": false
+    }
+  },
+  {
+    "code": 4,
+    "name": "CDG",
+    "country": "France",
+    "active": true,
+    "departuresBoard": {
+      "sorted": false
+    }
+  }
+]

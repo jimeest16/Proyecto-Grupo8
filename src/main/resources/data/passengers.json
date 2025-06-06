@@ -18,4 +18,9 @@
   "name" : "Jimena Salas",
   "nationality" : "Mexicana",
   "flightHistory" : [ "España-Costa Rica" ]
+}, {
+  "id" : 1,
+  "name" : "Camila",
+  "nationality" : "Costarricense",
+  "flightHistory" : [ ]
 } ]
