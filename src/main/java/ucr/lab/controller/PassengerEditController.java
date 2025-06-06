@@ -10,11 +10,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import ucr.lab.TDA.AVLTree;
 import ucr.lab.domain.Passenger;
 import ucr.lab.utility.FileReader;
 
 import java.io.IOException;
 import java.util.List;
+
+import static ucr.lab.utility.FileReader.loadPassengers;
 
 public class PassengerEditController {
 
@@ -39,7 +42,7 @@ public class PassengerEditController {
                 return;
             }
 
-            List<Passenger> passengers = FileReader.loadPassengers();
+            List<Passenger> passengers = loadPassengers();
             boolean found = false;
 
             for (Passenger p : passengers) {
@@ -80,7 +83,7 @@ public class PassengerEditController {
     public void handleSearchPassenger() {
         try {
             int id = Integer.parseInt(txtId.getText().trim());
-            List<Passenger> passengers = FileReader.loadPassengers();
+            List<Passenger> passengers = loadPassengers();
 
             for (Passenger p : passengers) {
                 if (p.getId() == id) {
@@ -98,7 +101,7 @@ public class PassengerEditController {
 
     @FXML
     public void handleListPassengers() {
-        List<Passenger> passengers = FileReader.loadPassengers();
+        List<Passenger> passengers = loadPassengers();
 
         if (passengers.isEmpty()) {
             appendOutput("No hay pasajeros registrados.\n");

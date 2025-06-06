@@ -85,7 +85,7 @@ public class FileReader {
     }
 
     // Cargar lista de usuarios
-    public static List<Passenger> loadPassengers() {  // <--- plural para consistencia
+    public static List<Passenger> loadPassengers() {
         try {
             File file = new File(FILE_PASSENGER);
             if (!file.exists()) return new ArrayList<>();
@@ -96,7 +96,7 @@ public class FileReader {
         }
     }
 
-    public static void savePassengers(List<Passenger> passengers) {  // <--- plural para consistencia
+    public static void savePassengers(List<Passenger> passengers) {
         try {
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File(FILE_PASSENGER), passengers);
         } catch (Exception e) {
