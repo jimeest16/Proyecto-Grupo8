@@ -40,7 +40,7 @@ public class Passenger {
 
     @Override
     public String toString() {
-        return "ID: " + id + ", Nombre: " + name + ", Nacionalidad: " + nationality + ", Vuelos: " + flightHistory;
+        return "\uD83D\uDC64  ID: " + id + ", Nombre: " + name + ", Nacionalidad: " + nationality + ", Vuelos: " + flightHistory;
     }
 
     public void clearFlightHistory() {

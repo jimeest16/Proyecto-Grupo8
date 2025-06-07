@@ -32,7 +32,11 @@ public class LoginController {
 
     @FXML
     private Label labelRol;
-// para generar una lista de usuarios
+
+    @FXML
+    private TextField textEmail;
+
+    // para generar una lista de usuarios
     private CircularLinkedList  usersList;
 
 
@@ -124,6 +128,61 @@ public class LoginController {
         } catch (Exception ex) {
             ex.printStackTrace();
             mostrarAlerta("Error inesperado", "Ha ocurrido un error: " + ex.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
+    @FXML
+    public void accionRegister() {
+        try {
+            String username = textUser.getText();
+            String password = textPassword.getText();
+            String email = textEmail.getText();
+
+            if (username == null || username.isEmpty() ||
+                    password == null || password.isEmpty() ||
+                    email == null || email.isEmpty()) {
+                mostrarAlerta("Campos vacíos", "Por favor llene todos los espacios.", Alert.AlertType.WARNING);
+                return;
+            }
+
+            // Verifica si ya existe el usuario
+            if (!usersList.isEmpty()) {
+                User current = (User) usersList.getFirst();
+                User inicio = current;
+
+                do {
+                    if (compare(current.getName(), username) == 0) {
+                        mostrarAlerta("Error", "Ya existe un usuario con ese nombre.", Alert.AlertType.ERROR);
+                        return;
+                    }
+                    current = (User) usersList.getNext();
+                } while (current != inicio);
+            }
+
+            // Generar ID único
+            int maxId = 0;
+            if (!usersList.isEmpty()) {
+                User current = (User) usersList.getFirst();
+                User inicio = current;
+                do {
+                    if (current.getId() > maxId) {
+                        maxId = current.getId();
+                    }
+                    current = (User) usersList.getNext();
+                } while (current != inicio);
+            }
+
+            int nuevoId = maxId + 1;
+            String encrypted = PasswordEncription.encriptPassWord(password);
+
+            User nuevoUsuario = new User(nuevoId, username, encrypted, email, rolEscogido);
+            usersList.add(nuevoUsuario);
+
+            // Guardar lista actualizada
+            FileReader.saveUsersRegister((CircularLinkedList) usersList);
+            mostrarAlerta("Registro exitoso", "Usuario registrado correctamente. Ahora puede iniciar sesión.", Alert.AlertType.INFORMATION);
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo registrar el usuario: " + e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 

@@ -4,11 +4,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.core.type.TypeReference;
+import ucr.lab.TDA.CircularLinkedList;
+import ucr.lab.TDA.ListException;
 import ucr.lab.domain.AirPort;
 import ucr.lab.domain.Passenger;
 import ucr.lab.domain.User;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,6 +49,38 @@ public class FileReader {
             e.printStackTrace();
         }
     }
+    public static void saveUsersRegister(CircularLinkedList users) throws ListException {
+        // 1. Cargar usuarios actuales desde el JSON
+        List<User> existingUsers = loadUsers();
+
+        // 2. Recorrer los usuarios nuevos de la lista circular
+        if (!users.isEmpty()) {
+            User current = (User) users.getFirst();
+            User inicio = current;
+
+            do {
+                // Verifica si el usuario ya existe (puedes definir esto por ID o correo, por ejemplo)
+                boolean exists = false;
+                for (User u : existingUsers) {
+                    if (u.getId() == current.getId()) {
+                        exists = true;
+                        break;
+                    }
+                }
+
+                // 3. Si no existe, lo agrega a la lista
+                if (!exists) {
+                    existingUsers.add(current);
+                }
+
+                current = (User) users.getNext();
+            } while (current != inicio);
+        }
+
+        // 4. Guardar la lista completa actualizada en el JSON
+        saveUsers(existingUsers);
+    }
+
 
     // Añadir un nuevo usuario
     public static void addUser(User newUser) {
