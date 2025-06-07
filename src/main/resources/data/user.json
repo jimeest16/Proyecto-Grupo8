@@ -1,41 +1,18 @@
-[ {
+[
+ {
   "id" : 1,
-  "name" : "admin",
-  "password" : "admin123",
-  "email" : "admin@example.com",
-  "role" : "admin"
-}, {
-  "id" : 2,
-  "name" : "Juan Perez",
-  "password" : "juan123",
-  "email" : "juan.perez@example.com",
-  "role" : "user"
-}, {
-  "id" : 3,
-  "name" : "Maria Lopez",
-  "password" : "maria456",
-  "email" : "maria.lopez@example.com",
-  "role" : "user"
-}, {
-  "id" : 4,
-  "name" : "Carlos Mora",
-  "password" : "carlos789",
-  "email" : "carlos.mora@example.com",
-  "role" : "user"
-}, {
-  "id" : 5,
   "name" : "Jimena",
   "password" : "mlph",
   "email" : "jime@gmail.com",
   "role" : "administrator"
 }, {
-  "id" : 6,
+  "id" : 2,
   "name" : "Carmen",
   "password" : "fduphq4",
   "email" : "carmen@gmail.com",
   "role" : "user"
 }, {
-  "id" : 7,
+  "id" : 3,
   "name" : "jime",
   "password" : "mlph",
   "email" : "jime@gmail.com",
