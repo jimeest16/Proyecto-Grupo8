@@ -1,85 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<TabPane prefHeight="400" prefWidth="600" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.UserController">
-
+<TabPane fx:id="tabPaneMain" prefHeight="440.0" prefWidth="675.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.UserController">
     <tabs>
-        <Tab style="-fx-background-color: #cadff1;" text="Reserve Flight">
+        <Tab fx:id="tabReserve" style="-fx-background-color: #cadff1;" text="Reserve Flight">
             <content>
-                <VBox prefHeight="327.0" prefWidth="589.0" spacing="20" style="-fx-padding: 20;">
-
-
-                    <Pane prefHeight="60.0" prefWidth="560.0">
+                <VBox fx:id="vboxReserve" prefHeight="407.0" prefWidth="600.0" spacing="20" style="-fx-padding: 20;">
+                    <Pane fx:id="paneWelcome" prefHeight="60.0" prefWidth="560.0">
+                        <children>
+                            <Label fx:id="labelWelcome" layoutX="167.0" layoutY="1.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="✈ Welcome aboard!" />
+                            <Text fx:id="textIntro" fill="#6391a8" layoutX="74.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your journey starts here 🌍">
+                                <font>
+                                    <Font name="Elephant" size="31.0" />
+                                </font>
+                            </Text>
+                        </children>
+                    </Pane>
+               <Pane prefHeight="323.0" prefWidth="663.0">
                   <children>
-                           <Label layoutX="167.0" layoutY="1.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="✈ Welcome aboard!" />
-                     <Text fill="#6391a8" layoutX="74.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your journey starts here 🌍">
+                     <Button fx:id="btnMakeReservation1" layoutX="155.0" layoutY="109.0" mouseTransparent="true" onAction="#makeReservation" prefHeight="25.0" prefWidth="125.0" snapToPixel="false" style="-fx-background-color: #ccd3d8;" text="Make Reservation:" />
+                     <Button fx:id="btnSearchFlights1" layoutX="14.0" layoutY="109.0" onAction="#searchFlights" prefHeight="25.0" prefWidth="112.0" style="-fx-background-color: #ccd3d8;" text="Search flight:" />
+                     <Text layoutX="24.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Origin airport:">
                         <font>
-                           <Font name="Elephant" size="31.0" />
+                           <Font size="15.0" />
+                        </font>
+                     </Text>
+                     <ComboBox layoutX="168.0" layoutY="24.0" prefWidth="150.0" />
+                     <Text layoutX="14.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Destination airport:">
+                        <font>
+                           <Font size="15.0" />
+                        </font>
+                     </Text>
+                     <ComboBox layoutX="168.0" layoutY="71.0" prefWidth="150.0" />
+                     <TableView layoutX="21.0" layoutY="177.0" prefHeight="122.0" prefWidth="594.0">
+                       <columns>
+                         <TableColumn prefWidth="75.0" text="ID" />
+                         <TableColumn prefWidth="93.0" text="Name" />
+                           <TableColumn prefWidth="136.0" text="Nationality" />
+                           <TableColumn prefWidth="181.0" text="Flight-History" />
+                           <TableColumn prefWidth="108.0" text="State" />
+                       </columns>
+                     </TableView>
+                     <Text layoutX="175.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Information of your flight">
+                        <font>
+                           <Font name="System Bold" size="20.0" />
                         </font>
                      </Text>
                   </children>
-                    </Pane>
-                     <VBox prefHeight="112.0" prefWidth="560.0" spacing="10">
-                         <Button onAction="#searchFlights" prefHeight="25.0" prefWidth="566.0" style="-fx-background-color: #ccd3d8;" text="Buscar Vuelos" />
-                         <Button mouseTransparent="true" onAction="#makeReservation" prefHeight="30.0" prefWidth="562.0" snapToPixel="false" style="-fx-background-color: #ccd3d8;" text="Hacer Reserva" VBox.vgrow="NEVER" />
-                     </VBox>
+               </Pane>
                 </VBox>
             </content>
-         <graphic>
-
-                 <Pane prefHeight="50" />
-         </graphic>
+            <graphic>
+                <Pane fx:id="paneGraphicReserve" prefHeight="50" />
+            </graphic>
         </Tab>
 
-        <Tab style="-fx-background-color: #9ac9ee;" text="Flight History">
+        <Tab fx:id="tabHistory" style="-fx-background-color: #9ac9ee;" text="Flight History">
             <content>
-                <VBox spacing="20" style="-fx-padding: 20;">
-
-                    <Pane prefHeight="50">
-                  <children>
-                     <Text fill="#6391a8" layoutX="57.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your journey starts here 🌍">
-                        <font>
-                           <Font name="Elephant" size="31.0" />
-                        </font>
-                     </Text>
-                     <Label layoutX="169.0" layoutY="31.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Check your flight history!" />
-                  </children>
+                <VBox fx:id="vboxHistory" spacing="20" style="-fx-padding: 20;">
+                    <Pane fx:id="paneHistoryTitle" prefHeight="50">
+                        <children>
+                            <Text fx:id="textHistory" fill="#6391a8" layoutX="57.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your journey starts here 🌍">
+                                <font>
+                                    <Font name="Elephant" size="31.0" />
+                                </font>
+                            </Text>
+                            <Label fx:id="labelHistory" layoutX="169.0" layoutY="31.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Check your flight history!" />
+                        </children>
                     </Pane>
-
-
-                    <Pane prefHeight="150">
-                        <VBox layoutX="167.0" layoutY="50.0" spacing="10">
-                            <Button onAction="#viewHistory" prefWidth="200" style="-fx-background-color: #ccd3d8;" text="Ver Historial" />
+                    <Pane fx:id="paneViewHistory" prefHeight="150">
+                        <VBox fx:id="vboxViewHistory" layoutX="167.0" layoutY="50.0" spacing="10">
+                            <Button fx:id="btnViewHistory" onAction="#viewHistory" prefWidth="200" style="-fx-background-color: #ccd3d8;" text="Ver Historial" />
                         </VBox>
                     </Pane>
-               <Pane prefHeight="60.0" prefWidth="560.0" />
+                    <Pane fx:id="paneSpacerHistory" prefHeight="60.0" prefWidth="560.0" />
                 </VBox>
             </content>
         </Tab>
 
-        <Tab text="Log Out">
+        <Tab fx:id="tabLogout" text="Log Out">
             <content>
-                <VBox alignment="CENTER" spacing="20" style="-fx-padding: 30;">
-
-                    <Pane prefHeight="115.0" prefWidth="547.0">
-                        <Label layoutX="127.0" layoutY="21.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Thanks for visit our system" />
-                  <Text fill="#466883" layoutX="14.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="We are here to serve you🛫">
-                     <font>
-                        <Font name="Elephant" size="41.0" />
-                     </font>
-                  </Text>
+                <VBox fx:id="vboxLogout" alignment="CENTER" spacing="20" style="-fx-padding: 30;">
+                    <Pane fx:id="paneLogoutMessage" prefHeight="115.0" prefWidth="547.0">
+                        <Label fx:id="labelGoodbye" layoutX="127.0" layoutY="21.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Thanks for visit our system" />
+                        <Text fx:id="textThanks" fill="#466883" layoutX="14.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="We are here to serve you🛫">
+                            <font>
+                                <Font name="Elephant" size="41.0" />
+                            </font>
+                        </Text>
                     </Pane>
-
-
-                    <Pane>
+                    <Pane fx:id="paneLogoutButton">
                         <Button fx:id="btnLogout" layoutX="153.0" layoutY="2.0" onAction="#logout" prefWidth="200" style="-fx-background-color: #8ab5d8;" text="Log out" />
                     </Pane>
                 </VBox>
