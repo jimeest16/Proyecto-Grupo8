@@ -69,13 +69,18 @@
             <content>
                 <VBox alignment="CENTER" spacing="20" style="-fx-padding: 30;">
 
-                    <Pane prefHeight="50">
-                        <Label layoutX="10" layoutY="10" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Cerrar Sesión del Usuario" />
+                    <Pane prefHeight="115.0" prefWidth="547.0">
+                        <Label layoutX="127.0" layoutY="21.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Thanks for visit our system" />
+                  <Text fill="#466883" layoutX="14.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="We are here to serve you🛫">
+                     <font>
+                        <Font name="Elephant" size="41.0" />
+                     </font>
+                  </Text>
                     </Pane>
 
 
                     <Pane>
-                        <Button fx:id="btnLogout" layoutX="10" layoutY="10" onAction="#logout" prefWidth="200" text="Cerrar Sesión" />
+                        <Button fx:id="btnLogout" layoutX="153.0" layoutY="2.0" onAction="#logout" prefWidth="200" style="-fx-background-color: #8ab5d8;" text="Log out" />
                     </Pane>
                 </VBox>
             </content>
