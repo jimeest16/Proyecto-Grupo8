@@ -1,6 +1,11 @@
 package ucr.lab.domain;
 
+import ucr.lab.TDA.LinkedQueue;
+import ucr.lab.TDA.QueueException;
+
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Flight {
 
@@ -11,6 +16,9 @@ public class Flight {
     private int capacity;
     private int occupancy;
 
+    private LinkedQueue colaEspera;
+    private List pasajerosAsignados;
+
     public Flight(int number, String origin, String destination, LocalDateTime departureTime, int capacity) {
         this.number = number;
         this.origin = origin;
@@ -18,9 +26,11 @@ public class Flight {
         this.departureTime = departureTime;
         this.capacity = capacity;
         this.occupancy = 0;
+
+        this.colaEspera = new LinkedQueue();
+        this.pasajerosAsignados = new ArrayList();
     }
 
-    // Getters y Setters
 
     public int getNumber() {
         return number;
@@ -46,9 +56,21 @@ public class Flight {
         return occupancy;
     }
 
-    public void addPassenger() {
+    public LinkedQueue getColaEspera() {
+        return colaEspera;
+    }
+
+    public List getPasajerosAsignados() {
+        return pasajerosAsignados;
+    }
+
+
+    public void asignarPasajero(Passenger pasajero) throws QueueException {
         if (occupancy < capacity) {
+            pasajerosAsignados.add(pasajero);
             occupancy++;
+        } else {
+            colaEspera.enQueue(pasajero);
         }
     }
 
