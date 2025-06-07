@@ -59,7 +59,7 @@ public class FileReader {
             User inicio = current;
 
             do {
-                // Verifica si el usuario ya existe (puedes definir esto por ID o correo, por ejemplo)
+                // Verifica si el usuario ya existe 
                 boolean exists = false;
                 for (User u : existingUsers) {
                     if (u.getId() == current.getId()) {
