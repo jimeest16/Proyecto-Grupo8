@@ -10,6 +10,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import ucr.lab.TDA.AVLTree;
+import ucr.lab.TDA.TreeException;
 import ucr.lab.domain.Passenger;
 import ucr.lab.utility.FileReader;
 
@@ -25,19 +27,30 @@ public class PassengerDeleteController {
     @FXML private TextField txtHistory;
     @FXML private TextArea txtOutput;
 
+    private AVLTree avlTree = new AVLTree();
+
+    @FXML
+    public void initialize() {
+        try {
+            List<Passenger> passengers = FileReader.loadPassengers();
+            for (Passenger p : passengers) {
+                avlTree.add(p.getId());
+            }
+        } catch (Exception e) {
+            getMessageText("Error al cargar pasajeros en el árbol: " + e.getMessage());
+        }
+    }
 
     @FXML
     public void handleDeletePassenger() {
         try {
             int id = Integer.parseInt(txtId.getText().trim());
-//            String name = txtName.getText().trim();
-//            String nationality = txtNationality.getText().trim();
-//            String history = txtHistory.getText().trim();
-//Lis
-//            if (name.isEmpty() || nationality.isEmpty()) {
-//                getMessageText("Nombre y nacionalidad son obligatorios.\n");
-//                return;
-//            }
+
+            // Verificar si existe el ID en el AVL
+            if (!avlTree.contains(id)) {
+                getMessageText("No se encontró un pasajero con ID: " + id + " para eliminar.\n");
+                return;
+            }
 
             List<Passenger> passengers = FileReader.loadPassengers();
 
@@ -49,31 +62,37 @@ public class PassengerDeleteController {
                     break;
                 }
             }
-            //
+
             if (removed) {
                 FileReader.savePassengers(passengers);
-                getMessageText("Pasajero con ID:" + id + "eliminado con exito.\n");
+                //remueve el id del arbol tambien
+                avlTree.remove(id);
+                getMessageText("Pasajero con ID: " + id + " eliminado con éxito.\n");
                 clearFields();
-
             } else {
-                getMessageText("No se encontro un pasajero con ID:" + id + " para remover.\n");
-
+                getMessageText("No se encontró un pasajero con ID: " + id + " para eliminar.\n");
             }
 
-        }catch (NumberFormatException e){
-            getMessageText("Ingrese un ID valido.\n");
-
+        } catch (NumberFormatException e) {
+            getMessageText("Ingrese un ID válido.\n");
+        } catch (TreeException e) {
+            getMessageText("Error en árbol AVL: " + e.getMessage() + "\n");
         } catch (Exception e) {
-            // new RuntimeException(e);
-            getMessageText("Error al eliminar el pasajero "+ e.getMessage()+ "\n");
+            getMessageText("Error al eliminar el pasajero: " + e.getMessage() + "\n");
         }
-
     }
 
     @FXML
     public void handleSearchPassenger() {
         try {
             int id = Integer.parseInt(txtId.getText().trim());
+
+            // Usar AVL para verificar si existe
+            if (!avlTree.contains(id)) {
+                getMessageText("No se encontró pasajero con ID: " + id + "\n");
+                return;
+            }
+
             List<Passenger> passengers = FileReader.loadPassengers();
 
             for (Passenger p : passengers) {
@@ -111,13 +130,12 @@ public class PassengerDeleteController {
         txtHistory.clear();
     }
 
-    // similar a un system
-    // tiene como parametro recibir un text el cual verifca primero si no esta en nulo
     private void getMessageText(String text) {
         if (txtOutput != null) {
             txtOutput.appendText(text + "\n");
         }
     }
+
     @FXML
     public void accionRetroceder(ActionEvent actionEvent) {
         try {

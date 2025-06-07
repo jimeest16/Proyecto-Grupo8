@@ -11,23 +11,34 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import ucr.lab.TDA.AVLTree;
+import ucr.lab.TDA.TreeException;
 import ucr.lab.domain.Passenger;
 import ucr.lab.utility.FileReader;
 
 import java.io.IOException;
 import java.util.List;
 
-import static ucr.lab.utility.FileReader.loadPassengers;
-
 public class PassengerEditController {
 
-    @FXML
-    private TextField txtId;
+    @FXML private TextField txtId;
     @FXML private TextField txtName;
     @FXML private TextField txtNationality;
     @FXML private TextField txtHistory;
     @FXML private TextArea txtOutput;
 
+    private AVLTree avlTree = new AVLTree();
+
+    @FXML
+    public void initialize() {
+        try {
+            List<Passenger> passengers = FileReader.loadPassengers();
+            for (Passenger p : passengers) {
+                avlTree.add(p.getId());
+            }
+        } catch (Exception e) {
+            getMessageText("Error al cargar pasajeros en el árbol: " + e.getMessage());
+        }
+    }
 
     @FXML
     public void handleModifyPassenger() {
@@ -38,78 +49,90 @@ public class PassengerEditController {
             String history = txtHistory.getText().trim();
 
             if (name.isEmpty() || nationality.isEmpty()) {
-                appendOutput("Nombre y nacionalidad son obligatorios.\n");
+                getMessageText("Nombre y nacionalidad son obligatorios.\n");
                 return;
             }
 
-            List<Passenger> passengers = loadPassengers();
-            boolean found = false;
+            if (!avlTree.contains(id)) {
+                getMessageText("No se encontró pasajero con ID: " + id + " para modificar.\n");
+                return;
+            }
+
+            List<Passenger> passengers = FileReader.loadPassengers();
+            boolean modified = false;
 
             for (Passenger p : passengers) {
                 if (p.getId() == id) {
-
                     p.setName(name);
                     p.setNationality(nationality);
 
                     if (!history.isEmpty()) {
-
                         p.clearFlightHistory();
                         p.addFlight(history);
                     }
-
-                    found = true;
+                    modified = true;
                     break;
                 }
             }
 
-            if (!found) {
-                appendOutput("No se encontró pasajero con ID: " + id + " para modificar.\n");
-                return;
+            if (modified) {
+                FileReader.savePassengers(passengers);
+                getMessageText("Pasajero con ID " + id + " modificado exitosamente.\n");
+                clearFields();
+            } else {
+                getMessageText("No se encontró pasajero con ID: " + id + " para modificar.\n");
             }
 
-            FileReader.savePassengers(passengers);
-            appendOutput("Pasajero con ID " + id + " modificado exitosamente.\n");
-            clearFields();
-
         } catch (NumberFormatException e) {
-            appendOutput("ID debe ser un número válido.\n");
+            getMessageText("Ingrese un ID válido.\n");
+        } catch (TreeException e) {
+            getMessageText("Error en árbol AVL: " + e.getMessage() + "\n");
         } catch (Exception e) {
-            appendOutput("Error al modificar pasajero: " + e.getMessage() + "\n");
+            getMessageText("Error al modificar pasajero: " + e.getMessage() + "\n");
         }
     }
-
 
     @FXML
     public void handleSearchPassenger() {
         try {
             int id = Integer.parseInt(txtId.getText().trim());
-            List<Passenger> passengers = loadPassengers();
+
+            if (!avlTree.contains(id)) {
+                getMessageText("No se encontró pasajero con ID: " + id + "\n");
+                return;
+            }
+
+            List<Passenger> passengers = FileReader.loadPassengers();
 
             for (Passenger p : passengers) {
                 if (p.getId() == id) {
-                    appendOutput("Pasajero encontrado: " + p + "\n");
+                    getMessageText("Pasajero encontrado: " + p + "\n");
                     return;
                 }
             }
-            appendOutput("No se encontró pasajero con ID: " + id + "\n");
+            getMessageText("No se encontró pasajero con ID: " + id + "\n");
         } catch (NumberFormatException e) {
-            appendOutput("Ingrese un ID válido.\n");
+            getMessageText("Ingrese un ID válido.\n");
         } catch (Exception e) {
-            appendOutput("Error al buscar pasajero: " + e.getMessage() + "\n");
+            getMessageText("Error al buscar pasajero: " + e.getMessage() + "\n");
         }
     }
 
     @FXML
     public void handleListPassengers() {
-        List<Passenger> passengers = loadPassengers();
+        try {
+            List<Passenger> passengers = FileReader.loadPassengers();
 
-        if (passengers.isEmpty()) {
-            appendOutput("No hay pasajeros registrados.\n");
-        } else {
-            appendOutput("=== Lista de Pasajeros ===");
-            for (Passenger p : passengers) {
-                appendOutput(p.toString());
+            if (passengers.isEmpty()) {
+                getMessageText("No hay pasajeros registrados.\n");
+            } else {
+                getMessageText("=== Lista de Pasajeros ===");
+                for (Passenger p : passengers) {
+                    getMessageText(p.toString());
+                }
             }
+        } catch (Exception e) {
+            getMessageText("Error al listar pasajeros: " + e.getMessage() + "\n");
         }
     }
 
@@ -120,11 +143,12 @@ public class PassengerEditController {
         txtHistory.clear();
     }
 
-    private void appendOutput(String text) {
+    private void getMessageText(String text) {
         if (txtOutput != null) {
             txtOutput.appendText(text + "\n");
         }
     }
+
     @FXML
     public void accionRetroceder(ActionEvent actionEvent) {
         try {
@@ -141,11 +165,11 @@ public class PassengerEditController {
         }
     }
 
-        private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
-            Alert alert = new Alert(tipo);
-            alert.setTitle(titulo);
-            alert.setHeaderText(null);
-            alert.setContentText(mensaje);
-            alert.showAndWait();
-        }
+    private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
+        Alert alert = new Alert(tipo);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
+}

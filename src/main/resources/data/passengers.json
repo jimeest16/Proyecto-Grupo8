@@ -1,26 +1,16 @@
 [ {
-  "id" : 2,
-  "name" : "Ana Gómez",
-  "nationality" : "España",
-  "flightHistory" : [ "Madrid - París" ]
-}, {
-  "id" : 3,
-  "name" : "Jimena Salas",
-  "nationality" : "Mexicana",
-  "flightHistory" : [ ]
-}, {
-  "id" : 4,
-  "name" : "Camilo Gutierrrez",
-  "nationality" : "Peruano",
-  "flightHistory" : [ "Mexico-Costa Rica" ]
-}, {
   "id" : 5,
-  "name" : "Jimena Salas",
-  "nationality" : "Mexicana",
-  "flightHistory" : [ "España-Costa Rica" ]
+  "name" : "Patricia",
+  "nationality" : "Costa Rica",
+  "flightHistory" : [ "MEX-CR" ]
 }, {
   "id" : 1,
   "name" : "Camila",
   "nationality" : "Costarricense",
   "flightHistory" : [ ]
+}, {
+  "id" : 6,
+  "name" : "Isabela Mora",
+  "nationality" : "Costa Rica",
+  "flightHistory" : [ "CR-USA" ]
 } ]
