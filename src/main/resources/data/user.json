@@ -1,5 +1,4 @@
-[
- {
+[ {
   "id" : 1,
   "name" : "Jimena",
   "password" : "mlph",
@@ -16,5 +15,41 @@
   "name" : "jime",
   "password" : "mlph",
   "email" : "jime@gmail.com",
+  "role" : "user"
+}, {
+  "id" : 4,
+  "name" : "Camila",
+  "password" : "fdpl",
+  "email" : "cami123@gmail.com",
+  "role" : "user"
+}, {
+  "id" : 5,
+  "name" : "admin",
+  "password" : "dgplq456",
+  "email" : "admin",
+  "role" : "administrator"
+}, {
+  "id" : 6,
+  "name" : "jimena",
+  "password" : "vdodv",
+  "email" : "jimes",
+  "role" : "user"
+}, {
+  "id" : 7,
+  "name" : "jim",
+  "password" : "mlphh",
+  "email" : "jmime123",
+  "role" : "user"
+}, {
+  "id" : 8,
+  "name" : "Luciana",
+  "password" : "oxfl",
+  "email" : "luci123",
+  "role" : "user"
+}, {
+  "id" : 9,
+  "name" : "maria",
+  "password" : "456",
+  "email" : "maria",
   "role" : "user"
 } ]

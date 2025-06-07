@@ -64,7 +64,7 @@ public class Flight {
         return pasajerosAsignados;
     }
 
-
+// para encolar los pasajeros en una lista -> se necesita en user controller para encolar cada pasajero
     public void asignarPasajero(Passenger pasajero) throws QueueException {
         if (occupancy < capacity) {
             pasajerosAsignados.add(pasajero);

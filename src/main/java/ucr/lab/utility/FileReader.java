@@ -4,9 +4,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.core.type.TypeReference;
+import ucr.lab.TDA.CircularDoublyLinkedList;
 import ucr.lab.TDA.CircularLinkedList;
 import ucr.lab.TDA.ListException;
 import ucr.lab.domain.AirPort;
+import ucr.lab.domain.Flight;
 import ucr.lab.domain.Passenger;
 import ucr.lab.domain.User;
 
@@ -21,7 +23,7 @@ public class FileReader {
     private static final String FILE_USER = "src/main/resources/data/user.json";
     private static final String FILE_AIRPORT = "src/main/resources/data/airports.json";
     private static final String FILE_PASSENGER = "src/main/resources/data/passengers.json";
-
+    private static final String FILE_FLIGHTS = "src/main/resources/data/flights.json";
     private static ObjectMapper mapper = new ObjectMapper();
 
     static {
@@ -145,4 +147,51 @@ public class FileReader {
         passengers.add(newPassenger);
         savePassengers(passengers);
     }
+    public static CircularDoublyLinkedList loadFlights() {
+        CircularDoublyLinkedList flightList = new CircularDoublyLinkedList();
+        try {
+            File file = new File(FILE_FLIGHTS);
+            if (!file.exists()) return flightList;
+
+            List<Flight> flights = mapper.readValue(file, new TypeReference<List<Flight>>() {});
+            for (Flight f : flights) {
+                flightList.add(f);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flightList;
+    }
+    public static void saveFlights(List<Flight> flights) {
+        try {
+            mapper.writerWithDefaultPrettyPrinter().writeValue(new File(FILE_FLIGHTS), flights);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void addFlight(Flight newFlight) {
+        List<Flight> flights = loadFlightsAsList(); // Usa lista para simplificar
+        flights.add(newFlight);
+        saveFlights(flights);
+    }
+    public static List<Flight> loadFlightsAsList() {
+        try {
+            File file = new File(FILE_FLIGHTS);
+            if (!file.exists()) return new ArrayList<>();
+            return mapper.readValue(file, new TypeReference<List<Flight>>() {});
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+    public static CircularDoublyLinkedList loadFlightsCircularList() {
+        CircularDoublyLinkedList flightList = new CircularDoublyLinkedList();
+        List<Flight> flights = loadFlightsAsList();
+
+        for (Flight f : flights) {
+            flightList.add(f);
+        }
+        return flightList;
+    }
+
 }
