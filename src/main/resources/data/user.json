@@ -34,4 +34,10 @@
   "password" : "fduphq4",
   "email" : "carmen@gmail.com",
   "role" : "user"
+}, {
+  "id" : 7,
+  "name" : "jime",
+  "password" : "mlph",
+  "email" : "jime@gmail.com",
+  "role" : "user"
 } ]
