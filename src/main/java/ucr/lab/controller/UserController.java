@@ -12,9 +12,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import ucr.lab.domain.AirPort;
 import ucr.lab.domain.Passenger;
+import ucr.lab.utility.FileReader;
 
+import java.net.URL;
 import java.util.Collections;
+import java.util.List;
+import java.util.ResourceBundle;
 
 
 public class UserController {
@@ -87,12 +92,16 @@ public class UserController {
 
     @FXML
     private Button btnLogout;
-
     @FXML
-    private void initialize() {
+    public void initialize() {
+        List<AirPort> airportList = FileReader.loadAirports();
 
-
+        for (AirPort airport : airportList) {
+            comboOrigin.getItems().add(airport.getName());
+            comboDestination.getItems().add(airport.getName());
+        }
     }
+
 
     @FXML
     private void makeReservation() {
