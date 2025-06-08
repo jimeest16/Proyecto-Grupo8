@@ -29,12 +29,6 @@
   "email" : "admin",
   "role" : "administrator"
 }, {
-  "id" : 6,
-  "name" : "jimena",
-  "password" : "vdodv",
-  "email" : "jimes",
-  "role" : "user"
-}, {
   "id" : 7,
   "name" : "jim",
   "password" : "mlphh",
