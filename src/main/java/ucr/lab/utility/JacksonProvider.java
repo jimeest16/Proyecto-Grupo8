@@ -22,4 +22,6 @@ public class JacksonProvider {
     public static ObjectMapper get() {
         return mapper;
     }
+
 }
+

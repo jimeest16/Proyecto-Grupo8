@@ -9,7 +9,7 @@ public class AirPort {
     private int code;
     private String name;
     private String country;
-    private String status;// IF FALSE NO ACTIVE
+    private String status;// ACTIV0 O INACTIVO
     private Departures departuresBoard;
 
     public AirPort() {

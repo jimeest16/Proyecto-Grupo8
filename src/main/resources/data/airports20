@@ -238,41 +238,5 @@
       "gateId": "T20",
       "status": "Cancelled"
     }
-  },
-  {
-    "code": 21,
-    "name": "Aeropuertu",
-    "country": "USA",
-    "status": "Inactivo",
-    "departuresBoard": {
-      "departureTime": "2025-06-07",
-      "origin": "London",
-      "gateId": "A01",
-      "status": "ON TIME"
-    }
-  },
-  {
-    "code": 21,
-    "name": "AeropuertO",
-    "country": "USA",
-    "status": "Inactivo",
-    "departuresBoard": {
-      "departureTime": "2025-06-07",
-      "origin": "London",
-      "gateId": "A01",
-      "status": "ON TIME"
-    }
-  },
-  {
-    "code": 15,
-    "name": "Aeropuerto de Lima",
-    "country": "PERU",
-    "status": "Inactivo",
-    "departuresBoard": {
-      "departureTime": "2025-06-21",
-      "origin": "CUSCO",
-      "gateId": "O15",
-      "status": "Boarding"
-    }
   }
 ]

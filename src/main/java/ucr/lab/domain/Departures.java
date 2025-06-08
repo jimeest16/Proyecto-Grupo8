@@ -1,8 +1,11 @@
 package ucr.lab.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Departures {
     private LocalDate departureTime;
     private String origin;

@@ -1,5 +1,8 @@
 package ucr.lab.utility;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import ucr.lab.domain.AirPort;
@@ -15,10 +18,16 @@ import java.util.stream.Collectors;
 
 public class DeparturesDatos {
     private final File file;
-    private Gson gson = new Gson();
-    private final List<Departures> departuresList;
+    private Gson gson = new GsonBuilder()
+            .setPrettyPrinting()
+            .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+            .create();
 
+    private final List<Departures> departuresList;
+    ObjectMapper mapper = JacksonProvider.get();
     public DeparturesDatos(File file) throws IOException {
+
+        List<Departures> list = mapper.readValue(file, new TypeReference<List<Departures>>() {});
         this.file = file;
         if (file.exists()) {
             this.departuresList = loadFromFile();
@@ -56,21 +65,21 @@ public class DeparturesDatos {
         return removed;
     }
 */
-    private List<Departures> loadFromFile() {
-        if (!file.exists() || file.length() == 0) {
-            System.out.println("Archivo no existe o está vacío, creando lista vacía.");
-            return new ArrayList<>();
-        }
-
-        try (Reader reader = new FileReader(file)) {
-            Type listType = new TypeToken<List<AirPort>>() {}.getType();
-            List<Departures> loaded = gson.fromJson(reader, listType);
-            return loaded != null ? loaded : new ArrayList<>();
-        } catch (IOException | JsonSyntaxException e) {
-            System.err.println("Error cargando datos de aeropuertos: " + e.getMessage());
-            return new ArrayList<>();
-        }
+private List<Departures> loadFromFile() {
+    if (!file.exists() || file.length() == 0) {
+        System.out.println("Archivo no existe o está vacío.");
+        return new ArrayList<>();
     }
+
+    try (Reader reader = new FileReader(file)) {
+        JavaType type = mapper.getTypeFactory().constructCollectionType(List.class, Departures.class);
+        return mapper.readValue(reader, type);
+    } catch (IOException e) {
+        System.err.println("Error cargando datos: " + e.getMessage());
+        return new ArrayList<>();
+    }
+}
+
 
     private void saveToFile() throws IOException {
         try (Writer writer = new FileWriter(file)) {

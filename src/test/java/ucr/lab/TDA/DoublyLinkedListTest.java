@@ -19,6 +19,7 @@ class DoublyLinkedListTest {
 
     @Test
     void addAirport() {
+        DoublyLinkedList list = new DoublyLinkedList();
 
         // Crear AEROPUERTOS y lista de salidas
         List<Departures> departuresList = FileReader.loadDepartures();
@@ -31,8 +32,9 @@ class DoublyLinkedListTest {
         // Crear aeropuertos
         AirPort airport1 = new AirPort(1, "Aeropuerto Internacional de Los Ángeles", "USA", "Activo", departures);
         AirPort airport2 = new AirPort(2, "Aeropuerto Internacional John F.Kennedy", "USA", "Activo", departures);
-
-
+        list.add(airport1);
+        list.add(airport2);
+        System.out.println(list);
         // Agregar aeropuertos
         FileReader.addAirport(airport1);
         FileReader.addAirport(airport2);

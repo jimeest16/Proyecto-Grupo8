@@ -2,6 +2,7 @@ package ucr.lab.controller;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -22,13 +23,16 @@ import javafx.scene.layout.HBox;
 import ucr.lab.TDA.SinglyLinkedList;
 import ucr.lab.domain.AirPort;
 import ucr.lab.domain.Departures;
-import ucr.lab.utility.AirPortDatos;
-import ucr.lab.utility.FXUtil;
-import ucr.lab.utility.Util;
+import ucr.lab.utility.*;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -81,12 +85,16 @@ public class AirPortController {
     private AirPortDatos airportDatos;
     private Alert alert; //para el manejo de alertas
     private ObservableList<AirPort> observableAirports;
-    private Gson gson;// para el localDate
+    private Gson gson = new GsonBuilder()
+            .setPrettyPrinting()
+            .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
+            .create();
 
     @javafx.fxml.FXML
     public void initialize() throws IOException {
-        ObjectMapper mapper = new ObjectMapper(); // o tu proveedor personalizado
-        mapper.registerModule(new JavaTimeModule());
+        ObjectMapper mapper = JacksonProvider.get();
+        List<Departures> list = mapper.readValue(file, new TypeReference<List<Departures>>() {});
+
         File file = new File("src/main/resources/data/airports.json");
 
         List<AirPort> airports = mapper.readValue(file, new TypeReference<List<AirPort>>() {});
@@ -137,7 +145,7 @@ public class AirPortController {
                     AirPort airportToEdit = getTableView().getItems().get(getIndex());
                     try {
                         updateAirport(airportToEdit);
-                        saveAirport();
+                        //saveAirport();
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
@@ -169,15 +177,18 @@ public class AirPortController {
     @javafx.fxml.FXML
     public void createAirport(ActionEvent actionEvent) throws IOException {
         ObservableList<AirPort> observableList = Util.getAirPortList();
-
+        ObservableList<Departures> departuresList = Util.getDeparturesList();
         AirPortDatos data = new AirPortDatos(file);
 
         int id = Integer.parseInt(tfID.getText().trim());
         String name = tfNombre.getText().trim();
         String pais = tfPais.getText().trim();
         String active = mEstado.toString();
-        Departures departures = mSalidas.getValue();
+        Departures departures = (Departures) mSalidas.getValue();
 
+        if (data.buscar(id)) {
+            saveAirport();
+        }
         if ((Objects.equals(active, "Activo"))) {
           // airportDatos.getAllAirPorts("activos");
             active = "Activo";
@@ -206,8 +217,7 @@ public class AirPortController {
         } catch (IOException e) {
             FXUtil.alert("File Error", "Could not write to file").showAndWait();
         }
-
-        tvAirports.setItems(observableAirports);
+        //tvAirports.setItems(observableAirports);
         cleanFields();
     }
 
@@ -237,8 +247,8 @@ public class AirPortController {
     public void removeAirport(AirPort airportToDelete) {
         Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
         confirmationAlert.setTitle("Confirm Deletion");
-        confirmationAlert.setHeaderText("Delete Room " + airportToDelete.getCode());
-        confirmationAlert.setContentText("Are you sure you want to delete room '" + airportToDelete.getCode() + "'?");
+        confirmationAlert.setHeaderText("Delete Airport " + airportToDelete.getCode());
+        confirmationAlert.setContentText("Are you sure you want to delete airport '" + airportToDelete.getCode() + "'?");
 
         Optional<ButtonType> result = confirmationAlert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
@@ -248,7 +258,7 @@ public class AirPortController {
             this.alert.setAlertType(Alert.AlertType.INFORMATION);
             this.alert.showAndWait();
         }
-        tvAirports.setItems(observableAirports);
+        //tvAirports.setItems(observableAirports);
     }
 
     @javafx.fxml.FXML
@@ -280,14 +290,32 @@ public class AirPortController {
         }
     }
     private void saveDataToFile() {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        try (FileWriter writer = new FileWriter(file)) {
-            gson.toJson(observableAirports, writer);
+        ObjectMapper mapper = JacksonProvider.get();
+        try {
+            if (observableAirports == null || observableAirports.isEmpty()) {
+                // Confirmación si está vacía
+                Alert warning = new Alert(Alert.AlertType.WARNING);
+                warning.setTitle("Warning");
+                warning.setHeaderText("Lista vacía");
+                warning.setContentText("No se guardó el archivo porque la lista de aeropuertos está vacía.");
+                warning.showAndWait();
+                return;
+            }
+
+            // Crear respaldo automático antes de sobrescribir
+            Path backupPath = Paths.get(file.getAbsolutePath() + ".backup");
+            Files.copy(file.toPath(), backupPath, StandardCopyOption.REPLACE_EXISTING);
+
+            mapper.enable(SerializationFeature.INDENT_OUTPUT);
+            mapper.writeValue(file, observableAirports); // Solo si hay datos válidos
+
             System.out.println("Airport data saved to " + file);
         } catch (IOException e) {
-            System.err.println("Error saving airport data to " + file + ": " + e.getMessage());
+            FXUtil.alert("Error", "No se pudo guardar el archivo: " + e.getMessage()).showAndWait();
+            e.printStackTrace();
         }
     }
+
     @FXML
     private void saveAirport() {
         String codeText = tfID.getText().trim();
