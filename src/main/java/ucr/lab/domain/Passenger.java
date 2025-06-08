@@ -8,9 +8,18 @@ public class Passenger {
     private String name;
     private String nationality;
     private List<String> flightHistory;
+    private String state;
 
     public Passenger() {
         this.flightHistory = new ArrayList<>();
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public Passenger(int id, String name, String nationality) {
@@ -18,6 +27,14 @@ public class Passenger {
         this.name = name;
         this.nationality = nationality;
         this.flightHistory = new ArrayList<>();
+    }
+
+    public Passenger(int id, String name, String nationality, List<String> flightHistory, String state) {
+        this.id = id;
+        this.name = name;
+        this.nationality = nationality;
+        this.flightHistory = flightHistory;
+        this.state = "N/A";
     }
 
     public void addFlight(String flight) {
@@ -40,7 +57,7 @@ public class Passenger {
 
     @Override
     public String toString() {
-        return "ID: " + id + ", Nombre: " + name + ", Nacionalidad: " + nationality + ", Vuelos: " + flightHistory;
+        return "\uD83D\uDC64  ID: " + id + ", Nombre: " + name + ", Nacionalidad: " + nationality + ", Vuelos: " + flightHistory;
     }
 
     public void clearFlightHistory() {

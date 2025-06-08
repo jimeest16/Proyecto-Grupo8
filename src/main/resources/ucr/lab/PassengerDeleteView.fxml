@@ -33,7 +33,7 @@
         </HBox>
 
         <HBox spacing="10">
-            <Button onAction="#handleDeletePassenger" style="-fx-background-color: #638eb9;" text="Modificar" textFill="#fffbfb" />
+            <Button onAction="#handleDeletePassenger" style="-fx-background-color: #638eb9;" text="Eliminar" textFill="#fffbfb" />
             <Button onAction="#handleSearchPassenger" style="-fx-background-color: #6fa2d5;" text="Buscar pasajero" textFill="WHITE" />
             <Button onAction="#handleListPassengers" style="-fx-background-color: #82baf3;" text="Listar todos" textFill="#fff9f9" />
         </HBox>

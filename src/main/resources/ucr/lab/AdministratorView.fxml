@@ -183,14 +183,19 @@
         <Tab style="-fx-background-color: #97a2ac;" text="Cerrar Sesión">
             <content>
                 <VBox alignment="CENTER" spacing="20" style="-fx-padding: 30;">
+               <Text fill="#494f86" strokeType="OUTSIDE" strokeWidth="0.0" text="See you soon...">
+                  <font>
+                     <Font name="Elephant" size="43.0" />
+                  </font>
+               </Text>
 
                     <Pane prefHeight="50">
-                        <Label layoutX="135.0" layoutY="12.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Cerrar Sesión del Administrador" />
+                        <Label layoutX="134.0" layoutY="1.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Press here to close your account" />
                     </Pane>
 
 
                     <Pane>
-                        <Button fx:id="btnLogout" layoutX="189.0" layoutY="9.0" onAction="#logout" prefWidth="200" text="Cerrar Sesión" />
+                        <Button fx:id="btnLogout" layoutX="189.0" layoutY="9.0" onAction="#logout" prefWidth="200" style="-fx-background-color: #8ab5d8;" text="Log out" />
                     </Pane>
                 </VBox>
             </content>

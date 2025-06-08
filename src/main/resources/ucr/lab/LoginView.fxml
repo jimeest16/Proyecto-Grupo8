@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="365.0" prefWidth="475.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.LoginController">
+<AnchorPane prefHeight="426.0" prefWidth="556.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.LoginController">
     <children>
         <Label fx:id="labelNotFound" layoutX="100" layoutY="220" textFill="red" />
 
@@ -27,7 +27,7 @@
             </children>
         </Pane>
 
-        <Pane layoutX="100.0" layoutY="110.0" prefHeight="204.0" prefWidth="297.0">
+        <Pane layoutX="97.0" layoutY="114.0" prefHeight="246.0" prefWidth="361.0">
             <children>
 
                 <Label layoutX="29.0" layoutY="19.0" text="Rol:">
@@ -41,6 +41,7 @@
                   <Font size="15.0" />
                </font></Label>
                 <TextField fx:id="textUser" layoutX="107.0" layoutY="46.0" />
+                <TextField fx:id="textEmail" layoutX="106.0" layoutY="135.0" />
 
                 <Label layoutX="8.0" layoutY="93.0" text="Contraseña:">
                <font>
@@ -48,14 +49,24 @@
                </font></Label>
                 <PasswordField fx:id="textPassword" layoutX="107.0" layoutY="93.0" />
 
-                <Button layoutX="83.0" layoutY="139.0" onAction="#accionLogin" style="-fx-background-color: #65749c;" text="Iniciar sesión" textFill="WHITE">
+                <Button layoutX="19.0" layoutY="191.0" onAction="#accionLogin" style="-fx-background-color: #65749c;" text="Iniciar sesión" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font></Button>
+            <Button layoutX="199.0" layoutY="191.0" onAction="#accionRegister" style="-fx-background-color: #65749c;" text="Registrarse" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Label layoutX="14.0" layoutY="137.0" text="Correo:">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
             </children>
         </Pane>
 
-        <Button layoutX="22.0" layoutY="314.0" onAction="#accionRetroceder" style="-fx-background-color: #65749c;" text="◀️ Retroceder" textFill="#fffafa">
+        <Button layoutX="24.0" layoutY="380.0" onAction="#accionRetroceder" style="-fx-background-color: #65749c;" text="◀️ Retroceder" textFill="#fffafa">
          <font>
             <Font size="15.0" />
          </font></Button>

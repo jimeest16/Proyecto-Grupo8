@@ -278,4 +278,18 @@ public class CircularDoublyLinkedList implements List {
         //agregamos la info del último nodo
         return result+aux.data;
     }
+
+    public Object get(int index) throws ListException {
+        if (index < 0 || index >= size()) {
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
+        }
+
+        Node current = first;
+        // Recorremos la lista hasta llegar al índice solicitado
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current.data;
+    }
+
 }
