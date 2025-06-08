@@ -144,7 +144,7 @@ public class LoginController {
                 return;
             }
 
-            // Verifica si ya existe el usuario
+
             if (!usersList.isEmpty()) {
                 User current = (User) usersList.getFirst();
                 User inicio = current;
@@ -158,7 +158,7 @@ public class LoginController {
                 } while (current != inicio);
             }
 
-            // Generar ID único
+            // Generar ID único-> se puede mejorarr luego
             int maxId = 0;
             if (!usersList.isEmpty()) {
                 User current = (User) usersList.getFirst();
@@ -217,7 +217,7 @@ public class LoginController {
             mostrarAlerta("Error", "No se pudo regresar a la pantalla principal.", Alert.AlertType.ERROR);
         }
     }
-
+//podriamos hacer una alerta generica
     private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
         Alert alert = new Alert(tipo);
         alert.setTitle(titulo);

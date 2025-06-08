@@ -90,7 +90,7 @@ public class UserController {
 
     @FXML
     private void initialize() {
-        // Llenar los combos de aeropuertos
+       
         comboOrigin.getItems().addAll("San José", "Alajuela", "Liberia", "Puntarenas");
         comboDestination.getItems().addAll("San José", "Alajuela", "Liberia", "Puntarenas");
 
@@ -110,10 +110,11 @@ public class UserController {
 
     @FXML
     private void makeReservation() {
-        System.out.println("Make Reservation clicked");
+        System.out.println("Make Reservation");
 
     }
 
+    // flights disponible
     @FXML
     private void searchFlights() {
         String origin = comboOrigin.getValue();
@@ -125,6 +126,6 @@ public class UserController {
     @FXML
     private void logout() {
         System.out.println("Logout clicked");
-        // Implementar cierre de sesión
+
     }
 }

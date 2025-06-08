@@ -62,7 +62,7 @@ public class Passenger {
 
     public void clearFlightHistory() {
 
-            this.flightHistory.clear(); // Suponiendo que flightHistory es un List<String>
+            this.flightHistory.clear();
         }
 
 
