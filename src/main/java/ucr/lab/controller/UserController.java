@@ -90,22 +90,8 @@ public class UserController {
 
     @FXML
     private void initialize() {
-       
-        comboOrigin.getItems().addAll("San José", "Alajuela", "Liberia", "Puntarenas");
-        comboDestination.getItems().addAll("San José", "Alajuela", "Liberia", "Puntarenas");
 
 
-        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colNationality.setCellValueFactory(new PropertyValueFactory<>("nationality"));
-        colFlightHistory.setCellValueFactory(new PropertyValueFactory<>("flightHistory"));
-        colState.setCellValueFactory(new PropertyValueFactory<>("state"));
-
-        // de prueba
-        tablePasajerosAsignados.getItems().addAll(
-                new Passenger(1, "Juan Perez", "Costa Rican", Collections.singletonList("Flight A, Flight B"), "Confirmed"),
-                new Passenger(2, "Maria Gomez", "Costa Rican", Collections.singletonList("Flight C"), "Pending")
-        );
     }
 
     @FXML
@@ -120,6 +106,7 @@ public class UserController {
         String origin = comboOrigin.getValue();
         String destination = comboDestination.getValue();
         System.out.println("Search Flights from " + origin + " to " + destination);
+
 
     }
 
