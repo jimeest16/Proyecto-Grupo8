@@ -275,4 +275,17 @@ public class SinglyLinkedList implements List {
     public Node getFirstNode() {
         return first;
     }
+
+    public Node getNode(Object element) throws ListException {
+        if (isEmpty())
+            throw new ListException("Singly Linked List is empty");
+        Node current = first;
+        while (current != null) {
+            if (compare(current.data, element) == 0)
+                return current;
+            current = current.next;
+        }
+        throw new ListException("Element not found: " + element);
+    }
+
 }

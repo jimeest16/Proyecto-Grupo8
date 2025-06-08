@@ -94,9 +94,11 @@ public class UserController {
     private Button btnLogout;
     @FXML
     public void initialize() {
-        List<AirPort> airportList = FileReader.loadAirports();
+
+         List<AirPort> airportList = FileReader.loadAirports();
 
         for (AirPort airport : airportList) {
+            // de momento solo con name
             comboOrigin.getItems().add(airport.getName());
             comboDestination.getItems().add(airport.getName());
         }

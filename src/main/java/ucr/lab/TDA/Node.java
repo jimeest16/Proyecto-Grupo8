@@ -16,6 +16,14 @@ public class Node {
         this.prev=null;
     }
 
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
+
     public Node() {
         this.next = null;
     }
@@ -26,4 +34,5 @@ public class Node {
         this.priority=priority;
 
     }
+
 }
