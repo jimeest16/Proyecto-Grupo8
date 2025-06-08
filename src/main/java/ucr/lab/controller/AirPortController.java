@@ -1,5 +1,8 @@
 package ucr.lab.controller;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javafx.application.Platform;
@@ -7,8 +10,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -17,10 +18,7 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.*;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import ucr.lab.HelloApplication;
 import ucr.lab.TDA.SinglyLinkedList;
 import ucr.lab.domain.AirPort;
 import ucr.lab.domain.Departures;
@@ -35,12 +33,13 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+
 public class AirPortController {
     @FXML
     private Button btCrear;
 
     @FXML
-    private TableColumn<AirPort,Boolean> cEstado;
+    private TableColumn<AirPort,String> cEstado;
 
     @FXML
     private TableColumn<AirPort, Integer> cID;
@@ -58,7 +57,7 @@ public class AirPortController {
     private ComboBox<String> mEstado;
 
     @FXML
-    private ComboBox<SinglyLinkedList> mSalidas;
+    private ComboBox<Departures> mSalidas;
 
     @FXML
     private RadioButton rbActivos;
@@ -74,6 +73,7 @@ public class AirPortController {
     private TextField tfPais;
     @FXML
     private TableView<AirPort> tvAirports;
+
     private AirPort currentAirportToEdit; //para editar
     String rutaArchivo = "src/main/resources/data/airports.json";
     File file = new File(rutaArchivo);
@@ -81,15 +81,19 @@ public class AirPortController {
     private AirPortDatos airportDatos;
     private Alert alert; //para el manejo de alertas
     private ObservableList<AirPort> observableAirports;
-
+    private Gson gson;// para el localDate
 
     @javafx.fxml.FXML
     public void initialize() throws IOException {
-       airportDatos = new AirPortDatos(file);
+        ObjectMapper mapper = new ObjectMapper(); // o tu proveedor personalizado
+        mapper.registerModule(new JavaTimeModule());
+        File file = new File("src/main/resources/data/airports.json");
+
+        List<AirPort> airports = mapper.readValue(file, new TypeReference<List<AirPort>>() {});
 
         // Inicializa la lista observable (esto asegura que nunca sea nula)
         observableAirports = FXCollections.observableArrayList();
-
+        ObservableList<Departures> observableListDepartures = Util.getDeparturesList();
         // Si la lista compartida en Utility no está inicializada, configúrala
         if (Util.getAirPortList() == null) {
             Util.setAirPortList(observableAirports);
@@ -112,9 +116,9 @@ public class AirPortController {
         cPais.setCellValueFactory(new PropertyValueFactory<>("country"));
         cEstado.setCellValueFactory(new PropertyValueFactory<>("status"));
         mEstado.setItems(FXCollections.observableArrayList("Activo", "Inactivo"));
-
         cRegistro.setCellValueFactory(new PropertyValueFactory<>("departuresBoard"));
-        //mSalidas.setItems(FXCollections.observableArrayList(getDepartures));//Todo lista de salidas
+
+        mSalidas.setItems(FXCollections.observableList(observableListDepartures));
 
         tvAirports.setItems(observableAirports);
 
@@ -133,6 +137,7 @@ public class AirPortController {
                     AirPort airportToEdit = getTableView().getItems().get(getIndex());
                     try {
                         updateAirport(airportToEdit);
+                        saveAirport();
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
@@ -156,31 +161,32 @@ public class AirPortController {
             }
         });
         tvAirports.getColumns().add(actionsColumn);
+        listarAeropuertos();
+
     }
 
 
     @javafx.fxml.FXML
     public void createAirport(ActionEvent actionEvent) throws IOException {
-        boolean status = false;
-        ObservableList<AirPort> observableHotels = Util.getAirPortList();
-        AirPortDatos hotelData = new AirPortDatos(file);
+        ObservableList<AirPort> observableList = Util.getAirPortList();
+
+        AirPortDatos data = new AirPortDatos(file);
 
         int id = Integer.parseInt(tfID.getText().trim());
         String name = tfNombre.getText().trim();
         String pais = tfPais.getText().trim();
         String active = mEstado.toString();
+        Departures departures = mSalidas.getValue();
 
         if ((Objects.equals(active, "Activo"))) {
-            airportDatos.activeAirport(id);
-            status = true;
+          // airportDatos.getAllAirPorts("activos");
+            active = "Activo";
         } else {
-            airportDatos.deactiveAirport(id);
-            status = false;
+          //  airportDatos.getAllAirPorts("inactivos");
+            active = "Inactivo";
         }
 
-        SinglyLinkedList departures = mSalidas.getValue();
-
-        if (id == 0 || name.isEmpty() || pais.isEmpty() || active.isEmpty()) {
+        if (id == 0 || name.isEmpty() || pais.isEmpty()) {
             alert.setAlertType(Alert.AlertType.ERROR);
             alert.setContentText("Please fill all the spaces");
             alert.showAndWait();
@@ -188,24 +194,21 @@ public class AirPortController {
         }
 
         try {
-            if (!airportDatos.buscar(id)) { // CORREGIDO: solo insertar si NO existe
-                AirPort airport = new AirPort(id, name, pais,status,departures);//todo terminar
-                hotelData.insert(airport); // agregar al archivo
-
-
-                observableHotels.add(airport); // agregar a ObservableList
+                AirPort airport = new AirPort(id, name, pais,active,departures);
+                data.insert(airport); // agregar al archivo
+                observableList.add(airport); // agregar a ObservableList
                 FXUtil.confirmationDialog("Airport successfully added").showAndWait();
                 cleanFields();
-            } else {
-                FXUtil.alert("Error", "Airport ID already exists").showAndWait();
-            }
+                updateObservableList();
 
         } catch (NumberFormatException e) {
             FXUtil.alert("Error", "Invalid value").showAndWait();
-
         } catch (IOException e) {
             FXUtil.alert("File Error", "Could not write to file").showAndWait();
         }
+
+        tvAirports.setItems(observableAirports);
+        cleanFields();
     }
 
     private void cleanFields() {
@@ -222,8 +225,8 @@ public class AirPortController {
         tfID.setText(String.valueOf(airPortToEdit.getCode()));
         tfNombre.setText(airPortToEdit.getName());
         tfPais.setText(airPortToEdit.getCountry());
-        cEstado.setText(String.valueOf(airPortToEdit.isActive()));
-        cRegistro.setText(String.valueOf(airPortToEdit.getDeparturesBoard()));
+        mEstado.setValue(String.valueOf(airPortToEdit.getStatus()));
+        mSalidas.setValue(airPortToEdit.getDeparturesBoard());
 
 
         tfID.setEditable(false); // Prevent editing ID during update
@@ -241,10 +244,11 @@ public class AirPortController {
         if (result.isPresent() && result.get() == ButtonType.OK) {
             observableAirports.remove(airportToDelete);
             saveDataToFile();
-            this.alert.setContentText("Room deleted successfully.");
+            this.alert.setContentText("Airport deleted successfully.");
             this.alert.setAlertType(Alert.AlertType.INFORMATION);
             this.alert.showAndWait();
         }
+        tvAirports.setItems(observableAirports);
     }
 
     @javafx.fxml.FXML
@@ -279,9 +283,95 @@ public class AirPortController {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try (FileWriter writer = new FileWriter(file)) {
             gson.toJson(observableAirports, writer);
-            System.out.println("Room data saved to " + file);
+            System.out.println("Airport data saved to " + file);
         } catch (IOException e) {
-            System.err.println("Error saving room data to " + file + ": " + e.getMessage());
+            System.err.println("Error saving airport data to " + file + ": " + e.getMessage());
         }
     }
+    @FXML
+    private void saveAirport() {
+        String codeText = tfID.getText().trim();
+        String name = tfNombre.getText().trim();
+        String country = tfPais.getText().trim();
+        String status = mEstado.getSelectionModel().getSelectedItem(); // "Activo" o "Inactivo"
+        Departures selectedDeparture = mSalidas.getSelectionModel().getSelectedItem();
+
+        if (codeText.isEmpty() || name.isEmpty() || country.isEmpty() || status == null || selectedDeparture == null) {
+            FXUtil.alert("Por favor, complete todos los campos requeridos.", "error");
+            return;
+        }
+
+        int code;
+        try {
+            code = Integer.parseInt(codeText);
+            if (code <= 0) throw new NumberFormatException();
+        } catch (NumberFormatException e) {
+            FXUtil.alert("El código debe ser un número entero positivo.", "error");
+            return;
+        }
+
+        // Se construye el nuevo aeropuerto
+        AirPort newAirport = new AirPort(code, name, country, status, selectedDeparture);
+
+        if (currentAirportToEdit != null) {
+            // Actualiza aeropuerto existente
+            int index = -1;
+            for (int i = 0; i < observableAirports.size(); i++) {
+                if (observableAirports.get(i).getCode() == currentAirportToEdit.getCode()) {
+                    index = i;
+                    break;
+                }
+            }
+            if (index != -1) {
+                observableAirports.set(index, newAirport); // ACTUALIZA la lista
+                saveDataToFile(); // guarda la lista actualizada
+                updateObservableList(); // si necesitas recargar desde el archivo
+                FXUtil.alert("Aeropuerto actualizado correctamente.", "success");
+
+            } else {
+                FXUtil.alert("Error al actualizar aeropuerto.", "error");
+            }
+            currentAirportToEdit = null;
+            btCrear.setText("Crear");
+            tfID.setEditable(false);
+        } else {
+            // Registro nuevo aeropuerto
+            observableAirports.add(newAirport);
+            FXUtil.alert("Aeropuerto registrado correctamente.", "success");
+            saveDataToFile();
+        }
+        cleanFields();
+    }
+
+    private void listarAeropuertos() throws IOException {
+        rbActivos.setOnAction(e -> {
+            try {
+                listarAeropuertos();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+
+        rbInactivos.setOnAction(e -> {
+            try {
+                listarAeropuertos();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+
+        AirPortDatos data = new AirPortDatos(file);
+        ObservableList<AirPort> lista;
+
+        if (rbActivos.isSelected()) {
+            lista = FXCollections.observableArrayList(data.getAllAirPorts("activos"));
+        } else if (rbInactivos.isSelected()) {
+            lista = FXCollections.observableArrayList(data.getAllAirPorts("inactivos"));
+        } else {
+            lista = FXCollections.observableArrayList(data.getAllAirPorts("todos"));
+        }
+
+        tvAirports.setItems(lista);
+    }
+
 }

@@ -113,7 +113,7 @@ public class AdminController {
             Parent root = loader.load();
 
             Stage stage = new Stage();
-            stage.setTitle("Información del Pasajero/Usuario");
+            stage.setTitle("Airports Manager");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {

@@ -7,13 +7,13 @@ module ucr.lab {
     exports ucr.lab;
 
     exports ucr.lab.controller;
-    opens ucr.lab.controller to javafx.fxml;
+    opens ucr.lab.controller to javafx.fxml,java.base;
 
     exports ucr.lab.utility;
     opens ucr.lab.utility to javafx.fxml, com.fasterxml.jackson.databind,com.fasterxml.jackson.datatype.jsr310;
 
     exports ucr.lab.domain;
-    opens ucr.lab.domain to javafx.fxml, com.fasterxml.jackson.databind,com.google.gson;
+    opens ucr.lab.domain to javafx.fxml, com.fasterxml.jackson.databind,com.google.gson, java.base ;
     requires javafx.graphics;
     requires jdk.jshell;
     requires com.fasterxml.jackson.datatype.jsr310;

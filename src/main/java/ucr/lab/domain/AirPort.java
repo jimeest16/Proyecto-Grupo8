@@ -2,24 +2,25 @@ package ucr.lab.domain;
 
 import ucr.lab.TDA.SinglyLinkedList;
 
+import java.util.List;
 import java.util.Objects;
 
 public class AirPort {
     private int code;
     private String name;
     private String country;
-    private boolean active;// IF FALSE NO ACTIVE
-    private SinglyLinkedList departuresBoard;
+    private String status;// IF FALSE NO ACTIVE
+    private Departures departuresBoard;
 
     public AirPort() {
     }
 
-    public AirPort(int code, String name, String country, boolean active, SinglyLinkedList departuresBoard) {
+    public AirPort(int code, String name, String country, String status, Departures departuresBoard) {
         this.code = code;
         this.name = name;
         this.country = country;
-        this.active = active;
-        this.departuresBoard = new SinglyLinkedList(); // Lista de vuelos
+        this.status = status;
+        this.departuresBoard = departuresBoard; // Lista de vuelos
     }
 
     // Getters y Setters
@@ -36,16 +37,16 @@ public class AirPort {
         return country;
     }
 
-    public boolean isActive() {
-        return active;
+    public String getStatus() {
+        return status;
     }
 
-    public SinglyLinkedList getDeparturesBoard() {
+    public Departures getDeparturesBoard() {
         return departuresBoard;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
@@ -53,12 +54,12 @@ public class AirPort {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AirPort airPort = (AirPort) o;
-        return code == airPort.code && active == airPort.active && Objects.equals(name, airPort.name) && Objects.equals(country, airPort.country) && Objects.equals(departuresBoard, airPort.departuresBoard);
+        return code == airPort.code && Objects.equals(name, airPort.name) && Objects.equals(country, airPort.country) && Objects.equals(status, airPort.status) && Objects.equals(departuresBoard, airPort.departuresBoard);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, name, country, active, departuresBoard);
+        return Objects.hash(code, name, country, status, departuresBoard);
     }
 
     @Override
@@ -67,7 +68,7 @@ public class AirPort {
                 "code=" + code +
                 ", name='" + name + '\'' +
                 ", country='" + country + '\'' +
-                ", active=" + active +
+                ", active=" + status +
                 ", departuresBoard=" + departuresBoard +
                 '}';
     }

@@ -1,19 +1,39 @@
 package ucr.lab.utility;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import ucr.lab.domain.AirPort;
 
 import java.io.*;
+import java.io.FileReader;
 import java.lang.reflect.Type;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class AirPortDatos {
-    private final File file;
-    private final Gson gson = new Gson();
+    private File file = new File("src/main/resources/data/airports.json");
+    private Gson gson = new GsonBuilder()
+            .registerTypeAdapter(LocalDate.class, new JsonSerializer<LocalDate>() {
+                @Override
+                public JsonElement serialize(LocalDate src, Type typeOfSrc, JsonSerializationContext context) {
+                    return new JsonPrimitive(src.toString());
+                }
+            })
+            .registerTypeAdapter(LocalDate.class, new JsonDeserializer<LocalDate>() {
+                @Override
+                public LocalDate deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+                    return LocalDate.parse(json.getAsString());
+                }
+            })
+            .setPrettyPrinting()
+            .create();
+
     private final List<AirPort> aeropuertos;
 
     public AirPortDatos(File file) throws IOException {
@@ -60,7 +80,8 @@ public class AirPortDatos {
             System.out.println("Archivo no existe o está vacío, creando lista vacía.");
             return new ArrayList<>();
         }
-        try (Reader reader = new java.io.FileReader(file)) {
+
+        try (Reader reader = new FileReader(file)) {
             Type listType = new TypeToken<List<AirPort>>() {}.getType();
             List<AirPort> loaded = gson.fromJson(reader, listType);
             return loaded != null ? loaded : new ArrayList<>();
@@ -75,21 +96,24 @@ public class AirPortDatos {
             gson.toJson(aeropuertos, writer);
         }
     }
-    public List<AirPort> getAllAirPorts(String status) {
-        return aeropuertos.stream()
-                .filter(a -> {
-                    switch (status.toLowerCase()) {
-                        case "activos":
-                            return a.isActive(); // true = activo
-                        case "inactivos":
-                            return !a.isActive(); // false = inactivo
-                        case "todos":
-                        default:
-                            return true;
-                    }
-                })
-                .collect(Collectors.toList());
+
+    public List<AirPort> getAllAirPorts(String filtro) throws IOException {
+        List<AirPort> result = new ArrayList<>();
+        AirPortDatos data = new AirPortDatos(file); // tu archivo binario de hoteles
+        List<AirPort> listaDesdeArchivo = data.findAll();
+        for (AirPort airport : listaDesdeArchivo) {
+            if (filtro.equalsIgnoreCase("activos") && airport.getStatus().equalsIgnoreCase("Activo")) {
+                result.add(airport);
+            } else if (filtro.equalsIgnoreCase("inactivos") && airport.getStatus().equalsIgnoreCase("Inactivo")) {
+                result.add(airport);
+            } else if (filtro.equalsIgnoreCase("todos")) {
+                result.add(airport);
+            }
+        }
+        return result;
     }
+
+
 
     public AirPort buscarAirPort(int id) {
         return aeropuertos.stream()
@@ -101,19 +125,13 @@ public class AirPortDatos {
         // No resources to close when using Gson + FileWriter
     }
 
-    public void activeAirport(int id) {
-        if (buscar(id)) {
-            buscarAirPort(id).setActive(true);
-        }
-    }
 
-    public void deactiveAirport(int id) {
-        if (buscar(id)) {
-            buscarAirPort(id).setActive(false);
-        }
-    }
 
-    public List<AirPort> findAll() {
-        return new ArrayList<>(aeropuertos);
+    public List<AirPort> findAll() throws IOException {
+        ObjectMapper mapper = JacksonProvider.get();
+        if (!file.exists()) {
+            return new ArrayList<>();
+        }
+        return mapper.readValue(file, new TypeReference<List<AirPort>>() {});
     }
 }

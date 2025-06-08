@@ -6,6 +6,8 @@ import javafx.collections.ObservableList;
 import ucr.lab.TDA.*;
 import ucr.lab.domain.*;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -28,6 +30,7 @@ public class Util {
     }
     ///airports list
     private static ObservableList<AirPort> airPortList = FXCollections.observableArrayList(); //lista para airports
+    private static ObservableList<Departures> departuresList = FXCollections.observableArrayList();
     //constructor estatico, inicializador estatico
 
     public static ObservableList<AirPort> getAirPortList() {
@@ -68,6 +71,54 @@ public class Util {
             }
         }
         return FXCollections.observableArrayList(airPorts);
+    }
+
+    //LISTA DEPARTURES
+    public static ObservableList<Departures> getDeparturesList() {
+        try {
+            File file = new File("src/main/resources/data/departures.json");
+            DeparturesDatos departuresDatos = new DeparturesDatos(file); // archivo json de rooms
+            java.util.List<Departures> listaDesdeArchivo = departuresDatos.getAllDepartures(); // carga desde archivo
+
+            ObservableList<Departures> list = departuresList; // lista observable compartida
+            list.clear(); // limpia la lista actual
+            list.addAll(listaDesdeArchivo); // añade la nueva información
+            return list;
+        } catch (IOException e) {
+            FXUtil.alert("Error", "Could not load hotel data").showAndWait();
+            return FXCollections.observableArrayList(); // retorna lista vacía en caso de error
+        }
+
+    }
+
+    public static void setDeparturestList(ObservableList<Departures> newDeparture) {
+        departuresList.setAll(newDeparture);
+    }
+
+    // Este get es para verificar el contenido de la lista
+    public static DoublyLinkedList getDepartures() {
+        DoublyLinkedList departures = new DoublyLinkedList();
+        for (Departures departure : departuresList) {
+            departures.add(departure);
+            System.out.println(departure);
+        }
+        return departures;
+    }
+
+    //LlENAR LISTAS CON LA INFO DEL ARCHIVO
+    public static void updateObservableList() {
+        try {
+            File file = new File("src/main/resources/data/departures.json");
+            DeparturesDatos departuresDatos = new DeparturesDatos(file); // archivo json de rooms
+            java.util.List<Departures> listaDesdeArchivo = departuresDatos.getAllDepartures(); // carga desde archivo
+
+            ObservableList<Departures> list = Util.getDeparturesList(); // lista observable compartida
+            list.clear(); // limpia la lista actual
+            list.addAll(listaDesdeArchivo); // añade la nueva información
+
+        } catch (IOException e) {
+            FXUtil.alert("Error", "Could not load hotel data").showAndWait();
+        }
     }
 
 

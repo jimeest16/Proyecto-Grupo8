@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.core.type.TypeReference;
 import ucr.lab.domain.AirPort;
+import ucr.lab.domain.Departures;
 import ucr.lab.domain.Passenger;
 import ucr.lab.domain.User;
 
@@ -17,6 +18,7 @@ public class FileReader {
     private static final String FILE_USER = "src/main/resources/data/user.json";
     private static final String FILE_AIRPORT = "src/main/resources/data/airports.json";
     private static final String FILE_PASSENGER = "src/main/resources/data/passengers.json";
+    private static final String FILE_DEPARTURES = "src/main/resources/data/departures.json";
 
     private static ObjectMapper mapper = new ObjectMapper();
 
@@ -24,6 +26,7 @@ public class FileReader {
         mapper.registerModule(new JavaTimeModule());
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
     }
+
 
     // Cargar lista de usuarios
     public static List<User> loadUsers() {
@@ -108,5 +111,31 @@ public class FileReader {
         List<Passenger> passengers = loadPassengers();
         passengers.add(newPassenger);
         savePassengers(passengers);
+    }
+
+    // Cargar lista de salidas
+    public static List<Departures> loadDepartures() {
+        try {
+            File file = new File(FILE_DEPARTURES);
+            if (!file.exists()) return new ArrayList<>();
+            return mapper.readValue(file, new TypeReference<List<Departures>>() {});
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    public static void saveDepartures(List<Departures> departures) {
+        try {
+            mapper.writerWithDefaultPrettyPrinter().writeValue(new File(FILE_DEPARTURES), departures);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void addDepartures(Departures newDeparture) {
+        List<Departures> departures = loadDepartures();
+        departures.add(newDeparture);
+        saveDepartures(departures);
     }
 }
