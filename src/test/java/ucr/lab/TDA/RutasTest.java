@@ -8,57 +8,57 @@ class RutasTest {
 
     @Test
     public void test(){
-            try {
-                SpecialSinglyLinkedListGraph graph = new SpecialSinglyLinkedListGraph();
 
-                // Agregar vértices (aeropuertos)
-                graph.addVertex("SJO");
-                graph.addVertex("LIR");
-                graph.addVertex("TNO");
-                graph.addVertex("PBP");
+                try {
+                    SpecialSinglyLinkedListGraph graph = new SpecialSinglyLinkedListGraph();
 
-                // Agregar aristas con pesos
-                graph.addEdgeWeight("SJO", "LIR", 150);
-                graph.addEdgeWeight("SJO", "TNO", 100);
-                graph.addEdgeWeight("LIR", "TNO", 80);
-                graph.addEdgeWeight("TNO", "PBP", 120);
-                graph.addEdgeWeight("LIR", "PBP", 200);
+                    // Agregar vértices
+                    graph.addVertex("A");
+                    graph.addVertex("B");
+                    graph.addVertex("C");
+                    graph.addVertex("D");
 
-                // Imprimir grafo completo
-                System.out.println("Grafo inicial:");
-                System.out.println(graph);
+                    // Agregar aristas
+                    graph.addEdgeWeight("A", "B", 2);
+                    graph.addEdgeWeight("A", "C", 4);
+                    graph.addEdgeWeight("B", "D", 3);
+                    graph.addEdgeWeight("C", "D", 1);
 
-                // Modificar peso de una ruta
-                graph.modificarRuta("SJO", "TNO", 90);
-                System.out.println("\nDespués de modificar peso de SJO -> TNO:");
-                System.out.println(graph);
+                    // Mostrar grafo
+                    System.out.println(graph);
 
-                // Prueba DFS y BFS
-                System.out.println("\nRecorrido DFS:");
-                System.out.println(graph.dfs());
+                    // Contiene vértices
+                    System.out.println("Contiene vértice B: " + graph.containsVertex("B")); // true
 
-                System.out.println("\nRecorrido BFS:");
-                System.out.println(graph.bfs());
-
-                // Eliminar una arista
-                graph.removeEdge("LIR", "TNO");
-                System.out.println("\nDespués de eliminar arista LIR -> TNO:");
-                System.out.println(graph);
-
-                // Eliminar un vértice
-                graph.removeVertex("PBP");
-                System.out.println("\nDespués de eliminar vértice PBP:");
-                System.out.println(graph);
+                    // Contiene arista
+                    System.out.println("Contiene arista A→B: " + graph.containsEdge("A", "B")); // true
+                    System.out.println("Contiene arista B→A: " + graph.containsEdge("B", "A")); // false ( ya que es dirigido): no acepta doble direccion
 
 
-                int[] anteriores = graph.dijkstra("SJO", "TNO");
-                System.out.println("\nArray de nodos anteriores en Dijkstra desde SJO a TNO:");
-                for (int i = 1; i <= anteriores.length - 1; i++) {
-                    System.out.println("Vertice " + i + " anterior: " + anteriores[i]);
+                    // Algoritmo de Dijkstra
+                    int[] dijkstraResult = graph.dijkstra("A", "D");
+                    System.out.print("Camino Dijkstra A→D: ");
+                    printPath(dijkstraResult, graph.indexOf("D"));
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            // metodo: imprima el arreglo del algortimo dijsktra
+            private static void printPath(int[] anterior, int destino) {
+                if (destino == -1 || anterior[destino] == -1) { // cuando el camino es -1 significa que no hya camino
+                    System.out.println("No hay camino");
+                    return;
                 }
 
-            } catch (Exception e) {
-                e.printStackTrace();
+                StringBuilder path = new StringBuilder(); // imprimir el camino
+                while (destino != -1) { //mientras no sea -1
+                    path.insert(0, destino + " ");  // insertar cada indice en la cadena del camino
+                    destino = anterior[destino];
+                }
+                System.out.println(path.toString().trim()); // imprimirla
             }
         }
-    }
+
+
