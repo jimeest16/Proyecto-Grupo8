@@ -8,158 +8,158 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.layout.HBox?>
 <TabPane prefHeight="585.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.AdminController">
 
     <tabs>
-      <Tab style="-fx-background-color: #e1e4e7;" text="Welcome">
-         <content>
-            <VBox spacing="20" style="-fx-background-color: #ebedee;">
-               <children>
-                  <Pane prefHeight="183.0" prefWidth="600.0">
-                     <children>
-                         <ImageView fitHeight="126.0" fitWidth="204.0" layoutX="282.0" layoutY="74.0">
-                             <image>
-                                 <Image url="@aerolinea.png" />
-                             </image>
-                         </ImageView>
-                        <Text fill="#548bc1" layoutX="269.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome ">
-                           <font>
-                              <Font name="Elephant" size="43.0 " />
-                           </font>
-                        </Text>
-                        <Text fill="#232e39" layoutX="272.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="to our aviation system" wrappingWidth="328.5797119140625">
-                           <font>
-                              <Font name="Elephant" size="17.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Pane>
-                  <Pane prefHeight="356.0" prefWidth="817.0">
-                     <children>
-                        <Text layoutX="26.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="482.13671875">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
+        <Tab style="-fx-background-color: #e1e4e7;" text="Welcome">
+            <content>
+                <VBox spacing="20" style="-fx-background-color: #ebedee;">
+                    <children>
+                        <Pane prefHeight="183.0" prefWidth="600.0">
+                            <children>
+                                <ImageView fitHeight="126.0" fitWidth="204.0" layoutX="282.0" layoutY="74.0">
+                                    <image>
+                                        <Image url="@aerolinea.png" />
+                                    </image>
+                                </ImageView>
+                                <Text fill="#548bc1" layoutX="269.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome ">
+                                    <font>
+                                        <Font name="Elephant" size="43.0 " />
+                                    </font>
+                                </Text>
+                                <Text fill="#232e39" layoutX="272.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="to our aviation system" wrappingWidth="328.5797119140625">
+                                    <font>
+                                        <Font name="Elephant" size="17.0" />
+                                    </font>
+                                </Text>
+                            </children>
+                        </Pane>
+                        <Pane prefHeight="356.0" prefWidth="817.0">
+                            <children>
+                                <Text layoutX="26.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="482.13671875">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Text>
 
-                                    <Text layoutX="41.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flights" wrappingWidth="63.13671875">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Text>
-                        <Text fill="#44759a" layoutX="279.0" layoutY="6.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click on the tab menu to manage" wrappingWidth="317.13671875">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Text>
-                         <ImageView fitHeight="74.0" fitWidth="85.0" layoutX="30.0" layoutY="243.0">
-                             <image>
-                                 <Image url="@avion.2.png" />
-                             </image>
-                         </ImageView>
+                                <Text layoutX="41.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flights" wrappingWidth="63.13671875">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Text>
+                                <Text fill="#44759a" layoutX="279.0" layoutY="6.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click on the tab menu to manage" wrappingWidth="317.13671875">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Text>
+                                <ImageView fitHeight="74.0" fitWidth="85.0" layoutX="30.0" layoutY="243.0">
+                                    <image>
+                                        <Image url="@avion.2.png" />
+                                    </image>
+                                </ImageView>
 
-                        <ImageView fitHeight="82.0" fitWidth="104.0" layoutX="215.0" layoutY="239.0">
-                           <image>
-                              <Image url="@ruta.png" />
-                           </image>
-                        </ImageView>
-                         <ImageView fitHeight="77.0" fitWidth="93.0" layoutX="667.0" layoutY="242.0">
-                             <image>
-                                 <Image url="@aeropuerto2.png" />
-                             </image>
-                         </ImageView>
-                         <ImageView fitHeight="82.0" fitWidth="104.0" layoutX="407.0" layoutY="239.0">
-                             <image>
-                                 <Image url="@pasajeros.png" />
-                             </image>
-                         </ImageView>
-                        <Text layoutX="23.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Create a flight" wrappingWidth="162.13671875">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="23.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Assign passengers" wrappingWidth="162.13671875">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="23.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Display active and completed flights" wrappingWidth="162.13671875">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="23.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Simulate a flight" wrappingWidth="162.13671875">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="235.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Routes" wrappingWidth="63.13671875">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="438.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passanger" wrappingWidth="83.13671875">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="667.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Airports" wrappingWidth="63.13671875">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="204.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Add route" wrappingWidth="162.13671875">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="204.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Modify route" wrappingWidth="162.13671875">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="416.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Check in, new passenger" wrappingWidth="160.13671875">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="416.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Search passenger ID" wrappingWidth="160.13671875">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="416.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Display flight history" wrappingWidth="160.13671875">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="628.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Create, edit, eliminate " wrappingWidth="171.13671875">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="628.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅List airports " wrappingWidth="171.13671875">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="638.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Activate or desactivate " wrappingWidth="171.13671875">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Pane>
-               </children>
-            </VBox>
-         </content>
-      </Tab>
+                                <ImageView fitHeight="82.0" fitWidth="104.0" layoutX="215.0" layoutY="239.0">
+                                    <image>
+                                        <Image url="@ruta.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="77.0" fitWidth="93.0" layoutX="667.0" layoutY="242.0">
+                                    <image>
+                                        <Image url="@aeropuerto2.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="82.0" fitWidth="104.0" layoutX="407.0" layoutY="239.0">
+                                    <image>
+                                        <Image url="@pasajeros.png" />
+                                    </image>
+                                </ImageView>
+                                <Text layoutX="23.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Create a flight" wrappingWidth="162.13671875">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Text>
+                                <Text layoutX="23.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Assign passengers" wrappingWidth="162.13671875">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Text>
+                                <Text layoutX="23.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Display active and completed flights" wrappingWidth="162.13671875">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Text>
+                                <Text layoutX="23.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Simulate a flight" wrappingWidth="162.13671875">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Text>
+                                <Text layoutX="235.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Routes" wrappingWidth="63.13671875">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Text>
+                                <Text layoutX="438.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passanger" wrappingWidth="83.13671875">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Text>
+                                <Text layoutX="667.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Airports" wrappingWidth="63.13671875">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Text>
+                                <Text layoutX="204.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Add route" wrappingWidth="162.13671875">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Text>
+                                <Text layoutX="204.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Modify route" wrappingWidth="162.13671875">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Text>
+                                <Text layoutX="416.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Check in, new passenger" wrappingWidth="160.13671875">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Text>
+                                <Text layoutX="416.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Search passenger ID" wrappingWidth="160.13671875">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Text>
+                                <Text layoutX="416.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Display flight history" wrappingWidth="160.13671875">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Text>
+                                <Text layoutX="628.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Create, edit, eliminate " wrappingWidth="171.13671875">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Text>
+                                <Text layoutX="628.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅List airports " wrappingWidth="171.13671875">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Text>
+                                <Text layoutX="638.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="✅Activate or desactivate " wrappingWidth="171.13671875">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                </Text>
+                            </children>
+                        </Pane>
+                    </children>
+                </VBox>
+            </content>
+        </Tab>
         <Tab style="-fx-background-color: #e1e4e7;" text="Manage Flights">
             <content>
                 <VBox spacing="20" style="-fx-background-color: #ebedee;">
@@ -175,9 +175,9 @@
                     </Pane>
                     <Pane prefHeight="277.0" prefWidth="600.0">
                         <children>
-                            <Button layoutX="231.0" layoutY="117.0" onAction="#editUser" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #d4d9dd;" text="Eliminar Vuelo" />
-                            <Button layoutX="40.0" layoutY="117.0" onAction="#deleteUser" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #d4d9dd;" text="Modificar Vuelo" />
-                            <Button layoutX="417.0" layoutY="117.0" onAction="#addUser" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #d4d9dd;" text="Agregar Vuelo" />
+                            <Button layoutX="231.0" layoutY="117.0" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #d4d9dd;" text="Eliminar Vuelo" />
+                            <Button layoutX="40.0" layoutY="117.0" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #d4d9dd;" text="Modificar Vuelo" />
+                            <Button layoutX="417.0" layoutY="117.0" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #d4d9dd;" text="Agregar Vuelo" />
                             <Pane layoutX="-5.0" layoutY="-17.0" prefHeight="94.0" prefWidth="607.0">
                                 <children>
                                     <Text layoutX="40.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenid@ administrador@:">
@@ -252,19 +252,19 @@
                             <Pane layoutX="-95.0" layoutY="31.0" prefHeight="77.0" prefWidth="669.0">
                                 <VBox layoutX="33.0" layoutY="27.0" spacing="10" />
                                 <Pane layoutX="118.0" layoutY="69.0" prefHeight="75.0" prefWidth="446.0" />
-                        <Text layoutX="396.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="the best way!">
-                           <font>
-                              <Font name="Elephant" size="21.0" />
-                           </font>
-                        </Text>
+                                <Text layoutX="396.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="the best way!">
+                                    <font>
+                                        <Font name="Elephant" size="21.0" />
+                                    </font>
+                                </Text>
                             </Pane>
                         </children>
                     </Pane>
                     <Pane prefHeight="472.0" prefWidth="811.0">
                         <children>
-                            <Button layoutX="229.0" layoutY="34.0" onAction="#deleteUser" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #d4d9dd;" text="Eliminar Pasajero" />
-                            <Button layoutX="24.0" layoutY="34.0" onAction="#editUser" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #d4d9dd;" text="Modificar Pasajero" />
-                            <Button layoutX="427.0" layoutY="28.0" onAction="#addUser" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #d4d9dd;" text="Agregar Pasajero" />
+                            <Button layoutX="229.0" layoutY="34.0"  prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #d4d9dd;" text="Eliminar Pasajero" onAction="#deleteUser" />
+                            <Button layoutX="24.0" layoutY="34.0" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #d4d9dd;" text="Modificar Pasajero" onAction="#editUser" />
+                            <Button layoutX="427.0" layoutY="28.0" prefHeight="25.0" prefWidth="124.0" style="-fx-background-color: #d4d9dd;" text="Agregar Pasajero" onAction="#addUser"/>
                             <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="59.0" layoutY="-6.0">
                                 <image>
                                     <Image url="@editar.png" />
@@ -280,22 +280,23 @@
                                     <Image url="@user.png" />
                                 </image>
                             </ImageView>
-                            
-                     <Pane layoutX="13.0" layoutY="59.0" prefHeight="413.0" prefWidth="799.0">
-                        <children>
-                           <Label layoutX="41.0" layoutY="17.0" text="ID:" />
-                           <TextField fx:id="txtId" layoutX="158.0" layoutY="13.0" promptText="ID del pasajero" />
-                           <Label layoutX="40.0" layoutY="45.0" text="Nombre:" />
-                           <TextField fx:id="txtName" layoutX="158.0" layoutY="41.0" promptText="Nombre del pasajero" />
-                           <Label layoutX="39.0" layoutY="81.0" text="Nacionalidad:" />
-                           <TextField fx:id="txtNationality" layoutX="158.0" layoutY="77.0" prefHeight="25.0" prefWidth="148.0" promptText="Nacionalidad del pasajero" />
-                           <Label layoutX="25.0" layoutY="120.0" text="Historial de vuelos:" />
-                           <TextField fx:id="txtHistory" layoutX="158.0" layoutY="116.0" promptText="Historial (opcional)" />
-                           <Button layoutX="25.0" layoutY="150.0" onAction="#handleListPassengers" style="-fx-background-color: #82baf3;" text="Listar todos" textFill="#fff9f9" />
-                           <TextArea fx:id="txtOutput" layoutX="25.0" layoutY="182.0" prefHeight="207.0" prefRowCount="10" prefWidth="689.0" wrapText="true" />
-                        </children>
-                     </Pane>
-                     <Button layoutX="633.0" layoutY="34.0" onAction="#handleSearchPassenger" style="-fx-background-color: #d4d9dd;" text="Buscar pasajero" />
+
+                            <Pane layoutX="13.0" layoutY="59.0" prefHeight="413.0" prefWidth="799.0">
+                                <children>
+                                    <Label layoutX="41.0" layoutY="17.0" text="ID:" />
+                                    <TextField fx:id="txtId" layoutX="158.0" layoutY="13.0" promptText="ID del pasajero" />
+                                    <Label layoutX="40.0" layoutY="45.0" text="Nombre:" />
+                                    <TextField fx:id="txtName" layoutX="158.0" layoutY="41.0" promptText="Nombre del pasajero" />
+                                    <Label layoutX="39.0" layoutY="81.0" text="Nacionalidad:" />
+                                    <TextField fx:id="txtNationality" layoutX="158.0" layoutY="77.0" prefHeight="25.0" prefWidth="148.0" promptText="Nacionalidad del pasajero" />
+                                    <Label layoutX="25.0" layoutY="120.0" text="Historial de vuelos:" />
+                                    <TextField fx:id="txtHistory" layoutX="158.0" layoutY="116.0" promptText="Historial (opcional)" />
+                                    <Button layoutX="25.0" layoutY="150.0" style="-fx-background-color: #82baf3;" text="Listar todos" textFill="#fff9f9" onAction="#handleListPassengers" />
+
+                                    <TextArea fx:id="txtOutput" layoutX="25.0" layoutY="182.0" prefHeight="207.0" prefRowCount="10" prefWidth="689.0" wrapText="true" />
+                                </children>
+                            </Pane>
+                            <Button layoutX="633.0" layoutY="34.0"  style="-fx-background-color: #d4d9dd;" text="Buscar pasajero" onAction="#handleSearchPassenger" />
                             <ImageView fitHeight="45.0" fitWidth="64.0" layoutX="650.0" layoutY="-14.0">
                                 <image>
                                     <Image url="@buscador.png" />
@@ -306,20 +307,20 @@
                 </VBox>
             </content>
         </Tab>
-      <Tab onSelectionChanged="#airportManager" style="-fx-background-color: #babcbe;" text="Manage Airport">
-         <content>
-            <VBox alignment="CENTER" spacing="20" style="-fx-padding: 30;">
-               <children>
-                  <Pane prefHeight="50">
-                     <children>
-                        <Label layoutX="135.0" layoutY="12.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
-                     </children>
-                  </Pane>
-                  <Pane />
-               </children>
-            </VBox>
-         </content>
-      </Tab>
+        <Tab onSelectionChanged="#airportManager" style="-fx-background-color: #babcbe;" text="Manage Airport">
+            <content>
+                <VBox alignment="CENTER" spacing="20" style="-fx-padding: 30;">
+                    <children>
+                        <Pane prefHeight="50">
+                            <children>
+                                <Label layoutX="135.0" layoutY="12.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+                            </children>
+                        </Pane>
+                        <Pane />
+                    </children>
+                </VBox>
+            </content>
+        </Tab>
         <Tab style="-fx-background-color: #acadaf;" text="Manage routes">
             <content>
                 <VBox spacing="20" style="-fx-background-color: #ebedee;">
@@ -340,21 +341,21 @@
                         </Pane>
 
 
-                        <VBox spacing="10" alignment="CENTER" prefWidth="600.0" style="-fx-padding: 10;">
+                        <VBox alignment="CENTER" prefWidth="600.0" spacing="10" style="-fx-padding: 10;">
                             <children>
-                                <TextField fx:id="txtOrigin" promptText="Origin Airport" prefWidth="400"/>
-                                <TextField fx:id="txtDestination" promptText="Destination Airport" prefWidth="400"/>
-                                <TextField fx:id="txtDistance" promptText="Distance (km or minutes)" prefWidth="400"/>
+                                <TextField fx:id="txtOrigin" prefWidth="400" promptText="Origin Airport" />
+                                <TextField fx:id="txtDestination" prefWidth="400" promptText="Destination Airport" />
+                                <TextField fx:id="txtDistance" prefWidth="400" promptText="Distance (km or minutes)" />
 
-                                <HBox spacing="10" alignment="CENTER">
+                                <HBox alignment="CENTER" spacing="10">
                                     <children>
-                                        <Button text="Add Route" onAction="#addRoute" />
-                                        <Button text="Modify Route" onAction="#modifyRoute" />
-                                        <Button text="Shortest Path" onAction="#shortestPath" />
+                                        <Button onAction="#addRoute" text="Add Route" />
+                                        <Button onAction="#modifyRoute" text="Modify Route" />
+                                        <Button onAction="#shortestPath" text="Shortest Path" />
                                     </children>
                                 </HBox>
 
-                                <TextArea fx:id="txtOutput" editable="false" prefWidth="500" prefHeight="150"/>
+                                <TextArea fx:id="textArea" editable="false" prefHeight="150" prefWidth="500" />
                             </children>
                         </VBox>
                     </children>
@@ -366,11 +367,11 @@
         <Tab style="-fx-background-color: #a2a4a6;" text="Log out">
             <content>
                 <VBox alignment="CENTER" spacing="20" style="-fx-padding: 30;">
-               <Text fill="#494f86" strokeType="OUTSIDE" strokeWidth="0.0" text="See you soon...">
-                  <font>
-                     <Font name="Elephant" size="43.0" />
-                  </font>
-               </Text>
+                    <Text fill="#494f86" strokeType="OUTSIDE" strokeWidth="0.0" text="See you soon...">
+                        <font>
+                            <Font name="Elephant" size="43.0" />
+                        </font>
+                    </Text>
 
                     <Pane prefHeight="50">
                         <Label layoutX="134.0" layoutY="1.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Press here to close your account" />

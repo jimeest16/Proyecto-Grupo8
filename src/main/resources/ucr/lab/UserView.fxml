@@ -70,7 +70,7 @@
             </graphic>
         </Tab>
 
-    
+
 
         <Tab fx:id="tabLogout" text="Log Out">
             <content>

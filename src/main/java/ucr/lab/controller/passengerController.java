@@ -1,41 +1,24 @@
 package ucr.lab.controller;
 
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import ucr.lab.TDA.AVLTree;
-import ucr.lab.TDA.BTreeNode;
 import ucr.lab.TDA.TreeException;
 import ucr.lab.domain.Passenger;
 import ucr.lab.utility.FileReader;
 
 import java.util.List;
 
-public class AdminController {
-    
-    private AVLTree passengerTree;
-    @FXML private TextField txtId;
+public class passengerController {
+    @FXML
+    private TextField txtId;
     @FXML private TextField txtName;
     @FXML private TextField txtNationality;
     @FXML private TextField txtHistory;
     @FXML private TextArea txtOutput; // del user
 
     private AVLTree avlTree = new AVLTree();
-
-
-    public AdminController() {
-        passengerTree = new AVLTree();
-        loadPassengers();
-
-    }
 
     @FXML
     public void initialize() {
@@ -48,26 +31,11 @@ public class AdminController {
             appendOutput("Error al cargar pasajeros en el árbol: " + e.getMessage());
         }
     }
-    private void loadPassengers() {
-        List<Passenger> passengers = FileReader.loadPassengers();
-        for (Passenger p : passengers) {
-            try {
-                passengerTree.add(p);
-            } catch (TreeException e) {
-                e.printStackTrace();
-                appendOutput("Error cargando pasajero: " + p);
-            }
-        }
-        appendOutput("Pasajeros cargados: " + passengers.size());
-    }
-
     private void appendOutput(String text) {
         if (txtOutput != null) {
             txtOutput.appendText(text + "\n");
         }
     }
-
-
     @FXML
     private void addUser () {
         try {
@@ -252,58 +220,4 @@ public class AdminController {
         txtNationality.clear();
         txtHistory.clear();
     }
-
-    @FXML
-    private void userManager(){
-        // una nueva pestaña
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ucr/lab/PassengerView.fxml"));
-            Parent root = loader.load();
-
-            Stage stage = new Stage();
-            stage.setTitle("Passenger Manager");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-            appendOutput("Error al abrir la ventana para agregar usuario: " + e.getMessage());
-        }
-    }
-    @FXML
-    private void airportManager () {
-        // una nueva pestaña
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ucr/lab/AirPortView.fxml"));
-            Parent root = loader.load();
-
-            Stage stage = new Stage();
-            stage.setTitle("Airports Manager");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-            appendOutput("Error al abrir la ventana para agregar usuario: " + e.getMessage());
-        }
-    }
-    private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
-        Alert alert = new Alert(tipo);
-        alert.setTitle(titulo);
-        alert.setHeaderText(null);
-        alert.setContentText(mensaje);
-        alert.showAndWait();
-    }
-    @FXML
-    private void logout() {
-        Platform.exit();
-    }
-
-    public void addRoute(ActionEvent actionEvent) {
-    }
-
-    public void modifyRoute(ActionEvent actionEvent) {
-    }
-
-    public void shortestPath(ActionEvent actionEvent) {
-    }
-
 }

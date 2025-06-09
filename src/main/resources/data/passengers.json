@@ -1,14 +1,8 @@
 [ {
-  "id" : 5,
-  "name" : "Patricia",
-  "nationality" : "Costa Rica",
-  "flightHistory" : [ "MEX-CR" ],
-  "state" : null
-}, {
   "id" : 6,
-  "name" : "Isabela Mora",
+  "name" : "Jimena Salas",
   "nationality" : "Costa Rica",
-  "flightHistory" : [ "CR-USA" ],
+  "flightHistory" : [ "CR-MEX" ],
   "state" : null
 }, {
   "id" : 7,
