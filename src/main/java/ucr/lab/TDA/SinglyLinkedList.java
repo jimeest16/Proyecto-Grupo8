@@ -261,7 +261,7 @@ public class SinglyLinkedList implements List {
     public String toString() {
         if (isEmpty())
             return "Singly Linked List is empty";
-        StringBuilder result = new StringBuilder("List Content:\n");
+        StringBuilder result = new StringBuilder(":\n");
         Node current = this.first; //aux para moverme por la lista y no perder el puntero al incio
         String instance = instanceOf(first.data, first.data);
         boolean isClass = !instance.equals("Integer") && !instance.equals("Double") && !instance.equals("Character") && !instance.equals("String");

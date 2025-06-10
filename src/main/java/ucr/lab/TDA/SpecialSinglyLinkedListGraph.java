@@ -209,23 +209,41 @@ public class SpecialSinglyLinkedListGraph implements Graph {
     }
 
     @Override
-        public String toString() {
-            String result = "Singly Linked List Graph Content...";
-            try {
-                for(int i=1; i<=vertexList.size(); i++){
-                    Vertex vertex = (Vertex)vertexList.getNode(i).data;
-                    result+="\nThe vertex in the position "+i+" is: "+vertex;
-                    if(!vertex.edgesList.isEmpty()){
-                        result+="........EDGES AND WEIGHTS: "+vertex.edgesList;
-                    }//if
+//        public String toString() {
+//            String result = "Singly Linked List Graph Content...";
+//            try {
+//                for(int i=1; i<=vertexList.size(); i++){
+//                    Vertex vertex = (Vertex)vertexList.getNode(i).data;
+//                    result+="\nThe vertex in the position "+i+" is: "+vertex;
+//                    if(!vertex.edgesList.isEmpty()){
+//                        result+="........EDGES AND WEIGHTS: "+vertex.edgesList;
+//                    }//if
+//
+//                }//for
+//            } catch (ListException ex) {
+//                System.out.println(ex.getMessage());
+//            }
+//
+//            return result;
+//        }
+    public String toString() {
+        String result = "...Cargando aeropuertos-rutas y sus pesos...";
+        try {
+            for(int i=1; i<=vertexList.size(); i++){
+                Vertex vertex = (Vertex)vertexList.getNode(i).data;
+                result+="\n First N° "+i+" is: "+vertex;
+                if(!vertex.edgesList.isEmpty()){
+                    result+="\n........RUTAS-PESOS: "+vertex.edgesList;
+                }//if
 
-                }//for
-            } catch (ListException ex) {
-                System.out.println(ex.getMessage());
-            }
-
-            return result;
+            }//for
+        } catch (ListException ex) {
+            System.out.println(ex.getMessage());
         }
+
+        return result;
+    }
+
 
 
     public int[] dijkstra(Object origen, Object destino) throws Exception {
@@ -236,7 +254,9 @@ public class SpecialSinglyLinkedListGraph implements Graph {
         int[] anterior = new int[n + 1];
 
         for (int i = 1; i <= n; i++) {
+
             distancia[i] = Double.MAX_VALUE;
+
             visitado[i] = false;
             anterior[i] = -1;
         }
@@ -293,6 +313,58 @@ public class SpecialSinglyLinkedListGraph implements Graph {
 
         return indiceMin;
     }
+    public String imprimirCaminoMasCorto(Object origen, Object destino) throws Exception {
+        if (isEmpty())
+            throw new GraphException("El grafo está vacío");
+
+        int[] anterior = dijkstra(origen, destino);
+        int destinoIndex = indexOf(destino);
+
+        if (anterior[destinoIndex] == -1)
+            return "No hay camino desde " + origen + " hasta " + destino;
+
+        // Reconstruimos el camino en orden inverso
+        LinkedStack camino = new LinkedStack();
+        int actual = destinoIndex;
+        while (actual != -1) {
+            camino.push(actual);
+            actual = anterior[actual];
+        }
+
+        // Imprimir el camino y calcular distancia total
+        double distanciaTotal = 0.0;
+        StringBuilder resultado = new StringBuilder("Camino más corto: ");
+
+        int anteriorNodo = -1;
+        while (!camino.isEmpty()) {
+            int indice = (int) camino.pop();
+            Vertex v = (Vertex) vertexList.getNode(indice).data;
+            resultado.append(v.getData());
+
+            if (!camino.isEmpty())
+                resultado.append(" -> ");
+
+            if (anteriorNodo != -1) {
+                Vertex anteriorVertice = (Vertex) vertexList.getNode(anteriorNodo).data;
+
+                // Buscar el peso entre anteriorNodo y actual
+                for (int i = 1; i <= anteriorVertice.edgesList.size(); i++) {
+                    EdgeWeight edge = (EdgeWeight) anteriorVertice.edgesList.getNode(i).data;
+                    if (compare(edge.getEdge(), v.getData()) == 0) {
+                        Object pesoObj = edge.getWeight();
+                        double peso = (pesoObj instanceof Number) ? ((Number) pesoObj).doubleValue() : 1.0;
+                        distanciaTotal += peso;
+                        break;
+                    }
+                }
+            }
+            anteriorNodo = indice;
+        }
+
+        resultado.append("\nDistancia total: ").append(distanciaTotal);
+        return resultado.toString();
+    }
+
 
     public void agregarRuta(Object origen, Object destino, Object peso) throws Exception {
         if (!containsVertex(origen)) {
@@ -312,5 +384,10 @@ public class SpecialSinglyLinkedListGraph implements Graph {
         }
         addWeight(origen, destino, nuevoPeso);
     }
+
+    public String getVertexName(int index) throws ListException {
+        return vertexList.getNode(index).data.toString();
+    }
+
 
 }

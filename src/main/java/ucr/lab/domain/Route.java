@@ -1,43 +1,52 @@
 package ucr.lab.domain;
 
-import ucr.lab.TDA.SinglyLinkedList;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import ucr.lab.domain.Destination;
 
-// OBJETIVO:
-//agregar rutas
-//modificar rutas
-//calcular la ruta mas corta disjtra
+import java.util.ArrayList;
+import java.util.List;
 
-//IMPORTANTE:
-// agregar y modificar va en la parte del admin
-// el usuario solo puede ver la ruta mas corta entre dos aeropuertos
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Route {
-    private int originAirportCode;
-    private SinglyLinkedList destinationList; // lista de objetos Destination
 
-    public Route(int originAirportCode) {
+    @JsonProperty("origin_airport")
+    private int originAirportCode;
+
+    @JsonProperty("destinationList")  // Aquí coincide con el JSON que tienes
+    private List<Destination> destinationList = new ArrayList<>();
+
+    // Constructor, getters y setters
+
+    public Route() {
+    }
+
+    public Route(int originAirportCode, List<Destination> destinationList) {
         this.originAirportCode = originAirportCode;
-        this.destinationList = new SinglyLinkedList();
+        this.destinationList = destinationList != null ? destinationList : new ArrayList<>();
     }
 
     public int getOriginAirportCode() {
         return originAirportCode;
     }
 
-    public SinglyLinkedList getDestinationList() {
+    public void setOriginAirportCode(int originAirportCode) {
+        this.originAirportCode = originAirportCode;
+    }
+
+    public List<Destination> getDestinationList() {
         return destinationList;
     }
 
-    public void addDestination(int destAirportCode, double distance) {
-        destinationList.add(new Destination(destAirportCode, distance));
+    public void setDestinationList(List<Destination> destinationList) {
+        this.destinationList = destinationList;
     }
 
     @Override
     public String toString() {
-        return "Ruta desde aeropuerto " + originAirportCode + ": " + destinationList.toString();
+        return "Route{" +
+                "originAirportCode=" + originAirportCode +
+                ", destinationList=" + destinationList +
+                '}';
     }
-    // cada ruta puede ser:
-    // se ouede agregar una ruta cn peso en kilometros
-    // modificar una ruta-> cambiar distancia
-    // calcular al ruta mas corta entre dos aeropuertos utilizando disjsktra
 }

@@ -1,0 +1,22 @@
+[
+  {
+    "origin_airport": 1,
+    "destinationList": [
+      { "airport_code": 3, "distance": 450.5 },
+      { "airport_code": 12, "distance": 1200.75 }
+    ]
+  },
+  {
+    "origin_airport": 5,
+    "destinationList": [
+      { "airport_code": 9, "distance": 800.0 },
+      { "airport_code": 6, "distance": 950.25 }
+    ]
+  },
+  {
+    "origin_airport": 2,
+    "destinationList": [
+      { "airport_code": 1, "distance": 2450.0 }
+    ]
+  }
+]

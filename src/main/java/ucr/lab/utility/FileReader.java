@@ -1,17 +1,16 @@
 package ucr.lab.utility;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import ucr.lab.TDA.CircularDoublyLinkedList;
 import ucr.lab.TDA.CircularLinkedList;
 import ucr.lab.TDA.ListException;
-import ucr.lab.domain.AirPort;
-import ucr.lab.domain.Departures;
-import ucr.lab.domain.Flight;
-import ucr.lab.domain.Passenger;
-import ucr.lab.domain.User;
+import ucr.lab.domain.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,14 +24,16 @@ public class FileReader {
     private static final String FILE_AIRPORT = "src/main/resources/data/airports.json";
     private static final String FILE_PASSENGER = "src/main/resources/data/passengers.json";
     private static final String FILE_DEPARTURES = "src/main/resources/data/departures.json";
-
     private static final String FILE_FLIGHTS = "src/main/resources/data/flights.json";
+    private static final String FILE_ROUTES = "src/main/resources/data/rutas.json";
     private static ObjectMapper mapper = new ObjectMapper();
 
     static {
         mapper.registerModule(new JavaTimeModule());
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+        mapper.setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
     }
+
 
     // Cargar lista de usuarios
     public static List<User> loadUsers() {
@@ -222,5 +223,37 @@ public class FileReader {
         }
         return flightList;
     }
+
+    // RUTAS
+
+
+    public static List<Route> loadRoutes() {
+        try {
+            File file = new File(FILE_ROUTES);
+            if (!file.exists()) return new ArrayList<>();
+            return mapper.readValue(file, new TypeReference<List<Route>>() {});
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    // Guardar lista de rutas
+    public static void saveRoutes(List<Route> routes) {
+        try {
+            mapper.writerWithDefaultPrettyPrinter().writeValue(new File(FILE_ROUTES), routes);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Añadir una nueva ruta
+    public static void addRoute(Route newRoute) {
+        List<Route> routes = loadRoutes();
+        routes.add(newRoute);
+        saveRoutes(routes);
+    }
+
+
 
 }

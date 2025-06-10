@@ -113,7 +113,10 @@ public class AirPortDatos {
         return result;
     }
 
-
+    public static List<AirPort> get() throws IOException {
+        AirPortDatos datos = new AirPortDatos(new File("src/main/resources/data/airports.json"));
+        return datos.loadFromFile();  // o usa datos.findAll() si prefieres usar Jackson
+    }
 
     public AirPort buscarAirPort(int id) {
         return aeropuertos.stream()

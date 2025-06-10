@@ -18,6 +18,22 @@ public class Vertex {
         this.visited = visited;
     }
 
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
+
+    public SinglyLinkedList getEdgesList() {
+        return edgesList;
+    }
+
+    public void setEdgesList(SinglyLinkedList edgesList) {
+        this.edgesList = edgesList;
+    }
+
     public boolean isVisited() {
         return visited;
     }
