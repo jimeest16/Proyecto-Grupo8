@@ -16,6 +16,7 @@ public class Route {
     @JsonProperty("destinationList")  // Aquí coincide con el JSON que tienes
     private List<Destination> destinationList = new ArrayList<>();
 
+
     // Constructor, getters y setters
 
     public Route() {
