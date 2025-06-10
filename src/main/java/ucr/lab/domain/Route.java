@@ -13,7 +13,7 @@ public class Route {
     @JsonProperty("origin_airport")
     private int originAirportCode;
 
-    @JsonProperty("destinationList")  // Aquí coincide con el JSON que tienes
+    @JsonProperty("destinationList")  
     private List<Destination> destinationList = new ArrayList<>();
 
 
