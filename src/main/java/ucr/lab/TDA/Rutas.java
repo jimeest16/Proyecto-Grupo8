@@ -1,5 +1,7 @@
 package ucr.lab.TDA;
 
+import java.util.List;
+
 public class Rutas {
     private SpecialSinglyLinkedListGraph grafo;
 
@@ -20,7 +22,7 @@ public class Rutas {
         grafo.addWeight(origen,destino,nuevoPeso);
     }
     // calcular la ruta más corta usando Dijkstra
-    public int[] calcularRutaMasCorta(Object origen, Object destino) throws Exception {
+    public List<String> calcularRutaMasCorta(Object origen, Object destino) throws Exception {
         return grafo.dijkstra(origen, destino);
     }
 

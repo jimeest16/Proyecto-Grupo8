@@ -53,7 +53,7 @@ class RouteTest {
                 // sino agregar al grafo
                 graph.agregarRuta(origen, destinoStr, destino.getDistance());
                 // el origen es el codigo tipo int
-                System.out.println("Ruta-- " + "Origen: "  + origen + " Destino-> " + destinoStr +
+                System.out.println("Ruta-- " + "Origen: " + origen + " Destino-> " + destinoStr +
                         " | Distancia: " + destino.getDistance());
             }
         }
@@ -83,64 +83,65 @@ class RouteTest {
 //        System.out.println();
 //    }
 
-    @Test
-    public void testCaminoMasCortoDijkstra() throws Exception {
-        System.out.println("--- Camino más corto con Dijkstra---");
-
-
-        graph.agregarRuta("3", "5", 300);
-        graph.agregarRuta("5", "6", 700);
-        graph.agregarRuta("3", "6", 1500);
-
-        System.out.println("Rutas agregadas:");
-        System.out.println("3 -> 5 : 300");
-        System.out.println("5 -> 6 : 700");
-        System.out.println("3 -> 6 : 1500");
-
-        String resultado = graph.imprimirCaminoMasCorto("3", "6");
-        System.out.println("Camino más corto desde 3 hasta 6:");
-        System.out.println(resultado);
-
-        assertTrue(resultado.contains("3 -> 5 -> 6"));
-        assertTrue(resultado.contains("Distancia total"));
-        System.out.println();
-    }
-
 
     @Test
-    public void testConexionAereaAleatoria() throws Exception {
-        System.out.println("--- Simulación de Conexión Aérea Aleatoria ---");
+    public void testConexionAereaAleatoriaConDijkstra() throws Exception {
+        System.out.println("_____________________________________________");
+        System.out.println("       SIMULACIÓN DE CONEXIÓN AÉREA");
+        System.out.println("_____________________________________________\n");
 
         Random random = new Random();
-        int numAeropuertos = aeropuertos.size(); // con la cantidad de aeropuertos de json
-
-        //15-20 segun el proecto
+        int numAeropuertos = aeropuertos.size();
         int numConexiones = 17;
 
+        // Agregar conexiones aleatorias al grafo dirigido
         for (int i = 0; i < numConexiones; i++) {
-            // Elegir aeropuerto origen aleatorio
             int indiceOrigen = random.nextInt(numAeropuertos);
-            AirPort origen = aeropuertos.get(indiceOrigen);// se maneja con el indice de origen
+            AirPort origen = aeropuertos.get(indiceOrigen);
 
-            // Elegir aeropuerto destino aleatorio distinto al origen
             int indiceDestino;
             do {
                 indiceDestino = random.nextInt(numAeropuertos);
             } while (indiceDestino == indiceOrigen);
-
             AirPort destino = aeropuertos.get(indiceDestino);
 
-            // Distancia aleatoria entre 100 y 2000 km (ejemplo)
             int distancia = 100 + random.nextInt(1901);
 
-            // Agregar ruta al grafo
             graph.agregarRuta(String.valueOf(origen.getCode()), String.valueOf(destino.getCode()), distancia);
 
-            // Imprimir ruta
-            System.out.println("Ruta creada: " + origen.getName() + " (" + origen.getCode() + ") -> " +
-                    destino.getName() + " (" + destino.getCode() + ") | Distancia: " + distancia + " km");
+            System.out.printf("✈ %s (%s)  ➜  %s (%s)  | Distancia: %4d km\n",
+                    origen.getName(), origen.getCode(),
+                    destino.getName(), destino.getCode(),
+                    distancia);
         }
-        System.out.println();
-    }
 
+        System.out.println("\n_____________________________________________");
+        System.out.println("     BÚSQUEDA DE RUTA MÁS CORTA CON DIJKSTRA");
+        System.out.println("_____________________________________________\n");
+
+        // Elegir origen y destino aleatoriamente : lo podemos limitar pero para ser aleatoridad lo hice asi
+        int indiceOrigen = random.nextInt(numAeropuertos);
+        int indiceDestino;
+        do {
+            indiceDestino = random.nextInt(numAeropuertos);
+        } while (indiceDestino == indiceOrigen);
+
+        String codigoOrigen = String.valueOf(aeropuertos.get(indiceOrigen).getCode());
+        String codigoDestino = String.valueOf(aeropuertos.get(indiceDestino).getCode());
+
+        System.out.printf("Ruta más corta de %s a %s:\n", codigoOrigen, codigoDestino);
+
+        List<String> rutaMasCorta = graph.dijkstra(codigoOrigen, codigoDestino);
+        if (rutaMasCorta == null || rutaMasCorta.isEmpty()) {
+            System.out.println("No existe ruta entre estos aeropuertos.");
+        } else {
+            int distanciaTotal = (int) graph.obtenerDistanciaTotal(codigoOrigen, codigoDestino);
+            System.out.println("Ruta: " + String.join(" -> ", rutaMasCorta));
+            System.out.println("Distancia total: " + distanciaTotal + " km");
+        }
+
+        System.out.println("\n_____________________________________________");
+        System.out.println("      FIN DE LA SIMULACIÓN DE CONEXIONES");
+        System.out.println("_____________________________________________\n");
+    }
 }

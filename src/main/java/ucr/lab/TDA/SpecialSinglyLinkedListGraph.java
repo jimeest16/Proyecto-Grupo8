@@ -1,5 +1,7 @@
 package ucr.lab.TDA;
 
+import java.util.List;
+
 import static ucr.lab.utility.Util.compare;
 
 public class SpecialSinglyLinkedListGraph implements Graph {
@@ -246,17 +248,18 @@ public class SpecialSinglyLinkedListGraph implements Graph {
 
 
 
-    public int[] dijkstra(Object origen, Object destino) throws Exception {
-        int n = vertexList.size();
+    public List<String> dijkstra(Object origen, Object destino) throws Exception {
+        if (vertexList.isEmpty()) {
+            throw new Exception("El grafo está vacío");
+        }
 
-        double[] distancia = new double[n + 1];
+        int n = vertexList.size();
+        double[] distancia = new double[n + 1]; // índice 1 a n
         boolean[] visitado = new boolean[n + 1];
         int[] anterior = new int[n + 1];
 
         for (int i = 1; i <= n; i++) {
-
             distancia[i] = Double.MAX_VALUE;
-
             visitado[i] = false;
             anterior[i] = -1;
         }
@@ -265,104 +268,79 @@ public class SpecialSinglyLinkedListGraph implements Graph {
         int indiceDestino = indexOf(destino);
 
         if (indiceOrigen == -1 || indiceDestino == -1) {
-            throw new Exception("El origen o destino no existen");
+            throw new Exception("El vértice origen o destino no existe");
         }
 
         distancia[indiceOrigen] = 0;
 
         for (int count = 1; count <= n; count++) {
             int u = minDistance(distancia, visitado, n);
-            if (u == -1 || u == indiceDestino) {
-                break;
-            }
+            if (u == -1 || u == indiceDestino) break;
 
             visitado[u] = true;
-
             Vertex verticeU = (Vertex) vertexList.getNode(u).data;
 
             for (int i = 1; i <= verticeU.edgesList.size(); i++) {
                 EdgeWeight arista = (EdgeWeight) verticeU.edgesList.getNode(i).data;
-                int v = indexOf(arista.getEdge());  // Aquí accedes al "edge" usando el getter
+                int v = indexOf(arista.getEdge());
+                if (v == -1 || visitado[v]) continue;
 
-                if (v == -1) continue; // Protección extra
-
-                Object pesoObj = arista.getWeight();
-                double peso = (pesoObj instanceof Number) ? ((Number) pesoObj).doubleValue() : 1.0;
-
-
-                if (!visitado[v] && distancia[u] + peso < distancia[v]) {
+                double peso = Double.parseDouble(arista.getWeight().toString());
+                if (distancia[u] + peso < distancia[v]) {
                     distancia[v] = distancia[u] + peso;
                     anterior[v] = u;
                 }
             }
         }
 
-        return anterior;
+        // reconstruir camino
+        List<String> camino = new java.util.LinkedList<>();
+        int actual = indiceDestino;
+        if (distancia[actual] == Double.MAX_VALUE) {
+            camino.add("No hay camino desde " + origen + " hasta " + destino);
+            return camino;
+        }
+
+        while (actual != -1) {
+            Vertex vertice = (Vertex) vertexList.getNode(actual).data;
+            camino.add(0, vertice.data.toString()); // insertar al inicio
+            actual = anterior[actual];
+        }
+
+        camino.add("Distancia total: " + distancia[indiceDestino]);
+
+        return camino;
     }
 
     private int minDistance(double[] distancia, boolean[] visitado, int n) {
         double min = Double.MAX_VALUE;
-        int indiceMin = -1;
-
+        int minIndex = -1;
         for (int i = 1; i <= n; i++) {
             if (!visitado[i] && distancia[i] < min) {
                 min = distancia[i];
-                indiceMin = i;
+                minIndex = i;
             }
         }
-
-        return indiceMin;
+        return minIndex;
     }
-    public String imprimirCaminoMasCorto(Object origen, Object destino) throws Exception {
-        if (isEmpty())
-            throw new GraphException("El grafo está vacío");
 
-        int[] anterior = dijkstra(origen, destino);
-        int destinoIndex = indexOf(destino);
 
-        if (anterior[destinoIndex] == -1)
-            return "No hay camino desde " + origen + " hasta " + destino;
+    public double obtenerDistanciaTotal(Object origen, Object destino) throws Exception {
+        List<String> ruta = dijkstra(origen, destino);
+        double total = 0.0;
 
-        // Reconstruimos el camino en orden inverso
-        LinkedStack camino = new LinkedStack();
-        int actual = destinoIndex;
-        while (actual != -1) {
-            camino.push(actual);
-            actual = anterior[actual];
-        }
-
-        // Imprimir el camino y calcular distancia total
-        double distanciaTotal = 0.0;
-        StringBuilder resultado = new StringBuilder("Camino más corto: ");
-
-        int anteriorNodo = -1;
-        while (!camino.isEmpty()) {
-            int indice = (int) camino.pop();
-            Vertex v = (Vertex) vertexList.getNode(indice).data;
-            resultado.append(v.getData());
-
-            if (!camino.isEmpty())
-                resultado.append(" -> ");
-
-            if (anteriorNodo != -1) {
-                Vertex anteriorVertice = (Vertex) vertexList.getNode(anteriorNodo).data;
-
-                // Buscar el peso entre anteriorNodo y actual
-                for (int i = 1; i <= anteriorVertice.edgesList.size(); i++) {
-                    EdgeWeight edge = (EdgeWeight) anteriorVertice.edgesList.getNode(i).data;
-                    if (compare(edge.getEdge(), v.getData()) == 0) {
-                        Object pesoObj = edge.getWeight();
-                        double peso = (pesoObj instanceof Number) ? ((Number) pesoObj).doubleValue() : 1.0;
-                        distanciaTotal += peso;
-                        break;
-                    }
+        for (int i = 0; i < ruta.size() - 1; i++) {
+            Vertex v = (Vertex) vertexList.getNode(indexOf(ruta.get(i))).data;
+            for (int j = 1; j <= v.edgesList.size(); j++) {
+                EdgeWeight e = (EdgeWeight) v.edgesList.getNode(j).data;
+                if (e.getEdge().toString().equals(ruta.get(i + 1))) {
+                    total += Double.parseDouble(e.getWeight().toString());
+                    break;
                 }
             }
-            anteriorNodo = indice;
         }
 
-        resultado.append("\nDistancia total: ").append(distanciaTotal);
-        return resultado.toString();
+        return total;
     }
 
 

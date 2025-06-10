@@ -15,8 +15,6 @@ public class SinglyLinkedList implements List {
 
     @Override
     public int size() throws ListException {
-        if (isEmpty())
-            throw new ListException("Singly Linked List is empty");
         int counter = 0; //contador nodos
         Node aux = first; //aux para moverme por la lista y no perder el puntero al inicio
         while (aux != null) {
