@@ -1,0 +1,118 @@
+[ {
+  "originAirportCode" : 1,
+  "destinations" : [ {
+    "edge" : 20,
+    "weight" : 753
+  }, {
+    "edge" : 17,
+    "weight" : 675
+  }, {
+    "edge" : 8,
+    "weight" : 953
+  }, {
+    "edge" : 13,
+    "weight" : 819
+  } ]
+}, {
+  "originAirportCode" : 2,
+  "destinations" : [ {
+    "edge" : 19,
+    "weight" : 834
+  } ]
+}, {
+  "originAirportCode" : 3,
+  "destinations" : [ {
+    "edge" : 6,
+    "weight" : 637
+  } ]
+}, {
+  "originAirportCode" : 4,
+  "destinations" : [ {
+    "edge" : 9,
+    "weight" : 683
+  }, {
+    "edge" : 11,
+    "weight" : 707
+  } ]
+}, {
+  "originAirportCode" : 5,
+  "destinations" : [ {
+    "edge" : 9,
+    "weight" : 785
+  } ]
+}, {
+  "originAirportCode" : 6,
+  "destinations" : [ {
+    "edge" : 16,
+    "weight" : 667
+  } ]
+}, {
+  "originAirportCode" : 7,
+  "destinations" : [ {
+    "edge" : 12,
+    "weight" : 220
+  } ]
+}, {
+  "originAirportCode" : 8,
+  "destinations" : [ ]
+}, {
+  "originAirportCode" : 9,
+  "destinations" : [ {
+    "edge" : 18,
+    "weight" : 683
+  } ]
+}, {
+  "originAirportCode" : 10,
+  "destinations" : [ {
+    "edge" : 19,
+    "weight" : 260
+  } ]
+}, {
+  "originAirportCode" : 11,
+  "destinations" : [ {
+    "edge" : 16,
+    "weight" : 470
+  }, {
+    "edge" : 14,
+    "weight" : 533
+  } ]
+}, {
+  "originAirportCode" : 12,
+  "destinations" : [ {
+    "edge" : 16,
+    "weight" : 392
+  } ]
+}, {
+  "originAirportCode" : 13,
+  "destinations" : [ ]
+}, {
+  "originAirportCode" : 14,
+  "destinations" : [ ]
+}, {
+  "originAirportCode" : 15,
+  "destinations" : [ {
+    "edge" : 20,
+    "weight" : 796
+  }, {
+    "edge" : 19,
+    "weight" : 613
+  } ]
+}, {
+  "originAirportCode" : 16,
+  "destinations" : [ {
+    "edge" : 20,
+    "weight" : 919
+  } ]
+}, {
+  "originAirportCode" : 17,
+  "destinations" : [ ]
+}, {
+  "originAirportCode" : 18,
+  "destinations" : [ ]
+}, {
+  "originAirportCode" : 19,
+  "destinations" : [ ]
+}, {
+  "originAirportCode" : 20,
+  "destinations" : [ ]
+} ]

@@ -1,1 +1,91 @@
-
+[ {
+  "number" : 1,
+  "originCode" : 3,
+  "destinationCode" : 14,
+  "departureTime" : "2025-06-11T16:35:01.126888500",
+  "capacity" : 100,
+  "occupancy" : 0,
+  "status" : "Active",
+  "passengerIDs" : [ ],
+  "route" : ""
+}, {
+  "number" : 2,
+  "originCode" : 8,
+  "destinationCode" : 20,
+  "departureTime" : "2025-06-11T16:35:01.126888500",
+  "capacity" : 150,
+  "occupancy" : 0,
+  "status" : "Active",
+  "passengerIDs" : [ ],
+  "route" : ""
+}, {
+  "number" : 3,
+  "originCode" : 6,
+  "destinationCode" : 12,
+  "departureTime" : "2025-06-11T16:35:01.126888500",
+  "capacity" : 150,
+  "occupancy" : 0,
+  "status" : "Active",
+  "passengerIDs" : [ ],
+  "route" : ""
+}, {
+  "number" : 4,
+  "originCode" : 12,
+  "destinationCode" : 16,
+  "departureTime" : "2025-06-11T16:35:01.126888500",
+  "capacity" : 100,
+  "occupancy" : 0,
+  "status" : "Active",
+  "passengerIDs" : [ ],
+  "route" : ""
+}, {
+  "number" : 5,
+  "originCode" : 12,
+  "destinationCode" : 4,
+  "departureTime" : "2025-06-11T16:35:01.126888500",
+  "capacity" : 50,
+  "occupancy" : 0,
+  "status" : "Active",
+  "passengerIDs" : [ ],
+  "route" : ""
+}, {
+  "number" : 6,
+  "originCode" : 20,
+  "destinationCode" : 11,
+  "departureTime" : "2025-06-11T16:35:01.126888500",
+  "capacity" : 50,
+  "occupancy" : 0,
+  "status" : "Active",
+  "passengerIDs" : [ ],
+  "route" : ""
+}, {
+  "number" : 7,
+  "originCode" : 5,
+  "destinationCode" : 13,
+  "departureTime" : "2025-06-11T16:35:01.126888500",
+  "capacity" : 100,
+  "occupancy" : 0,
+  "status" : "Active",
+  "passengerIDs" : [ ],
+  "route" : ""
+}, {
+  "number" : 8,
+  "originCode" : 19,
+  "destinationCode" : 7,
+  "departureTime" : "2025-06-11T16:35:01.126888500",
+  "capacity" : 150,
+  "occupancy" : 0,
+  "status" : "Active",
+  "passengerIDs" : [ ],
+  "route" : ""
+}, {
+  "number" : 9,
+  "originCode" : 10,
+  "destinationCode" : 2,
+  "departureTime" : "2025-06-11T16:35:01.126888500",
+  "capacity" : 150,
+  "occupancy" : 0,
+  "status" : "Active",
+  "passengerIDs" : [ ],
+  "route" : ""
+} ]

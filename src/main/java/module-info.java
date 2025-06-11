@@ -23,4 +23,5 @@ module ucr.lab {
     exports ucr.lab.TDA.queue;
     exports ucr.lab.TDA.stack;
     exports ucr.lab.TDA.tree;
+    exports ucr.lab.TDA.graph;
 }

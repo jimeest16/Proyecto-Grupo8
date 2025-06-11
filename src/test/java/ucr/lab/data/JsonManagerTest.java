@@ -1,10 +1,21 @@
 package ucr.lab.data;
 
 import org.junit.jupiter.api.Test;
+import ucr.lab.TDA.graph.GraphException;
+import ucr.lab.TDA.graph.SinglyLinkedListGraph;
+import ucr.lab.TDA.list.CircularDoublyLinkedList;
+import ucr.lab.TDA.list.CircularLinkedList;
 import ucr.lab.TDA.list.DoublyLinkedList;
+import ucr.lab.TDA.list.ListException;
+import ucr.lab.TDA.tree.TreeException;
 import ucr.lab.domain.Airport;
+import ucr.lab.domain.Flight;
 import ucr.lab.domain.User;
+import ucr.lab.utility.Util;
+
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.List;
 
 class JsonManagerTest {
     @Test
@@ -36,6 +47,66 @@ class JsonManagerTest {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Test
+    void addFlight() {
+        try {
+            AirportManager.loadAirports();
+            DoublyLinkedList airports = AirportManager.getAirports();
+            int size = airports.size();
+            CircularDoublyLinkedList flights = new CircularDoublyLinkedList();
+            for (int i = 1; i < 10; i++) {
+                Airport aux = (Airport) airports.getNode(Util.random(size)).getData();
+                int originCode = aux.getCode();
+                aux = (Airport) airports.getNode(Util.random(size)).getData();
+                int destinationCode = aux.getCode();
+                if (originCode != destinationCode)
+                    flights.add(new Flight(i, originCode, destinationCode, LocalDateTime.now(),
+                            Util.random(2, 4)*50, 0, "Active"));
+            }
+            FlightManager.setFlights(flights);
+            FlightManager.saveFlights();
+        } catch (IOException | ListException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Test
+    void loadFlights() {
+        System.out.println("Loading Flights");
+        try {
+            FlightManager.loadFlights();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(FlightManager.getFlights());
+    }
+
+    @Test
+    void addRoutes() {
+        try {
+            AirportManager.loadAirports();
+            List<Airport> airports = AirportManager.getAirports().toList();
+            SinglyLinkedListGraph graph = new SinglyLinkedListGraph();
+            for (Airport airport : airports)
+                graph.addVertex(airport.getCode());
+            RoutesManager.setRoutesGraph(graph);
+            RoutesManager.saveRoutes();
+        } catch (IOException | GraphException | ListException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Test
+    void loadRoutes() {
+        System.out.println("Loading Routes");
+        try {
+            RoutesManager.loadRoutes();
+        } catch (IOException | GraphException | ListException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(RoutesManager.getRoutesGraph());
     }
 
     @Test

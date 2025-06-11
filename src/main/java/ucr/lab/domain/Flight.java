@@ -1,6 +1,7 @@
 package ucr.lab.domain;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import ucr.lab.TDA.list.SinglyLinkedList;
 import java.time.LocalDateTime;
@@ -25,6 +26,18 @@ public class Flight {
         this.number = number;
     }
 
+    public Flight(int number, int originCode, int destinationCode, LocalDateTime departureTime, int capacity, int occupancy, String status) {
+        this.number = number;
+        this.originCode = originCode;
+        this.destinationCode = destinationCode;
+        this.departureTime = departureTime;
+        this.capacity = capacity;
+        this.occupancy = occupancy;
+        this.status = status;
+        this.passengerIDs = new SinglyLinkedList();
+        this.route = "";
+    }
+
     public Flight(int number, int originCode, int destinationCode, LocalDateTime departureTime, int capacity, int occupancy, String status, SinglyLinkedList passengerIDs) {
         this.number = number;
         this.originCode = originCode;
@@ -36,6 +49,7 @@ public class Flight {
         this.passengerIDs = passengerIDs;
     }
 
+    @JsonIgnore
     public boolean isFull() {
         return occupancy >= capacity;
     }
@@ -51,6 +65,16 @@ public class Flight {
     @JsonGetter
     public List<Object> getPassengerIDs () {
         return passengerIDs.toList();
+    }
+
+    @JsonSetter
+    public void setDepartureTime (String departureTime) {
+        this.departureTime = LocalDateTime.parse(departureTime);
+    }
+
+    @JsonGetter
+    public String getDepartureTime() {
+        return this.departureTime.toString();
     }
 
     public void setNumber(int number) {
@@ -101,7 +125,7 @@ public class Flight {
         return destinationCode;
     }
 
-    public LocalDateTime getDepartureTime() {
+    public LocalDateTime departureTime() {
         return departureTime;
     }
 
