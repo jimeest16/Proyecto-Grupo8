@@ -252,7 +252,7 @@ public class SpecialSinglyLinkedListGraph implements Graph {
     }
 
 
-
+// ALGORTIMO TROPICALIZADO
     public List<String> dijkstra(Object origen, Object destino) throws Exception {
         if (vertexList.isEmpty()) {
             throw new Exception("El grafo está vacío");

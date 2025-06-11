@@ -21,9 +21,9 @@ public class Rutas {
         }
         grafo.addWeight(origen,destino,nuevoPeso);
     }
-    // calcular la ruta más corta usando Dijkstra
-    public List<String> calcularRutaMasCorta(Object origen, Object destino) throws Exception {
-        return grafo.dijkstra(origen, destino);
-    }
+//    // calcular la ruta más corta usando Dijkstra
+//    public List<String> calcularRutaMasCorta(Object origen, Object destino) throws Exception {
+//        return grafo.dijkstra(origen, destino);
+//    }
 
 }

@@ -3,263 +3,160 @@
   "name" : "Los Angeles International Airport",
   "country" : "USA",
   "status" : "Activo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-07",
-    "origin" : "NEW YORK",
-    "gateId" : "A01",
-    "status" : "On Time"
-  }
+  "departures_board" : null
 }, {
   "code" : 2,
   "name" : "John F. Kennedy International Airport",
   "country" : "USA",
   "status" : "Inactivo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-08",
-    "origin" : "MIAMI",
-    "gateId" : "B02",
-    "status" : "Delayed"
-  }
+  "departures_board" : null
 }, {
   "code" : 3,
   "name" : "Aeropuerto Internacional de San José",
   "country" : "COSTA RICA",
   "status" : "Activo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-09",
-    "origin" : "GUANACASTE",
-    "gateId" : "C03",
-    "status" : "On Time"
-  }
+  "departures_board" : null
 }, {
   "code" : 4,
   "name" : "Ciudad Celeste International Airport",
   "country" : "TERRANOVA",
   "status" : "Inactivo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-10",
-    "origin" : "NOVA LUMEN",
-    "gateId" : "D04",
-    "status" : "Cancelled"
-  }
+  "departures_board" : null
 }, {
   "code" : 5,
   "name" : "Narita International Airport",
   "country" : "JAPAN",
   "status" : "Activo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-11",
-    "origin" : "TOKYO",
-    "gateId" : "E05",
-    "status" : "Boarding"
-  }
+  "departures_board" : null
 }, {
   "code" : 6,
   "name" : "Frankfurt Airport",
   "country" : "GERMANY",
   "status" : "Activo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-12",
-    "origin" : "BERLIN",
-    "gateId" : "F06",
-    "status" : "On Time"
-  }
+  "departures_board" : null
 }, {
   "code" : 7,
   "name" : "Aeropuerto de Buenos Aires",
   "country" : "ARGENTINA",
   "status" : "Inactivo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-13",
-    "origin" : "CORDOBA",
-    "gateId" : "G07",
-    "status" : "Delayed"
-  }
+  "departures_board" : null
 }, {
   "code" : 8,
   "name" : "Dragon City AirHub",
   "country" : "FANTASIA",
   "status" : "Activo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-14",
-    "origin" : "ELDERON",
-    "gateId" : "H08",
-    "status" : "On Time"
-  }
+  "departures_board" : null
 }, {
   "code" : 9,
   "name" : "Aeropuerto Internacional Arturo Merino Benítez",
   "country" : "CHILE",
   "status" : "Activo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-15",
-    "origin" : "VALPARAISO",
-    "gateId" : "I09",
-    "status" : "On Time"
-  }
+  "departures_board" : null
 }, {
   "code" : 10,
   "name" : "Beijing Capital International Airport",
   "country" : "CHINA",
   "status" : "Activo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-16",
-    "origin" : "SHANGHAI",
-    "gateId" : "J10",
-    "status" : "Cancelled"
-  }
+  "departures_board" : null
 }, {
   "code" : 11,
   "name" : "Aeropuerto de Atlantis",
   "country" : "MITICA",
   "status" : "Inactivo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-17",
-    "origin" : "POSEIDONIA",
-    "gateId" : "K11",
-    "status" : "On Time"
-  }
+  "departures_board" : null
 }, {
   "code" : 12,
   "name" : "Aeropuerto Internacional de Monterrey",
   "country" : "MEXICO",
   "status" : "Activo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-18",
-    "origin" : "CDMX",
-    "gateId" : "L12",
-    "status" : "Boarding"
-  }
+  "departures_board" : null
 }, {
   "code" : 13,
   "name" : "Cape Town International Airport",
   "country" : "SOUTH AFRICA",
   "status" : "Activo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-19",
-    "origin" : "JOHANNESBURG",
-    "gateId" : "M13",
-    "status" : "On Time"
-  }
+  "departures_board" : null
 }, {
   "code" : 14,
   "name" : "Aeropuerto de Nimbus Prime",
   "country" : "AETHER",
   "status" : "Activo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-20",
-    "origin" : "ZEPHIR",
-    "gateId" : "N14",
-    "status" : "Delayed"
-  }
+  "departures_board" : null
 }, {
   "code" : 15,
   "name" : "Aeropuerto de Lima",
   "country" : "PERU",
   "status" : "Inactivo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-21",
-    "origin" : "CUSCO",
-    "gateId" : "O15",
-    "status" : "Boarding"
-  }
+  "departures_board" : null
 }, {
   "code" : 16,
   "name" : "Istanbul Airport",
   "country" : "TURKEY",
   "status" : "Activo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-22",
-    "origin" : "ANKARA",
-    "gateId" : "P16",
-    "status" : "On Time"
-  }
+  "departures_board" : null
 }, {
   "code" : 17,
   "name" : "Barcelona–El Prat Airport",
   "country" : "SPAIN",
   "status" : "Activo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-23",
-    "origin" : "MADRID",
-    "gateId" : "Q17",
-    "status" : "On Time"
-  }
+  "departures_board" : null
 }, {
   "code" : 18,
   "name" : "Aeropuerto Internacional Simón Bolívar",
   "country" : "VENEZUELA",
   "status" : "Inactivo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-24",
-    "origin" : "MARACAIBO",
-    "gateId" : "R18",
-    "status" : "Delayed"
-  }
+  "departures_board" : null
 }, {
   "code" : 19,
   "name" : "Zürich Airport",
   "country" : "SWITZERLAND",
   "status" : "Activo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-25",
-    "origin" : "GENEVA",
-    "gateId" : "S19",
-    "status" : "On Time"
-  }
+  "departures_board" : null
 }, {
   "code" : 20,
   "name" : "Cielo Alto Air Station",
   "country" : "ESTELIA",
   "status" : "Activo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-26",
-    "origin" : "LUNARIA",
-    "gateId" : "T20",
-    "status" : "Cancelled"
-  }
+  "departures_board" : null
 }, {
   "code" : 21,
   "name" : "Aeropuertu",
   "country" : "USA",
   "status" : "Inactivo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-07",
-    "origin" : "London",
-    "gateId" : "A01",
-    "status" : "ON TIME"
-  }
+  "departures_board" : null
 }, {
   "code" : 21,
   "name" : "AeropuertO",
   "country" : "USA",
   "status" : "Inactivo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-07",
-    "origin" : "London",
-    "gateId" : "A01",
-    "status" : "ON TIME"
-  }
+  "departures_board" : null
 }, {
   "code" : 15,
   "name" : "Aeropuerto de Lima",
   "country" : "PERU",
   "status" : "Inactivo",
-  "departuresBoard" : {
-    "departureTime" : "2025-06-21",
-    "origin" : "CUSCO",
-    "gateId" : "O15",
-    "status" : "Boarding"
-  }
+  "departures_board" : null
 }, {
   "code" : 1,
   "name" : "Aeropuerto Internacional de Los Ángeles",
   "country" : "USA",
   "status" : "Activo",
-  "departuresBoard" : {
-    "departureTime" : null,
+  "departures_board" : null
+}, {
+  "code" : 2,
+  "name" : "Aeropuerto Internacional John F.Kennedy",
+  "country" : "USA",
+  "status" : "Activo",
+  "departures_board" : null
+}, {
+  "code" : 1,
+  "name" : "Aeropuerto Internacional de Los Ángeles",
+  "country" : "USA",
+  "status" : "Activo",
+  "departures_board" : {
+    "departure_time" : null,
     "origin" : null,
-    "gateId" : null,
+    "gate_id" : null,
     "status" : null
   }
 }, {
@@ -267,10 +164,32 @@
   "name" : "Aeropuerto Internacional John F.Kennedy",
   "country" : "USA",
   "status" : "Activo",
-  "departuresBoard" : {
-    "departureTime" : null,
+  "departures_board" : {
+    "departure_time" : null,
     "origin" : null,
-    "gateId" : null,
+    "gate_id" : null,
+    "status" : null
+  }
+}, {
+  "code" : 1,
+  "name" : "Aeropuerto Internacional de Los Ángeles",
+  "country" : "USA",
+  "status" : "Activo",
+  "departures_board" : {
+    "departure_time" : null,
+    "origin" : null,
+    "gate_id" : null,
+    "status" : null
+  }
+}, {
+  "code" : 2,
+  "name" : "Aeropuerto Internacional John F.Kennedy",
+  "country" : "USA",
+  "status" : "Activo",
+  "departures_board" : {
+    "departure_time" : null,
+    "origin" : null,
+    "gate_id" : null,
     "status" : null
   }
 } ]
