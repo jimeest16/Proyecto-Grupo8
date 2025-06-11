@@ -118,7 +118,6 @@ public class SpecialSinglyLinkedListGraph implements Graph {
         addRemoveVertexEdgeWeight(a, b, null, "remove"); // Solo eliminar a → b
         // No eliminar la inversa
     }
-
     private void addRemoveVertexEdgeWeight(Object a, Object b, Object weight, String action) throws ListException {
         int i = indexOf(a);
         if (i != -1) {
@@ -128,7 +127,14 @@ public class SpecialSinglyLinkedListGraph implements Graph {
                     vertex.edgesList.add(new EdgeWeight(b, weight));
                     break;
                 case "addWeight":
-                    vertex.edgesList.getNode(new EdgeWeight(b, weight)).setData(new EdgeWeight(b, weight));
+
+                    for (int j = 1; j <= vertex.edgesList.size(); j++) {
+                        EdgeWeight edge = (EdgeWeight) vertex.edgesList.getNode(j).data;
+                        if (compare(edge.getEdge(), b) == 0) {
+                            vertex.edgesList.getNode(j).setData(new EdgeWeight(b, weight));
+                            break;
+                        }
+                    }
                     break;
                 case "remove":
                     if (!vertex.edgesList.isEmpty())
@@ -137,7 +143,6 @@ public class SpecialSinglyLinkedListGraph implements Graph {
             }
         }
     }
-
 
     // Recorrido en profundidad
         @Override
@@ -353,6 +358,28 @@ public class SpecialSinglyLinkedListGraph implements Graph {
         }
         addEdgeWeight(origen, destino, peso);
     }
+
+    public Object obtenerPeso(Object a, Object b) throws ListException, GraphException {
+        if (!containsVertex(a) || !containsVertex(b)) {
+            throw new GraphException("Uno o ambos vértices no existen");
+        }
+
+        int index = indexOf(a);
+        if (index == -1) {
+            return null; // vértice no encontrado
+        }
+
+        Vertex vertex = (Vertex) vertexList.getNode(index).data;
+
+        for (int i = 1; i <= vertex.edgesList.size(); i++) {
+            EdgeWeight edge = (EdgeWeight) vertex.edgesList.getNode(i).data;
+            if (compare(edge.getEdge(), b) == 0) {
+                return edge.getWeight();
+            }
+        }
+        return null; // no encontró la arista
+    }
+
 
 
 

@@ -2,6 +2,8 @@ package ucr.lab.domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ucr.lab.TDA.GraphException;
+import ucr.lab.TDA.ListException;
 import ucr.lab.TDA.SpecialSinglyLinkedListGraph;
 import ucr.lab.utility.FileReader;
 
@@ -70,19 +72,45 @@ class RouteTest {
         return null;
     }
 
-//    @Test
-//    public void testAgregarRutaYModificarPeso() throws Exception {
-//        System.out.println("=== Test: Agregar ruta y modificar peso ===");
-//        graph.agregarRuta("3", "5", 500);
-//        assert(graph.containsEdge("3", "5"));
-//        System.out.println("Ruta agregada de 3 a 5 con distancia 500");
-//
-//        graph.modificarRuta("3", "5", 450);
-//        System.out.println("Ruta modificada de 3 a 5 con nueva distancia 450");
-//
-//        System.out.println();
-//    }
 
+//    @Test
+//    public void testModificarPesoRutaExistente() throws Exception {
+//        System.out.println("_____________________________________________");
+//        System.out.println("        TEST: MODIFICAR DISTANCIA RUTA");
+//        System.out.println("_____________________________________________\n");
+//
+//        int origen = 1;
+//        int destino = 2;
+//        int pesoInicial = 700;
+//        int nuevoPeso = 450;
+//
+//        // Asegurar que los vértices existen en el grafo
+//        graph.addVertex(origen);
+//        graph.addVertex(destino);
+//
+//        // Agregar ruta inicial
+//        graph.agregarRuta(origen, destino, pesoInicial);
+//        System.out.println("Ruta agregada de " + origen + " a " + destino);
+//
+//        // Verificar que la ruta exista
+//        boolean existe = graph.containsEdge(origen, destino);
+//        System.out.println("containsEdge devuelve: " + existe);
+//        assertTrue(existe, "La ruta debe existir");
+//
+//        Object pesoAntes = graph.obtenerPeso(origen, destino);
+//        System.out.println("Peso original entre " + origen + " y " + destino + ": " + pesoAntes + " km");
+//        assertEquals(pesoInicial, pesoAntes);
+//
+//        // Modificar el peso de la ruta
+//        graph.modificarRuta(origen, destino, nuevoPeso);
+//        Object pesoDespues = graph.obtenerPeso(origen, destino);
+//        System.out.println("Peso modificado entre " + origen + " y " + destino + ": " + pesoDespues + " km");
+//        assertEquals(nuevoPeso, pesoDespues);
+//
+//        System.out.println("\n_____________________________________________");
+//        System.out.println("          FIN TEST MODIFICAR RUTA");
+//        System.out.println("_____________________________________________\n");
+//    }
 
     @Test
     public void testConexionAereaAleatoriaConDijkstra() throws Exception {
@@ -144,4 +172,6 @@ class RouteTest {
         System.out.println("      FIN DE LA SIMULACIÓN DE CONEXIONES");
         System.out.println("_____________________________________________\n");
     }
+
+
 }

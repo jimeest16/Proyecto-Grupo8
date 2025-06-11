@@ -29,6 +29,18 @@ public class EdgeWeight {
     public void setWeight(Object weight) {
         this.weight = weight;
     }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof EdgeWeight)) return false;
+        EdgeWeight other = (EdgeWeight) obj;
+        return (this.edge == null ? other.edge == null : this.edge.equals(other.edge));
+    }
+
+    @Override
+    public int hashCode() {
+        return edge == null ? 0 : edge.hashCode();
+    }
 
     @Override
     public String toString() {
