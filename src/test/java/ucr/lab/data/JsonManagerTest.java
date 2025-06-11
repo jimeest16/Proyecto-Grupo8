@@ -4,10 +4,7 @@ import org.junit.jupiter.api.Test;
 import ucr.lab.TDA.list.DoublyLinkedList;
 import ucr.lab.domain.Airport;
 import ucr.lab.domain.User;
-
 import java.io.IOException;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class JsonManagerTest {
     @Test

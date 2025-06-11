@@ -7,7 +7,6 @@ import ucr.lab.utility.FileReader;
 
 import java.io.File;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.List;
 
 class DepartureTest {
@@ -15,7 +14,7 @@ class DepartureTest {
     private DeparturesDatos datos;
 
     @BeforeEach
-    public void setup() throws IOException, IOException {
+    public void setup() throws IOException {
         // Archivo temporal para pruebas, se borra al finalizar
         //testFile = Files.createTempFile("departuresTest", ".json").toFile();
         datos = new DeparturesDatos(testFile);

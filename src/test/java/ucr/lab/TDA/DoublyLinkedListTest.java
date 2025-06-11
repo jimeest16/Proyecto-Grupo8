@@ -2,11 +2,8 @@ package ucr.lab.TDA;
 
 import org.junit.jupiter.api.Test;
 import ucr.lab.TDA.list.DoublyLinkedList;
-import ucr.lab.domain.Airport;
 import ucr.lab.domain.Departure;
 import ucr.lab.utility.FileReader;
-
-import java.time.LocalDate;
 import java.util.List;
 
 class DoublyLinkedListTest {

@@ -1,9 +1,6 @@
 package ucr.lab.TDA.list;
 
-
 import ucr.lab.TDA.Node;
-import ucr.lab.domain.User;
-
 import static ucr.lab.utility.Util.compare;
 
 public class CircularDoublyLinkedList implements List {
@@ -49,8 +46,7 @@ public class CircularDoublyLinkedList implements List {
             aux = aux.next; //muevo aux al nodo sgte
         }
         //se sale del while cuando aux esta en el ult nodo
-        if(compare(aux.data, element)==0) return true;
-        return false; //significa que no encontro el elemento
+        return compare(aux.data, element) == 0;//significa que no encontro el elemento
     }
 
     @Override

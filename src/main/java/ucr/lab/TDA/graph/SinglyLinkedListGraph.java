@@ -256,9 +256,10 @@ public class SinglyLinkedListGraph implements Graph {
             List<EdgeWeight> listEW = new ArrayList<>();
             Vertex vertex = (Vertex)current.data;
             Node current2 = vertex.edgesList.getFirstNode();
-            while (vertex != null) {
+            while (current2 != null) {
                 EdgeWeight ew = (EdgeWeight) current2.data;
                 listEW.add(ew);
+                current2 = current2.next;
             }
             listV.add(new Route((Integer) vertex.data, listEW));
             current = current.next;

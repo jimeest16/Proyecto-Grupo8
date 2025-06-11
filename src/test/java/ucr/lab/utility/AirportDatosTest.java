@@ -3,11 +3,9 @@ package ucr.lab.utility;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ucr.lab.domain.Airport;
-import ucr.lab.domain.Departure;
 
 import java.io.File;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
