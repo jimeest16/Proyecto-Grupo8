@@ -20,11 +20,13 @@ import javafx.scene.control.*;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
+import net.sf.jasperreports.engine.JasperCompileManager;
 import ucr.lab.TDA.SinglyLinkedList;
 import ucr.lab.domain.AirPort;
 import ucr.lab.domain.Departures;
 import ucr.lab.utility.*;
 
+import java.awt.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -37,6 +39,16 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+//para generar el reporte pdf
+import net.sf.jasperreports.engine.data.JsonDataSource;
+
+import java.io.ByteArrayInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AirPortController {
     @FXML
@@ -401,5 +413,55 @@ public class AirPortController {
 
         tvAirports.setItems(lista);
     }
+    @FXML
+    private void onGenerarReporteClick(ActionEvent event) {
+        generarReporteAeropuertos();  // Llama al método directamente
+    }
 
+    public void generarReporteAeropuertos() {
+        try {
+            // Leer archivo JSON desde recursos
+            String jsonData = Util.readJsonFile("data/airports.json");
+            JsonDataSource dataSource = new JsonDataSource(
+                    new ByteArrayInputStream(jsonData.getBytes(StandardCharsets.UTF_8)),
+                    "$"
+            );
+
+            // Compilar el JRXML
+            String jrxmlPath = "src/main/resources/jasper/airports.jrxml";
+            String jasperPath = "src/main/resources/jasper/airports.jasper";
+            JasperCompileManager.compileReportToFile(jrxmlPath, jasperPath);
+
+            // Cargar el .jasper desde classpath correctamente
+            InputStream template = getClass().getResourceAsStream("/jasper/airports.jasper");
+            if (template == null) throw new RuntimeException("No se encontró la plantilla airports.jasper");
+
+            // Crear el PDF
+            String outputPath = "src/main/resources/reportes/airports_output.pdf";
+
+            Map<String, Object> parameters = new HashMap<>();
+            parameters.put("Aviation System", "Aeropuerto Central S.A.");
+            try (OutputStream outputPdf = new FileOutputStream(outputPath)) {
+                JsonTemplateParameters reportParams = new JsonTemplateParameters(dataSource, template, outputPdf, parameters);
+                new JasperPdfCreator().writePdf(reportParams);
+            }
+
+            System.out.println(" PDF generado exitosamente ");
+
+            // Abrir el PDF
+            File pdfFile = new File(outputPath);
+            if (pdfFile.exists()) {
+                if (Desktop.isDesktopSupported()) {
+                    Desktop.getDesktop().open(pdfFile);
+                } else {
+                    System.out.println("Tu sistema no soporta Desktop.open()");
+                }
+            }
+
+        } catch (Exception e) {
+            System.err.println("Error generando el reporte: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 }
+

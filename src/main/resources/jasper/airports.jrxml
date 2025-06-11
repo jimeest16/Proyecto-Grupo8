@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="airports_report" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a2f3d9a7-42fc-4b21-81ff-bd09c92aa0aa">
+
+    <queryString language="json">
+        <![CDATA[$]]>
+    </queryString>
+
+    <!-- Campos del JSON -->
+    <field name="code" class="java.lang.Integer"/>
+    <field name="name" class="java.lang.String"/>
+    <field name="country" class="java.lang.String"/>
+    <field name="status" class="java.lang.String"/>
+
+    <!-- Campos anidados de departuresBoard -->
+    <field name="departuresBoard.departureTime" class="java.lang.String"/>
+    <field name="departuresBoard.origin" class="java.lang.String"/>
+    <field name="departuresBoard.gateId" class="java.lang.String"/>
+    <field name="departuresBoard.status" class="java.lang.String"/>
+
+    <title>
+        <band height="50">
+            <staticText>
+                <reportElement x="0" y="10" width="555" height="30"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[📋 Lista de Aeropuertos]]></text>
+            </staticText>
+        </band>
+    </title>
+
+    <columnHeader>
+        <band height="20">
+            <textField><reportElement x="0" y="0" width="50" height="20"/><textFieldExpression><![CDATA["Código"]]></textFieldExpression></textField>
+            <textField><reportElement x="50" y="0" width="130" height="20"/><textFieldExpression><![CDATA["Nombre"]]></textFieldExpression></textField>
+            <textField><reportElement x="180" y="0" width="70" height="20"/><textFieldExpression><![CDATA["País"]]></textFieldExpression></textField>
+            <textField><reportElement x="250" y="0" width="60" height="20"/><textFieldExpression><![CDATA["Estado"]]></textFieldExpression></textField>
+            <textField><reportElement x="310" y="0" width="80" height="20"/><textFieldExpression><![CDATA["Salida"]]></textFieldExpression></textField>
+            <textField><reportElement x="390" y="0" width="80" height="20"/><textFieldExpression><![CDATA["Origen"]]></textFieldExpression></textField>
+            <textField><reportElement x="470" y="0" width="40" height="20"/><textFieldExpression><![CDATA["Puerta"]]></textFieldExpression></textField>
+            <textField><reportElement x="510" y="0" width="45" height="20"/><textFieldExpression><![CDATA["Status"]]></textFieldExpression></textField>
+        </band>
+    </columnHeader>
+
+    <detail>
+        <band height="20">
+            <textField><reportElement x="0" y="0" width="50" height="20"/><textFieldExpression><![CDATA[$F{code}]]></textFieldExpression></textField>
+            <textField><reportElement x="50" y="0" width="130" height="20"/><textFieldExpression><![CDATA[$F{name}]]></textFieldExpression></textField>
+            <textField><reportElement x="180" y="0" width="70" height="20"/><textFieldExpression><![CDATA[$F{country}]]></textFieldExpression></textField>
+            <textField><reportElement x="250" y="0" width="60" height="20"/><textFieldExpression><![CDATA[$F{status}]]></textFieldExpression></textField>
+            <textField><reportElement x="310" y="0" width="80" height="20"/><textFieldExpression><![CDATA[$F{departuresBoard.departureTime}]]></textFieldExpression></textField>
+            <textField><reportElement x="390" y="0" width="80" height="20"/><textFieldExpression><![CDATA[$F{departuresBoard.origin}]]></textFieldExpression></textField>
+            <textField><reportElement x="470" y="0" width="40" height="20"/><textFieldExpression><![CDATA[$F{departuresBoard.gateId}]]></textFieldExpression></textField>
+            <textField><reportElement x="510" y="0" width="45" height="20"/><textFieldExpression><![CDATA[$F{departuresBoard.status}]]></textFieldExpression></textField>
+        </band>
+    </detail>
+
+</jasperReport>
+

@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.AirPortController">
+<AnchorPane prefHeight="653.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.AirPortController">
    <children>
       <!-- Header -->
       <Pane prefHeight="80.0" prefWidth="800.0" style="-fx-background-color: #e1e4e7;">
@@ -54,27 +54,32 @@
       <!-- Form -->
       <Pane layoutX="0.0" layoutY="80.0" prefHeight="290.0" prefWidth="800.0" style="-fx-background-color: #effaff;">
          <children>
-            <Label layoutX="160.0" layoutY="20.0" text="ID Aeropuerto:" />
-            <TextField fx:id="tfID" layoutX="300.0" layoutY="16.0" prefWidth="260.0" />
+            <Label layoutX="239.0" layoutY="18.0" text="ID Aeropuerto:" />
+            <TextField fx:id="tfID" layoutX="379.0" layoutY="14.0" prefWidth="260.0" />
 
-            <Label layoutX="160.0" layoutY="55.0" text="Nombre:" />
-            <TextField fx:id="tfNombre" layoutX="300.0" layoutY="51.0" prefWidth="260.0" />
+            <Label layoutX="239.0" layoutY="53.0" text="Nombre:" />
+            <TextField fx:id="tfNombre" layoutX="379.0" layoutY="49.0" prefWidth="260.0" />
 
-            <Label layoutX="160.0" layoutY="90.0" text="País:" />
-            <TextField fx:id="tfPais" layoutX="300.0" layoutY="86.0" prefWidth="260.0" />
+            <Label layoutX="239.0" layoutY="88.0" text="País:" />
+            <TextField fx:id="tfPais" layoutX="379.0" layoutY="83.0" prefWidth="260.0" />
 
-            <Label layoutX="160.0" layoutY="125.0" text="Estado:" />
-            <ComboBox fx:id="mEstado" layoutX="300.0" layoutY="121.0" prefWidth="260.0" />
+            <Label layoutX="239.0" layoutY="126.0" text="Estado:" />
+            <ComboBox fx:id="mEstado" layoutX="379.0" layoutY="121.0" prefWidth="260.0" />
 
-            <Label layoutX="160.0" layoutY="160.0" text="Registro de salidas:" />
-            <ComboBox fx:id="mSalidas" layoutX="300.0" layoutY="156.0" prefWidth="260.0" />
+            <Label layoutX="239.0" layoutY="161.0" text="Registro de salidas:" />
+            <ComboBox fx:id="mSalidas" layoutX="379.0" layoutY="156.0" prefWidth="260.0" />
 
-            <Button fx:id="btCrear" layoutX="320.0" layoutY="210.0" onAction="#createAirport" prefWidth="120.0" style="-fx-background-color: #6fa2d5;" text="Crear">
+            <Button fx:id="btCrear" layoutX="320.0" layoutY="228.0" onAction="#createAirport" prefHeight="35.0" prefWidth="155.0" style="-fx-background-color: #6fa2d5;" text="Crear">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
          </children>
       </Pane>
+      <Button fx:id="btCrear1" layoutX="328.0" layoutY="593.0" onAction="#onGenerarReporteClick" prefHeight="35.0" prefWidth="155.0" style="-fx-background-color: #6fa2d5;" text="Generar Reporte">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

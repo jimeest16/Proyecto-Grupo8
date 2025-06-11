@@ -16,6 +16,11 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
+import net.sf.jasperreports.engine.data.JsonDataSource;
+import java.io.ByteArrayInputStream;
 
 public class Util {
     private static Random random;
@@ -118,6 +123,15 @@ public class Util {
 
         } catch (IOException e) {
             FXUtil.alert("Error", "Could not load hotel data").showAndWait();
+        }
+    }
+    //esto es para el reporte pdf
+    public static String readJsonFile(String fileName) {
+        try (InputStream inputStream = Util.class.getResourceAsStream("/" + fileName)) {
+            if (inputStream == null) throw new RuntimeException("Archivo no encontrado: " + fileName);
+            return new Scanner(inputStream, StandardCharsets.UTF_8).useDelimiter("\\A").next();
+        } catch (Exception e) {
+            throw new RuntimeException("Error leyendo JSON", e);
         }
     }
 
