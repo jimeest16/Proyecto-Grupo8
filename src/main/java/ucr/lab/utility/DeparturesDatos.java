@@ -3,42 +3,31 @@ package ucr.lab.utility;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
-import ucr.lab.domain.AirPort;
-import ucr.lab.domain.Departures;
+import ucr.lab.domain.Departure;
 
 import java.io.*;
 import java.io.FileReader;
-import java.lang.reflect.Type;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class DeparturesDatos {
     private final File file;
-    private Gson gson = new GsonBuilder()
-            .setPrettyPrinting()
-            .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
-            .create();
-
-    private final List<Departures> departuresList;
+    private final List<Departure> departureList;
     ObjectMapper mapper = JacksonProvider.get();
     public DeparturesDatos(File file) throws IOException {
 
-        List<Departures> list = mapper.readValue(file, new TypeReference<List<Departures>>() {});
+        List<Departure> list = mapper.readValue(file, new TypeReference<List<Departure>>() {});
         this.file = file;
         if (file.exists()) {
-            this.departuresList = loadFromFile();
+            this.departureList = loadFromFile();
         } else {
-            this.departuresList = new ArrayList<>();
+            this.departureList = new ArrayList<>();
             saveToFile();
         }
     }
 
-    public void insert(Departures departure) throws IOException {
-        departuresList.add(departure);
+    public void insert(Departure departure) throws IOException {
+        departureList.add(departure);
         saveToFile();
     }
 /*
@@ -65,14 +54,14 @@ public class DeparturesDatos {
         return removed;
     }
 */
-private List<Departures> loadFromFile() {
+private List<Departure> loadFromFile() {
     if (!file.exists() || file.length() == 0) {
         System.out.println("Archivo no existe o está vacío.");
         return new ArrayList<>();
     }
 
     try (Reader reader = new FileReader(file)) {
-        JavaType type = mapper.getTypeFactory().constructCollectionType(List.class, Departures.class);
+        JavaType type = mapper.getTypeFactory().constructCollectionType(List.class, Departure.class);
         return mapper.readValue(reader, type);
     } catch (IOException e) {
         System.err.println("Error cargando datos: " + e.getMessage());
@@ -82,13 +71,10 @@ private List<Departures> loadFromFile() {
 
 
     private void saveToFile() throws IOException {
-        try (Writer writer = new FileWriter(file)) {
-            gson.toJson(departuresList, writer);
-        }
     }
 
-    public List<Departures> getAllDepartures() {
-        return new ArrayList<>(departuresList);
+    public List<Departure> getAllDepartures() {
+        return new ArrayList<>(departureList);
     }
 
 
@@ -109,7 +95,7 @@ private List<Departures> loadFromFile() {
         }
     }*/
 
-    public List<Departures> findAll() {
-        return new ArrayList<>(departuresList);
+    public List<Departure> findAll() {
+        return new ArrayList<>(departureList);
     }
 }

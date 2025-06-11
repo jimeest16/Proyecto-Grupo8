@@ -3,9 +3,6 @@ package ucr.lab.controller;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,13 +17,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
-import ucr.lab.TDA.SinglyLinkedList;
-import ucr.lab.domain.AirPort;
-import ucr.lab.domain.Departures;
+import ucr.lab.TDA.list.SinglyLinkedList;
+import ucr.lab.domain.Airport;
+import ucr.lab.domain.Departure;
 import ucr.lab.utility.*;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -43,25 +39,25 @@ public class AirPortController {
     private Button btCrear;
 
     @FXML
-    private TableColumn<AirPort,String> cEstado;
+    private TableColumn<Airport,String> cEstado;
 
     @FXML
-    private TableColumn<AirPort, Integer> cID;
+    private TableColumn<Airport, Integer> cID;
 
     @FXML
-    private TableColumn<AirPort, String> cNombre;
+    private TableColumn<Airport, String> cNombre;
 
     @FXML
-    private TableColumn<AirPort, String> cPais;
+    private TableColumn<Airport, String> cPais;
 
     @FXML
-    private TableColumn<AirPort, SinglyLinkedList> cRegistro;
+    private TableColumn<Airport, SinglyLinkedList> cRegistro;
 
     @FXML
     private ComboBox<String> mEstado;
 
     @FXML
-    private ComboBox<Departures> mSalidas;
+    private ComboBox<Departure> mSalidas;
 
     @FXML
     private RadioButton rbActivos;
@@ -76,38 +72,34 @@ public class AirPortController {
     @FXML
     private TextField tfPais;
     @FXML
-    private TableView<AirPort> tvAirports;
+    private TableView<Airport> tvAirports;
 
-    private AirPort currentAirportToEdit; //para editar
+    private Airport currentAirportToEdit; //para editar
     String rutaArchivo = "src/main/resources/data/airports.json";
     File file = new File(rutaArchivo);
 
     private AirPortDatos airportDatos;
     private Alert alert; //para el manejo de alertas
-    private ObservableList<AirPort> observableAirports;
-    private Gson gson = new GsonBuilder()
-            .setPrettyPrinting()
-            .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
-            .create();
+    private ObservableList<Airport> observableAirports;
 
     @javafx.fxml.FXML
     public void initialize() throws IOException {
         ObjectMapper mapper = JacksonProvider.get();
-        List<Departures> list = mapper.readValue(file, new TypeReference<List<Departures>>() {});
+        List<Departure> list = mapper.readValue(file, new TypeReference<List<Departure>>() {});
 
         File file = new File("src/main/resources/data/airports.json");
 
-        List<AirPort> airports = mapper.readValue(file, new TypeReference<List<AirPort>>() {});
+        List<Airport> airports = mapper.readValue(file, new TypeReference<List<Airport>>() {});
 
         // Inicializa la lista observable (esto asegura que nunca sea nula)
         observableAirports = FXCollections.observableArrayList();
-        ObservableList<Departures> observableListDepartures = Util.getDeparturesList();
+        ObservableList<Departure> observableListDepartures = Util.getDeparturesList();
         // Si la lista compartida en Utility no está inicializada, configúrala
         if (Util.getAirPortList() == null) {
             Util.setAirPortList(observableAirports);
         } else {
             // Si ya existe, sincronizamos observableHotels con la lista compartida
-            observableAirports = (ObservableList<AirPort>) Util.getAirPortsInList();
+            observableAirports = (ObservableList<Airport>) Util.getAirPortsInList();
         }
 
         // Ahora podemos verificar si la lista compartida está vacía
@@ -131,7 +123,7 @@ public class AirPortController {
         tvAirports.setItems(observableAirports);
 
         // Add actions column (Edit/Delete)
-        javafx.scene.control.TableColumn<AirPort, Void> actionsColumn = new javafx.scene.control.TableColumn<>("Actions");
+        javafx.scene.control.TableColumn<Airport, Void> actionsColumn = new javafx.scene.control.TableColumn<>("Actions");
         actionsColumn.setPrefWidth(150);
 
         actionsColumn.setCellFactory(param -> new TableCell<>() {
@@ -142,7 +134,7 @@ public class AirPortController {
                 editButton.getStyleClass().add("btn-blue");
                 deleteButton.getStyleClass().add("btn-red");
                 editButton.setOnAction(event -> {
-                    AirPort airportToEdit = getTableView().getItems().get(getIndex());
+                    Airport airportToEdit = getTableView().getItems().get(getIndex());
                     try {
                         updateAirport(airportToEdit);
                         //saveAirport();
@@ -152,7 +144,7 @@ public class AirPortController {
                 });
 
                 deleteButton.setOnAction(event -> {
-                    AirPort airportToDelete = getTableView().getItems().get(getIndex());
+                    Airport airportToDelete = getTableView().getItems().get(getIndex());
                     removeAirport(airportToDelete);
                 });
             }
@@ -176,15 +168,15 @@ public class AirPortController {
 
     @javafx.fxml.FXML
     public void createAirport(ActionEvent actionEvent) throws IOException {
-        ObservableList<AirPort> observableList = Util.getAirPortList();
-        ObservableList<Departures> departuresList = Util.getDeparturesList();
+        ObservableList<Airport> observableList = Util.getAirPortList();
+        ObservableList<Departure> departureList = Util.getDeparturesList();
         AirPortDatos data = new AirPortDatos(file);
 
         int id = Integer.parseInt(tfID.getText().trim());
         String name = tfNombre.getText().trim();
         String pais = tfPais.getText().trim();
         String active = mEstado.toString();
-        Departures departures = (Departures) mSalidas.getValue();
+        Departure departure = (Departure) mSalidas.getValue();
 
         if (data.buscar(id)) {
             saveAirport();
@@ -204,8 +196,8 @@ public class AirPortController {
             return;
         }
 
-        try {
-                AirPort airport = new AirPort(id, name, pais,active,departures);
+        /*try {
+                Airport airport = new Airport(id, name, pais,active, departure);
                 data.insert(airport); // agregar al archivo
                 observableList.add(airport); // agregar a ObservableList
                 FXUtil.confirmationDialog("Airport successfully added").showAndWait();
@@ -216,7 +208,7 @@ public class AirPortController {
             FXUtil.alert("Error", "Invalid value").showAndWait();
         } catch (IOException e) {
             FXUtil.alert("File Error", "Could not write to file").showAndWait();
-        }
+        }*/
         //tvAirports.setItems(observableAirports);
         cleanFields();
     }
@@ -230,13 +222,13 @@ public class AirPortController {
     }
 
     @javafx.fxml.FXML
-    public void updateAirport(AirPort airPortToEdit) throws IOException {
-        currentAirportToEdit = airPortToEdit;
-        tfID.setText(String.valueOf(airPortToEdit.getCode()));
-        tfNombre.setText(airPortToEdit.getName());
-        tfPais.setText(airPortToEdit.getCountry());
-        mEstado.setValue(String.valueOf(airPortToEdit.getStatus()));
-        mSalidas.setValue(airPortToEdit.getDeparturesBoard());
+    public void updateAirport(Airport airportToEdit) throws IOException {
+        currentAirportToEdit = airportToEdit;
+        tfID.setText(String.valueOf(airportToEdit.getCode()));
+        tfNombre.setText(airportToEdit.getName());
+        tfPais.setText(airportToEdit.getCountry());
+        mEstado.setValue(String.valueOf(airportToEdit.getStatus()));
+        //mSalidas.setValue(airportToEdit.getDeparturesBoard());
 
 
         tfID.setEditable(false); // Prevent editing ID during update
@@ -244,7 +236,7 @@ public class AirPortController {
     }
 
     @javafx.fxml.FXML
-    public void removeAirport(AirPort airportToDelete) {
+    public void removeAirport(Airport airportToDelete) {
         Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
         confirmationAlert.setTitle("Confirm Deletion");
         confirmationAlert.setHeaderText("Delete Airport " + airportToDelete.getCode());
@@ -279,9 +271,9 @@ public class AirPortController {
     public void updateObservableList() {
         try {
             AirPortDatos hotelData = new AirPortDatos(file); // tu archivo binario de hoteles
-            List<AirPort> listaDesdeArchivo = hotelData.findAll(); // carga desde archivo
+            List<Airport> listaDesdeArchivo = hotelData.findAll(); // carga desde archivo
 
-            ObservableList<AirPort> hotelList = (ObservableList<AirPort>) Util.getAirPortList(); // lista observable compartida
+            ObservableList<Airport> hotelList = (ObservableList<Airport>) Util.getAirPortList(); // lista observable compartida
             hotelList.clear(); // limpia la lista actual
             hotelList.addAll(listaDesdeArchivo); // añade la nueva información
 
@@ -322,7 +314,7 @@ public class AirPortController {
         String name = tfNombre.getText().trim();
         String country = tfPais.getText().trim();
         String status = mEstado.getSelectionModel().getSelectedItem(); // "Activo" o "Inactivo"
-        Departures selectedDeparture = mSalidas.getSelectionModel().getSelectedItem();
+        Departure selectedDeparture = mSalidas.getSelectionModel().getSelectedItem();
 
         if (codeText.isEmpty() || name.isEmpty() || country.isEmpty() || status == null || selectedDeparture == null) {
             FXUtil.alert("Por favor, complete todos los campos requeridos.", "error");
@@ -339,7 +331,7 @@ public class AirPortController {
         }
 
         // Se construye el nuevo aeropuerto
-        AirPort newAirport = new AirPort(code, name, country, status, selectedDeparture);
+        //Airport newAirport = new Airport(code, name, country, status, selectedDeparture);
 
         if (currentAirportToEdit != null) {
             // Actualiza aeropuerto existente
@@ -351,7 +343,7 @@ public class AirPortController {
                 }
             }
             if (index != -1) {
-                observableAirports.set(index, newAirport); // ACTUALIZA la lista
+                //observableAirports.set(index, newAirport); // ACTUALIZA la lista
                 saveDataToFile(); // guarda la lista actualizada
                 updateObservableList(); // si necesitas recargar desde el archivo
                 FXUtil.alert("Aeropuerto actualizado correctamente.", "success");
@@ -364,7 +356,7 @@ public class AirPortController {
             tfID.setEditable(false);
         } else {
             // Registro nuevo aeropuerto
-            observableAirports.add(newAirport);
+            //observableAirports.add(newAirport);
             FXUtil.alert("Aeropuerto registrado correctamente.", "success");
             saveDataToFile();
         }
@@ -389,7 +381,7 @@ public class AirPortController {
         });
 
         AirPortDatos data = new AirPortDatos(file);
-        ObservableList<AirPort> lista;
+        ObservableList<Airport> lista;
 
         if (rbActivos.isSelected()) {
             lista = FXCollections.observableArrayList(data.getAllAirPorts("activos"));

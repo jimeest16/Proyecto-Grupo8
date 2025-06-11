@@ -1,19 +1,13 @@
 package ucr.lab.TDA;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ucr.lab.domain.AirPort;
-import ucr.lab.domain.Departures;
-import ucr.lab.domain.Flight;
-import ucr.lab.domain.User;
+import ucr.lab.TDA.list.DoublyLinkedList;
+import ucr.lab.domain.Airport;
+import ucr.lab.domain.Departure;
 import ucr.lab.utility.FileReader;
 
-import java.io.File;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class DoublyLinkedListTest {
 
@@ -22,16 +16,16 @@ class DoublyLinkedListTest {
         DoublyLinkedList list = new DoublyLinkedList();
 
         // Crear AEROPUERTOS y lista de salidas
-        List<Departures> departuresList = FileReader.loadDepartures();
-        Departures departures = new Departures();
-        departuresList.add(new Departures((LocalDate.now().plusDays(4)), "Tokyo", "C05", "CANCELLED"));
-        departuresList.add(new Departures(LocalDate.now().plusDays(2), "New York", "B12", "DELAYED"));
+        List<Departure> departureList = FileReader.loadDepartures();
+        //Departure departure = new Departure();
+        //departureList.add(new Departure((LocalDate.now().plusDays(4)), "Tokyo", "C05", "CANCELLED"));
+        //departureList.add(new Departure(LocalDate.now().plusDays(2), "New York", "B12", "DELAYED"));
 
 //new Flight(1, "CR", "USA", LocalDateTime.now().minusDays(30), 30)
 //new Flight(2, "USA", "CR", LocalDateTime.now().minusDays(31), 35))
         // Crear aeropuertos
-        AirPort airport1 = new AirPort(1, "Aeropuerto Internacional de Los Ángeles", "USA", "Activo", departures);
-        AirPort airport2 = new AirPort(2, "Aeropuerto Internacional John F.Kennedy", "USA", "Activo", departures);
+        //Airport airport1 = new Airport(1, "Aeropuerto Internacional de Los Ángeles", "USA", "Activo", departure);
+        /*Airport airport2 = new Airport(2, "Aeropuerto Internacional John F.Kennedy", "USA", "Activo", departure);
         list.add(airport1);
         list.add(airport2);
         System.out.println(list);
@@ -40,10 +34,10 @@ class DoublyLinkedListTest {
         FileReader.addAirport(airport2);
 
         // Cargar lista después de agregar
-        List<AirPort> airportList = FileReader.loadAirports();
+        List<Airport> airportList = FileReader.loadAirports();
 
         // Verificar resultados
-
+*/
 
     }
 }

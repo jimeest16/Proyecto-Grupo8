@@ -4,18 +4,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.core.type.TypeReference;
-import ucr.lab.TDA.CircularDoublyLinkedList;
-import ucr.lab.TDA.CircularLinkedList;
-import ucr.lab.TDA.ListException;
-import ucr.lab.domain.AirPort;
-import ucr.lab.domain.Departures;
+import ucr.lab.TDA.list.CircularDoublyLinkedList;
+import ucr.lab.TDA.list.CircularLinkedList;
+import ucr.lab.TDA.list.ListException;
+import ucr.lab.domain.Airport;
+import ucr.lab.domain.Departure;
 import ucr.lab.domain.Flight;
 import ucr.lab.domain.Passenger;
 import ucr.lab.domain.User;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -95,11 +94,11 @@ public class FileReader {
     }
 
     // Cargar lista de aeropuertos
-    public static List<AirPort> loadAirports() {
+    public static List<Airport> loadAirports() {
         try {
             File file = new File(FILE_AIRPORT);
             if (!file.exists()) return new ArrayList<>();
-            return mapper.readValue(file, new TypeReference<List<AirPort>>() {});
+            return mapper.readValue(file, new TypeReference<List<Airport>>() {});
         } catch (Exception e) {
             e.printStackTrace();
             return new ArrayList<>();
@@ -107,7 +106,7 @@ public class FileReader {
     }
 
     // Guardar lista de aeropuertos
-    public static void saveAirports(List<AirPort> airports) {
+    public static void saveAirports(List<Airport> airports) {
         try {
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File(FILE_AIRPORT), airports);
         } catch (Exception e) {
@@ -116,8 +115,8 @@ public class FileReader {
     }
 
     // Añadir un nuevo aeropuerto
-    public static void addAirport(AirPort newAirport) {
-        List<AirPort> airports = loadAirports();
+    public static void addAirport(Airport newAirport) {
+        List<Airport> airports = loadAirports();
         airports.add(newAirport);
         saveAirports(airports);
 
@@ -152,18 +151,18 @@ public class FileReader {
     }
 
     // Cargar lista de salidas
-    public static List<Departures> loadDepartures() {
+    public static List<Departure> loadDepartures() {
         try {
             File file = new File(FILE_DEPARTURES);
             if (!file.exists()) return new ArrayList<>();
-            return mapper.readValue(file, new TypeReference<List<Departures>>() {});
+            return mapper.readValue(file, new TypeReference<List<Departure>>() {});
         } catch (Exception e) {
             e.printStackTrace();
             return new ArrayList<>();
         }
     }
 
-    public static void saveDepartures(List<Departures> departures) {
+    public static void saveDepartures(List<Departure> departures) {
         try {
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File(FILE_DEPARTURES), departures);
         } catch (Exception e) {
@@ -171,8 +170,8 @@ public class FileReader {
         }
     }
 
-    public static void addDepartures(Departures newDeparture) {
-        List<Departures> departures = loadDepartures();
+    public static void addDepartures(Departure newDeparture) {
+        List<Departure> departures = loadDepartures();
         departures.add(newDeparture);
         saveDepartures(departures);
     }

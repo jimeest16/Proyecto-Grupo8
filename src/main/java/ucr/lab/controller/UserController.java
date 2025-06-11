@@ -103,8 +103,8 @@ public class UserController {
 
         // de prueba
         tablePasajerosAsignados.getItems().addAll(
-                new Passenger(1, "Juan Perez", "Costa Rican", Collections.singletonList("Flight A, Flight B"), "Confirmed"),
-                new Passenger(2, "Maria Gomez", "Costa Rican", Collections.singletonList("Flight C"), "Pending")
+               // new Passenger(1, "Juan Perez", "Costa Rican", Collections.singletonList("Flight A, Flight B"), "Confirmed"),
+              //  new Passenger(2, "Maria Gomez", "Costa Rican", Collections.singletonList("Flight C"), "Pending")
         );
     }
 

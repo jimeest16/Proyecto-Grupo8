@@ -3,7 +3,11 @@ package ucr.lab.utility;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import ucr.lab.TDA.*;
+import ucr.lab.TDA.list.DoublyLinkedList;
+import ucr.lab.TDA.queue.LinkedQueue;
+import ucr.lab.TDA.stack.LinkedStack;
+import ucr.lab.TDA.stack.Stack;
+import ucr.lab.TDA.stack.StackException;
 import ucr.lab.domain.*;
 
 import java.io.File;
@@ -26,24 +30,23 @@ public class Util {
         // semilla para el random
         long seed = System.currentTimeMillis();
         random = new Random(seed);
-
     }
     ///airports list
-    private static ObservableList<AirPort> airPortList = FXCollections.observableArrayList(); //lista para airports
-    private static ObservableList<Departures> departuresList = FXCollections.observableArrayList();
+    private static ObservableList<Airport> airportList = FXCollections.observableArrayList(); //lista para airports
+    private static ObservableList<Departure> departureList = FXCollections.observableArrayList();
     //constructor estatico, inicializador estatico
 
-    public static ObservableList<AirPort> getAirPortList() {
-        return airPortList;
+    public static ObservableList<Airport> getAirPortList() {
+        return airportList;
     }
 
-    public static void setAirPortList(ObservableList<AirPort> newAirPortList) {
-        airPortList.setAll(newAirPortList);
+    public static void setAirPortList(ObservableList<Airport> newAirportList) {
+        airportList.setAll(newAirportList);
     }
 
-    public static AirPort getAirPort(int airPortId) {
-        if (airPortList != null) {
-            for (AirPort airPort : airPortList) {
+    public static Airport getAirPort(int airPortId) {
+        if (airportList != null) {
+            for (Airport airPort : airportList) {
                 if (airPort.getCode() == airPortId) {
                     return airPort;
                 }
@@ -55,32 +58,32 @@ public class Util {
     // Este get es para verificar el contenido de la lista
     public static DoublyLinkedList getAirPorts() {
         DoublyLinkedList airPorts = new DoublyLinkedList();
-        for (AirPort airPort : airPortList) {
+        for (Airport airPort : airportList) {
             airPorts.add(airPort);
             System.out.println(airPort);
         }
         return airPorts;
     }
 
-    public static ObservableList<AirPort> getAirPortsInList() {
-        ArrayList<AirPort> airPorts = new ArrayList<>(airPortList);
-        if (!airPortList.isEmpty()) {
-            for (int i = 0; i < airPortList.size(); i++) {
-                AirPort airPort = airPortList.get(i);
+    public static ObservableList<Airport> getAirPortsInList() {
+        ArrayList<Airport> airports = new ArrayList<>(airportList);
+        if (!airportList.isEmpty()) {
+            for (int i = 0; i < airportList.size(); i++) {
+                Airport airPort = airportList.get(i);
                 System.out.println("AirPort en posición " + i + ": " + airPort);
             }
         }
-        return FXCollections.observableArrayList(airPorts);
+        return FXCollections.observableArrayList(airports);
     }
 
     //LISTA DEPARTURES
-    public static ObservableList<Departures> getDeparturesList() {
+    public static ObservableList<Departure> getDeparturesList() {
         try {
             File file = new File("src/main/resources/data/departures.json");
             DeparturesDatos departuresDatos = new DeparturesDatos(file); // archivo json de rooms
-            java.util.List<Departures> listaDesdeArchivo = departuresDatos.getAllDepartures(); // carga desde archivo
+            java.util.List<Departure> listaDesdeArchivo = departuresDatos.getAllDepartures(); // carga desde archivo
 
-            ObservableList<Departures> list = departuresList; // lista observable compartida
+            ObservableList<Departure> list = departureList; // lista observable compartida
             list.clear(); // limpia la lista actual
             list.addAll(listaDesdeArchivo); // añade la nueva información
             return list;
@@ -91,14 +94,14 @@ public class Util {
 
     }
 
-    public static void setDeparturestList(ObservableList<Departures> newDeparture) {
-        departuresList.setAll(newDeparture);
+    public static void setDeparturestList(ObservableList<Departure> newDeparture) {
+        departureList.setAll(newDeparture);
     }
 
     // Este get es para verificar el contenido de la lista
     public static DoublyLinkedList getDepartures() {
         DoublyLinkedList departures = new DoublyLinkedList();
-        for (Departures departure : departuresList) {
+        for (Departure departure : departureList) {
             departures.add(departure);
             System.out.println(departure);
         }
@@ -110,9 +113,9 @@ public class Util {
         try {
             File file = new File("src/main/resources/data/departures.json");
             DeparturesDatos departuresDatos = new DeparturesDatos(file); // archivo json de rooms
-            java.util.List<Departures> listaDesdeArchivo = departuresDatos.getAllDepartures(); // carga desde archivo
+            java.util.List<Departure> listaDesdeArchivo = departuresDatos.getAllDepartures(); // carga desde archivo
 
-            ObservableList<Departures> list = Util.getDeparturesList(); // lista observable compartida
+            ObservableList<Departure> list = Util.getDeparturesList(); // lista observable compartida
             list.clear(); // limpia la lista actual
             list.addAll(listaDesdeArchivo); // añade la nueva información
 

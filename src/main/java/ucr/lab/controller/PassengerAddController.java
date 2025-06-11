@@ -10,8 +10,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import ucr.lab.TDA.AVLTree;
-import ucr.lab.TDA.TreeException;
+import ucr.lab.TDA.tree.AVLTree;
+import ucr.lab.TDA.tree.TreeException;
 import ucr.lab.domain.Passenger;
 import ucr.lab.utility.FileReader;
 
@@ -71,7 +71,7 @@ public class PassengerAddController {
             // Crear pasajero, guardar en archivo
             Passenger passenger = new Passenger(id, name, nationality);
             if (!history.isEmpty()) {
-                passenger.addFlight(history);
+               // passenger.addFlight(history);
             }
 
             List<Passenger> passengers = FileReader.loadPassengers();
