@@ -7,7 +7,7 @@ import ucr.lab.TDA.stack.StackException;
 public interface Graph {
     // devuelve el número de vértices que tiene el grafo
     int size() throws ListException;
-    //elimina todo el Grafo
+    //elimina todos los elementos del Grafo
     void clear();
     // true si el grafo está vacío
     boolean isEmpty();
