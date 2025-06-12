@@ -1,62 +1,76 @@
-[
-  {
-    "departureTime": "2025-06-07",
-    "origin": "London",
-    "gateId": "A01",
-    "status": "ON TIME"
-  },
-  {
-    "departureTime": "2025-06-07",
-    "origin": "New York",
-    "gateId": "B12",
-    "status": "DELAYED"
-  },
-  {
-    "departureTime": "2025-06-07",
-    "origin": "Tokyo",
-    "gateId": "C05",
-    "status": "CANCELLED"
-  },
-  {
-    "departureTime": "2025-06-07",
-    "origin": "Paris",
-    "gateId": "D07",
-    "status": "BOARDING"
-  },
-  {
-    "departureTime": "2025-06-07",
-    "origin": "Berlin",
-    "gateId": "E03",
-    "status": "FINAL CALL"
-  },
-  {
-    "departureTime": "2025-06-12",
-    "origin": "London",
-    "gateId": "A01",
-    "status": "ON TIME"
-  },
-  {
-    "departureTime": "2025-06-14",
-    "origin": "New York",
-    "gateId": "B12",
-    "status": "DELAYED"
-  },
-  {
-    "departureTime": "2025-06-16",
-    "origin": "Tokyo",
-    "gateId": "C05",
-    "status": "CANCELLED"
-  },
-  {
-    "departureTime": "2025-06-13",
-    "origin": "Paris",
-    "gateId": "D07",
-    "status": "BOARDING"
-  },
-  {
-    "departureTime": "2025-06-15",
-    "origin": "Berlin",
-    "gateId": "E03",
-    "status": "FINAL CALL"
-  }
-]
+[ {
+  "departure_time" : null,
+  "origin" : "London",
+  "gate_id" : null,
+  "status" : "ON TIME"
+}, {
+  "departure_time" : null,
+  "origin" : "New York",
+  "gate_id" : null,
+  "status" : "DELAYED"
+}, {
+  "departure_time" : null,
+  "origin" : "Tokyo",
+  "gate_id" : null,
+  "status" : "CANCELLED"
+}, {
+  "departure_time" : null,
+  "origin" : "Paris",
+  "gate_id" : null,
+  "status" : "BOARDING"
+}, {
+  "departure_time" : null,
+  "origin" : "Berlin",
+  "gate_id" : null,
+  "status" : "FINAL CALL"
+}, {
+  "departure_time" : null,
+  "origin" : "London",
+  "gate_id" : null,
+  "status" : "ON TIME"
+}, {
+  "departure_time" : null,
+  "origin" : "New York",
+  "gate_id" : null,
+  "status" : "DELAYED"
+}, {
+  "departure_time" : null,
+  "origin" : "Tokyo",
+  "gate_id" : null,
+  "status" : "CANCELLED"
+}, {
+  "departure_time" : null,
+  "origin" : "Paris",
+  "gate_id" : null,
+  "status" : "BOARDING"
+}, {
+  "departure_time" : null,
+  "origin" : "Berlin",
+  "gate_id" : null,
+  "status" : "FINAL CALL"
+}, {
+  "departure_time" : "2025-06-12",
+  "origin" : "London",
+  "gate_id" : "A01",
+  "status" : "ON TIME"
+}, {
+  "departure_time" : "2025-06-14",
+  "origin" : "New York",
+  "gate_id" : "B12",
+  "status" : "DELAYED"
+}, {
+  "departure_time" : "2025-06-16",
+  "origin" : "Tokyo",
+  "gate_id" : "C05",
+  "status" : "CANCELLED"
+}, {
+  "departure_time" : "2025-06-13",
+  "origin" : "Paris",
+  "gate_id" : "D07",
+  "status" : "BOARDING"
+}, {
+  "departure_time" : "2025-06-15",
+  "origin" : "Berlin",
+  "gate_id" : "E03",
+  "status" : "FINAL CALL"
+} ]

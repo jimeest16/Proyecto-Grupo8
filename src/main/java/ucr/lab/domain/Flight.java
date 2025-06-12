@@ -44,7 +44,7 @@ public class Flight {
         this.occupancy = occupancy;
         this.status = status;
         this.passengerIDs = new SinglyLinkedList();
-        this.route = "";
+        this.route = ""; // se ve la ruta
     }
 
     public Flight(int number, int originCode, int destinationCode, LocalDateTime departureTime, int capacity, int occupancy, String status, SinglyLinkedList passengerIDs) {
@@ -161,7 +161,7 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "Flight{" +
+       /* return "Flight{" +
                 "number=" + number +
                 ", originCode=" + originCode +
                 ", destinationCode=" + destinationCode +
@@ -169,8 +169,12 @@ public class Flight {
                 ", capacity=" + capacity +
                 ", occupancy=" + occupancy +
                 ", status='" + status + '\'' +
-                ", passengerIDs=" + (passengerIDs != null ? passengerIDs.toString() : "null") + // Asegura que la lista se muestre correctamente
+                ", passengerIDs=" + (passengerIDs != null ? passengerIDs.toString() : "null") +
                 ", route='" + route + '\'' +
                 '}';
+    }*/
+        return "Vuelo " + number +
+                " (" + originCode + " a " + destinationCode + ")" +
+                (route != null && !route.isEmpty() ? " Ruta: " + route : "");
     }
 }

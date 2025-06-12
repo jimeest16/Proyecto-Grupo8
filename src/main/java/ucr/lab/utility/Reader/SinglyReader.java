@@ -5,35 +5,41 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-
 import ucr.lab.TDA.list.SinglyLinkedList;
-
+import ucr.lab.domain.Flight;
 
 import java.io.IOException;
 
-//Info investigada:como tal Jackson no sabe como tratar nuestras clases por lo tanto  primero se tiene que
-// dar a entender que es una lista y que ademas, campos, mayusculas o camelCase no estropen la lectura del text
-
-// Esta clase le dice a Jackson cómo leer un arreglo JSON y convertirlo en mi  SinglyLinkedList
+// Esta clase le dice a Jackson cómo leer un arreglo JSON y convertirlo en mi SinglyLinkedList
 public class SinglyReader extends JsonDeserializer<SinglyLinkedList> {
 
-  @Override
+    @Override
     public SinglyLinkedList deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
         SinglyLinkedList list = new SinglyLinkedList();
-       JsonNode node = p.getCodec().readTree(p); // Lee el nodo JSON completo para este campo
+        ObjectMapper mapper = (ObjectMapper) p.getCodec();
 
-        if (node.isArray()) { // Si el valor JSON es un arreglo
+        JsonNode node = p.getCodec().readTree(p);
+
+        if (node.isArray()) {
             for (JsonNode elementNode : node) {
-                // Supongo que los elementos son Strings
-
-                list.add(elementNode.asText()); // Agrega cada elemento del arreglo JSON a la list personalizada TDA
+                try {
+                    Flight flight = mapper.treeToValue(elementNode, Flight.class);
+                    list.add(flight);
+                } catch (IOException e) {
+                    System.err.println("ERROR SinglyReader: Fallo al deserializar un objeto Flight: " + elementNode.toString() + " - " + e.getMessage());
+                }
             }
-        } else if (node.isTextual()) {
-            list.add(node.asText());
+        } else if (node.isObject()) {
+            try {
+                Flight flight = mapper.treeToValue(node, Flight.class);
+                list.add(flight);
+            } catch (IOException e) {
+                System.err.println("ERROR SinglyReader: Fallo al deserializar un único objeto Flight: " + node.toString() + " - " + e.getMessage());
+            }
         }
 
-        return list; // Retorna tu lista personalizada llena con los datos
-    }
 
+
+        return list;
+    }
 }
