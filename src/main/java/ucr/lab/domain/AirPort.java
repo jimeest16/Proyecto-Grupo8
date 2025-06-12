@@ -23,6 +23,14 @@ public class AirPort {
         this.departuresBoard = departuresBoard; // Lista de vuelos
     }
 
+    public AirPort(int code, String name, String country, String status) {
+        this.code = code;
+        this.name = name;
+        this.country = country;
+        this.status = status;
+        this.departuresBoard = null;
+    }
+
     // Getters y Setters
 
     public int getCode() {
