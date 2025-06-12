@@ -169,7 +169,7 @@ public class Flight {
                 ", capacity=" + capacity +
                 ", occupancy=" + occupancy +
                 ", status='" + status + '\'' +
-                ", passengerIDs=" + (passengerIDs != null ? passengerIDs.toString() : "null") +
+                ", passengerIDs=" + (passengerIDs != null ? passengerIDs.toString() : "null") + // Asegura que la lista se muestre correctamente
                 ", route='" + route + '\'' +
                 '}';
     }

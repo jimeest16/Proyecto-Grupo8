@@ -21,11 +21,11 @@ public class FlightReader extends JsonDeserializer<SinglyLinkedList> {
         SinglyLinkedList list = new SinglyLinkedList(); // Tu lista vacía
         ArrayNode arrayNode = mapper.readTree(p);
 
-        // --- DEPURACIÓN: Inicio del deserializador ---
+
         System.out.println("\nDEBUG SinglyReader: --- Entrando al deserializador ---");
         System.out.println("DEBUG SinglyReader: ArrayNode recibido. ¿Está vacío? " + arrayNode.isEmpty());
         System.out.println("DEBUG SinglyReader: Número de elementos en JSON ArrayNode: " + arrayNode.size());
-        // --- FIN DEPURACIÓN ---
+
 
         if (arrayNode.isEmpty()) {
             System.out.println("DEBUG SinglyReader: El array JSON está vacío, devolviendo lista vacía.");
@@ -34,14 +34,14 @@ public class FlightReader extends JsonDeserializer<SinglyLinkedList> {
 
         for (JsonNode node : arrayNode) {
             try {
-                // --- DEPURACIÓN: Antes de mapear un Flight ---
+
                 System.out.println("DEBUG SinglyReader: Intentando mapear un nodo a Flight. Nodo JSON: " + node.toString());
                 Flight flight = mapper.treeToValue(node, Flight.class);
-                // --- DEPURACIÓN: Después de mapear un Flight ---
-                System.out.println("DEBUG SinglyReader: Flight deserializado (su toString()): " + flight.toString()); // Aquí veremos su toString()
 
-                list.add(flight); // Añadiendo el objeto Flight a tu SinglyLinkedList
-                // --- DEPURACIÓN: Después de añadir a la lista ---
+                System.out.println("DEBUG SinglyReader: Flight deserializado (su toString()): " + flight.toString()); // Aquí veremos el toString()
+
+                list.add(flight);
+
                 System.out.println("DEBUG SinglyReader: Flight añadido a SinglyLinkedList. Tamaño actual de la lista: " + list.size());
             } catch (ListException e) {
                 System.err.println("ERROR SinglyReader: Falló al añadir Flight a SinglyLinkedList: " + e.getMessage());
@@ -52,7 +52,7 @@ public class FlightReader extends JsonDeserializer<SinglyLinkedList> {
                 throw new IOException("Error inesperado procesando el elemento del vuelo.", e);
             }
         }
-        // --- DEPURACIÓN: Fin del deserializador ---
+
         try {
             System.out.println("DEBUG SinglyReader: SinglyLinkedList para flightHistory finalizó de poblarse. Tamaño final de la lista: " + list.size());
         } catch (ListException e) {
