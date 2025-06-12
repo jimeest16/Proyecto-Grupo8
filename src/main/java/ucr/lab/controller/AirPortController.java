@@ -154,11 +154,11 @@ public class AirPortController {
                 editButton.setOnAction(event -> {
                     AirPort airportToEdit = getTableView().getItems().get(getIndex());
                     try {
-                        updateAirport(airportToEdit);
-                        //saveAirport();
+                        update(airportToEdit);
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
+                    //saveAirport();
                 });
 
                 deleteButton.setOnAction(event -> {
@@ -231,26 +231,62 @@ public class AirPortController {
         cleanFields();
     }
 
-    private void cleanFields() {
+    @javafx.fxml.FXML
+    public void update(AirPort airPortToEdit ) throws IOException {
+        tfID.setText(String.valueOf(airPortToEdit.getCode()));
+        tfNombre.setText(airPortToEdit.getName());
+        tfPais.setText(airPortToEdit.getCountry());
+        mSalidas.setValue(airPortToEdit.getDeparturesBoard());
+        mEstado.setValue(airPortToEdit.getStatus());
+    }
+    @javafx.fxml.FXML
+    public void updateAirport(ActionEvent actionEvent ) throws IOException {
+
+        tfID.setEditable(false); // Prevent editing ID during update
+        //btCrear.setText("Update");
+
+            String id = tfID.getText().trim();
+            String firstName = tfNombre.getText().trim();
+            String country = tfPais.getText().trim();
+            String status = mEstado.getValue().trim();
+            String salidas = mSalidas.getValue().toString();
+
+            if (id.isEmpty() || firstName.isEmpty() || country.isEmpty() || status.isEmpty() || salidas.isEmpty()) {
+                FXUtil.alert("Error", "Todos los campos son obligatorios para actualizar un huésped.").showAndWait();
+                return;
+            }
+
+            try {
+                AirPortDatos data = new AirPortDatos(file);
+                AirPort originalAirport = data.buscarAirPort(Integer.parseInt(tfID.getText()));
+
+                if (originalAirport == null) {
+                    FXUtil.alert("Error", "No se encontró ningún huésped con la cédula/identificación: " + id + ". Por favor, guarde el huésped primero.").showAndWait();
+                    return;
+                }
+
+                AirPort updatedAirport = new AirPort(Integer.parseInt(tfID.getText()), firstName, country, status, mSalidas.getValue());
+                boolean success = data.actualizar(originalAirport, updatedAirport);
+
+                if (success) {
+                    FXUtil.confirmationDialog("¡Aeropuerto actualizado exitosamente!").showAndWait();
+                    cleanFields();
+                    updateObservableList(); // Actualiza la tabla
+                } else {
+                    FXUtil.alert("Error", "Fallo al actualizar aeropuerto con identificación: " + id).showAndWait();
+                }
+            } catch (IOException e) {
+                FXUtil.alert("Error", "Fallo al actualizar aeropuerto: " + e.getMessage()).showAndWait();
+                e.printStackTrace();
+            }
+        }
+
+    public void cleanFields() {
         tfID.clear();
         tfNombre.clear();
         tfPais.clear();
         mEstado.setValue(null);
         mSalidas.setValue(null);
-    }
-
-    @javafx.fxml.FXML
-    public void updateAirport(AirPort airPortToEdit) throws IOException {
-        currentAirportToEdit = airPortToEdit;
-        tfID.setText(String.valueOf(airPortToEdit.getCode()));
-        tfNombre.setText(airPortToEdit.getName());
-        tfPais.setText(airPortToEdit.getCountry());
-        mEstado.setValue(String.valueOf(airPortToEdit.getStatus()));
-        mSalidas.setValue(airPortToEdit.getDeparturesBoard());
-
-
-        tfID.setEditable(false); // Prevent editing ID during update
-        btCrear.setText("Update");
     }
 
     @javafx.fxml.FXML

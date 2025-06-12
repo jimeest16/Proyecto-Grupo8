@@ -1,121 +1,146 @@
-[ {
-  "code" : 1,
-  "name" : "Los Angeles International Airport",
-  "country" : "USA",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 2,
-  "name" : "John F. Kennedy International Airport",
-  "country" : "USA",
-  "status" : "Inactivo",
-  "departuresBoard" : null
-}, {
-  "code" : 3,
-  "name" : "Aeropuerto Internacional de San José",
-  "country" : "COSTA RICA",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 4,
-  "name" : "Ciudad Celeste International Airport",
-  "country" : "TERRANOVA",
-  "status" : "Inactivo",
-  "departuresBoard" : null
-}, {
-  "code" : 5,
-  "name" : "Narita International Airport",
-  "country" : "JAPAN",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 6,
-  "name" : "Frankfurt Airport",
-  "country" : "GERMANY",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 7,
-  "name" : "Aeropuerto de Buenos Aires",
-  "country" : "ARGENTINA",
-  "status" : "Inactivo",
-  "departuresBoard" : null
-}, {
-  "code" : 8,
-  "name" : "Dragon City AirHub",
-  "country" : "FANTASIA",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 9,
-  "name" : "Aeropuerto Internacional Arturo Merino Benítez",
-  "country" : "CHILE",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 10,
-  "name" : "Beijing Capital International Airport",
-  "country" : "CHINA",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 11,
-  "name" : "Aeropuerto de Atlantis",
-  "country" : "MITICA",
-  "status" : "Inactivo",
-  "departuresBoard" : null
-}, {
-  "code" : 12,
-  "name" : "Aeropuerto Internacional de Monterrey",
-  "country" : "MEXICO",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 13,
-  "name" : "Cape Town International Airport",
-  "country" : "SOUTH AFRICA",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 14,
-  "name" : "Aeropuerto de Nimbus Prime",
-  "country" : "AETHER",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 15,
-  "name" : "Aeropuerto de Lima",
-  "country" : "PERU",
-  "status" : "Inactivo",
-  "departuresBoard" : null
-}, {
-  "code" : 16,
-  "name" : "Istanbul Airport",
-  "country" : "TURKEY",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 17,
-  "name" : "Barcelona–El Prat Airport",
-  "country" : "SPAIN",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 18,
-  "name" : "Aeropuerto Internacional Simón Bolívar",
-  "country" : "VENEZUELA",
-  "status" : "Inactivo",
-  "departuresBoard" : null
-}, {
-  "code" : 19,
-  "name" : "Zürich Airport",
-  "country" : "SWITZERLAND",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 20,
-  "name" : "Cielo Alto Air Station",
-  "country" : "ESTELIA",
-  "status" : "Activo",
-  "departuresBoard" : null
-} ]
+[
+  {
+    "code": 1,
+    "name": "Los Angeles International Airport",
+    "country": "USA",
+    "status": "Activo",
+    "departuresBoard": {
+      "departureTime": "2025-06-07",
+      "origin": "London",
+      "gateId": "A01",
+      "status": "ON TIME"
+    }
+  },
+  {
+    "code": 2,
+    "name": "John F. Kennedy International Aeropuerto",
+    "country": "USA",
+    "status": "Inactivo",
+    "departuresBoard": {
+      "departureTime": "2025-06-07",
+      "origin": "Tokyo",
+      "gateId": "C05",
+      "status": "CANCELLED"
+    }
+  },
+  {
+    "code": 3,
+    "name": "Aeropuerto Internacional de San José",
+    "country": "COSTA RICA",
+    "status": "Activo"
+  },
+  {
+    "code": 4,
+    "name": "Ciudad Celeste International Airport",
+    "country": "TERRANOVA",
+    "status": "Inactivo"
+  },
+  {
+    "code": 5,
+    "name": "Narita International Airport",
+    "country": "JAPAN",
+    "status": "Activo"
+  },
+  {
+    "code": 6,
+    "name": "Frankfurt Airport",
+    "country": "GERMANY",
+    "status": "Activo"
+  },
+  {
+    "code": 7,
+    "name": "Aeropuerto de Buenos Aires",
+    "country": "ARGENTINA",
+    "status": "Inactivo"
+  },
+  {
+    "code": 8,
+    "name": "Dragon City AirHub",
+    "country": "FANTASIA",
+    "status": "Activo"
+  },
+  {
+    "code": 9,
+    "name": "Aeropuerto Internacional Arturo Merino Benítez",
+    "country": "CHILE",
+    "status": "Activo"
+  },
+  {
+    "code": 10,
+    "name": "Beijing Capital International Airport",
+    "country": "CHINA",
+    "status": "Activo"
+  },
+  {
+    "code": 11,
+    "name": "Aeropuerto de Atlantis",
+    "country": "MITICA",
+    "status": "Inactivo"
+  },
+  {
+    "code": 12,
+    "name": "Aeropuerto Internacional de Monterrey",
+    "country": "MEXICO",
+    "status": "Activo"
+  },
+  {
+    "code": 13,
+    "name": "Cape Town International Airport",
+    "country": "SOUTH AFRICA",
+    "status": "Activo"
+  },
+  {
+    "code": 14,
+    "name": "Aeropuerto de Nimbus Prime",
+    "country": "AETHER",
+    "status": "Activo"
+  },
+  {
+    "code": 15,
+    "name": "Aeropuerto de Lima",
+    "country": "PERU",
+    "status": "Inactivo"
+  },
+  {
+    "code": 16,
+    "name": "Istanbul Airport",
+    "country": "TURKEY",
+    "status": "Activo"
+  },
+  {
+    "code": 17,
+    "name": "Barcelona–El Prat Airport",
+    "country": "SPAIN",
+    "status": "Activo"
+  },
+  {
+    "code": 18,
+    "name": "Aeropuerto Internacional Simón Bolívar",
+    "country": "VENEZUELA",
+    "status": "Inactivo"
+  },
+  {
+    "code": 19,
+    "name": "Zürich Airport",
+    "country": "SWITZERLAND",
+    "status": "Activo"
+  },
+  {
+    "code": 20,
+    "name": "Cielo Alto Air Station",
+    "country": "ESTELIA",
+    "status": "Activo"
+  },
+  {
+    "code": 1,
+    "name": "Los Angeles International Aeropuerto",
+    "country": "USA",
+    "status": "Inactivo",
+    "departuresBoard": {
+      "departureTime": "2025-06-07",
+      "origin": "London",
+      "gateId": "A01",
+      "status": "ON TIME"
+    }
+  }
+]
