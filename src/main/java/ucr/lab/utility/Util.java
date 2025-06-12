@@ -3,6 +3,8 @@ package ucr.lab.utility;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import ucr.lab.TDA.graph.EdgeWeight;
+import ucr.lab.TDA.graph.Vertex;
 import ucr.lab.TDA.list.DoublyLinkedList;
 import ucr.lab.TDA.queue.LinkedQueue;
 import ucr.lab.TDA.stack.LinkedStack;
@@ -195,316 +197,39 @@ public class Util {
 
     // Método para comparar dos objetos de distintos tipos
     public static int compare(Object a, Object b) {
-        switch (instanceOf(a, b)) {
+        switch (instanceOf(a, b)){
             case "Integer":
-                Integer int1 = (Integer) a;
-                Integer int2 = (Integer) b;
-                return int1 < int2 ? -1 : int1 > int2 ? 1 : 0;
-
+                Integer int1 = (Integer)a; Integer int2 = (Integer)b;
+                return int1 < int2 ? -1 : int1 > int2 ? 1 : 0; //0 == equal
             case "String":
-                String str1 = (String) a;
-                String str2 = (String) b;
-                return str1.compareTo(str2) < 0 ? -1 : str1.compareTo(str2) > 0 ? 1 : 0;
-
+                String st1 = (String)a; String st2 = (String)b;
+                return st1.compareTo(st2)<0 ? -1 : st1.compareTo(st2) > 0 ? 1 : 0;
             case "Character":
-                Character ch1 = (Character) a;
-                Character ch2 = (Character) b;
-                return ch1.compareTo(ch2) < 0 ? -1 : ch1.compareTo(ch2) > 0 ? 1 : 0;
-
-//            case "Climate":
-//                Climate cl1 = (Climate) a; String c1 = a.toString();
-//                Climate cl2 = (Climate) b; String c2 = b.toString();
-//                return c1.compareTo(c2) < 0 ? -1 : c1.compareTo(c2) > 0 ? 1 : 0;
-//
-//            case "Person":
-//                Person p1 = (Person) a; String n1 = p1.getName();
-//                Person p2 = (Person) b; String n2 = p2.getName();
-//                return n1.compareTo(n2) < 0 ? -1 : n1.compareTo(n2) > 0 ? 1 : 0;
-
-            default:
-                return 2; // Unknown
+                Character c1 = (Character)a; Character c2 = (Character)b;
+                return c1.compareTo(c2)<0 ? -1 : c1.compareTo(c2)>0 ? 1 : 0;
+            case "EdgeWeight":
+                EdgeWeight eW1 = (EdgeWeight) a;
+                EdgeWeight eW2 = (EdgeWeight) b;
+                return compare(eW1.getEdge(),eW2.getEdge());
+            case "Vertex":
+                Vertex v1 = (Vertex) a;
+                Vertex v2 = (Vertex) b;
+                return compare(v1.data,v2.data);
         }
+        return 2; //Unknown
     }
 
-    public static String infixToPostfixConverter(String exp) throws StackException {
-        LinkedStack stack = new LinkedStack(); // Pila para operadores
-        String expPostFix = "";
-
-        for (char c : exp.toCharArray()) {
-            if (Character.isLetterOrDigit(c)) {
-                expPostFix += c; // Si es operando, añadir directamente al resultado
-            } else if (c == '(') {
-                stack.push(c); // Apilar paréntesis izquierdo
-            } else if (c == ')') {
-                // Desapilar hasta encontrar paréntesis izquierdo
-                while (!stack.isEmpty() && (char) stack.peek() != '(')
-                    expPostFix += stack.pop();
-                if (!stack.isEmpty())
-                    stack.pop(); // eliminar '('
-            } else { // operador
-                // Mientras el operador en la pila tenga mayor o igual prioridad
-                while (!stack.isEmpty() && getPriority(c) <= getPriority((char) stack.peek()))
-                    expPostFix += stack.pop(); // Desapilar operador
-                stack.push(c); // Apilar el operador actual
-            }
-        }
-
-        while (!stack.isEmpty()) // Añadir todos los operadores restantes
-            expPostFix += stack.pop();
-
-        // Si es una expresión numérica, calcular y agregar el resultado
-        return  exp.matches("[0-9+\\-*/()]+")
-                ? expPostFix + " = " + evaluatePostfix(expPostFix)
-                : expPostFix;
-    }
-    // infijo a prefijo
-    public static String infixToPrefixConverter(String exp) throws StackException {
-        LinkedStack stack = new LinkedStack(); // Pila para operadores
-        StringBuilder result = new StringBuilder(); // Resultado en prefijo
-        String reversed = new StringBuilder(exp).reverse().toString();// Invertir la expresión
-
-        // Aplicar lógica similar entendiendo ')' por '(' y viceversa.
-        // Siempre insertando al principio en el resultado
-        for (char c : reversed.toCharArray()) {
-            if (Character.isLetterOrDigit(c))
-                result.insert(0, c); // Agregar operandos directamente
-
-            else if (c == ')')
-                stack.push(c); // Apilar paréntesis
-
-            else if (c == '(') {
-                while (!stack.isEmpty() && (char) stack.peek() != ')')
-                    result.insert(0, stack.pop()); // Desapilar hasta ')'
-
-                stack.pop(); // Eliminar ')'
-
-            } else {
-                // Prioridad de operadores
-                while (!stack.isEmpty() && getPriority(c) < getPriority((char) stack.peek()))
-                    result.insert(0, stack.pop());
-                stack.push(c);
-            }
-        }
-
-        while (!stack.isEmpty()) // Añadir operadores restantes
-            result.insert(0, stack.pop());
-        String prefix = result.toString();
-
-        return exp.matches("[0-9+\\-*/()]+")
-                ? prefix + " = " + evaluatePrefix(prefix)
-                : prefix;
-    }
-    // postfijo a infijo
-    public static String postfixToInfixConverter(String exp) throws StackException{
-        LinkedStack stack = new LinkedStack();
-        for(char c: exp.toCharArray()){
-            if(Character.isLetterOrDigit(c)){
-                stack.push(String.valueOf(c)); // Si es operando, se apila como cadena
-            }else { // seria mi operador
-                // Desapilar dos operandos
-                String oper2= (String) stack.pop();
-                String oper1= (String) stack.pop();
-                // Combinar en notación infija con paréntesis
-                String res= "(" + oper1+c+oper2+")"; // operando operador operando
-                stack.push(res); // Apilar resultado parcial
-            }
-        }
-        String result = (String) stack.pop();
-        return exp.matches("[0-9+\\-*/]+") // Evaluar si es numérica
-                ? result + " = " + evaluatePostfix(exp)
-                : result;
-    }
-    // postfijo a prefijo
-    public static String postfixToPrefixConverter(String exp) throws StackException {
-        LinkedStack stack = new LinkedStack(); // Pila para operandos
-        for (char c : exp.toCharArray()) {
-            if (Character.isLetterOrDigit(c)) {
-                stack.push(String.valueOf(c)); // Apilar operandos
-            } else {
-                // Desapilar dos operandos
-                String oper2 = (String) stack.pop();
-                String oper1 = (String) stack.pop();
-                String res = c + oper1 + oper2; // Combinar en prefijo
-                stack.push(res);
-            }
-        }
-        String result = (String) stack.pop(); // Resultado final
-        return exp.matches("[0-9+\\-*/]+") // Evaluar si es numérica
-                ? result + " = " + evaluatePostfix(exp)
-                : result;
-    }
-    //prefijo a postfijo
-    public static String prefixToPostfixConverter(String exp) throws StackException {
-        LinkedStack stack = new LinkedStack(); // Pila para operandos
-        String reversed = new StringBuilder(exp).reverse().toString();// Invertir la expresión
-        for (char c : reversed.toCharArray()) {
-            if (Character.isLetterOrDigit(c))
-                stack.push(String.valueOf(c)); // Apilar operandos
-            else {
-                // Desapilar los dos operandos
-                String oper1 = (String) stack.pop();
-                String oper2 = (String) stack.pop();
-                // Formar la expresión en postfijo: oper1 oper2 operador
-                String res = oper1 + oper2 + c;
-                stack.push(res); // Apilar el resultado parcial
-            }
-        }
-        String result = (String) stack.pop(); // Resultado final
-        return exp.matches("[0-9+\\-*/]+") // Evaluar si es numérica
-                ? result + " = " + evaluatePostfix(exp)
-                : result;
-    }
-// prefijo a infijo
-
-    public static String prefixToInfixConverter(String exp) throws StackException {
-        LinkedStack stack = new LinkedStack();
-
-        String reversed= new StringBuilder(exp).reverse().toString();
-
-        for(char c:reversed.toCharArray()){
-            if(Character.isLetterOrDigit(c)){
-                stack.push(String.valueOf(c));
-            }else{
-                String oper1= (String) stack.pop();
-                String ope2= (String) stack.pop();
-                String resultado= "("+ oper1+ c+ ope2+")";
-                stack.push(resultado);
-            }
-        }
-        String result= (String) stack.pop();
-        return exp.matches("[0-9+\\-*/]+")
-                ?result+"="+ evaluatePrefix(exp):result;
-    }
-    private static int getPriority(char c) {
-        return switch (c) {
-            case '+', '-' -> 1; //prioridad mas baja
-            case '*', '/' -> 2;
-            case '^' -> 3;
-            default -> 0;
-        };
-    }
-
-    public static int evaluatePostfix(String exp) throws StackException {
-        LinkedStack stack = new LinkedStack();
-        for (char c : exp.toCharArray()) {
-            if (Character.isDigit(c)) {
-                stack.push(c - '0');
-            } else {
-                int val2 = (int) stack.pop();
-                int val1 = (int) stack.pop();
-                switch (c) {
-                    case '+': stack.push(val1 + val2); break;
-                    case '-': stack.push(val1 - val2); break;
-                    case '*': stack.push(val1 * val2); break;
-                    case '/': stack.push(val1 / val2); break;
-                }
-            }
-        }
-        return (int) stack.pop();
-    }
-
-    public static int evaluatePrefix(String exp) throws StackException {
-        LinkedStack stack = new LinkedStack();
-        for (int i = exp.length() - 1; i >= 0; i--) {
-            char c = exp.charAt(i);
-            if (Character.isDigit(c)) {
-                stack.push(c - '0');
-            } else {
-                int val1 = (int) stack.pop();
-                int val2 = (int) stack.pop();
-                switch (c) {
-                    case '+': stack.push(val1 + val2); break;
-                    case '-': stack.push(val1 - val2); break;
-                    case '*': stack.push(val1 * val2); break;
-                    case '/': stack.push(val1 / val2); break;
-                }
-            }
-        }
-        return (int) stack.pop();
-    }
-
-    public static String decimalTo(Stack stack, int base, int decimal) throws StackException {
-        if (decimal == 0)
-            return "0";
-        int n;
-        StringBuilder res = new StringBuilder();
-
-        while (decimal > 0) {
-            n = decimal%base;
-            if (n >= 10)
-                stack.push(Character.toString((char)(n+55)));
-            else
-                stack.push(n);
-            decimal = decimal/base;
-        }
-
-        while (!stack.isEmpty())
-            res.append(stack.pop());
-
-        //Para bases menores que 10 el resultado debe invertirse
-        return base >= 10? res.toString() : res.reverse().toString();
-    }
-
-    // Método para obtener el tipo de instancia de dos objetos
     public static String instanceOf(Object a, Object b) {
-        if (a instanceof Integer && b instanceof Integer) return "Integer";
-        if (a instanceof String && b instanceof String) return "String";
-        if (a instanceof Character && b instanceof Character) return "Character";
-//        if (a instanceof Climate && b instanceof Climate) return "Climate";
-//        if (a instanceof Person && b instanceof Person) return "Person";
+        if(a instanceof Integer && b instanceof Integer) return "Integer";
+        if(a instanceof String && b instanceof String) return "String";
+        if(a instanceof Character && b instanceof Character) return "Character";
+        if(a instanceof EdgeWeight && b instanceof EdgeWeight) return "EdgeWeight";
+        if(a instanceof Vertex && b instanceof Vertex) return "Vertex";
         return "Unknown";
-    }
-
-    public static int getAge(Date date) {
-
-        LocalDate birthDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
-        LocalDate today = LocalDate.now();
-
-        return Period.between(birthDate, today).getYears();
     }
 
     public static String dateFormat(Date value) {
         return new SimpleDateFormat("dd/MM/yyyy").format(value);
-    }
-
-    public static String getPlace() {
-        String[] places = {
-                "San José", "Ciudad Quesada", "Paraíso", "Turrialba", "Limón", "Liberia",
-                "Puntarenas", "San Ramón", "Puerto Viejo", "Volcán Irazú", "Pérez Zeledón",
-                "Palmares", "Orotina", "El coco", "Ciudad Neilly", "Sixaola", "Guápiles",
-                "Siquirres", "El Guarco", "Cartago", "Santa Bárbara", "Jacó", "Manuel Antonio",
-                "Quepos", "Santa Cruz", "Nicoya"
-        };
-        return places[random(places.length-1)];
-    }
-
-    public static String getWeather(){
-        String[] weathers = {
-                "rainy", "thunderstorm", "sunny", "cloudy", "foggy"
-        };
-        return weathers[random(weathers.length-1)];
-    }
-
-    public static String getMood() {
-        String[] mood = {
-                "Happiness", "Sadness", "Anger", "Sickness", "Cheerful", "Reflective",
-                "Gloomy", "Romantic", "Calm", "Hopeful", "Fearful",
-                "Tense", "Lonely"
-        };
-        return mood[random(mood.length-1)];
-    }
-
-    public static String getName() {
-        String[] names = {
-                "Alana", "Pablo", "Ana", "María", "Victoria", "Nicole",
-                "Mateo", "Fabiana", "Natalia", "Valeria",
-                "Luis", "Elena", "Raúl", "César", "Lucas",
-                "Clara", "Diego", "Sara", "Iván", "Julia",
-                "David", "Noa", "Bruno", "Emma", "Luz",
-                "Gael", "Iris", "Hugo", "Vera", "Leo"
-        };
-        return names[random(names.length-1)];
     }
 
     public static void setQueueClimate(LinkedQueue queueClimate) {

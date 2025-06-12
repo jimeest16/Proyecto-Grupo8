@@ -38,7 +38,7 @@ public class GraphUtil {
             Vertex to = (Vertex) graph.vertexList.getNode(j).data;
             if (!graph.containsEdge(from.data, to.data) &&
                     !isReachable(graph, to.data, from.data)) {
-                double weight = 1 + Util.random(100.0, 900.00);
+                double weight = Util.random(100.0, 900.00);
                 graph.addEdgeWeight(from.data, to.data, weight);
                 edgesAdded++;
             }
