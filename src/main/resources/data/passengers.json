@@ -1,13 +1,18 @@
 [ {
-  "id" : 6,
-  "name" : "Jimena Salas",
-  "nationality" : "Costa Rica",
-  "flightHistory" : [ "CR-MEX" ],
-  "state" : null
-}, {
-  "id" : 7,
-  "name" : "Mariana",
-  "nationality" : "Costa Rica",
-  "flightHistory" : [ ],
-  "state" : null
+  "id" : 123456789,
+  "name" : "Juan Pérez",
+  "nationality" : "Costarricense",
+  "flightHistory" : {
+    "first" : "SJ-001",
+    "empty" : false,
+    "last" : "SJ-001",
+    "next" : null,
+    "first_node" : {
+      "data" : "SJ-001",
+      "prev" : null,
+      "next" : null,
+      "priority" : null
+    }
+  },
+  "state" : "Active"
 } ]

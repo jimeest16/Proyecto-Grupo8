@@ -12,14 +12,17 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import ucr.lab.TDA.list.ListException; // Import ListException
+import ucr.lab.TDA.list.SinglyLinkedList; // Import SinglyLinkedList
 import ucr.lab.domain.AirPort;
 import ucr.lab.domain.Passenger;
 import ucr.lab.utility.FileReader;
 
 import java.net.URL;
 import java.util.Collections;
-import java.util.List;
 import java.util.ResourceBundle;
+// No longer need java.util.List if all uses are replaced.
+// import java.util.List;
 
 
 public class UserController {
@@ -92,18 +95,28 @@ public class UserController {
 
     @FXML
     private Button btnLogout;
+
     @FXML
     public void initialize() {
+        try {
 
-         List<AirPort> airportList = FileReader.loadAirports();
+            SinglyLinkedList airportList = FileReader.loadAirports();
 
-        for (AirPort airport : airportList) {
-            // de momento solo con name
-            comboOrigin.getItems().add(airport.getName());
-            comboDestination.getItems().add(airport.getName());
+
+            for (int i = 1; i <= airportList.size(); i++) {
+                AirPort airport = (AirPort) airportList.getNode(i).data;
+                comboOrigin.getItems().add(airport.getName());
+                comboDestination.getItems().add(airport.getName());
+            }
+        } catch (ListException e) {
+            System.err.println("Error loading airports from SinglyLinkedList: " + e.getMessage());
+            e.printStackTrace();
+
+        } catch (Exception e) {
+            System.err.println("An unexpected error occurred while initializing UserController: " + e.getMessage());
+            e.printStackTrace();
         }
     }
-
 
     @FXML
     private void makeReservation() {
@@ -111,7 +124,6 @@ public class UserController {
 
     }
 
-    // flights disponible
     @FXML
     private void searchFlights() {
         String origin = comboOrigin.getValue();

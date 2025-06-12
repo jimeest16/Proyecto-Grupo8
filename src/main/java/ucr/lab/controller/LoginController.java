@@ -12,13 +12,13 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import ucr.lab.TDA.list.CircularLinkedList;
-import ucr.lab.TDA.list.ListException;
+import ucr.lab.TDA.list.ListException; // Make sure this is imported
 import ucr.lab.domain.User;
 import ucr.lab.utility.FileReader;
 import ucr.lab.utility.PasswordEncription;
 
 import java.io.IOException;
-import java.util.List;
+// import java.util.List; // This import might no longer be needed if you don't use List<User> elsewhere in this class
 
 import static ucr.lab.utility.Util.compare;
 
@@ -37,7 +37,7 @@ public class LoginController {
     private TextField textEmail;
 
     // para generar una lista de usuarios
-    private CircularLinkedList  usersList;
+    private CircularLinkedList usersList; // Correctly typed as CircularLinkedList
 
 
     private String rolEscogido;
@@ -49,18 +49,18 @@ public class LoginController {
         }
     }
 
-    public void initialize() {
-        List<User> usuarios = FileReader.loadUsers();
+    public void initialize() throws ListException {
+        // Direct assignment from FileReader.loadUsers() which now returns CircularLinkedList
+        usersList = FileReader.loadUsers();
 
-        usersList = new CircularLinkedList();
-
-        if (usuarios != null) {
-            for (User u : usuarios) {
-                usersList.add(u);
-            }
-        } else {
-            mostrarAlerta("Error", "Error al cargar usuarios.", Alert.AlertType.ERROR);
-        }
+        // No need to check for null if loadUsers() returns an empty CircularLinkedList
+        // if (usuarios != null) {
+        //    for (User u : usuarios) {
+        //        usersList.add(u);
+        //    }
+        // } else {
+        //    mostrarAlerta("Error", "Error al cargar usuarios.", Alert.AlertType.ERROR);
+        // }
     }
 
     @FXML
@@ -90,7 +90,7 @@ public class LoginController {
 
             User current = (User) usersList.getFirst();
 
-            if (current == null) { // Lista vacía
+            if (usersList.isEmpty()) { // Check if the list is empty using isEmpty()
                 mostrarAlerta("Sin usuarios", "No se ha registrado ningún usuario todavía.", Alert.AlertType.ERROR);
                 return;
             }
@@ -125,11 +125,15 @@ public class LoginController {
             } else if (!rolCorrecto) {
                 mostrarAlerta("Rol incorrecto", "El usuario no tiene permisos para este rol: " + rolEscogido, Alert.AlertType.ERROR);
             }
-        } catch (Exception ex) {
+        } catch (ListException ex) { // Catch ListException specifically if it's expected
+            ex.printStackTrace();
+            mostrarAlerta("Error de lista", "Error al procesar la lista de usuarios: " + ex.getMessage(), Alert.AlertType.ERROR);
+        } catch (Exception ex) { // Catch any other unexpected exceptions
             ex.printStackTrace();
             mostrarAlerta("Error inesperado", "Ha ocurrido un error: " + ex.getMessage(), Alert.AlertType.ERROR);
         }
     }
+
     @FXML
     public void accionRegister() {
         try {
@@ -144,11 +148,10 @@ public class LoginController {
                 return;
             }
 
-
+            // Check if user already exists
             if (!usersList.isEmpty()) {
                 User current = (User) usersList.getFirst();
                 User inicio = current;
-
                 do {
                     if (compare(current.getName(), username) == 0) {
                         mostrarAlerta("Error", "Ya existe un usuario con ese nombre.", Alert.AlertType.ERROR);
@@ -158,7 +161,7 @@ public class LoginController {
                 } while (current != inicio);
             }
 
-            // Generar ID único-> se puede mejorarr luego
+            // Generate unique ID
             int maxId = 0;
             if (!usersList.isEmpty()) {
                 User current = (User) usersList.getFirst();
@@ -177,10 +180,13 @@ public class LoginController {
             User nuevoUsuario = new User(nuevoId, username, encrypted, email, rolEscogido);
             usersList.add(nuevoUsuario);
 
-            // Guardar lista actualizada
-            FileReader.saveUsersRegister((CircularLinkedList) usersList);
+            // Guardar lista actualizada (usersList is already CircularLinkedList)
+            FileReader.saveUsers(usersList); // Call saveUsers, which now accepts CircularLinkedList
             mostrarAlerta("Registro exitoso", "Usuario registrado correctamente. Ahora puede iniciar sesión.", Alert.AlertType.INFORMATION);
-        } catch (Exception e) {
+        } catch (ListException e) { // Catch ListException specifically
+            e.printStackTrace();
+            mostrarAlerta("Error de lista", "Error al registrar el usuario en la lista: " + e.getMessage(), Alert.AlertType.ERROR);
+        } catch (Exception e) { // Catch any other unexpected exceptions
             e.printStackTrace();
             mostrarAlerta("Error", "No se pudo registrar el usuario: " + e.getMessage(), Alert.AlertType.ERROR);
         }
@@ -217,7 +223,7 @@ public class LoginController {
             mostrarAlerta("Error", "No se pudo regresar a la pantalla principal.", Alert.AlertType.ERROR);
         }
     }
-//podriamos hacer una alerta generica
+
     private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
         Alert alert = new Alert(tipo);
         alert.setTitle(titulo);

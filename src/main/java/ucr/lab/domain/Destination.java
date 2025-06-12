@@ -1,19 +1,15 @@
 package ucr.lab.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Destination {
-
-    @JsonProperty("airport_code")
+    @JsonProperty("airport_code") // Ensure this matches your JSON exactly
     private int airportCode;
 
-    @JsonProperty("distance")
+    @JsonProperty("distance") // Ensure this matches your JSON exactly
     private double distance;
 
-    // Constructor, getters y setters
-
+    // Default constructor for Jackson
     public Destination() {
     }
 
@@ -22,6 +18,7 @@ public class Destination {
         this.distance = distance;
     }
 
+    // Getters and Setters
     public int getAirportCode() {
         return airportCode;
     }

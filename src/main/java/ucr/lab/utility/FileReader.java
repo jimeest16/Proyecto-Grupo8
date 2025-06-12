@@ -8,6 +8,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import ucr.lab.TDA.list.CircularDoublyLinkedList;
 import ucr.lab.TDA.list.CircularLinkedList;
 import ucr.lab.TDA.list.ListException;
+import ucr.lab.TDA.list.SinglyLinkedList;
+
 import ucr.lab.domain.*;
 
 import java.io.File;
@@ -32,79 +34,66 @@ public class FileReader {
     }
 
 
-    // Cargar lista de usuarios
-    public static List<User> loadUsers() {
+    public static CircularLinkedList loadUsers() throws ListException {
+        CircularLinkedList userList = new CircularLinkedList();
         try {
             File file = new File(FILE_USER);
-            if (!file.exists()) return new ArrayList<>();
-            return mapper.readValue(file, new TypeReference<List<User>>() {});
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new ArrayList<>();
-        }
-    }
-
-    // Guardar lista de usuarios
-    public static void saveUsers(List<User> users) {
-        try {
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File(FILE_USER), users);
+            if (!file.exists()) return userList;
+            List<User> tempUsers = mapper.readValue(file, new TypeReference<List<User>>() {});
+            for (User u : tempUsers) {
+                userList.add(u);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return userList;
     }
-    public static void saveUsersRegister(CircularLinkedList users) throws ListException {
-        // 1. Cargar usuarios actuales desde el JSON
-        List<User> existingUsers = loadUsers();
 
-        // 2. Recorrer los usuarios nuevos de la lista circular
+    public static void saveUsers(CircularLinkedList users) throws ListException {
+        List<User> tempUsers = new ArrayList<>();
         if (!users.isEmpty()) {
-            User current = (User) users.getFirst();
-            User inicio = current;
-
+            Object currentObj = users.getFirst();
+            Object startObj = currentObj;
             do {
-                // Verifica si el usuario ya existe
-                boolean exists = false;
-                for (User u : existingUsers) {
-                    if (u.getId() == current.getId()) {
-                        exists = true;
-                        break;
-                    }
-                }
-
-                // 3. Si no existe, lo agrega a la lista
-                if (!exists) {
-                    existingUsers.add(current);
-                }
-
-                current = (User) users.getNext();
-            } while (current != inicio);
+                tempUsers.add((User) currentObj);
+                currentObj = users.getNext();
+            } while (currentObj != startObj);
         }
-
-        // 4. Guardar la lista completa actualizada en el JSON
-        saveUsers(existingUsers);
+        try {
+            mapper.writerWithDefaultPrettyPrinter().writeValue(new File(FILE_USER), tempUsers);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-
-    // Añadir un nuevo usuario
-    public static void addUser(User newUser) {
-        List<User> users = loadUsers();
+    public static void addUser(User newUser) throws ListException {
+        CircularLinkedList users = loadUsers();
         users.add(newUser);
         saveUsers(users);
     }
 
-    // Cargar lista de aeropuertos
-    public static List<AirPort> loadAirports() {
+
+    public static SinglyLinkedList loadAirports() {
+        SinglyLinkedList airportsSinglyList = new SinglyLinkedList();
         try {
             File file = new File(FILE_AIRPORT);
-            if (!file.exists()) return new ArrayList<>();
-            return mapper.readValue(file, new TypeReference<List<AirPort>>() {});
-        } catch (Exception e) {
+            if (!file.exists()) {
+                System.err.println("Advertencia: Archivo de aeropuertos no encontrado en: " + FILE_AIRPORT);
+                return airportsSinglyList;
+            }
+            List<AirPort> tempAirports = mapper.readValue(file, new TypeReference<List<AirPort>>() {});
+            for (AirPort airport : tempAirports) {
+                // Añadir try-catch para ListException en el loop si add() lo lanza
+                airportsSinglyList.add(airport);
+            }
+        } catch (IOException e) {
+            System.err.println("Error de I/O o JSON al cargar aeropuertos: " + e.getMessage());
             e.printStackTrace();
-            return new ArrayList<>();
+            return new SinglyLinkedList();
         }
+        return airportsSinglyList;
     }
 
-    // Guardar lista de aeropuertos
     public static void saveAirports(List<AirPort> airports) {
         try {
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File(FILE_AIRPORT), airports);
@@ -113,9 +102,9 @@ public class FileReader {
         }
     }
 
-    // Añadir un nuevo aeropuerto
     public static void addAirport(AirPort newAirport) {
-        List<AirPort> airports = loadAirports();
+
+        List<AirPort> airports = loadAirportsAsList();
         airports.add(newAirport);
         saveAirports(airports);
 
@@ -123,16 +112,26 @@ public class FileReader {
         airports.forEach(a -> System.out.println(a.getName()));
     }
 
-    // Cargar lista de usuarios
-    public static List<Passenger> loadPassengers() {
+
+    public static SinglyLinkedList loadPassengers() {
+        SinglyLinkedList passengersSinglyList = new SinglyLinkedList();
         try {
             File file = new File(FILE_PASSENGER);
-            if (!file.exists()) return new ArrayList<>();
-            return mapper.readValue(file, new TypeReference<List<Passenger>>() {});
-        } catch (Exception e) {
+            if (!file.exists()) {
+                System.err.println("Advertencia: Archivo de pasajeros no encontrado en: " + FILE_PASSENGER);
+                return passengersSinglyList;
+            }
+            List<Passenger> tempPassengers = mapper.readValue(file, new TypeReference<List<Passenger>>() {});
+            for (Passenger passenger : tempPassengers) {
+
+                passengersSinglyList.add(passenger);
+            }
+        } catch (IOException e) {
+            System.err.println("Error de I/O o JSON al cargar pasajeros: " + e.getMessage());
             e.printStackTrace();
-            return new ArrayList<>();
+            return new SinglyLinkedList();
         }
+        return passengersSinglyList;
     }
 
     public static void savePassengers(List<Passenger> passengers) {
@@ -144,21 +143,32 @@ public class FileReader {
     }
 
     public static void addPassenger(Passenger newPassenger) {
-        List<Passenger> passengers = loadPassengers();
+
+        List<Passenger> passengers = loadPassengersAsList();
         passengers.add(newPassenger);
         savePassengers(passengers);
     }
 
-    // Cargar lista de salidas
-    public static List<Departures> loadDepartures() {
+
+    public static SinglyLinkedList loadDepartures() {
+        SinglyLinkedList departuresSinglyList = new SinglyLinkedList();
         try {
             File file = new File(FILE_DEPARTURES);
-            if (!file.exists()) return new ArrayList<>();
-            return mapper.readValue(file, new TypeReference<List<Departures>>() {});
-        } catch (Exception e) {
+            if (!file.exists()) {
+                System.err.println("Advertencia: Archivo de salidas no encontrado en: " + FILE_DEPARTURES);
+                return departuresSinglyList;
+            }
+            List<Departures> tempDepartures = mapper.readValue(file, new TypeReference<List<Departures>>() {});
+            for (Departures departure : tempDepartures) {
+                // Añadir try-catch para ListException en el loop si add() lo lanza
+                departuresSinglyList.add(departure);
+            }
+        } catch (IOException e) {
+            System.err.println("Error de I/O o JSON al cargar salidas: " + e.getMessage());
             e.printStackTrace();
-            return new ArrayList<>();
+            return new SinglyLinkedList();
         }
+        return departuresSinglyList;
     }
 
     public static void saveDepartures(List<Departures> departures) {
@@ -170,10 +180,13 @@ public class FileReader {
     }
 
     public static void addDepartures(Departures newDeparture) {
-        List<Departures> departures = loadDepartures();
+
+        List<Departures> departures = loadDeparturesAsList();
         departures.add(newDeparture);
         saveDepartures(departures);
     }
+
+
     public static CircularDoublyLinkedList loadFlights() {
         CircularDoublyLinkedList flightList = new CircularDoublyLinkedList();
         try {
@@ -182,6 +195,7 @@ public class FileReader {
 
             List<Flight> flights = mapper.readValue(file, new TypeReference<List<Flight>>() {});
             for (Flight f : flights) {
+
                 flightList.add(f);
             }
         } catch (Exception e) {
@@ -189,19 +203,31 @@ public class FileReader {
         }
         return flightList;
     }
-    public static void saveFlights(List<Flight> flights) {
+
+    public static void saveFlights(CircularDoublyLinkedList flights) throws ListException {
+        List<Flight> tempFlights = new ArrayList<>();
+        if (!flights.isEmpty()) {
+            Object currentObj = flights.getFirst();
+            Object startObj = currentObj;
+            do {
+                tempFlights.add((Flight) currentObj);
+                currentObj = flights.getNext();
+            } while (currentObj != startObj);
+        }
         try {
-            mapper.writerWithDefaultPrettyPrinter().writeValue(new File(FILE_FLIGHTS), flights);
+            mapper.writerWithDefaultPrettyPrinter().writeValue(new File(FILE_FLIGHTS), tempFlights);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    public static void addFlight(Flight newFlight) {
-        List<Flight> flights = loadFlightsAsList(); // Usa lista para simplificar
+
+    public static void addFlight(Flight newFlight) throws ListException {
+        CircularDoublyLinkedList flights = loadFlights();
         flights.add(newFlight);
         saveFlights(flights);
     }
-    public static List<Flight> loadFlightsAsList() {
+
+    public static List<Flight> loadFlightsAsListForInternalUse() {
         try {
             File file = new File(FILE_FLIGHTS);
             if (!file.exists()) return new ArrayList<>();
@@ -211,31 +237,39 @@ public class FileReader {
             return new ArrayList<>();
         }
     }
-    public static CircularDoublyLinkedList loadFlightsCircularList() {
-        CircularDoublyLinkedList flightList = new CircularDoublyLinkedList();
-        List<Flight> flights = loadFlightsAsList();
-
-        for (Flight f : flights) {
-            flightList.add(f);
-        }
-        return flightList;
-    }
-
-    // RUTAS
 
 
-    public static List<Route> loadRoutes() {
+    public static SinglyLinkedList loadRoutes() {
+        SinglyLinkedList routesSinglyList = new SinglyLinkedList();
         try {
             File file = new File(FILE_ROUTES);
-            if (!file.exists()) return new ArrayList<>();
-            return mapper.readValue(file, new TypeReference<List<Route>>() {});
-        } catch (Exception e) {
+
+            if (!file.exists()) {
+                System.err.println("Advertencia: Archivo de rutas NO ENCONTRADO en: " + file.getAbsolutePath());
+                return routesSinglyList;
+            } else {
+                System.out.println("INFO: Archivo de rutas encontrado en: " + file.getAbsolutePath());
+            }
+
+
+            List<Route> tempRoutes = mapper.readValue(file, new TypeReference<List<Route>>() {});
+            for (Route route : tempRoutes) {
+
+
+                routesSinglyList.add(route);
+            }
+        } catch (IOException e) {
+            System.err.println("Error de I/O o JSON al cargar rutas: " + e.getMessage());
             e.printStackTrace();
-            return new ArrayList<>();
+            return new SinglyLinkedList(); // Retorna una lista vacía en caso de error
+        } catch (Exception e) { // Captura cualquier otra excepción que pueda ocurrir durante la deserialización que se hizo en la clase Singlyreader o el add()
+            System.err.println("Error inesperado al cargar rutas: " + e.getMessage());
+            e.printStackTrace();
+            return new SinglyLinkedList();
         }
+        return routesSinglyList;
     }
 
-    // Guardar lista de rutas
     public static void saveRoutes(List<Route> routes) {
         try {
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File(FILE_ROUTES), routes);
@@ -244,13 +278,39 @@ public class FileReader {
         }
     }
 
-    // Añadir una nueva ruta
-    public static void addRoute(Route newRoute) {
-        List<Route> routes = loadRoutes();
-        routes.add(newRoute);
-        saveRoutes(routes);
+
+
+    private static List<AirPort> loadAirportsAsList() {
+        try {
+            File file = new File(FILE_AIRPORT);
+            if (!file.exists()) return new ArrayList<>();
+            return mapper.readValue(file, new TypeReference<List<AirPort>>() {});
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 
+    private static List<Passenger> loadPassengersAsList() {
+        try {
+            File file = new File(FILE_PASSENGER);
+            if (!file.exists()) return new ArrayList<>();
+            return mapper.readValue(file, new TypeReference<List<Passenger>>() {});
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
 
+    private static List<Departures> loadDeparturesAsList() {
+        try {
+            File file = new File(FILE_DEPARTURES);
+            if (!file.exists()) return new ArrayList<>();
+            return mapper.readValue(file, new TypeReference<List<Departures>>() {});
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
 
 }

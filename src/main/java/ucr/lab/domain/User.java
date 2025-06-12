@@ -63,12 +63,12 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "\uD83D\uDC64 User[" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", role='" + role + '\'' +
-                '}';
+                ']';
     }
 }

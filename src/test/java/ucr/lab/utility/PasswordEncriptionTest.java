@@ -1,6 +1,8 @@
 package ucr.lab.utility;
 
 import org.junit.jupiter.api.Test;
+import ucr.lab.TDA.list.CircularLinkedList;
+import ucr.lab.TDA.list.ListException;
 import ucr.lab.domain.User;
 
 import java.util.List;
@@ -19,17 +21,21 @@ class PasswordEncriptionTest {
     }
 
     @Test
-    public void testJSon(){
-        List<User> userList= FileReader.loadUsers();
+    public void testJSon() throws ListException {
+        CircularLinkedList userList= FileReader.loadUsers();
 
         if(userList.isEmpty()){
             System.out.println("No se han agregado usuarios al documento");
 
         }else {
             System.out.println("Usuarios agregados:");
-            for(User user:userList){
-                System.out.println(user);
-            }
+
+            Object current = userList.getFirst();
+            Object start = current;
+            do {
+                System.out.println((User) current);
+                current = userList.getNext();
+            } while (current != start);
         }
     }
 }

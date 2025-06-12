@@ -2,30 +2,35 @@ package ucr.lab.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import ucr.lab.domain.Destination;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import java.util.ArrayList;
-import java.util.List;
+import ucr.lab.TDA.list.SinglyLinkedList;
+import ucr.lab.utility.SinglyReader;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Route {
 
+
     @JsonProperty("origin_airport")
     private int originAirportCode;
 
+
+    @JsonDeserialize(using = SinglyReader.class)
     @JsonProperty("destinationList")
-    private List<Destination> destinationList = new ArrayList<>();
+    private SinglyLinkedList destinationList;
 
-
-    // Constructor, getters y setters
 
     public Route() {
+        this.destinationList = new SinglyLinkedList();
     }
 
-    public Route(int originAirportCode, List<Destination> destinationList) {
+
+    public Route(int originAirportCode, SinglyLinkedList destinationList) {
         this.originAirportCode = originAirportCode;
-        this.destinationList = destinationList != null ? destinationList : new ArrayList<>();
+        this.destinationList = destinationList != null ? destinationList : new SinglyLinkedList();
     }
+
+
 
     public int getOriginAirportCode() {
         return originAirportCode;
@@ -35,19 +40,20 @@ public class Route {
         this.originAirportCode = originAirportCode;
     }
 
-    public List<Destination> getDestinationList() {
+    public SinglyLinkedList getDestinationList() {
         return destinationList;
     }
 
-    public void setDestinationList(List<Destination> destinationList) {
+    public void setDestinationList(SinglyLinkedList destinationList) {
         this.destinationList = destinationList;
     }
 
     @Override
     public String toString() {
-        return "Route{" +
-                "originAirportCode=" + originAirportCode +
-                ", destinationList=" + destinationList +
-                '}';
+
+        return " \uD83D\uDDFA\uFE0F Route[" +
+                "Punto de Origen:=" + originAirportCode +
+                "--Destino final: =" + (destinationList != null ? destinationList.toString() : "null") +
+                ']';
     }
 }

@@ -1,47 +1,54 @@
 package ucr.lab.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import ucr.lab.TDA.list.SinglyLinkedList;
+import ucr.lab.utility.SinglyReader;
 
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Passenger {
+
+    @JsonProperty("id")
     private int id;
+
+    @JsonProperty("name")
     private String name;
+
+    @JsonProperty("nationality")
     private String nationality;
-    private List<String> flightHistory;
+
+
+    @JsonProperty("flightHistory")
+    @JsonDeserialize(using = SinglyReader.class)
+    private SinglyLinkedList flightHistory;
+
+    @JsonProperty("state")
     private String state;
 
+    // Constructor por defecto para la deserialización de Jackson
     public Passenger() {
-        this.flightHistory = new ArrayList<>();
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
+        this.flightHistory = new SinglyLinkedList(); // Asegura que la lista siempre esté inicializada
     }
 
     public Passenger(int id, String name, String nationality) {
         this.id = id;
         this.name = name;
         this.nationality = nationality;
-        this.flightHistory = new ArrayList<>();
+        this.flightHistory = new SinglyLinkedList(); // Inicializa la lista
+        this.state = "N/A"; // Estado por defecto si no se proporciona
     }
 
-    public Passenger(int id, String name, String nationality, List<String> flightHistory, String state) {
+    public Passenger(int id, String name, String nationality, SinglyLinkedList flightHistory, String state) {
         this.id = id;
         this.name = name;
         this.nationality = nationality;
-        this.flightHistory = flightHistory;
-        this.state = "N/A";
+        // Asegura que flightHistory no sea nulo; si es nulo, crea una nueva
+        this.flightHistory = flightHistory != null ? flightHistory : new SinglyLinkedList();
+        this.state = state != null ? state : "N/A"; // Asigna el estado proporcionado o por defecto
     }
 
-    public void addFlight(String flight) {
-        if (flight != null && !flight.isEmpty()) {
-            flightHistory.add(flight);
-        }
-    }
 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
@@ -52,18 +59,27 @@ public class Passenger {
     public String getNationality() { return nationality; }
     public void setNationality(String nationality) { this.nationality = nationality; }
 
-    public List<String> getFlightHistory() { return flightHistory; }
-    public void setFlightHistory(List<String> flightHistory) { this.flightHistory = flightHistory; }
+    public SinglyLinkedList getFlightHistory() { return flightHistory; }
+    public void setFlightHistory(SinglyLinkedList flightHistory) { this.flightHistory = flightHistory; }
 
-    @Override
-    public String toString() {
-        return "\uD83D\uDC64  ID: " + id + ", Nombre: " + name + ", Nacionalidad: " + nationality + ", Vuelos: " + flightHistory;
+    public String getState() { return state; }
+    public void setState(String state) { this.state = state; }
+
+
+
+    public void addFlight(String flight) {
+        if (flight != null && !flight.isEmpty()) {
+            this.flightHistory.add(flight);
+        }
     }
 
     public void clearFlightHistory() {
+        this.flightHistory.clear();
+    }
 
-            this.flightHistory.clear();
-        }
+    @Override
+    public String toString() {
 
-
+        return "\uD83D\uDC64  ID: " + id + ", Nombre: " + name + ", Nacionalidad: " + nationality + ", Vuelos: " + flightHistory.toString() + ", Estado: " + state;
+    }
 }
