@@ -4,13 +4,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ucr.lab.TDA.GraphException;
 import ucr.lab.TDA.ListException;
+import ucr.lab.TDA.SinglyLinkedList;
 import ucr.lab.TDA.SpecialSinglyLinkedListGraph;
 import ucr.lab.utility.FileReader;
-
 import java.util.List;
 import java.util.Random;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 import static ucr.lab.utility.Util.random;
 
 class RouteTest {
@@ -42,7 +42,7 @@ class RouteTest {
             // por codigo porque desde ruta se ubica el code, no por name
             String origen = buscarCodigoPorId(ruta.getOriginAirportCode());
 
-            if (origen == null ) {
+            if (origen == null) {
                 System.out.println("Origen no encontrado para código: " + ruta.getOriginAirportCode());
                 continue;
             }
@@ -54,7 +54,7 @@ class RouteTest {
                     continue;
                 }
 // primero excepciones
-             // se agrega la info al grafo
+                // se agrega la info al grafo
                 graph.agregarRuta(origen, destinoStr, destino.getDistance());
                 // el origen es el codigo tipo int
                 System.out.println("Ruta-- " + "Origen: " + origen + " Destino-> " + destinoStr +
@@ -73,6 +73,7 @@ class RouteTest {
         }
         return null;
     }
+
     private String buscarNombre(String nombre) {
         for (AirPort aeropuerto : aeropuertos) {
 
@@ -133,9 +134,9 @@ class RouteTest {
         int numAeropuertos = aeropuertos.size();
         int numConexiones = 17;
 
-        // Agregar conexiones aleatorias al grafo dirigido
+// Agregar conexiones aleatorias al grafo dirigido
         for (int i = 0; i < numConexiones; i++) {
-            int indiceOrigen = random(numAeropuertos);
+            int indiceOrigen = random.nextInt(numAeropuertos);
             AirPort origen = aeropuertos.get(indiceOrigen);
 
             int indiceDestino;
@@ -154,12 +155,14 @@ class RouteTest {
                     distancia);
         }
 
+
         System.out.println("\n_____________________________________________");
         System.out.println("     BÚSQUEDA DE RUTA MÁS CORTA CON DIJKSTRA");
         System.out.println("_____________________________________________\n");
 
-        // Elegir origen y destino aleatoriamente : lo podemos limitar pero para ser aleatoridad lo hice asi
+        // Elegir origen y destino aleatoriamente
         int indiceOrigen = random.nextInt(numAeropuertos);
+
         int indiceDestino;
         do {
             indiceDestino = random.nextInt(numAeropuertos);
@@ -170,13 +173,24 @@ class RouteTest {
 
         System.out.printf("Ruta más corta de %s a %s:\n", codigoOrigen, codigoDestino);
 
-        // uso de list por el metodo dijkstra
-        List<String> rutaMasCorta = graph.dijkstra(codigoOrigen, codigoDestino);
+
+        SinglyLinkedList rutaMasCorta = graph.dijkstra(codigoOrigen, codigoDestino);
+
         if (rutaMasCorta == null || rutaMasCorta.isEmpty()) {
             System.out.println("No existe ruta entre los aeropuertos.");
         } else {
             int distanciaTotal = (int) graph.obtenerDistanciaTotal(codigoOrigen, codigoDestino);
-            System.out.println("Ruta: " + String.join(" -> ", rutaMasCorta));
+
+
+            StringBuilder rutaTexto = new StringBuilder();
+            for (int i = 1; i <= rutaMasCorta.size(); i++) {
+                rutaTexto.append(rutaMasCorta.getNode(i).data);
+                if (i < rutaMasCorta.size()) {
+                    rutaTexto.append(" -> ");
+                }
+            }
+
+            System.out.println("Ruta: " + rutaTexto.toString());
             System.out.println("Distancia total: " + distanciaTotal + " km");
         }
 
@@ -184,6 +198,4 @@ class RouteTest {
         System.out.println("      FIN DE LA SIMULACIÓN DE CONEXIONES");
         System.out.println("_____________________________________________\n");
     }
-
-
 }

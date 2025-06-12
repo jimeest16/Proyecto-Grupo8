@@ -253,92 +253,94 @@ public class SpecialSinglyLinkedListGraph implements Graph {
 
 
 // ALGORTIMO TROPICALIZADO
-    public List<String> dijkstra(Object origen, Object destino) throws Exception {
-        if (vertexList.isEmpty()) {
-            throw new Exception("El grafo está vacío");
-        }
+public SinglyLinkedList dijkstra(Object origen, Object destino) throws Exception {
+    if (vertexList.isEmpty()) {
+        throw new Exception("El grafo está vacío");
+    }
 
-        int n = vertexList.size();
-        double[] distancia = new double[n + 1]; // índice 1 a n
-        boolean[] visitado = new boolean[n + 1];
-        int[] anterior = new int[n + 1];
+    int n = vertexList.size();
+    double[] distancia = new double[n + 1]; // índice 1 a n
+    boolean[] visitado = new boolean[n + 1];
+    int[] anterior = new int[n + 1];
 
-        for (int i = 1; i <= n; i++) {
-            distancia[i] = Double.MAX_VALUE;
-            visitado[i] = false;
-            anterior[i] = -1;
-        }
+    for (int i = 1; i <= n; i++) {
+        distancia[i] = Double.MAX_VALUE;
+        visitado[i] = false;
+        anterior[i] = -1;
+    }
 
-        int indiceOrigen = indexOf(origen);
-        int indiceDestino = indexOf(destino);
+    int indiceOrigen = indexOf(origen);
+    int indiceDestino = indexOf(destino);
 
-        if (indiceOrigen == -1 || indiceDestino == -1) {
-            throw new Exception("El vértice origen o destino no existe");
-        }
+    if (indiceOrigen == -1 || indiceDestino == -1) {
+        throw new Exception("El vértice origen o destino no existe");
+    }
 
-        distancia[indiceOrigen] = 0;
+    distancia[indiceOrigen] = 0;
 
-        for (int count = 1; count <= n; count++) {
-            int u = minDistance(distancia, visitado, n);
-            if (u == -1 || u == indiceDestino) break;
+    for (int count = 1; count <= n; count++) {
+        int u = minDistance(distancia, visitado, n);
+        if (u == -1 || u == indiceDestino) break;
 
-            visitado[u] = true;
-            Vertex verticeU = (Vertex) vertexList.getNode(u).data;
+        visitado[u] = true;
+        Vertex verticeU = (Vertex) vertexList.getNode(u).data;
 
-            for (int i = 1; i <= verticeU.edgesList.size(); i++) {
-                EdgeWeight arista = (EdgeWeight) verticeU.edgesList.getNode(i).data;
-                int v = indexOf(arista.getEdge());
-                if (v == -1 || visitado[v]) continue;
+        for (int j = 1; j <= verticeU.edgesList.size(); j++) {
+            EdgeWeight edge = (EdgeWeight) verticeU.edgesList.getNode(j).data;
+            int v = indexOf(edge.getEdge());
+            double peso = 1;
 
-                double peso = Double.parseDouble(arista.getWeight().toString());
-                if (distancia[u] + peso < distancia[v]) {
-                    distancia[v] = distancia[u] + peso;
-                    anterior[v] = u;
-                }
+            try {
+                peso = Double.parseDouble(edge.getWeight().toString());
+            } catch (Exception e) {
+                peso = 1; // peso por defecto
+            }
+
+            if (!visitado[v] && distancia[u] + peso < distancia[v]) {
+                distancia[v] = distancia[u] + peso;
+                anterior[v] = u;
             }
         }
-
-        // reconstruir camino
-        List<String> camino = new java.util.LinkedList<>();
-        int actual = indiceDestino;
-        if (distancia[actual] == Double.MAX_VALUE) {
-            camino.add("No hay camino desde " + origen + " hasta " + destino);
-            return camino;
-        }
-
-        while (actual != -1) {
-            Vertex vertice = (Vertex) vertexList.getNode(actual).data;
-            camino.add(0, vertice.data.toString()); // insertar al inicio
-            actual = anterior[actual];
-        }
-
-        camino.add("Distancia total: " + distancia[indiceDestino]);
-
-        return camino;
     }
+
+    // Reconstruir el camino
+    SinglyLinkedList camino = new SinglyLinkedList();
+    int actual = indiceDestino;
+    while (actual != -1) {
+        Vertex vertice = (Vertex) vertexList.getNode(actual).data;
+        camino.addFirst(vertice.getData());
+        actual = anterior[actual];
+    }
+
+    return camino;
+}
 
     private int minDistance(double[] distancia, boolean[] visitado, int n) {
         double min = Double.MAX_VALUE;
         int minIndex = -1;
+
         for (int i = 1; i <= n; i++) {
             if (!visitado[i] && distancia[i] < min) {
                 min = distancia[i];
                 minIndex = i;
             }
         }
+
         return minIndex;
     }
 
-
     public double obtenerDistanciaTotal(Object origen, Object destino) throws Exception {
-        List<String> ruta = dijkstra(origen, destino);
+        SinglyLinkedList ruta = dijkstra(origen, destino);
         double total = 0.0;
 
-        for (int i = 0; i < ruta.size() - 1; i++) {
-            Vertex v = (Vertex) vertexList.getNode(indexOf(ruta.get(i))).data;
+        for (int i = 1; i < ruta.size(); i++) {
+            Object actual = ruta.getNode(i).data;
+            Object siguiente = ruta.getNode(i + 1).data;
+
+            Vertex v = (Vertex) vertexList.getNode(indexOf(actual)).data;
             for (int j = 1; j <= v.edgesList.size(); j++) {
                 EdgeWeight e = (EdgeWeight) v.edgesList.getNode(j).data;
-                if (e.getEdge().toString().equals(ruta.get(i + 1))) {
+                if (compare(e.getEdge(), siguiente) == 0) {
                     total += Double.parseDouble(e.getWeight().toString());
                     break;
                 }
@@ -347,6 +349,7 @@ public class SpecialSinglyLinkedListGraph implements Graph {
 
         return total;
     }
+
 
 
     public void agregarRuta(Object origen, Object destino, Object peso) throws Exception {
