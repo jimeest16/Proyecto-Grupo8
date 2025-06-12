@@ -3,8 +3,8 @@ package ucr.lab.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import ucr.lab.TDA.AVLTree;
-import ucr.lab.TDA.TreeException;
+import ucr.lab.TDA.tree.AVLTree;
+import ucr.lab.TDA.tree.TreeException;
 import ucr.lab.domain.Passenger;
 import ucr.lab.utility.FileReader;
 

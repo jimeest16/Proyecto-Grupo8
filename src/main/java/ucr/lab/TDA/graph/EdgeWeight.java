@@ -1,6 +1,4 @@
-package ucr.lab.TDA;
-
-import static ucr.lab.utility.Util.compare;
+package ucr.lab.TDA.graph;
 
 
 public class EdgeWeight {

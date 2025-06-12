@@ -1,4 +1,4 @@
-package ucr.lab.TDA;
+package ucr.lab.TDA.tree;
 
 public interface Tree {
     //devuelve el número de elementos en el árbol

@@ -1,1 +1,81 @@
-
+[ {
+  "number" : 1,
+  "originCode" : 6,
+  "destinationCode" : 9,
+  "departureTime" : "2025-06-12T10:33:40.245230400",
+  "capacity" : 150,
+  "occupancy" : 0,
+  "status" : "Active",
+  "passengerIDs" : [ ],
+  "route" : ""
+}, {
+  "number" : 2,
+  "originCode" : 18,
+  "destinationCode" : 1,
+  "departureTime" : "2025-06-12T10:33:40.246228600",
+  "capacity" : 100,
+  "occupancy" : 0,
+  "status" : "Active",
+  "passengerIDs" : [ ],
+  "route" : ""
+}, {
+  "number" : 3,
+  "originCode" : 11,
+  "destinationCode" : 8,
+  "departureTime" : "2025-06-12T10:33:40.246228600",
+  "capacity" : 150,
+  "occupancy" : 0,
+  "status" : "Active",
+  "passengerIDs" : [ ],
+  "route" : ""
+}, {
+  "number" : 4,
+  "originCode" : 2,
+  "destinationCode" : 8,
+  "departureTime" : "2025-06-12T10:33:40.246228600",
+  "capacity" : 200,
+  "occupancy" : 0,
+  "status" : "Active",
+  "passengerIDs" : [ ],
+  "route" : ""
+}, {
+  "number" : 5,
+  "originCode" : 10,
+  "destinationCode" : 6,
+  "departureTime" : "2025-06-12T10:33:40.246228600",
+  "capacity" : 200,
+  "occupancy" : 0,
+  "status" : "Active",
+  "passengerIDs" : [ ],
+  "route" : ""
+}, {
+  "number" : 7,
+  "originCode" : 1,
+  "destinationCode" : 2,
+  "departureTime" : "2025-06-12T10:33:40.246228600",
+  "capacity" : 150,
+  "occupancy" : 0,
+  "status" : "Active",
+  "passengerIDs" : [ ],
+  "route" : ""
+}, {
+  "number" : 8,
+  "originCode" : 1,
+  "destinationCode" : 15,
+  "departureTime" : "2025-06-12T10:33:40.246228600",
+  "capacity" : 100,
+  "occupancy" : 0,
+  "status" : "Active",
+  "passengerIDs" : [ ],
+  "route" : ""
+}, {
+  "number" : 9,
+  "originCode" : 2,
+  "destinationCode" : 7,
+  "departureTime" : "2025-06-12T10:33:40.246228600",
+  "capacity" : 100,
+  "occupancy" : 0,
+  "status" : "Active",
+  "passengerIDs" : [ ],
+  "route" : ""
+} ]

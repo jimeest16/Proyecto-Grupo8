@@ -1,4 +1,4 @@
-package ucr.lab.TDA;
+package ucr.lab.TDA.stack;
 
 
 public class StackException extends Exception {

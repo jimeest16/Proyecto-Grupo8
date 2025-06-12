@@ -1,7 +1,5 @@
-package ucr.lab.TDA;
+package ucr.lab.TDA.tree;
 
-
-import java.util.ArrayList;
 
 import static ucr.lab.utility.Util.compare;
 

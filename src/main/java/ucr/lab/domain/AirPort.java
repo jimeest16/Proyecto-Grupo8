@@ -1,9 +1,7 @@
 package ucr.lab.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import ucr.lab.TDA.SinglyLinkedList;
 
-import java.util.List;
 import java.util.Objects;
 @JsonIgnoreProperties(ignoreUnknown = true)
 
@@ -49,6 +47,22 @@ public class AirPort {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public void setDeparturesBoard(Departures departuresBoard) {
+        this.departuresBoard = departuresBoard;
     }
 
     @Override

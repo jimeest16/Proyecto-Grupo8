@@ -5,16 +5,13 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import ucr.lab.TDA.CircularDoublyLinkedList;
-import ucr.lab.TDA.CircularLinkedList;
-import ucr.lab.TDA.ListException;
+import ucr.lab.TDA.list.CircularDoublyLinkedList;
+import ucr.lab.TDA.list.CircularLinkedList;
+import ucr.lab.TDA.list.ListException;
 import ucr.lab.domain.*;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 

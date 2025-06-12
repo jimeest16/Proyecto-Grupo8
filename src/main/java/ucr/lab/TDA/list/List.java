@@ -1,4 +1,6 @@
-package ucr.lab.TDA;
+package ucr.lab.TDA.list;
+
+import ucr.lab.TDA.Node;
 
 public interface List {
     int size() throws ListException; // Devuelve el número de elementos en la lista

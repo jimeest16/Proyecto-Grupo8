@@ -1,5 +1,7 @@
-package ucr.lab.TDA;
+package ucr.lab.TDA.list;
 
+
+import ucr.lab.TDA.Node;
 
 import static ucr.lab.utility.Util.compare;
 
@@ -292,4 +294,16 @@ public class CircularDoublyLinkedList implements List {
         return current.data;
     }
 
+    public <T> java.util.List<T> toList() {
+        Node current = first;
+        java.util.List<T> list = new java.util.ArrayList<>();
+        if (current != null) {
+            while (current != last) {
+                list.add((T) current.data);
+                current = current.next;
+            }
+            list.add((T) current.data);
+        }
+        return list;
+    }
 }

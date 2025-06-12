@@ -1,7 +1,9 @@
-package ucr.lab.TDA;
+package ucr.lab.TDA.stack;
 
 
-    public class LinkedStack implements Stack {
+import ucr.lab.TDA.Node;
+
+public class LinkedStack implements Stack {
         private Node top;// es un apuntador
         private int counter; //cont elementos apilados
 

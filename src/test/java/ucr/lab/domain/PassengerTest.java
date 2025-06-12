@@ -1,8 +1,8 @@
 package ucr.lab.domain;
 
 import org.junit.jupiter.api.Test;
-import ucr.lab.TDA.AVLTree;
-import ucr.lab.TDA.TreeException;
+import ucr.lab.TDA.tree.AVLTree;
+import ucr.lab.TDA.tree.TreeException;
 import ucr.lab.utility.FileReader;
 
 import java.util.List;

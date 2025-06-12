@@ -1,4 +1,4 @@
-package ucr.lab.TDA;
+package ucr.lab.TDA.queue;
 
 public interface Queue {
     public int size(); // devuelve el número de elementos en la cola

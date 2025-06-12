@@ -1,8 +1,14 @@
 package ucr.lab.utility;
 
-import ucr.lab.TDA.*;
-
-import java.util.List;
+import ucr.lab.TDA.graph.EdgeWeight;
+import ucr.lab.TDA.graph.GraphException;
+import ucr.lab.TDA.graph.Vertex;
+import ucr.lab.TDA.list.ListException;
+import ucr.lab.TDA.list.SinglyLinkedList;
+import ucr.lab.TDA.queue.LinkedQueue;
+import ucr.lab.TDA.queue.QueueException;
+import ucr.lab.TDA.stack.LinkedStack;
+import ucr.lab.TDA.stack.StackException;
 
 import static ucr.lab.utility.Util.compare;
 

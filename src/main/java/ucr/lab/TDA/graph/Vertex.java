@@ -1,4 +1,6 @@
-package ucr.lab.TDA;
+package ucr.lab.TDA.graph;
+
+import ucr.lab.TDA.list.SinglyLinkedList;
 
 import static ucr.lab.utility.Util.compare;
 

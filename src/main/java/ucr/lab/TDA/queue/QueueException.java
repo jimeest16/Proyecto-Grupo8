@@ -1,4 +1,4 @@
-package ucr.lab.TDA;
+package ucr.lab.TDA.queue;
 
 public class QueueException extends Exception {
     public QueueException(String message) {

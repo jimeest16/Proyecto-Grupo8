@@ -1,4 +1,4 @@
-package ucr.lab.TDA;
+package ucr.lab.TDA.tree;
 
 public class BTreeNode {
     public Object data;

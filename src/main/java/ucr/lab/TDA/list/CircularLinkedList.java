@@ -1,5 +1,6 @@
-package ucr.lab.TDA;
+package ucr.lab.TDA.list;
 
+import ucr.lab.TDA.Node;
 import ucr.lab.utility.Util;
 
 import java.lang.reflect.Field;
@@ -381,5 +382,18 @@ public class CircularLinkedList implements List {
         } while (current != first);
 
         return result.toString();
+    }
+
+    public <T> java.util.List<T> toList() {
+        Node current = first;
+        java.util.List<T> list = new java.util.ArrayList<>();
+        if (current != null) {
+            while (current != last) {
+                list.add((T) current.data);
+                current = current.next;
+            }
+            list.add((T) current.data);
+        }
+        return list;
     }
 }

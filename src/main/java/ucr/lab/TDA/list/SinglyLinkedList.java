@@ -1,8 +1,9 @@
-package ucr.lab.TDA;
+package ucr.lab.TDA.list;
 
 import static ucr.lab.utility.Util.compare;
 import static ucr.lab.utility.Util.instanceOf;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import ucr.lab.TDA.Node;
 
 public class SinglyLinkedList implements List {
     private Node first; //apuntador al inicio de la lista
@@ -286,4 +287,13 @@ public class SinglyLinkedList implements List {
         throw new ListException("Element not found: " + element);
     }
 
+    public <T> java.util.List<T> toList() {
+        Node current = first;
+        java.util.List<T> list = new java.util.ArrayList<>();
+        while (current != null) {
+            list.add((T) current.data);
+            current = current.next;
+        }
+        return list;
+    }
 }

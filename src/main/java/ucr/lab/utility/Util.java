@@ -3,7 +3,11 @@ package ucr.lab.utility;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import ucr.lab.TDA.*;
+import ucr.lab.TDA.list.DoublyLinkedList;
+import ucr.lab.TDA.queue.LinkedQueue;
+import ucr.lab.TDA.stack.LinkedStack;
+import ucr.lab.TDA.stack.Stack;
+import ucr.lab.TDA.stack.StackException;
 import ucr.lab.domain.*;
 
 import java.io.File;
@@ -19,8 +23,6 @@ import java.util.Random;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
-import net.sf.jasperreports.engine.data.JsonDataSource;
-import java.io.ByteArrayInputStream;
 
 public class Util {
     private static Random random;
@@ -139,7 +141,13 @@ public class Util {
     // Método para generar un número aleatorio en un rango
     public static int random(int min, int max) {
         // Generación de un número aleatorio en el rango [min, max]
-        return 1 + random.nextInt(max - min + 1);
+        return min + random.nextInt(max - min + 1);
+    }
+
+    public static double random(double min, double max) {
+        // Generación de un número aleatorio en el rango [min, max]
+        double value = min + (max - min) * random.nextDouble();
+        return Math.round(value * 100.0) / 100.0;
     }
 
     public static int random(int bound) {

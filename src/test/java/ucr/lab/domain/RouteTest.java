@@ -2,9 +2,7 @@ package ucr.lab.domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ucr.lab.TDA.GraphException;
-import ucr.lab.TDA.ListException;
-import ucr.lab.TDA.SinglyLinkedList;
+import ucr.lab.TDA.list.SinglyLinkedList;
 import ucr.lab.TDA.SpecialSinglyLinkedListGraph;
 import ucr.lab.utility.FileReader;
 import java.util.List;

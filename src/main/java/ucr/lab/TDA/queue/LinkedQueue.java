@@ -1,4 +1,6 @@
-package ucr.lab.TDA;
+package ucr.lab.TDA.queue;
+
+import ucr.lab.TDA.Node;
 
 import static ucr.lab.utility.Util.compare;
 

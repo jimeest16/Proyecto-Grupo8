@@ -23,5 +23,15 @@ module ucr.lab {
 
     exports ucr.lab.TDA;
     opens ucr.lab.TDA to com.fasterxml.jackson.databind, com.google.gson;
+    exports ucr.lab.TDA.list;
+    opens ucr.lab.TDA.list to com.fasterxml.jackson.databind, com.google.gson;
+    exports ucr.lab.TDA.queue;
+    opens ucr.lab.TDA.queue to com.fasterxml.jackson.databind, com.google.gson;
+    exports ucr.lab.TDA.stack;
+    opens ucr.lab.TDA.stack to com.fasterxml.jackson.databind, com.google.gson;
+    exports ucr.lab.TDA.tree;
+    opens ucr.lab.TDA.tree to com.fasterxml.jackson.databind, com.google.gson;
+    exports ucr.lab.TDA.graph;
+    opens ucr.lab.TDA.graph to com.fasterxml.jackson.databind, com.google.gson;
 
 }

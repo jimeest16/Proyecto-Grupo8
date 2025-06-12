@@ -2,7 +2,7 @@ package ucr.lab.utility;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ucr.lab.TDA.*;
+import ucr.lab.TDA.list.SinglyLinkedList;
 
 public class DijkstraTest {
 

@@ -1,5 +1,8 @@
 package ucr.lab.TDA;
 
+import ucr.lab.TDA.list.List;
+import ucr.lab.TDA.list.ListException;
+
 import static ucr.lab.utility.Util.compare;
 import static ucr.lab.utility.Util.instanceOf;
 

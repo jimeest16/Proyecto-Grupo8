@@ -1,4 +1,8 @@
-package ucr.lab.TDA;
+package ucr.lab.TDA.graph;
+
+import ucr.lab.TDA.list.ListException;
+import ucr.lab.TDA.queue.QueueException;
+import ucr.lab.TDA.stack.StackException;
 
 public interface Graph {
     int size() throws ListException;
