@@ -1,111 +1,96 @@
 [ {
   "originAirportCode" : 1,
-  "destinations" : [ {
-    "edge" : 20,
-    "weight" : 753
-  }, {
-    "edge" : 17,
-    "weight" : 675
-  }, {
-    "edge" : 8,
-    "weight" : 953
-  }, {
-    "edge" : 13,
-    "weight" : 819
-  } ]
+  "destinations" : [ ]
 }, {
   "originAirportCode" : 2,
-  "destinations" : [ {
-    "edge" : 19,
-    "weight" : 834
-  } ]
+  "destinations" : [ ]
 }, {
   "originAirportCode" : 3,
   "destinations" : [ {
     "edge" : 6,
-    "weight" : 637
+    "weight" : 2.0
   } ]
 }, {
   "originAirportCode" : 4,
   "destinations" : [ {
-    "edge" : 9,
-    "weight" : 683
-  }, {
-    "edge" : 11,
-    "weight" : 707
+    "edge" : 10,
+    "weight" : 5.0
   } ]
 }, {
   "originAirportCode" : 5,
   "destinations" : [ {
-    "edge" : 9,
-    "weight" : 785
+    "edge" : 11,
+    "weight" : 10.0
   } ]
 }, {
   "originAirportCode" : 6,
   "destinations" : [ {
-    "edge" : 16,
-    "weight" : 667
+    "edge" : 14,
+    "weight" : 5.0
   } ]
 }, {
   "originAirportCode" : 7,
-  "destinations" : [ {
-    "edge" : 12,
-    "weight" : 220
-  } ]
-}, {
-  "originAirportCode" : 8,
   "destinations" : [ ]
 }, {
-  "originAirportCode" : 9,
+  "originAirportCode" : 8,
   "destinations" : [ {
-    "edge" : 18,
-    "weight" : 683
+    "edge" : 5,
+    "weight" : 10.0
   } ]
+}, {
+  "originAirportCode" : 9,
+  "destinations" : [ ]
 }, {
   "originAirportCode" : 10,
   "destinations" : [ {
-    "edge" : 19,
-    "weight" : 260
+    "edge" : 11,
+    "weight" : 4.0
+  }, {
+    "edge" : 6,
+    "weight" : 4.0
   } ]
 }, {
   "originAirportCode" : 11,
-  "destinations" : [ {
-    "edge" : 16,
-    "weight" : 470
-  }, {
-    "edge" : 14,
-    "weight" : 533
-  } ]
+  "destinations" : [ ]
 }, {
   "originAirportCode" : 12,
   "destinations" : [ {
-    "edge" : 16,
-    "weight" : 392
+    "edge" : 14,
+    "weight" : 2.0
   } ]
 }, {
   "originAirportCode" : 13,
-  "destinations" : [ ]
+  "destinations" : [ {
+    "edge" : 8,
+    "weight" : 6.0
+  } ]
 }, {
   "originAirportCode" : 14,
-  "destinations" : [ ]
+  "destinations" : [ {
+    "edge" : 9,
+    "weight" : 9.0
+  } ]
 }, {
   "originAirportCode" : 15,
-  "destinations" : [ {
-    "edge" : 20,
-    "weight" : 796
-  }, {
-    "edge" : 19,
-    "weight" : 613
-  } ]
+  "destinations" : [ ]
 }, {
   "originAirportCode" : 16,
   "destinations" : [ {
-    "edge" : 20,
-    "weight" : 919
+    "edge" : 10,
+    "weight" : 7.0
+  }, {
+    "edge" : 4,
+    "weight" : 4.0
   } ]
 }, {
   "originAirportCode" : 17,
-  "destinations" : [ ]
+  "destinations" : [ {
+    "edge" : 13,
+    "weight" : 6.0
+  }, {
+    "edge" : 15,
+    "weight" : 9.0
+  } ]
 }, {
   "originAirportCode" : 18,
   "destinations" : [ ]
@@ -114,5 +99,8 @@
   "destinations" : [ ]
 }, {
   "originAirportCode" : 20,
-  "destinations" : [ ]
+  "destinations" : [ {
+    "edge" : 17,
+    "weight" : 4.0
+  } ]
 } ]

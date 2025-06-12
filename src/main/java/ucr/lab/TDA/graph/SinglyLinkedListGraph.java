@@ -85,7 +85,7 @@ public class SinglyLinkedListGraph implements Graph {
 
     }
 
-    private int indexOf(Object element) throws ListException {
+    public int indexOf(Object element) throws ListException {
         for(int i=1;i<=vertexList.size();i++){
             Vertex vertex = (Vertex)vertexList.getNode(i).data;
             Object aux = element instanceof Vertex? ((Vertex)element).data : element;
@@ -219,15 +219,15 @@ public class SinglyLinkedListGraph implements Graph {
     }
 
     private int adjacentVertexNotVisited(int index) throws ListException {
-        Vertex vertex1 = (Vertex)vertexList.getNode(index).data;
-        for(int i=1; i<=vertexList.size(); i++){
-            Vertex vertex2 = (Vertex)vertexList.getNode(i).data;
-            if(!vertex2.edgesList.isEmpty()&&vertex2.edgesList
-                    .contains(new EdgeWeight(vertex1.data, null))
-                    && !vertex2.isVisited())
-                return i;
+        Vertex vertex = (Vertex) vertexList.getNode(index).data;
+        if (vertex.edgesList.isEmpty()) return -1;
+        for (int i = 1; i <= vertexList.size(); i++) {
+            Vertex adjVertex = (Vertex) vertexList.getNode(i).data;
+            // Verificar si hay una arista desde "vertex" a "adjVertex"
+            if (vertex.edgesList.contains(new EdgeWeight(adjVertex.data, null)) && !adjVertex.isVisited())
+                return i; // índice del vecino no visitado
         }
-        return -1;
+        return -1; // no encontró
     }
 
     @Override
@@ -236,9 +236,9 @@ public class SinglyLinkedListGraph implements Graph {
         try {
             for(int i=1; i<=vertexList.size(); i++){
                 Vertex vertex = (Vertex)vertexList.getNode(i).data;
-                result+="\nThe vertex in the position "+i+" is: "+vertex;
+                result+="\nVertex in position "+i+" is: "+vertex;
                 if(!vertex.edgesList.isEmpty()){
-                    result+="........EDGES AND WEIGHTS: "+vertex.edgesList;
+                    result+="........EDGES AND WEIGHTS: \n"+vertex.edgesList;
                 }//if
 
             }//for

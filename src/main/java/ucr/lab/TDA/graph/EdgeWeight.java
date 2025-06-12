@@ -5,6 +5,9 @@ public class EdgeWeight {
     private Object edge;
     private Object weight;
 
+    public EdgeWeight() {
+    }
+
     public EdgeWeight(Object edge, Object weight) {
         this.edge = edge;
         this.weight = weight;

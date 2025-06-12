@@ -4,9 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import ucr.lab.TDA.graph.EdgeWeight;
 import ucr.lab.TDA.graph.GraphException;
 import ucr.lab.TDA.graph.SinglyLinkedListGraph;
-import ucr.lab.TDA.graph.Vertex;
 import ucr.lab.TDA.list.ListException;
-import ucr.lab.TDA.list.SinglyLinkedList;
+import ucr.lab.domain.Airport;
 import ucr.lab.domain.Route;
 
 import java.io.IOException;
@@ -19,14 +18,20 @@ public class RoutesManager {
     private static final String filePath = "src/main/resources/data/routes.json";
 
     public static void loadRoutes() throws IOException, GraphException, ListException {
-        List<Route> list = JsonManager.load(filePath, new TypeReference<>() {});
         routesGraph.clear();
-        for (Route route : list) {
-            SinglyLinkedList edges = new SinglyLinkedList();
-            for (EdgeWeight ew : route.getDestinations())
-                edges.add(ew);
-            routesGraph.addVertex(new Vertex(route.getOriginAirportCode(), edges));
-        }
+        loadAirports();
+        List<Route> list = JsonManager.load(filePath, new TypeReference<>() {});
+        for (Route r : list)
+            for (EdgeWeight ew : r.getDestinations())
+                routesGraph.addEdgeWeight(r.getOriginAirportCode(), ew.getEdge(), ew.getWeight());
+    }
+
+    public static void loadAirports() throws IOException, GraphException, ListException {
+        routesGraph.clear();
+        AirportManager.loadAirports();
+        List<Airport> airports = AirportManager.getAirports().toList();
+        for (Airport airport : airports)
+            routesGraph.addVertex(airport.getCode());
     }
 
     public static void saveRoutes() throws IOException {
