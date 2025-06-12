@@ -58,9 +58,9 @@ class RouteTest {
                 continue;
             }
 
-            // Iterate over the SinglyLinkedList<Destination> explicitly
-            for (int j = 1; j <= destinations.size(); j++) { // Use a traditional for loop
-                Destination destino = (Destination) destinations.getNode(j).data; // Get Destination object
+
+            for (int j = 1; j <= destinations.size(); j++) {
+                Destination destino = (Destination) destinations.getNode(j).data;
                 String destinoStr = buscarCodigoDeAeropuertoPorId(destino.getAirportCode());
                 if (destinoStr == null) {
                     System.out.println("Destino no encontrado para código: " + destino.getAirportCode());

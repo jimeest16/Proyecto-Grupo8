@@ -141,7 +141,7 @@ public class passengerController {
             }
 
             if (modified) {
-                // Save the SinglyLinkedList back (convert to List<Passenger> if savePassengers expects it)
+
                 FileReader.savePassengers(convertSinglyLinkedListToList(passengers));
                 appendOutput("Pasajero con ID " + id + " modificado exitosamente.\n");
                 clearFields();
@@ -153,7 +153,7 @@ public class passengerController {
             appendOutput("Ingrese un ID válido.\n");
         } catch (TreeException e) {
             appendOutput("Error en árbol AVL: " + e.getMessage() + "\n");
-        } catch (ListException e) { // Catch ListException if getNode() or size() throw it
+        } catch (ListException e) {
             appendOutput("Error al iterar pasajeros en SinglyLinkedList: " + e.getMessage() + "\n");
             e.printStackTrace();
         } catch (Exception e) {
@@ -167,13 +167,13 @@ public class passengerController {
         try {
             int id = Integer.parseInt(txtId.getText().trim());
 
-            // Verify if ID exists in AVL
+
             if (!avlTree.contains(id)) {
                 appendOutput("No se encontró un pasajero con ID: " + id + " para eliminar.\n");
                 return;
             }
 
-            // Load passengers as SinglyLinkedList
+
             SinglyLinkedList passengers = FileReader.loadPassengers();
 
             boolean removed = false;
@@ -218,18 +218,18 @@ public class passengerController {
         try {
             int id = Integer.parseInt(txtId.getText().trim());
 
-            // Use AVL to quickly check for existence
+
             if (!avlTree.contains(id)) {
                 appendOutput("No se encontró pasajero con ID: " + id + "\n");
                 return;
             }
 
-            // Load passengers as SinglyLinkedList to get the full passenger object
+
             SinglyLinkedList passengers = FileReader.loadPassengers();
             Passenger foundPassenger = null;
 
-            // Iterate over SinglyLinkedList to find the passenger by ID
-            for (int i = 1; i <= passengers.size(); i++) { // Assuming SinglyLinkedList is 1-indexed
+
+            for (int i = 1; i <= passengers.size(); i++) {
                 Passenger p = (Passenger) passengers.getNode(i).data;
                 if (p.getId() == id) {
                     foundPassenger = p;
@@ -239,17 +239,17 @@ public class passengerController {
 
             if (foundPassenger != null) {
                 appendOutput("Pasajero encontrado: " + foundPassenger + "\n");
-                // Optional: Populate fields with found passenger's data
+
                 txtId.setText(String.valueOf(foundPassenger.getId()));
                 txtName.setText(foundPassenger.getName());
                 txtNationality.setText(foundPassenger.getNationality());
-                txtHistory.setText(String.valueOf(foundPassenger.getFlightHistory())); // Assuming this method exists
+                txtHistory.setText(String.valueOf(foundPassenger.getFlightHistory()));
             } else {
                 appendOutput("No se encontró pasajero con ID: " + id + " (posible inconsistencia).\n");
             }
         } catch (NumberFormatException e) {
             appendOutput("Ingrese un ID válido.\n");
-        } catch (ListException e) { // Catch ListException if getNode() or size() throw it
+        } catch (ListException e) {
             appendOutput("Error al buscar pasajero en SinglyLinkedList: " + e.getMessage() + "\n");
             e.printStackTrace();
         } catch (Exception e) {
@@ -273,7 +273,7 @@ public class passengerController {
                     appendOutput(p.toString());
                 }
             }
-        } catch (ListException e) { // Catch ListException if getNode() or size() throw it
+        } catch (ListException e) {
             appendOutput("Error al listar pasajeros desde SinglyLinkedList: " + e.getMessage() + "\n");
             e.printStackTrace();
         } catch (Exception e) {

@@ -9,9 +9,12 @@ public class SinglyLinkedList implements List {
     private Node first; //apuntador al inicio de la lista
     private boolean sorted;
 
+    // para los vuelos
+    private int count;
     //Constructor
     public SinglyLinkedList() {
         this.first = null;
+        this.count=0;
     }
 
     @Override
@@ -24,7 +27,9 @@ public class SinglyLinkedList implements List {
         }
         return counter;
     }
-
+public int sizeFlight()throws ListException{
+        return count;
+}
     @Override
     public void clear() {
         this.first = null; // anula la lista
@@ -59,6 +64,7 @@ public class SinglyLinkedList implements List {
         if (!isEmpty())
             newNode.next = this.first;
         this.first = newNode;
+        count++;
         sorted = false;
     }
 
@@ -73,6 +79,7 @@ public class SinglyLinkedList implements List {
                 last = last.next;
             last.next = newNode;
         }
+        count++;
         sorted = false;
     }
 
@@ -93,6 +100,7 @@ public class SinglyLinkedList implements List {
             current = current.next;
         newNode.next = current.next;
         current.next = newNode;
+        count++;
     }
 
     @Override
@@ -106,6 +114,7 @@ public class SinglyLinkedList implements List {
                     first = current.next;
                 else                //Caso 2: El elemento puede estar en el medio o al final
                     prev.next = current.next;
+                count--;
                 return;             // Elemento eliminado, salimos del metodo
             }
             prev = current;
@@ -121,6 +130,7 @@ public class SinglyLinkedList implements List {
             throw new ListException("Singly Linked List is empty");
         Object value = first.data;
         first = first.next; //movemos el apuntador al nodo sgte
+       count--;
         return value;
     }
 
@@ -139,6 +149,7 @@ public class SinglyLinkedList implements List {
             value = penultimate.next.data;
             penultimate.next = null;
         }
+       count--;
         return value;
     }
 
@@ -260,17 +271,20 @@ public class SinglyLinkedList implements List {
     public String toString() {
         if (isEmpty())
             return "Singly Linked List is empty";
-        StringBuilder result = new StringBuilder(":\n");
-        Node current = this.first; //aux para moverme por la lista y no perder el puntero al incio
-        String instance = instanceOf(first.data, first.data);
-        boolean isClass = !instance.equals("Integer") && !instance.equals("Double") && !instance.equals("Character") && !instance.equals("String");
+
+        StringBuilder result = new StringBuilder("[");
+        Node current = this.first;
+
         while (current != null) {
-            result.append(current.data).append(isClass? "\n" : " ");
-            current = current.next; //se mueve al sgte nodo
+            result.append(current.data.toString());
+            current = current.next; // Mueve al siguiente nodo
+            if (current != null) { // Añade coma si hay más elementos
+                result.append(", ");
+            }
         }
+        result.append("]"); // Termina con ']'
         return result.toString();
     }
-
     public Node getFirstNode() {
         return first;
     }

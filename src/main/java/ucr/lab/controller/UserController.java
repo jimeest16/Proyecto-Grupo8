@@ -12,17 +12,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import ucr.lab.TDA.list.ListException; // Import ListException
-import ucr.lab.TDA.list.SinglyLinkedList; // Import SinglyLinkedList
+import ucr.lab.TDA.list.ListException;
+import ucr.lab.TDA.list.SinglyLinkedList;
 import ucr.lab.domain.AirPort;
 import ucr.lab.domain.Passenger;
 import ucr.lab.utility.FileReader;
 
-import java.net.URL;
-import java.util.Collections;
-import java.util.ResourceBundle;
-// No longer need java.util.List if all uses are replaced.
-// import java.util.List;
 
 
 public class UserController {

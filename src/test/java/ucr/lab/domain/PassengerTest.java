@@ -20,7 +20,7 @@ class PassengerTest {
         // Cargar la lista de usuarios
         CircularLinkedList userList = FileReader.loadUsers();
 
-        System.out.println("\n---User: Lista de Usuarios ---");
+        System.out.println("\n--- Lista de Usuarios ---");
         if (userList.isEmpty()) {
             System.out.println("No se han agregado usuarios al documento.");
             assertTrue(userList.isEmpty(), "La lista de usuarios debería estar vacía.");
@@ -44,14 +44,14 @@ class PassengerTest {
 
             SinglyLinkedList passengers = FileReader.loadPassengers();
 
-            System.out.println("\n--- Passenger: Lista de Pasajeros ---");
+            System.out.println("\n --- Lista de Pasajeros ---");
             if (passengers.isEmpty()) {
                 System.out.println("No se han agregado pasajeros al documento.");
                 assertTrue(passengers.isEmpty(), "La lista de pasajeros debería estar vacía.");
             } else {
                 System.out.println("Pasajeros agregados:");
 
-                for (int i = 1; i <= passengers.size(); i++) { // Assuming SinglyLinkedList is 1-indexed
+                for (int i = 1; i <= passengers.size(); i++) {
                     Passenger passenger = (Passenger) passengers.getNode(i).data;
                     System.out.println(passenger);
                 }
@@ -75,13 +75,13 @@ class PassengerTest {
         try {
 
             SinglyLinkedList passengers = FileReader.loadPassengers();
-            System.out.println("\n--- TESTPassengersINAVL: Pasajeros en Árbol AVL ---");
+            System.out.println("\n---Pasajeros en Árbol AVL ---");
             if (passengers.isEmpty()) {
                 System.out.println("No hay pasajeros para agregar al árbol AVL.");
                 assertTrue(passengerTree.isEmpty(), "El árbol AVL debería estar vacío.");
             } else {
 
-                for (int i = 1; i <= passengers.size(); i++) { // Assuming SinglyLinkedList is 1-indexed
+                for (int i = 1; i <= passengers.size(); i++) {
                     Passenger passenger = (Passenger) passengers.getNode(i).data;
                     try {
                         passengerTree.add(passenger);
@@ -91,7 +91,7 @@ class PassengerTest {
                     }
                 }
                 System.out.println("Contenido del árbol AVL (InOrder):");
-                System.out.println(passengerTree.inOrder());
+                System.out.println(passengerTree.inOrder()+"\n");
                 assertFalse(passengerTree.isEmpty(), "El árbol AVL no debería estar vacío.");
                 assertEquals(passengers.size(), passengerTree.size(), "El tamaño del árbol debería coincidir con el número de pasajeros cargados.");
             }
@@ -109,7 +109,7 @@ class PassengerTest {
     public void testAddAndFindUser() throws ListException {
         System.out.println("\n--- AddAndFindUser: Agregar y Buscar Usuario ---");
 
-        User newUser = new User(1000, "Pedro", "pass123", "pedio@123.com", "usuario");
+        User newUser = new User(1000, "JimenaSalasThames", "pass123", "jime@123.com", "usuario");
 
         // Antes de añadir, verificar que el usuario no existe en la lista cargada
         CircularLinkedList initialUsers = FileReader.loadUsers();

@@ -46,28 +46,4 @@
   "password" : "456",
   "email" : "maria",
   "role" : "user"
-}, {
-  "id" : 9999,
-  "name" : "NuevoUsuarioTest",
-  "password" : "pass123test",
-  "email" : "test@example.com",
-  "role" : "usuario"
-}, {
-  "id" : 9999,
-  "name" : "Paola",
-  "password" : "pass123",
-  "email" : "jime@example.com",
-  "role" : "usuario"
-}, {
-  "id" : 9999,
-  "name" : "Lucia",
-  "password" : "pass123",
-  "email" : "jime@example.com",
-  "role" : "usuario"
-}, {
-  "id" : 1000,
-  "name" : "Mariano",
-  "password" : "pass123",
-  "email" : "mariano@123.com",
-  "role" : "usuario"
 } ]

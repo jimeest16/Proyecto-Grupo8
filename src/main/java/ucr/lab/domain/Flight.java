@@ -2,18 +2,23 @@ package ucr.lab.domain;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
 import ucr.lab.TDA.list.SinglyLinkedList;
 import ucr.lab.TDA.queue.LinkedQueue;
 import ucr.lab.TDA.queue.QueueException;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Flight {
+    @JsonProperty("flightNumber")
     private int number;
+    @JsonProperty("originAirportCode")
     private int originCode;
+    @JsonProperty("destinationAirportCode")
     private int destinationCode;
     private LocalDateTime departureTime;
     private int capacity;
@@ -58,25 +63,26 @@ public class Flight {
         return occupancy >= capacity;
     }
 
-    @JsonSetter
-    public void setPassengerIDs (List<Object> list) {
+
+    @JsonSetter("passengerIDs")
+    public void setPassengerIDs(List<Object> list) {
         SinglyLinkedList linkedList = new SinglyLinkedList();
         for (Object i : list)
             linkedList.add(i);
         this.passengerIDs = linkedList;
     }
 
-    @JsonGetter
-    public List<Object> getPassengerIDs () {
+    @JsonGetter("passengerIDs")
+    public List<Object> getPassengerIDs() {
         return passengerIDs.toList();
     }
 
-    @JsonSetter
-    public void setDepartureTime (String departureTime) {
+    @JsonSetter("departureDate")
+    public void setDepartureTime(String departureTime) {
         this.departureTime = LocalDateTime.parse(departureTime);
     }
 
-    @JsonGetter
+    @JsonGetter("departureDate")
     public String getDepartureTime() {
         return this.departureTime.toString();
     }
@@ -159,11 +165,11 @@ public class Flight {
                 "number=" + number +
                 ", originCode=" + originCode +
                 ", destinationCode=" + destinationCode +
-                ", departureTime=" + departureTime +
+                ", departureTime=" + (departureTime != null ? departureTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")) : "N/A") +
                 ", capacity=" + capacity +
                 ", occupancy=" + occupancy +
                 ", status='" + status + '\'' +
-                ", passengerIDs=" + passengerIDs +
+                ", passengerIDs=" + (passengerIDs != null ? passengerIDs.toString() : "null") +
                 ", route='" + route + '\'' +
                 '}';
     }

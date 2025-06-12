@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import ucr.lab.TDA.list.SinglyLinkedList;
-import ucr.lab.utility.SinglyReader;
+import ucr.lab.utility.Reader.SinglyReader;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Route {

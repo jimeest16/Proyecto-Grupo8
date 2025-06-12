@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import ucr.lab.TDA.list.SinglyLinkedList;
-import ucr.lab.utility.SinglyReader;
+import ucr.lab.utility.Reader.SinglyReader;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -20,8 +20,8 @@ public class Passenger {
     private String nationality;
 
 
-    @JsonProperty("flightHistory")
     @JsonDeserialize(using = SinglyReader.class)
+    @JsonProperty("flightHistory")
     private SinglyLinkedList flightHistory;
 
     @JsonProperty("state")

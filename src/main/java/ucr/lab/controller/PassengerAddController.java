@@ -18,8 +18,8 @@ import ucr.lab.domain.Passenger;
 import ucr.lab.utility.FileReader;
 
 import java.io.IOException;
-import java.util.ArrayList; // Needed for the convertSinglyLinkedListToList helper method
-import java.util.List;      // Needed for the convertSinglyLinkedListToList helper method
+import java.util.ArrayList;
+import java.util.List;
 
 public class PassengerAddController {
 
@@ -122,7 +122,7 @@ public class PassengerAddController {
                 return;
             }
 
-            // Load passengers as SinglyLinkedList to get the full passenger object
+
             SinglyLinkedList passengers = FileReader.loadPassengers();
             Passenger foundPassenger = null;
 
@@ -137,7 +137,7 @@ public class PassengerAddController {
 
             if (foundPassenger != null) {
                 appendOutput("Pasajero encontrado: " + foundPassenger + "\n");
-                // Optional: Populate fields with found passenger's data
+
                 txtId.setText(String.valueOf(foundPassenger.getId()));
                 txtName.setText(foundPassenger.getName());
                 txtNationality.setText(foundPassenger.getNationality());
@@ -147,7 +147,7 @@ public class PassengerAddController {
             }
         } catch (NumberFormatException e) {
             appendOutput("Ingrese un ID válido.\n");
-        } catch (ListException e) { // Catch ListException if getNode() or size() throw it
+        } catch (ListException e) {
             appendOutput("Error al buscar pasajero en SinglyLinkedList: " + e.getMessage() + "\n");
             e.printStackTrace();
         } catch (Exception e) {
