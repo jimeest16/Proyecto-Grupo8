@@ -4,6 +4,7 @@ import static ucr.lab.utility.Util.compare;
 import static ucr.lab.utility.Util.instanceOf;
 
 import ucr.lab.TDA.Node;
+import ucr.lab.domain.Flight;
 
 public class SinglyLinkedList implements List {
     private Node first; //apuntador al inicio de la lista
@@ -310,4 +311,24 @@ public int sizeFlight()throws ListException{
         }
         return list;
     }
+
+    public Object get(int index) throws ListException {
+        if (isEmpty()) {
+            throw new ListException("Singly Linked List is empty.");
+        }
+        // Validar que el índice esté dentro del rango válido
+        // Ya que tu lista es 1-based, el índice válido va de 1 a 'count'.
+        if (index < 1 || index > count) {
+            throw new ListException("Index out of bounds: " + index + ". List size: " + count);
+        }
+
+        Node current = first; // Empezamos desde el primer nodo
+        // Recorremos la lista hasta llegar al nodo en la posición 'index'.
+        // Si el índice es 1, el bucle no se ejecuta y retornamos el primer dato.
+        for (int i = 1; i < index; i++) {
+            current = current.next;
+        }
+        return current.data; // Devolvemos el dato del nodo encontrado (que es un Object)
+    }
+
 }

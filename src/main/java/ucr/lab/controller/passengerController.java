@@ -74,7 +74,7 @@ public class passengerController {
             // Create passenger
             Passenger passenger = new Passenger(id, name, nationality);
             if (!history.isEmpty()) {
-                passenger.addFlight(history);
+                //passenger.addFlight(history);
             }
 
 
@@ -132,7 +132,7 @@ public class passengerController {
 
                     if (!history.isEmpty()) {
                         p.clearFlightHistory();
-                        p.addFlight(history);
+                       // p.addFlight(history);
                     }
                     modified = true;
 

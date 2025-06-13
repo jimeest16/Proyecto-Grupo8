@@ -46,4 +46,10 @@
   "password" : "456",
   "email" : "maria",
   "role" : "user"
+}, {
+  "id" : 1000,
+  "name" : "JimenaSalasThames",
+  "password" : "pass123",
+  "email" : "jime@123.com",
+  "role" : "usuario"
 } ]

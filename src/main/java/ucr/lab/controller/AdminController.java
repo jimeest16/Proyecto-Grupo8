@@ -1,7 +1,6 @@
 package ucr.lab.controller;
 
 import javafx.application.Platform;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,181 +15,211 @@ import ucr.lab.TDA.list.SinglyLinkedList;
 import ucr.lab.TDA.tree.AVLTree;
 import ucr.lab.TDA.tree.BTreeNode;
 import ucr.lab.TDA.tree.TreeException;
+import ucr.lab.domain.Flight;
 import ucr.lab.domain.Passenger;
 import ucr.lab.utility.FileReader;
 
-import java.util.ArrayList; 
-import java.util.List;     
+import java.io.IOException; // Importar IOException
+import java.time.LocalDateTime;
+import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AdminController {
 
-    private AVLTree passengerTree;
+    private AVLTree passengerTree; // Árbol para objetos Passenger
+    private AVLTree avlTree; // Árbol para IDs de pasajeros
+// campos para la info de los passengers
     @FXML private TextField txtId;
     @FXML private TextField txtName;
     @FXML private TextField txtNationality;
-    @FXML private TextField txtHistory;
-    @FXML private TextArea txtOutput; // del user
+    @FXML private TextArea txtOutput;
 
-    private AVLTree avlTree = new AVLTree();
+    // Campos para la información del vuelo
+    @FXML private TextField txtFlightNumber;
+    @FXML private TextField txtOriginCode;
+    @FXML private TextField txtDestinationCode;
+    @FXML private TextField txtDepartureTime; // Para LocalDateTime
+    @FXML private TextField txtCapacity;
+    @FXML private TextField txtOccupancy;
+    @FXML private TextField txtFlightStatus;
+    @FXML private TextField txtRoute; // Campo para la ruta del vuelo
 
-
+    // Constructor: Solo para inicializar los árboles, la carga de datos va en initialize()
     public AdminController() {
-        passengerTree = new AVLTree();
-        loadPassengers();
+        this.passengerTree = new AVLTree();
+        this.avlTree = new AVLTree();
+
     }
 
     @FXML
     public void initialize() {
-       
-        if (avlTree == null) avlTree = new AVLTree();
+        // Inicializar árboles si no lo hizo el constructor (aunque ya lo hacen)
         if (passengerTree == null) passengerTree = new AVLTree();
+        if (avlTree == null) avlTree = new AVLTree();
 
-        try {
-           
-            SinglyLinkedList passengers = FileReader.loadPassengers(); 
-
-           
-            for (int i = 1; i <= passengers.size(); i++) {
-                Passenger p = (Passenger) passengers.getNode(i).data; 
-                avlTree.add(p.getId()); 
-            }
-        } catch (ListException e) { 
-            appendOutput("Error al iterar pasajeros desde SinglyLinkedList (initialize): " + e.getMessage());
-            e.printStackTrace(); 
-        } catch (TreeException e) { 
-            appendOutput("Error al agregar ID de pasajero al árbol AVL (initialize): " + e.getMessage());
-            e.printStackTrace();
-        } catch (Exception e) { 
-            appendOutput("Error inesperado al cargar pasajeros en el árbol (initialize): " + e.getMessage());
-            e.printStackTrace();
-        }
+        // Carga de pasajeros al iniciar la interfaz
+        loadAllPassengersToTrees();
     }
 
-    private void loadPassengers() {
-        // Cargar pasajeros como SinglyLinkedList
-        SinglyLinkedList passengers = FileReader.loadPassengers();
+    private void loadAllPassengersToTrees() {
+        SinglyLinkedList passengersList = FileReader.loadPassengers();
         int passengerCount = 0;
 
         try {
-            
-            for (int i = 1; i <= passengers.size(); i++) {
-                Passenger p = (Passenger) passengers.getNode(i).data; 
+            for (int i = 1; i <= passengersList.size(); i++) {
+                Passenger p = (Passenger) passengersList.get(i);
                 try {
-                    passengerTree.add(p); 
-                    passengerCount++; 
+                    // Añadir al árbol de objetos Passenger
+                    passengerTree.add(p);
+                    // Añadir el ID al árbol de IDs
+                    avlTree.add(p.getId());
+                    passengerCount++;
                 } catch (TreeException e) {
+                    appendOutput("Error al cargar pasajero en árbol: " + p.getName() + " (ID: " + p.getId() + "). " + e.getMessage());
                     e.printStackTrace();
-                    appendOutput("Error cargando pasajero en passengerTree: " + p.getName() + " (ID: " + p.getId() + ")");
                 }
             }
-            appendOutput("Pasajeros cargados en passengerTree: " + passengerCount); 
-        } catch (ListException e) { // Captura ListException si getNode() o size() la lanzan
-            appendOutput("Error al iterar pasajeros desde SinglyLinkedList (loadPassengers): " + e.getMessage());
+            appendOutput("Pasajeros cargados en los árboles: " + passengerCount);
+        } catch (ListException e) {
+            appendOutput("Error al iterar pasajeros desde SinglyLinkedList (loadAllPassengersToTrees): " + e.getMessage());
             e.printStackTrace();
-        } catch (Exception e) { // Captura cualquier otra excepción inesperada
-            appendOutput("Error inesperado al cargar pasajeros en passengerTree: " + e.getMessage());
+        } catch (ClassCastException e) {
+            appendOutput("Error de tipo de dato inesperado en SinglyLinkedList. Asegúrese que solo contiene objetos Passenger. " + e.getMessage());
+            e.printStackTrace();
+        } catch (Exception e) {
+            appendOutput("Error inesperado al cargar pasajeros en los árboles: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
     private void appendOutput(String text) {
-        if (txtOutput != null) {
+        if (txtOutput != null) { // Siempre verificar nullidad antes de usar elementos @FXML
             txtOutput.appendText(text + "\n");
         }
     }
 
     @FXML
-    private void addUser () {
+    private void addUser() {
         try {
             int id = Integer.parseInt(txtId.getText().trim());
             String name = txtName.getText().trim();
             String nationality = txtNationality.getText().trim();
-            String history = txtHistory.getText().trim();
 
             if (name.isEmpty() || nationality.isEmpty()) {
                 appendOutput("Nombre y nacionalidad son obligatorios.\n");
                 return;
             }
 
-            // Verificar si existe en AVL (avlTree guarda IDs)
             if (avlTree.contains(id)) {
                 appendOutput("Ya existe un pasajero con ID: " + id + "\n");
                 return;
             }
 
-            // Crear pasajero
             Passenger passenger = new Passenger(id, name, nationality);
-            if (!history.isEmpty()) {
-                passenger.addFlight(history);
+
+            if (!txtFlightNumber.getText().trim().isEmpty()) {
+                try {
+                    int flightNum = Integer.parseInt(txtFlightNumber.getText().trim());
+                    int originCode = Integer.parseInt(txtOriginCode.getText().trim());
+                    int destinationCode = Integer.parseInt(txtDestinationCode.getText().trim());
+                    LocalDateTime departureTime = LocalDateTime.parse(txtDepartureTime.getText().trim());
+                    int capacity = Integer.parseInt(txtCapacity.getText().trim());
+                    int occupancy = Integer.parseInt(txtOccupancy.getText().trim());
+                    String status = txtFlightStatus.getText().trim();
+                    String route = txtRoute.getText().trim();
+
+                    Flight newFlight = new Flight(capacity, occupancy, status, route, departureTime,
+                            flightNum, originCode, destinationCode, departureTime,
+                            new SinglyLinkedList());
+                    passenger.addFlight(newFlight); // Añade el objeto Flight al historial del pasajero
+                    appendOutput("Vuelo agregado al historial del pasajero.\n");
+
+                } catch (NumberFormatException | DateTimeParseException e) {
+                    appendOutput("Error en el formato de los datos del vuelo. Pasajero creado, pero el vuelo no se añadió. Revise el número, códigos, capacidad, ocupación y la hora de salida (yyyy-MM-ddTHH:mm).\n");
+                }
             }
 
-            // Cargar pasajeros desde FileReader (ahora devuelve SinglyLinkedList)
-            SinglyLinkedList passengers = FileReader.loadPassengers();
-            passengers.add(passenger); // Añadir al SinglyLinkedList
+            // Cargar la lista actual de pasajeros, añadir el nuevo, y guardar
+            SinglyLinkedList currentPassengersInFile = FileReader.loadPassengers();
+            currentPassengersInFile.add(passenger);
+            FileReader.savePassengers(convertSinglyLinkedListToList(currentPassengersInFile));
 
-            
-            FileReader.savePassengers(convertSinglyLinkedListToList(passengers));
-
-
-            // Agregar ID al AVL (avlTree de IDs) y objeto Passenger al passengerTree
+            // Añadir al AVL de IDs y al árbol de objetos Passenger
             avlTree.add(id);
-            passengerTree.add(passenger); // Añadir al árbol de objetos Passenger
+            passengerTree.add(passenger);
 
-            appendOutput("Pasajero agregado: " + passenger + "\n");
+            appendOutput("Pasajero agregado: " + passenger.getName() + " (ID: " + passenger.getId() + ")\n");
             clearFields();
         } catch (NumberFormatException e) {
-            appendOutput("ID debe ser un número válido.\n");
+            appendOutput("ID, capacidad, ocupación, número de vuelo, códigos de aeropuerto deben ser números válidos.\n");
         } catch (TreeException e) {
-            appendOutput("Error en árbol AVL: " + e.getMessage() + "\n");
-        } catch (ListException e) { // Captura si SinglyLinkedList.add() falla
-            appendOutput("Error al añadir pasajero a SinglyLinkedList: " + e.getMessage() + "\n");
+            appendOutput("Error al agregar pasajero al árbol AVL: " + e.getMessage() + "\n");
+        } catch (ListException e) {
+            appendOutput("Error al operar con la lista de pasajeros: " + e.getMessage() + "\n");
         } catch (Exception e) {
-            appendOutput("Error al agregar pasajero: " + e.getMessage() + "\n");
+            appendOutput("Error inesperado al agregar pasajero: " + e.getMessage() + "\n");
+            e.printStackTrace();
         }
     }
 
     @FXML
-    private void editUser () {
+    private void editUser() {
         try {
             int id = Integer.parseInt(txtId.getText().trim());
             String name = txtName.getText().trim();
             String nationality = txtNationality.getText().trim();
-            String history = txtHistory.getText().trim();
 
             if (name.isEmpty() || nationality.isEmpty()) {
                 appendOutput("Nombre y nacionalidad son obligatorios.\n");
                 return;
             }
 
-            // Verificar si existe el ID en el AVL
             if (!avlTree.contains(id)) {
                 appendOutput("No se encontró pasajero con ID: " + id + " para modificar.\n");
                 return;
             }
 
-            // Cargar pasajeros como SinglyLinkedList
             SinglyLinkedList passengers = FileReader.loadPassengers();
             boolean modified = false;
 
-            // Iterar sobre SinglyLinkedList para encontrar y modificar el pasajero
             for (int i = 1; i <= passengers.size(); i++) {
-                Passenger p = (Passenger) passengers.getNode(i).data;
+                Passenger p = (Passenger) passengers.get(i); // Usar .get(i) y castear
                 if (p.getId() == id) {
                     p.setName(name);
                     p.setNationality(nationality);
 
-                    if (!history.isEmpty()) {
-                        p.clearFlightHistory(); // Limpia el historial existente
-                        p.addFlight(history);   // Añade el nuevo vuelo
+                    // Lógica para actualizar el historial de vuelos segun Jime
+                    // Si el usuario ingresa datos de vuelo, limpia y añade el nuevo vuelo.
+                    // Si no, el historial existente del pasajero se mantiene.
+                    if (!txtFlightNumber.getText().trim().isEmpty()) {
+                        try {
+                            int flightNum = Integer.parseInt(txtFlightNumber.getText().trim());
+                            int originCode = Integer.parseInt(txtOriginCode.getText().trim());
+                            int destinationCode = Integer.parseInt(txtDestinationCode.getText().trim());
+                            LocalDateTime departureTime = LocalDateTime.parse(txtDepartureTime.getText().trim());
+                            int capacity = Integer.parseInt(txtCapacity.getText().trim());
+                            int occupancy = Integer.parseInt(txtOccupancy.getText().trim());
+                            String status = txtFlightStatus.getText().trim();
+                            String route = txtRoute.getText().trim();
+
+                            Flight updatedFlight = new Flight(capacity, occupancy, status, route, departureTime, flightNum, originCode, destinationCode, departureTime, new SinglyLinkedList());
+
+
+                            p.clearFlightHistory(); // Limpia el historial existente del pasajero
+                            p.addFlight(updatedFlight); // Añade el nuevo vuelo
+                            appendOutput("Historial de vuelo del pasajero con ID " + id + " actualizado.\n");
+                        } catch (NumberFormatException | DateTimeParseException e) {
+                            appendOutput("Error en el formato de los datos del vuelo. Pasajero modificado, pero el historial de vuelo no se actualizó: " + e.getMessage() + "\n");
+                        }
                     }
+
                     modified = true;
-                    
                     break;
                 }
             }
 
             if (modified) {
-              
                 FileReader.savePassengers(convertSinglyLinkedListToList(passengers));
                 appendOutput("Pasajero con ID " + id + " modificado exitosamente.\n");
                 clearFields();
@@ -199,67 +228,74 @@ public class AdminController {
             }
 
         } catch (NumberFormatException e) {
-            appendOutput("Ingrese un ID válido.\n");
+            appendOutput("Ingrese un ID de pasajero válido.\n");
         } catch (TreeException e) {
-            appendOutput("Error en árbol AVL: " + e.getMessage() + "\n");
-        } catch (ListException e) { // Captura si SinglyLinkedList.getNode() o size() fallan
+            appendOutput("Error en árbol AVL durante modificación: " + e.getMessage() + "\n");
+        } catch (ListException e) {
             appendOutput("Error al iterar pasajeros en SinglyLinkedList: " + e.getMessage() + "\n");
+        } catch (ClassCastException e) {
+            appendOutput("Error de tipo de dato inesperado en SinglyLinkedList. Asegúrese que solo contiene objetos Passenger. " + e.getMessage());
+            e.printStackTrace();
         } catch (Exception e) {
-            appendOutput("Error al modificar pasajero: " + e.getMessage() + "\n");
+            appendOutput("Error inesperado al modificar pasajero: " + e.getMessage() + "\n");
+            e.printStackTrace();
         }
     }
 
     @FXML
-    private void deleteUser () {
+    private void deleteUser() {
         try {
             int id = Integer.parseInt(txtId.getText().trim());
 
-            // Verificar si existe el ID en el AVL
             if (!avlTree.contains(id)) {
                 appendOutput("No se encontró un pasajero con ID: " + id + " para eliminar.\n");
                 return;
             }
 
-            // Cargar pasajeros como SinglyLinkedList
             SinglyLinkedList passengers = FileReader.loadPassengers();
+            Passenger passengerToRemove = null;
             boolean removed = false;
 
-           
-            Passenger passengerToRemove = null;
+            // Encontrar el pasajero en la lista
             for (int i = 1; i <= passengers.size(); i++) {
-                Passenger p = (Passenger) passengers.getNode(i).data;
+                Passenger p = (Passenger) passengers.get(i);
                 if (p.getId() == id) {
                     passengerToRemove = p;
-                    passengers.remove(passengerToRemove);
-                   
-                    removed = true;
+                    // passengers.remove(passengerToRemove);
+                    removed = true; // Marcamos que lo encontramos
                     break;
                 }
             }
 
-
             if (removed) {
-                
+                // Eliminar de la SinglyLinkedList
+                passengers.remove(passengerToRemove);
+
+                // Guarda cambios
                 FileReader.savePassengers(convertSinglyLinkedListToList(passengers));
 
-                
-                avlTree.remove(id);
-                passengerTree.remove(passengerToRemove); 
+                avlTree.remove(id); // Eliminar
+                passengerTree.remove(passengerToRemove);
 
                 appendOutput("Pasajero con ID: " + id + " eliminado con éxito.\n");
                 clearFields();
             } else {
-                appendOutput("No se encontró un pasajero con ID: " + id + " para eliminar.\n");
+
+                appendOutput("No se encontró un pasajero con ID: " + id + " para eliminar (inconsistencia detectada).\n");
             }
 
         } catch (NumberFormatException e) {
             appendOutput("Ingrese un ID válido.\n");
         } catch (TreeException e) {
-            appendOutput("Error en árbol AVL: " + e.getMessage() + "\n");
-        } catch (ListException e) { 
-            appendOutput("Error al operar en SinglyLinkedList: " + e.getMessage() + "\n");
+            appendOutput("Error en árbol AVL durante eliminación: " + e.getMessage() + "\n");
+        } catch (ListException e) {
+            appendOutput("Error al operar en SinglyLinkedList durante eliminación: " + e.getMessage() + "\n");
+        } catch (ClassCastException e) {
+            appendOutput("Error de tipo de dato inesperado en SinglyLinkedList. Asegúrese que solo contiene objetos Passenger. " + e.getMessage());
+            e.printStackTrace();
         } catch (Exception e) {
-            appendOutput("Error al eliminar el pasajero: " + e.getMessage() + "\n");
+            appendOutput("Error inesperado al eliminar el pasajero: " + e.getMessage() + "\n");
+            e.printStackTrace();
         }
     }
 
@@ -274,42 +310,50 @@ public class AdminController {
                 return;
             }
 
-            BTreeNode foundNode = passengerTree.search(new Passenger(id, "", ""));
+            Passenger searchKey = new Passenger(id, "", ""); // Crea un Passenger con solo el ID para búsqueda
+            BTreeNode foundNode = passengerTree.search(searchKey);
 
-            if (foundNode != null) {
-                // Si el nodo se encontró, extraemos el objeto Passenger de su data
+            if (foundNode != null && foundNode.data instanceof Passenger) {
                 Passenger foundPassenger = (Passenger) foundNode.data;
-                appendOutput("Pasajero encontrado: " + foundPassenger + "\n");
+                appendOutput("Pasajero encontrado:\n" + foundPassenger.toString() + "\n");
+
+                txtId.setText(String.valueOf(foundPassenger.getId()));
+                txtName.setText(foundPassenger.getName());
+                txtNationality.setText(foundPassenger.getNationality());
+
             } else {
-                //
-                appendOutput("No se encontró pasajero con ID: " + id + " (posible inconsistencia en árboles)\n");
+
+                appendOutput("No se encontró pasajero con ID: " + id + " (inconsistencia en árboles detectada)\n");
             }
         } catch (NumberFormatException e) {
-            appendOutput("Ingrese un ID válido.\n");
-        } catch (TreeException e) { // Captura si avlTree.contains() o search() la lanzan
+            appendOutput("Ingrese un ID válido para buscar.\n");
+        } catch (TreeException e) {
             appendOutput("Error en árbol AVL durante búsqueda: " + e.getMessage() + "\n");
         } catch (Exception e) {
             appendOutput("Error al buscar pasajero: " + e.getMessage() + "\n");
+            e.printStackTrace();
         }
     }
 
     @FXML
     public void handleListPassengers() {
         try {
-            SinglyLinkedList passengers = FileReader.loadPassengers(); // FileReader ahora devuelve SinglyLinkedList
+            SinglyLinkedList passengers = FileReader.loadPassengers();
 
             if (passengers.isEmpty()) {
                 appendOutput("No hay pasajeros registrados.\n");
             } else {
                 appendOutput("=== Lista de Pasajeros ===");
-                // Iterar sobre SinglyLinkedList para mostrar los pasajeros
                 for (int i = 1; i <= passengers.size(); i++) {
-                    Passenger p = (Passenger) passengers.getNode(i).data; 
+                    Passenger p = (Passenger) passengers.get(i);
                     appendOutput(p.toString());
                 }
             }
-        } catch (ListException e) { // Captura ListException si getNode() o size() fallan
+        } catch (ListException e) {
             appendOutput("Error al iterar pasajeros desde SinglyLinkedList para listar: " + e.getMessage() + "\n");
+            e.printStackTrace();
+        } catch (ClassCastException e) {
+            appendOutput("Error de tipo de dato inesperado en SinglyLinkedList. Asegúrese que solo contiene objetos Passenger. " + e.getMessage());
             e.printStackTrace();
         } catch (Exception e) {
             appendOutput("Error al listar pasajeros: " + e.getMessage() + "\n");
@@ -321,23 +365,32 @@ public class AdminController {
         txtId.clear();
         txtName.clear();
         txtNationality.clear();
-        txtHistory.clear();
+
+
+
+        txtFlightNumber.clear();
+        txtOriginCode.clear();
+        txtDestinationCode.clear();
+        txtDepartureTime.clear();
+        txtCapacity.clear();
+        txtOccupancy.clear();
+        txtFlightStatus.clear();
+        txtRoute.clear();
     }
 
-  
     private List<Passenger> convertSinglyLinkedListToList(SinglyLinkedList singlyLinkedList) throws ListException {
         List<Passenger> list = new ArrayList<>();
         if (singlyLinkedList != null && !singlyLinkedList.isEmpty()) {
             for (int i = 1; i <= singlyLinkedList.size(); i++) {
-                list.add((Passenger) singlyLinkedList.getNode(i).data);
+
+                list.add((Passenger) singlyLinkedList.get(i));
             }
         }
         return list;
     }
 
-    
     @FXML
-    private void userManager(){
+    private void userManager() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ucr/lab/PassengerView.fxml"));
             Parent root = loader.load();
@@ -346,14 +399,14 @@ public class AdminController {
             stage.setTitle("Passenger Manager");
             stage.setScene(new Scene(root));
             stage.show();
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
             appendOutput("Error al abrir la ventana para gestionar pasajeros: " + e.getMessage());
         }
     }
 
     @FXML
-    private void airportManager () {
+    private void airportManager() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ucr/lab/AirPortView.fxml"));
             Parent root = loader.load();
@@ -362,33 +415,30 @@ public class AdminController {
             stage.setTitle("Airports Manager");
             stage.setScene(new Scene(root));
             stage.show();
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
             appendOutput("Error al abrir la ventana para gestionar aeropuertos: " + e.getMessage());
         }
     }
 
-    private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
-        Alert alert = new Alert(tipo);
-        alert.setTitle(titulo);
-        alert.setHeaderText(null);
-        alert.setContentText(mensaje);
-        alert.showAndWait();
-    }
 
     @FXML
     private void logout() {
         Platform.exit();
     }
 
-
     public void addRoute(ActionEvent actionEvent) {
+        // Lógica para añadir ruta
+        appendOutput("Funcionalidad 'Add Route' no implementada aún.");
     }
 
     public void modifyRoute(ActionEvent actionEvent) {
+        // Lógica para modificar ruta
+        appendOutput("Funcionalidad 'Modify Route' no implementada aún.");
     }
 
     public void shortestPath(ActionEvent actionEvent) {
-
+        // Lógica para encontrar la ruta más corta
+        appendOutput("Funcionalidad 'Shortest Path' no implementada aún.");
     }
 }

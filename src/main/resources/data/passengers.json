@@ -1,118 +1,49 @@
-[
-  {
-    "id": 123456789,
-    "name": "Juan Pérez",
-    "nationality": "Costarricense",
-    "flightHistory": [
-      {
-        "flightNumber": 101,
-        "originAirportCode": 3,
-        "destinationAirportCode": 1,
-        "departureDate": "2024-05-10T10:00:00",
-        "capacity": 150,
-        "occupancy": 120,
-        "status": "Scheduled",
-        "passengerIDs": ["P001", "P002", "P003", "P004"],
-        "route": "SJO-LAX"
-      },
-      {
-        "flightNumber": 102,
-        "originAirportCode": 1,
-        "destinationAirportCode": 5,
-        "departureDate": "2024-06-01T15:30:00",
-        "capacity": 200,
-        "occupancy": 180,
-        "status": "Delayed",
-        "passengerIDs": ["P005", "P006"],
-        "route": "LAX-JFK"
-      }
-    ],
-    "state": "Active"
-  },
-  {
-    "id": 987654321,
-    "name": "Maria García",
-    "nationality": "Mexicana",
-    "flightHistory": [
-      {
-        "flightNumber": 205,
-        "originAirportCode": 7,
-        "destinationAirportCode": 2,
-        "departureDate": "2023-11-20T08:15:00",
-        "capacity": 180,
-        "occupancy": 150,
-        "status": "Completed",
-        "passengerIDs": ["P007"],
-        "route": "MEX-LIM"
-      }
-    ],
-    "state": "Active"
-  },
-  {
-    "id": 112233445,
-    "name": "Carlos Sánchez",
-    "nationality": "Español",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 556677889,
-    "name": "Ana López",
-    "nationality": "Argentina",
-    "flightHistory": [
-      {
-        "flightNumber": 333,
-        "originAirportCode": 4,
-        "destinationAirportCode": 8,
-        "departureDate": "2025-01-15T20:00:00",
-        "capacity": 100,
-        "occupancy": 95,
-        "status": "Scheduled",
-        "passengerIDs": ["P008", "P009", "P010"],
-        "route": "BUE-MIA"
-      },
-      {
-        "flightNumber": 444,
-        "originAirportCode": 8,
-        "destinationAirportCode": 9,
-        "departureDate": "2025-02-01T07:45:00",
-        "capacity": 120,
-        "occupancy": 110,
-        "status": "Scheduled",
-        "passengerIDs": ["P011"],
-        "route": "MIA-MAD"
-      },
-      {
-        "flightNumber": 555,
-        "originAirportCode": 9,
-        "destinationAirportCode": 10,
-        "departureDate": "2025-03-20T14:00:00",
-        "capacity": 250,
-        "occupancy": 240,
-        "status": "Scheduled",
-        "passengerIDs": [],
-        "route": "MAD-CDG"
-      }
-    ],
-    "state": "Inactive"
-  },
-  {
-    "id": 998877665,
-    "name": "Lin Wei",
-    "nationality": "China",
-    "flightHistory": [
-      {
-        "flightNumber": 601,
-        "originAirportCode": 11,
-        "destinationAirportCode": 12,
-        "departureDate": "2024-07-05T09:00:00",
-        "capacity": 300,
-        "occupancy": 280,
-        "status": "Completed",
-        "passengerIDs": ["P012", "P013", "P014", "P015"],
-        "route": "PEK-TYO"
-      }
-    ],
-    "state": "Active"
-  }
-]
+[ {
+  "id" : 123456789,
+  "name" : "Juan Pérez",
+  "nationality" : "Costarricense",
+  "flightHistory" : [ {
+    "capacity" : 150,
+    "occupancy" : 120,
+    "status" : "Scheduled",
+    "route" : "SJO-LAX",
+    "flightNumber" : 101,
+    "originAirportCode" : 3,
+    "destinationAirportCode" : 1,
+    "departureDate" : "2024-05-10T10:00:00",
+    "passengerIDs" : [ "P001", "P002", "P003", "P004" ]
+  }, {
+    "capacity" : 200,
+    "occupancy" : 180,
+    "status" : "Delayed",
+    "route" : "LAX-JFK",
+    "flightNumber" : 102,
+    "originAirportCode" : 1,
+    "destinationAirportCode" : 5,
+    "departureDate" : "2024-06-01T15:30:00",
+    "passengerIDs" : [ "P005", "P006" ]
+  } ],
+  "state" : "Active"
+}, {
+  "id" : 987654321,
+  "name" : "Maria García",
+  "nationality" : "Mexicana",
+  "flightHistory" : [ {
+    "capacity" : 180,
+    "occupancy" : 150,
+    "status" : "Completed",
+    "route" : "MEX-LIM",
+    "flightNumber" : 205,
+    "originAirportCode" : 7,
+    "destinationAirportCode" : 2,
+    "departureDate" : "2023-11-20T08:15:00",
+    "passengerIDs" : [ "P007" ]
+  } ],
+  "state" : "Active"
+}, {
+  "id" : 880011223,
+  "name" : "Jimena Salas",
+  "nationality" : "Costa Rica",
+  "flightHistory" : [ ],
+  "state" : "Active"
+} ]

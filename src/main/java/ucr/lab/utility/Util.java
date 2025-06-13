@@ -19,12 +19,9 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Random;
+import java.util.*;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
 
 public class Util {
     private static Random random;
@@ -37,7 +34,8 @@ public class Util {
         random = new Random(seed);
 
     }
-    ///airports list
+
+    /// airports list
     private static ObservableList<AirPort> airPortList = FXCollections.observableArrayList(); //lista para airports
     private static ObservableList<Departures> departuresList = FXCollections.observableArrayList();
     //constructor estatico, inicializador estatico
@@ -129,6 +127,7 @@ public class Util {
             FXUtil.alert("Error", "Could not load hotel data").showAndWait();
         }
     }
+
     //esto es para el reporte pdf
     public static String readJsonFile(String fileName) {
         try (InputStream inputStream = Util.class.getResourceAsStream("/" + fileName)) {
@@ -197,34 +196,42 @@ public class Util {
 
     // Método para comparar dos objetos de distintos tipos
     public static int compare(Object a, Object b) {
-        switch (instanceOf(a, b)){
+        switch (instanceOf(a, b)) {
             case "Integer":
-                Integer int1 = (Integer)a; Integer int2 = (Integer)b;
+                Integer int1 = (Integer) a;
+                Integer int2 = (Integer) b;
                 return int1 < int2 ? -1 : int1 > int2 ? 1 : 0; //0 == equal
             case "String":
-                String st1 = (String)a; String st2 = (String)b;
-                return st1.compareTo(st2)<0 ? -1 : st1.compareTo(st2) > 0 ? 1 : 0;
+                String st1 = (String) a;
+                String st2 = (String) b;
+                return st1.compareTo(st2) < 0 ? -1 : st1.compareTo(st2) > 0 ? 1 : 0;
             case "Character":
-                Character c1 = (Character)a; Character c2 = (Character)b;
-                return c1.compareTo(c2)<0 ? -1 : c1.compareTo(c2)>0 ? 1 : 0;
+                Character c1 = (Character) a;
+                Character c2 = (Character) b;
+                return c1.compareTo(c2) < 0 ? -1 : c1.compareTo(c2) > 0 ? 1 : 0;
             case "EdgeWeight":
                 EdgeWeight eW1 = (EdgeWeight) a;
                 EdgeWeight eW2 = (EdgeWeight) b;
-                return compare(eW1.getEdge(),eW2.getEdge());
+                return compare(eW1.getEdge(), eW2.getEdge());
             case "Vertex":
                 Vertex v1 = (Vertex) a;
                 Vertex v2 = (Vertex) b;
-                return compare(v1.data,v2.data);
+                return compare(v1.data, v2.data);
+            case "Passenger":
+                Passenger p1 = (Passenger) a;
+                Passenger p2 = (Passenger) b;
+                return new PassengerIdComparator().compare(p1, p2);
         }
         return 2; //Unknown
     }
 
     public static String instanceOf(Object a, Object b) {
-        if(a instanceof Integer && b instanceof Integer) return "Integer";
-        if(a instanceof String && b instanceof String) return "String";
-        if(a instanceof Character && b instanceof Character) return "Character";
-        if(a instanceof EdgeWeight && b instanceof EdgeWeight) return "EdgeWeight";
-        if(a instanceof Vertex && b instanceof Vertex) return "Vertex";
+        if (a instanceof Integer && b instanceof Integer) return "Integer";
+        if (a instanceof String && b instanceof String) return "String";
+        if (a instanceof Character && b instanceof Character) return "Character";
+        if (a instanceof EdgeWeight && b instanceof EdgeWeight) return "EdgeWeight";
+        if (a instanceof Vertex && b instanceof Vertex) return "Vertex";
+        if (a instanceof Passenger && b instanceof Passenger) return "Passenger";
         return "Unknown";
     }
 
@@ -237,17 +244,29 @@ public class Util {
     }
 
     public static LinkedQueue getClimateQueue() {
-        if(queueList== null) {
+        if (queueList == null) {
             queueList = new LinkedQueue();
         }
         return queueList;
     }
 
     public static LinkedStack getStack() {
-        if(stackList== null) {
+        if (stackList == null) {
             stackList = new LinkedStack();
         }
         return stackList;
     }
-}
 
+    public static class PassengerIdComparator implements Comparator<Passenger> {
+        @Override
+        public int compare(Passenger p1, Passenger p2) {
+
+
+            if (p1 == null && p2 == null) return 0;
+            if (p1 == null) return -1; // p1 es menor
+            if (p2 == null) return 1;  // p2 es menor
+
+            return Integer.compare(p1.getId(), p2.getId());
+        }
+    }
+}

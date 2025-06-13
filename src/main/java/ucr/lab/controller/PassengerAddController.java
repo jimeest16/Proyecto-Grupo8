@@ -85,7 +85,7 @@ public class PassengerAddController {
 
             Passenger passenger = new Passenger(id, name, nationality);
             if (!history.isEmpty()) {
-                passenger.addFlight(history);
+              //  passenger.addFlight(history);
             }
 
             SinglyLinkedList passengers = FileReader.loadPassengers();

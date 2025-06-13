@@ -86,7 +86,7 @@ public class PassengerEditController {
 
                     if (!history.isEmpty()) {
                         p.clearFlightHistory();
-                        p.addFlight(history);
+                        //p.addFlight(history);
                     }
                     modified = true;
 

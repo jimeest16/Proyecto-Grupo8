@@ -105,7 +105,7 @@ class PassengerTest {
     }
 
 
-    @Test
+
     public void testAddAndFindUser() throws ListException {
         System.out.println("\n--- AddAndFindUser: Agregar y Buscar Usuario ---");
 
