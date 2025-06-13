@@ -10,7 +10,7 @@ import ucr.lab.TDA.list.CircularLinkedList;
 import ucr.lab.TDA.list.ListException;
 import ucr.lab.TDA.list.SinglyLinkedList;
 
-import ucr.lab.domain.*; // Asegúrate de que Flight y Passenger estén aquí
+import ucr.lab.domain.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,7 +31,7 @@ public class FileReader {
         mapper.registerModule(new JavaTimeModule());
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         mapper.setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
-        // Configuración adicional: Permite propiedades desconocidas para evitar errores si el JSON tiene campos extra
+        
         mapper.configure(com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
@@ -39,19 +39,19 @@ public class FileReader {
     public static CircularLinkedList loadUsers() throws ListException {
         CircularLinkedList userList = new CircularLinkedList();
         File file = new File(FILE_USER);
-        System.out.println("[DEBUG FileReader] Cargando usuarios desde: " + file.getAbsolutePath()); // Debug
+        System.out.println("[PRUEBAS] Cargando usuarios desde: " + file.getAbsolutePath());
         try {
             if (!file.exists() || file.length() == 0) {
-                System.out.println("[DEBUG FileReader] Archivo de usuarios no encontrado o vacío. Retornando lista vacía.");
+                System.out.println("[PRUEBAS X CONSOLA:] Archivo de usuarios no encontrado o vacío. Retornando lista vacía.");
                 return userList;
             }
             List<User> tempUsers = mapper.readValue(file, new TypeReference<List<User>>() {});
             for (User u : tempUsers) {
                 userList.add(u);
             }
-            System.out.println("[DEBUG FileReader] " + userList.size() + " usuarios cargados."); // Debug
+            System.out.println("[PRUEBAS X CONSOLA:] " + userList.size() + " usuarios cargados.");
         } catch (Exception e) {
-            System.err.println("[ERROR FileReader] Error al cargar usuarios: " + e.getMessage());
+            System.err.println("[Errores:] Error al cargar usuarios: " + e.getMessage());
             e.printStackTrace();
         }
         return userList;
@@ -68,12 +68,12 @@ public class FileReader {
             } while (currentObj != startObj);
         }
         File file = new File(FILE_USER);
-        System.out.println("[DEBUG FileReader] Guardando " + tempUsers.size() + " usuarios en: " + file.getAbsolutePath()); // Debug
+        System.out.println("[PRUEBAS X CONSOLA:] Guardando " + tempUsers.size() + " usuarios en: " + file.getAbsolutePath());
         try {
             mapper.writerWithDefaultPrettyPrinter().writeValue(file, tempUsers);
-            System.out.println("[DEBUG FileReader] Usuarios guardados correctamente."); // Debug
+            System.out.println("[PRUEBAS X CONSOLA:] Usuarios guardados correctamente.");
         } catch (Exception e) {
-            System.err.println("[ERROR FileReader] Error al guardar usuarios: " + e.getMessage());
+            System.err.println("[Errores:] Error al guardar usuarios: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -82,26 +82,26 @@ public class FileReader {
         CircularLinkedList users = loadUsers();
         users.add(newUser);
         saveUsers(users);
-        System.out.println("[DEBUG FileReader] Usuario '" + newUser.getName() + "' agregado y guardado.");
+        System.out.println("[PRUEBAS X CONSOLA:] Usuario '" + newUser.getName() + "' agregado y guardado.");
     }
 
 
     public static SinglyLinkedList loadAirports() {
         SinglyLinkedList airportsSinglyList = new SinglyLinkedList();
         File file = new File(FILE_AIRPORT);
-        System.out.println("[DEBUG FileReader] Cargando aeropuertos desde: " + file.getAbsolutePath()); // Debug
+        System.out.println("[PRUEBAS X CONSOLA:] Cargando aeropuertos desde: " + file.getAbsolutePath());
         try {
             if (!file.exists() || file.length() == 0) {
-                System.out.println("[DEBUG FileReader] Archivo de aeropuertos no encontrado o vacío. Retornando lista vacía.");
+                System.out.println("[PRUEBAS X CONSOLA:] Archivo de aeropuertos no encontrado o vacío. Retornando lista vacía.");
                 return airportsSinglyList;
             }
             List<AirPort> tempAirports = mapper.readValue(file, new TypeReference<List<AirPort>>() {});
             for (AirPort airport : tempAirports) {
                 airportsSinglyList.add(airport);
             }
-            System.out.println("[DEBUG FileReader] " + airportsSinglyList.size() + " aeropuertos cargados."); // Debug
+            System.out.println("[PRUEBAS X CONSOLA:] " + airportsSinglyList.size() + " aeropuertos cargados.");
         } catch (IOException | ListException e) {
-            System.err.println("[ERROR FileReader] Error de I/O o JSON al cargar aeropuertos: " + e.getMessage());
+            System.err.println("[Errores:] Error de I/O o JSON al cargar aeropuertos: " + e.getMessage());
             e.printStackTrace();
             return new SinglyLinkedList();
         }
@@ -110,12 +110,12 @@ public class FileReader {
 
     public static void saveAirports(List<AirPort> airports) {
         File file = new File(FILE_AIRPORT);
-        System.out.println("[DEBUG FileReader] Guardando " + airports.size() + " aeropuertos en: " + file.getAbsolutePath()); // Debug
+        System.out.println("[PRUEBAS X CONSOLA:] Guardando " + airports.size() + " aeropuertos en: " + file.getAbsolutePath());
         try {
             mapper.writerWithDefaultPrettyPrinter().writeValue(file, airports);
-            System.out.println("[DEBUG FileReader] Aeropuertos guardados correctamente."); // Debug
+            System.out.println("[PRUEBAS X CONSOLA:] Aeropuertos guardados correctamente.");
         } catch (Exception e) {
-            System.err.println("[ERROR FileReader] Error al guardar aeropuertos: " + e.getMessage());
+            System.err.println("[Errores:] Error al guardar aeropuertos: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -124,30 +124,30 @@ public class FileReader {
         List<AirPort> airports = loadAirportsAsList();
         airports.add(newAirport);
         saveAirports(airports);
-        System.out.println("[DEBUG FileReader] Aeropuerto '" + newAirport.getName() + "' agregado y guardado.");
+        System.out.println("[PRUEBAS X CONSOLA:] Aeropuerto '" + newAirport.getName() + "' agregado y guardado.");
     }
 
 
     public static SinglyLinkedList loadPassengers() {
         SinglyLinkedList passengersSinglyList = new SinglyLinkedList();
         File file = new File(FILE_PASSENGER);
-        System.out.println("[DEBUG FileReader] Cargando pasajeros desde: " + file.getAbsolutePath()); // Debug
+        System.out.println("[PRUEBAS X CONSOLA:] Cargando pasajeros desde: " + file.getAbsolutePath());
         try {
             if (!file.exists() || file.length() == 0) { // Verifica si el archivo existe y no está vacío
-                System.out.println("[DEBUG FileReader] Archivo de pasajeros no encontrado o vacío. Retornando lista vacía.");
+                System.out.println("[PRUEBAS X CONSOLA:] Archivo de pasajeros no encontrado o vacío. Retornando lista vacía.");
                 return passengersSinglyList;
             }
             List<Passenger> tempPassengers = mapper.readValue(file, new TypeReference<List<Passenger>>() {});
             for (Passenger passenger : tempPassengers) {
                 passengersSinglyList.add(passenger);
             }
-            System.out.println("[DEBUG FileReader] " + passengersSinglyList.size() + " pasajeros cargados."); // Debug
+            System.out.println("[PRUEBAS X CONSOLA:] " + passengersSinglyList.size() + " pasajeros cargados.");
         } catch (IOException e) {
-            System.err.println("[ERROR FileReader] Error de I/O o JSON al cargar pasajeros: " + e.getMessage());
+            System.err.println("[Errores:] Error de I/O o JSON al cargar pasajeros: " + e.getMessage());
             e.printStackTrace();
             return new SinglyLinkedList();
-        } catch (Exception e) { // Captura cualquier otra excepción de Jackson o de la lista
-            System.err.println("[ERROR FileReader] Error inesperado al cargar pasajeros: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("[Errores:] Error inesperado al cargar pasajeros: " + e.getMessage());
             e.printStackTrace();
             return new SinglyLinkedList();
         }
@@ -156,12 +156,12 @@ public class FileReader {
 
     public static void savePassengers(List<Passenger> passengers) {
         File file = new File(FILE_PASSENGER);
-        System.out.println("[DEBUG FileReader] Guardando " + passengers.size() + " pasajeros en: " + file.getAbsolutePath()); // Debug
+        System.out.println("[PRUEBAS X CONSOLA:] Guardando " + passengers.size() + " pasajeros en: " + file.getAbsolutePath());
         try {
             mapper.writerWithDefaultPrettyPrinter().writeValue(file, passengers);
-            System.out.println("[DEBUG FileReader] Pasajeros guardados correctamente."); // Debug
+            System.out.println("[PRUEBAS X CONSOLA:] Pasajeros guardados correctamente.");
         } catch (Exception e) {
-            System.err.println("[ERROR FileReader] Error al guardar pasajeros: " + e.getMessage());
+            System.err.println("[Errores:] Error al guardar pasajeros: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -170,26 +170,26 @@ public class FileReader {
         List<Passenger> passengers = loadPassengersAsList();
         passengers.add(newPassenger);
         savePassengers(passengers);
-        System.out.println("[DEBUG FileReader] Pasajero '" + newPassenger.getName() + "' agregado y guardado."); // Debug
+        System.out.println("[PRUEBAS X CONSOLA:] Pasajero '" + newPassenger.getName() + "' agregado y guardado.");
     }
 
 
     public static SinglyLinkedList loadDepartures() {
         SinglyLinkedList departuresSinglyList = new SinglyLinkedList();
         File file = new File(FILE_DEPARTURES);
-        System.out.println("[DEBUG FileReader] Cargando salidas desde: " + file.getAbsolutePath()); // Debug
+        System.out.println("[PRUEBAS X CONSOLA:] Cargando salidas desde: " + file.getAbsolutePath());
         try {
             if (!file.exists() || file.length() == 0) {
-                System.out.println("[DEBUG FileReader] Archivo de salidas no encontrado o vacío. Retornando lista vacía.");
+                System.out.println("[PRUEBAS X CONSOLA:] Archivo de salidas no encontrado o vacío. Retornando lista vacía.");
                 return departuresSinglyList;
             }
             List<Departures> tempDepartures = mapper.readValue(file, new TypeReference<List<Departures>>() {});
             for (Departures departure : tempDepartures) {
                 departuresSinglyList.add(departure);
             }
-            System.out.println("[DEBUG FileReader] " + departuresSinglyList.size() + " salidas cargadas."); // Debug
+            System.out.println("[PRUEBAS X CONSOLA:] " + departuresSinglyList.size() + " salidas cargadas.");
         } catch (IOException | ListException e) {
-            System.err.println("[ERROR FileReader] Error de I/O o JSON al cargar salidas: " + e.getMessage());
+            System.err.println("[Errores:] Error de I/O o JSON al cargar salidas: " + e.getMessage());
             e.printStackTrace();
             return new SinglyLinkedList();
         }
@@ -198,12 +198,12 @@ public class FileReader {
 
     public static void saveDepartures(List<Departures> departures) {
         File file = new File(FILE_DEPARTURES);
-        System.out.println("[DEBUG FileReader] Guardando " + departures.size() + " salidas en: " + file.getAbsolutePath()); // Debug
+        System.out.println("[PRUEBAS X CONSOLA:] Guardando " + departures.size() + " salidas en: " + file.getAbsolutePath());
         try {
             mapper.writerWithDefaultPrettyPrinter().writeValue(file, departures);
-            System.out.println("[DEBUG FileReader] Salidas guardadas correctamente."); // Debug
+            System.out.println("[PRUEBAS X CONSOLA:] Salidas guardadas correctamente.");
         } catch (Exception e) {
-            System.err.println("[ERROR FileReader] Error al guardar salidas: " + e.getMessage());
+            System.err.println("[Errores:] Error al guardar salidas: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -212,26 +212,26 @@ public class FileReader {
         List<Departures> departures = loadDeparturesAsList();
         departures.add(newDeparture);
         saveDepartures(departures);
-        System.out.println("[DEBUG FileReader] Salida para aeropuerto " + newDeparture.getGateId() + " agregada y guardada."); // Debug
+        System.out.println("[PRUEBAS X CONSOLA:] Salida para aeropuerto " + newDeparture.getGateId() + " agregada y guardada.");
     }
 
 
     public static CircularDoublyLinkedList loadFlights() {
         CircularDoublyLinkedList flightList = new CircularDoublyLinkedList();
         File file = new File(FILE_FLIGHTS);
-        System.out.println("[DEBUG FileReader] Cargando vuelos desde: " + file.getAbsolutePath()); // Debug
+        System.out.println("[PRUEBAS X CONSOLA:] Cargando vuelos desde: " + file.getAbsolutePath());
         try {
             if (!file.exists() || file.length() == 0) {
-                System.out.println("[DEBUG FileReader] Archivo de vuelos no encontrado o vacío. Retornando lista vacía.");
+                System.out.println("[PRUEBAS X CONSOLA:] Archivo de vuelos no encontrado o vacío. Retornando lista vacía.");
                 return flightList;
             }
             List<Flight> flights = mapper.readValue(file, new TypeReference<List<Flight>>() {});
             for (Flight f : flights) {
                 flightList.add(f);
             }
-            System.out.println("[DEBUG FileReader] " + flightList.size() + " vuelos cargados."); // Debug
+            System.out.println("[PRUEBAS X CONSOLA:] " + flightList.size() + " vuelos cargados.");
         } catch (Exception e) {
-            System.err.println("[ERROR FileReader] Error al cargar vuelos: " + e.getMessage());
+            System.err.println("[Errores:] Error al cargar vuelos: " + e.getMessage());
             e.printStackTrace();
         }
         return flightList;
@@ -248,12 +248,12 @@ public class FileReader {
             } while (currentObj != startObj);
         }
         File file = new File(FILE_FLIGHTS);
-        System.out.println("[DEBUG FileReader] Guardando " + tempFlights.size() + " vuelos en: " + file.getAbsolutePath()); // Debug
+        System.out.println("[PRUEBAS X CONSOLA:] Guardando " + tempFlights.size() + " vuelos en: " + file.getAbsolutePath());
         try {
             mapper.writerWithDefaultPrettyPrinter().writeValue(file, tempFlights);
-            System.out.println("[DEBUG FileReader] Vuelos guardados correctamente."); // Debug
+            System.out.println("[PRUEBAS X CONSOLA:] Vuelos guardados correctamente.");
         } catch (IOException e) {
-            System.err.println("[ERROR FileReader] Error al guardar vuelos: " + e.getMessage());
+            System.err.println("[Errores:] Error al guardar vuelos: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -262,22 +262,22 @@ public class FileReader {
         CircularDoublyLinkedList flights = loadFlights();
         flights.add(newFlight);
         saveFlights(flights);
-        System.out.println("[DEBUG FileReader] Vuelo " + newFlight.getNumber() + " agregado y guardado."); // Debug
+        System.out.println("[PRUEBAS X CONSOLA:] Vuelo " + newFlight.getNumber() + " agregado y guardado.");
     }
 
     public static List<Flight> loadFlightsAsListForInternalUse() {
         File file = new File(FILE_FLIGHTS);
-        System.out.println("[DEBUG FileReader] Cargando vuelos (como lista) desde: " + file.getAbsolutePath()); // Debug
+        System.out.println("[PRUEBAS X CONSOLA:] Cargando vuelos (como lista) desde: " + file.getAbsolutePath());
         try {
             if (!file.exists() || file.length() == 0) {
-                System.out.println("[DEBUG FileReader] Archivo de vuelos (lista) no encontrado o vacío. Retornando lista vacía.");
+                System.out.println("[PRUEBAS X CONSOLA:] Archivo de vuelos (lista) no encontrado o vacío. Retornando lista vacía.");
                 return new ArrayList<>();
             }
             List<Flight> flights = mapper.readValue(file, new TypeReference<List<Flight>>() {});
-            System.out.println("[DEBUG FileReader] " + flights.size() + " vuelos cargados (como lista)."); // Debug
+            System.out.println("[PRUEBAS X CONSOLA:] " + flights.size() + " vuelos cargados (como lista).");
             return flights;
         } catch (IOException e) {
-            System.err.println("[ERROR FileReader] Error de I/O o JSON al cargar vuelos (como lista): " + e.getMessage());
+            System.err.println("[Errores:] Error de I/O o JSON al cargar vuelos (como lista): " + e.getMessage());
             e.printStackTrace();
             return new ArrayList<>();
         }
@@ -287,28 +287,28 @@ public class FileReader {
     public static SinglyLinkedList loadRoutes() {
         SinglyLinkedList routesSinglyList = new SinglyLinkedList();
         File file = new File(FILE_ROUTES);
-        System.out.println("[DEBUG FileReader] Cargando rutas desde: " + file.getAbsolutePath()); // Debug
+        System.out.println("[PRUEBAS X CONSOLA:] Cargando rutas desde: " + file.getAbsolutePath());
         try {
             if (!file.exists()) {
                 System.err.println("Advertencia: Archivo de rutas NO ENCONTRADO en: " + file.getAbsolutePath());
                 return routesSinglyList;
             } else if (file.length() == 0) {
-                System.out.println("[DEBUG FileReader] Archivo de rutas encontrado pero vacío.");
+                System.out.println("[PRUEBAS X CONSOLA:] Archivo de rutas encontrado pero vacío.");
                 return routesSinglyList;
             }
-            System.out.println("[DEBUG FileReader] INFO: Archivo de rutas encontrado en: " + file.getAbsolutePath());
+            System.out.println("[PRUEBAS X CONSOLA:] INFO: Archivo de rutas encontrado en: " + file.getAbsolutePath());
 
             List<Route> tempRoutes = mapper.readValue(file, new TypeReference<List<Route>>() {});
             for (Route route : tempRoutes) {
                 routesSinglyList.add(route);
             }
-            System.out.println("[DEBUG FileReader] " + routesSinglyList.size() + " rutas cargadas."); // Debug
+            System.out.println("[PRUEBAS X CONSOLA:] " + routesSinglyList.size() + " rutas cargadas.");
         } catch (IOException e) {
-            System.err.println("[ERROR FileReader] Error de I/O o JSON al cargar rutas: " + e.getMessage());
+            System.err.println("[Errores:] Error de I/O o JSON al cargar rutas: " + e.getMessage());
             e.printStackTrace();
             return new SinglyLinkedList();
         } catch (Exception e) {
-            System.err.println("[ERROR FileReader] Error inesperado al cargar rutas: " + e.getMessage());
+            System.err.println("[Errores:] Error inesperado al cargar rutas: " + e.getMessage());
             e.printStackTrace();
             return new SinglyLinkedList();
         }
@@ -317,18 +317,17 @@ public class FileReader {
 
     public static void saveRoutes(List<Route> routes) {
         File file = new File(FILE_ROUTES);
-        System.out.println("[DEBUG FileReader] Guardando " + routes.size() + " rutas en: " + file.getAbsolutePath()); // Debug
+        System.out.println("[PRUEBAS X CONSOLA:] Guardando " + routes.size() + " rutas en: " + file.getAbsolutePath());
         try {
             mapper.writerWithDefaultPrettyPrinter().writeValue(file, routes);
-            System.out.println("[DEBUG FileReader] Rutas guardadas correctamente."); // Debug
+            System.out.println("[PRUEBAS X CONSOLA:] Rutas guardadas correctamente.");
         } catch (Exception e) {
-            System.err.println("[ERROR FileReader] Error al guardar rutas: " + e.getMessage());
+            System.err.println("[Errores:] Error al guardar rutas: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
 
-    // Métodos auxiliares para cargar como List (usados internamente por los addX métodos)
     private static List<AirPort> loadAirportsAsList() {
         File file = new File(FILE_AIRPORT);
         try {

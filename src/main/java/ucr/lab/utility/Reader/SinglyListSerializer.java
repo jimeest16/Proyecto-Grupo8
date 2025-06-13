@@ -9,8 +9,8 @@ import ucr.lab.domain.Flight;
 
 import java.io.IOException;
 
-// Serializador para SinglyLinkedList (no genérica)
-public class SinglyListSerializer extends StdSerializer<SinglyLinkedList> { // Tipo aquí es SinglyLinkedList
+// Serializador para SinglyLinkedList
+public class SinglyListSerializer extends StdSerializer<SinglyLinkedList> {
 
     public SinglyListSerializer() {
         this(null);
@@ -27,15 +27,15 @@ public class SinglyListSerializer extends StdSerializer<SinglyLinkedList> { // T
         if (value != null && !value.isEmpty()) {
             try {
                 for (int i = 1; i <= value.size(); i++) {
-                    // *** CRÍTICO: Castear a Flight aquí ***
-                    Flight flight = (Flight) value.get(i); // get(i) retorna Object, necesitas castear
-                    gen.writeObject(flight); // Jackson serializa el objeto Flight
+
+                    Flight flight = (Flight) value.get(i);
+                    gen.writeObject(flight);
                 }
             } catch (ListException e) {
                 System.err.println("Error durante la serialización de SinglyLinkedList: " + e.getMessage());
                 throw new IOException("Error al serializar la lista de vuelos", e);
             } catch (ClassCastException e) {
-                // Es posible si la lista contiene algo que no sea Flight
+
                 System.err.println("Error de tipo al serializar: Elemento inesperado en SinglyLinkedList. " + e.getMessage());
                 throw new IOException("Error de tipo de dato inesperado en la lista de vuelos", e);
             }

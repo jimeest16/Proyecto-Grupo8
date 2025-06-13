@@ -9,8 +9,8 @@ import ucr.lab.domain.Flight;
 
 import java.io.IOException;
 
-// Deserializador para SinglyLinkedList (no genérica)
-public class SinglyListDeserializer extends StdDeserializer<SinglyLinkedList> { // Tipo aquí es SinglyLinkedList
+// Deserializador para SinglyLinkedList
+public class SinglyListDeserializer extends StdDeserializer<SinglyLinkedList> {
 
     public SinglyListDeserializer() {
         this(null);
@@ -22,15 +22,15 @@ public class SinglyListDeserializer extends StdDeserializer<SinglyLinkedList> { 
 
     @Override
     public SinglyLinkedList deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException {
-        SinglyLinkedList list = new SinglyLinkedList(); // Crea una nueva lista NO genérica
+        SinglyLinkedList list = new SinglyLinkedList();
         JsonNode node = jp.getCodec().readTree(jp);
 
         if (node.isArray()) {
             for (JsonNode element : node) {
-                // Deserializa cada elemento como un objeto Flight
+
                 Flight flight = jp.getCodec().treeToValue(element, Flight.class);
                 if (flight != null) {
-                    list.add(flight); // Añade el objeto Flight (que se guarda como Object)
+                    list.add(flight); // Añade el objeto Flight
                 }
             }
         } else {
