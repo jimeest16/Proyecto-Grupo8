@@ -131,4 +131,24 @@ public class Passenger implements Comparable<Passenger> {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+
+    public void removeFlight(Flight flightToRemove) throws ListException {
+        if (this.flightHistory == null || this.flightHistory.isEmpty()) {
+            throw new ListException("Flight history is empty. Cannot remove flight.");
+        }
+
+
+        for (int i = 1; i <= this.flightHistory.size(); i++) {
+            Flight currentFlight = (Flight) this.flightHistory.get(i);
+
+            if (currentFlight.equals(flightToRemove)) {
+                this.flightHistory.remove(i); // Remove by index
+                return;
+            }
+        }
+
+        throw new ListException("Flight not found in passenger's history: " + flightToRemove.getNumber());
+    }
+
 }

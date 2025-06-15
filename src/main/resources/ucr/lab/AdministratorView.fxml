@@ -14,6 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.DatePicker?>
 <TabPane prefHeight="585.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.AdminController">
 
     <tabs>
@@ -278,40 +279,46 @@
                             <Pane layoutX="13.0" layoutY="59.0" prefHeight="413.0" prefWidth="799.0">
                                 <children>
                                     <Label layoutX="41.0" layoutY="17.0" text="ID:" />
-                                    <TextField fx:id="txtId" layoutX="158.0" layoutY="13.0" promptText="ID del pasajero" />
+                                    <TextField fx:id="txtId" layoutX="184.0" layoutY="13.0" promptText="ID del pasajero" />
                                     <Label layoutX="40.0" layoutY="45.0" text="Nombre:" />
-                                    <TextField fx:id="txtName" layoutX="158.0" layoutY="41.0" promptText="Nombre del pasajero" />
+                                    <TextField fx:id="txtName" layoutX="184.0" layoutY="41.0" promptText="Nombre del pasajero" />
                                     <Label layoutX="39.0" layoutY="81.0" text="Nacionalidad:" />
-                                    <TextField fx:id="txtNationality" layoutX="158.0" layoutY="77.0" prefHeight="25.0" prefWidth="148.0" promptText="Nacionalidad del pasajero" />
+                                    <TextField fx:id="txtNationality" layoutX="184.0" layoutY="77.0" prefHeight="25.0" prefWidth="148.0" promptText="Nacionalidad del pasajero" />
 
-                                    <Label layoutX="25.0" layoutY="116.0" text="Datos del Vuelo (si aplica):" />
+                                    <Label layoutX="100.0" layoutY="112.0" text="Datos del Vuelo ">
+                                        <font>
+                                            <Font name="System Bold" size="14.0" />
+                                        </font>
+                                    </Label>
                                     <Label layoutX="41.0" layoutY="140.0" text="Número de Vuelo:" />
-                                    <TextField fx:id="txtFlightNumber" layoutX="158.0" layoutY="136.0" promptText="Ej: 101" />
+                                    <TextField fx:id="txtFlightNumber" layoutX="194.0" layoutY="136.0" promptText="Ej: 101" />
 
                                     <Label layoutX="41.0" layoutY="168.0" text="Código Origen:" />
-                                    <TextField fx:id="txtOriginCode" layoutX="158.0" layoutY="164.0" promptText="Ej: 100" />
+                                    <TextField fx:id="txtOriginCode" layoutX="194.0" layoutY="164.0" promptText="Ej: 100" />
 
                                     <Label layoutX="41.0" layoutY="196.0" text="Código Destino:" />
-                                    <TextField fx:id="txtDestinationCode" layoutX="158.0" layoutY="192.0" promptText="Ej: 200" />
+                                    <TextField fx:id="txtDestinationCode" layoutX="194.0" layoutY="194.0" promptText="Ej: 200" />
 
-                                    <Label layoutX="41.0" layoutY="224.0" text="Hora Salida (yyyy-MM-ddTHH:mm):" />
-                                    <TextField fx:id="txtDepartureTime" layoutX="268.0" layoutY="220.0" prefWidth="150.0" promptText="Ej: 2025-06-13T14:30" />
+                                    <Label layoutX="41.0" layoutY="224.0" text="Fecha Salida:" />
+                                    <DatePicker fx:id="dpDepartureDate" layoutX="194.0" layoutY="220.0" promptText="Seleccione fecha" />
 
-                                    <Label layoutX="41.0" layoutY="252.0" text="Capacidad:" />
-                                    <TextField fx:id="txtCapacity" layoutX="158.0" layoutY="248.0" promptText="Ej: 150" />
+                                    <Label layoutX="41.0" layoutY="252.0" text="Hora Salida (HH:MM):" />
+                                    <TextField fx:id="txtDepartureTimeHour" layoutX="194.0" layoutY="248.0" prefWidth="150.0" promptText="Ej: 14:30" />
+                                    <Label layoutX="41.0" layoutY="280.0" text="Capacidad:" />
+                                    <TextField fx:id="txtCapacity" layoutX="194.0" layoutY="276.0" promptText="Ej: 150" />
 
-                                    <Label layoutX="41.0" layoutY="280.0" text="Ocupación:" />
-                                    <TextField fx:id="txtOccupancy" layoutX="158.0" layoutY="276.0" promptText="Ej: 50" />
+                                    <Label layoutX="41.0" layoutY="308.0" text="Ocupación:" />
+                                    <TextField fx:id="txtOccupancy" layoutX="194.0" layoutY="304.0" promptText="Ej: 50" />
 
-                                    <Label layoutX="41.0" layoutY="308.0" text="Estado del Vuelo:" />
-                                    <TextField fx:id="txtFlightStatus" layoutX="158.0" layoutY="304.0" promptText="Ej: Scheduled" />
+                                    <Label layoutX="41.0" layoutY="336.0" text="Estado del Vuelo:" />
+                                    <TextField fx:id="txtFlightStatus" layoutX="194.0" layoutY="332.0" promptText="Ej: Scheduled" />
 
-                                    <Label layoutX="41.0" layoutY="336.0" text="Ruta (Opcional):" />
-                                    <TextField fx:id="txtRoute" layoutX="158.0" layoutY="332.0" promptText="Ej: SJO->PTY->MAD" />
+                                    <Label layoutX="41.0" layoutY="364.0" text="Ruta (Opcional):" />
+                                    <TextField fx:id="txtRoute" layoutX="194.0" layoutY="360.0" promptText="Ej: SJO-&gt;PTY-&gt;MAD" />
 
-                                    <Button layoutX="25.0" layoutY="360.0" onAction="#handleListPassengers" style="-fx-background-color: #82baf3;" text="Listar todos" textFill="#fff9f9" />
+                                    <Button layoutX="115.0" layoutY="391.0" onAction="#handleListPassengers" style="-fx-background-color: #82baf3;" text="Listar todos" textFill="#fff9f9" />
 
-                                    <TextArea fx:id="txtOutput" layoutX="450.0" layoutY="13.0" prefHeight="350.0" prefRowCount="10" prefWidth="325.0" wrapText="true" />
+                                    <TextArea fx:id="txtOutput" layoutX="400.0" layoutY="5.0" prefHeight="399.0" prefRowCount="10" prefWidth="386.0" wrapText="true" />
                                 </children>
                             </Pane>
                             <Button layoutX="633.0" layoutY="34.0" onAction="#handleSearchPassenger" style="-fx-background-color: #d4d9dd;" text="Buscar pasajero" />

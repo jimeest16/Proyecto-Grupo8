@@ -26,15 +26,13 @@ public class FileReader {
     private static final String FILE_FLIGHTS = "src/main/resources/data/flights.json";
     private static final String FILE_ROUTES = "src/main/resources/data/rutas.json";
     private static ObjectMapper mapper = new ObjectMapper();
-
     static {
         mapper.registerModule(new JavaTimeModule());
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-        mapper.setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
-        
+
+       // mapper.setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
         mapper.configure(com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
-
 
     public static CircularLinkedList loadUsers() throws ListException {
         CircularLinkedList userList = new CircularLinkedList();

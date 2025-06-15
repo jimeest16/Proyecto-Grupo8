@@ -11,7 +11,7 @@ import ucr.lab.utility.Reader.SinglyReader;
 public class Route {
 
 
-    @JsonProperty("origin_airport")
+    @JsonProperty("originAirport")
     private int originAirportCode;
 
 

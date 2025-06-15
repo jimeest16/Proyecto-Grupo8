@@ -19,7 +19,7 @@ import ucr.lab.domain.Flight;
 import ucr.lab.domain.Passenger;
 import ucr.lab.utility.FileReader;
 
-import java.io.IOException; // Importar IOException
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class AdminController {
 
     private AVLTree passengerTree; // Árbol para objetos Passenger
     private AVLTree avlTree; // Árbol para IDs de pasajeros
-// campos para la info de los passengers
+    // campos para la info de los passengers
     @FXML private TextField txtId;
     @FXML private TextField txtName;
     @FXML private TextField txtNationality;
