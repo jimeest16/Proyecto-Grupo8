@@ -1,121 +1,2930 @@
-[ {
-  "code" : 1,
-  "name" : "Los Angeles International Airport",
-  "country" : "USA",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 2,
-  "name" : "John F. Kennedy International Airport",
-  "country" : "USA",
-  "status" : "Inactivo",
-  "departuresBoard" : null
-}, {
-  "code" : 3,
-  "name" : "Aeropuerto Internacional de San José",
-  "country" : "COSTA RICA",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 4,
-  "name" : "Ciudad Celeste International Airport",
-  "country" : "TERRANOVA",
-  "status" : "Inactivo",
-  "departuresBoard" : null
-}, {
-  "code" : 5,
-  "name" : "Narita International Airport",
-  "country" : "JAPAN",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 6,
-  "name" : "Frankfurt Airport",
-  "country" : "GERMANY",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 7,
-  "name" : "Aeropuerto de Buenos Aires",
-  "country" : "ARGENTINA",
-  "status" : "Inactivo",
-  "departuresBoard" : null
-}, {
-  "code" : 8,
-  "name" : "Dragon City AirHub",
-  "country" : "FANTASIA",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 9,
-  "name" : "Aeropuerto Internacional Arturo Merino Benítez",
-  "country" : "CHILE",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 10,
-  "name" : "Beijing Capital International Airport",
-  "country" : "CHINA",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 11,
-  "name" : "Aeropuerto de Atlantis",
-  "country" : "MITICA",
-  "status" : "Inactivo",
-  "departuresBoard" : null
-}, {
-  "code" : 12,
-  "name" : "Aeropuerto Internacional de Monterrey",
-  "country" : "MEXICO",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 13,
-  "name" : "Cape Town International Airport",
-  "country" : "SOUTH AFRICA",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 14,
-  "name" : "Aeropuerto de Nimbus Prime",
-  "country" : "AETHER",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 15,
-  "name" : "Aeropuerto de Lima",
-  "country" : "PERU",
-  "status" : "Inactivo",
-  "departuresBoard" : null
-}, {
-  "code" : 16,
-  "name" : "Istanbul Airport",
-  "country" : "TURKEY",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 17,
-  "name" : "Barcelona–El Prat Airport",
-  "country" : "SPAIN",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 18,
-  "name" : "Aeropuerto Internacional Simón Bolívar",
-  "country" : "VENEZUELA",
-  "status" : "Inactivo",
-  "departuresBoard" : null
-}, {
-  "code" : 19,
-  "name" : "Zürich Airport",
-  "country" : "SWITZERLAND",
-  "status" : "Activo",
-  "departuresBoard" : null
-}, {
-  "code" : 20,
-  "name" : "Cielo Alto Air Station",
-  "country" : "ESTELIA",
-  "status" : "Activo",
-  "departuresBoard" : null
-} ]
+[
+  {
+    "code": 1,
+    "name": "Los Angeles International Airport",
+    "country": "USA",
+    "status": "Activo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101,
+          "originCode": 1,
+          "destinationCode": 2,
+          "departureTime": "2025-06-16T10:30:00",
+          "capacity": 150,
+          "occupancy": 0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0
+          },
+          "route": ""
+        },
+        "next": {
+          "data": {
+            "number": 102,
+            "originCode": 1,
+            "destinationCode": 3,
+            "departureTime": "2025-06-18T14:00:00",
+            "capacity": 200,
+            "occupancy": 0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0
+            },
+            "route": ""
+          },
+          "next": {
+            "data": {
+              "number": 103,
+              "originCode": 1,
+              "destinationCode": 4,
+              "departureTime": "2025-06-20T08:45:00",
+              "capacity": 180,
+              "occupancy": 0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0
+              },
+              "route": ""
+            },
+            "next": {
+              "data": {
+                "number": 104,
+                "originCode": 1,
+                "destinationCode": 5,
+                "departureTime": "2025-06-17T09:15:00",
+                "capacity": 120,
+                "occupancy": 0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "route": ""
+              },
+              "next": {
+                "data": {
+                  "number": 105,
+                  "originCode": 1,
+                  "destinationCode": 6,
+                  "departureTime": "2025-06-19T16:20:00",
+                  "capacity": 130,
+                  "occupancy": 0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0
+                  },
+                  "route": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "front": {
+        "data": {
+          "id": 1,
+          "name": "Camila",
+          "nationality": "Costarricense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 2,
+            "name": "Mateo",
+            "nationality": "Mexicano",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 3,
+              "name": "Sara",
+              "nationality": "Colombiana",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "state": "Active"
+            },
+            "next": {
+              "data": {
+                "id": 4,
+                "name": "John",
+                "nationality": "Estadounidense",
+                "flightHistory": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "state": "Active"
+              }
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 4,
+          "name": "John",
+          "nationality": "Estadounidense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        }
+      },
+      "counter": 4
+    }
+  },
+  {
+    "code": 2,
+    "name": "John F. Kennedy International Airport",
+    "country": "USA",
+    "status": "Inactivo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101,
+          "originCode": 1,
+          "destinationCode": 2,
+          "departureTime": "2025-06-16T10:30:00",
+          "capacity": 150,
+          "occupancy": 0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0
+          },
+          "route": ""
+        },
+        "next": {
+          "data": {
+            "number": 102,
+            "originCode": 1,
+            "destinationCode": 3,
+            "departureTime": "2025-06-18T14:00:00",
+            "capacity": 200,
+            "occupancy": 0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0
+            },
+            "route": ""
+          },
+          "next": {
+            "data": {
+              "number": 103,
+              "originCode": 1,
+              "destinationCode": 4,
+              "departureTime": "2025-06-20T08:45:00",
+              "capacity": 180,
+              "occupancy": 0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0
+              },
+              "route": ""
+            },
+            "next": {
+              "data": {
+                "number": 104,
+                "originCode": 1,
+                "destinationCode": 5,
+                "departureTime": "2025-06-17T09:15:00",
+                "capacity": 120,
+                "occupancy": 0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "route": ""
+              },
+              "next": {
+                "data": {
+                  "number": 105,
+                  "originCode": 1,
+                  "destinationCode": 6,
+                  "departureTime": "2025-06-19T16:20:00",
+                  "capacity": 130,
+                  "occupancy": 0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0
+                  },
+                  "route": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "front": {
+        "data": {
+          "id": 1,
+          "name": "Camila",
+          "nationality": "Costarricense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 2,
+            "name": "Mateo",
+            "nationality": "Mexicano",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 3,
+              "name": "Sara",
+              "nationality": "Colombiana",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "state": "Active"
+            },
+            "next": {
+              "data": {
+                "id": 4,
+                "name": "John",
+                "nationality": "Estadounidense",
+                "flightHistory": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "state": "Active"
+              }
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 4,
+          "name": "John",
+          "nationality": "Estadounidense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        }
+      },
+      "counter": 4
+    }
+  },
+  {
+    "code": 3,
+    "name": "Aeropuerto Internacional de San José",
+    "country": "COSTA RICA",
+    "status": "Activo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101,
+          "originCode": 1,
+          "destinationCode": 2,
+          "departureTime": "2025-06-16T10:30:00",
+          "capacity": 150,
+          "occupancy": 0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0
+          },
+          "route": ""
+        },
+        "next": {
+          "data": {
+            "number": 102,
+            "originCode": 1,
+            "destinationCode": 3,
+            "departureTime": "2025-06-18T14:00:00",
+            "capacity": 200,
+            "occupancy": 0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0
+            },
+            "route": ""
+          },
+          "next": {
+            "data": {
+              "number": 103,
+              "originCode": 1,
+              "destinationCode": 4,
+              "departureTime": "2025-06-20T08:45:00",
+              "capacity": 180,
+              "occupancy": 0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0
+              },
+              "route": ""
+            },
+            "next": {
+              "data": {
+                "number": 104,
+                "originCode": 1,
+                "destinationCode": 5,
+                "departureTime": "2025-06-17T09:15:00",
+                "capacity": 120,
+                "occupancy": 0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "route": ""
+              },
+              "next": {
+                "data": {
+                  "number": 105,
+                  "originCode": 1,
+                  "destinationCode": 6,
+                  "departureTime": "2025-06-19T16:20:00",
+                  "capacity": 130,
+                  "occupancy": 0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0
+                  },
+                  "route": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "front": {
+        "data": {
+          "id": 1,
+          "name": "Camila",
+          "nationality": "Costarricense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 2,
+            "name": "Mateo",
+            "nationality": "Mexicano",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 3,
+              "name": "Sara",
+              "nationality": "Colombiana",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "state": "Active"
+            },
+            "next": {
+              "data": {
+                "id": 4,
+                "name": "John",
+                "nationality": "Estadounidense",
+                "flightHistory": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "state": "Active"
+              }
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 4,
+          "name": "John",
+          "nationality": "Estadounidense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        }
+      },
+      "counter": 4
+    }
+  },
+  {
+    "code": 4,
+    "name": "Ciudad Celeste International Airport",
+    "country": "TERRANOVA",
+    "status": "Inactivo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101,
+          "originCode": 1,
+          "destinationCode": 2,
+          "departureTime": "2025-06-16T10:30:00",
+          "capacity": 150,
+          "occupancy": 0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0
+          },
+          "route": ""
+        },
+        "next": {
+          "data": {
+            "number": 102,
+            "originCode": 1,
+            "destinationCode": 3,
+            "departureTime": "2025-06-18T14:00:00",
+            "capacity": 200,
+            "occupancy": 0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0
+            },
+            "route": ""
+          },
+          "next": {
+            "data": {
+              "number": 103,
+              "originCode": 1,
+              "destinationCode": 4,
+              "departureTime": "2025-06-20T08:45:00",
+              "capacity": 180,
+              "occupancy": 0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0
+              },
+              "route": ""
+            },
+            "next": {
+              "data": {
+                "number": 104,
+                "originCode": 1,
+                "destinationCode": 5,
+                "departureTime": "2025-06-17T09:15:00",
+                "capacity": 120,
+                "occupancy": 0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "route": ""
+              },
+              "next": {
+                "data": {
+                  "number": 105,
+                  "originCode": 1,
+                  "destinationCode": 6,
+                  "departureTime": "2025-06-19T16:20:00",
+                  "capacity": 130,
+                  "occupancy": 0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0
+                  },
+                  "route": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "front": {
+        "data": {
+          "id": 5,
+          "name": "Ana",
+          "nationality": "Argentina",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 6,
+            "name": "Hiroshi",
+            "nationality": "Japonés",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 7,
+              "name": "Marie",
+              "nationality": "Francesa",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 7,
+          "name": "Marie",
+          "nationality": "Francesa",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        }
+      },
+      "counter": 3
+    }
+  },
+  {
+    "code": 5,
+    "name": "Narita International Airport",
+    "country": "JAPAN",
+    "status": "Activo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101,
+          "originCode": 1,
+          "destinationCode": 2,
+          "departureTime": "2025-06-16T10:30:00",
+          "capacity": 150,
+          "occupancy": 0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0
+          },
+          "route": ""
+        },
+        "next": {
+          "data": {
+            "number": 102,
+            "originCode": 1,
+            "destinationCode": 3,
+            "departureTime": "2025-06-18T14:00:00",
+            "capacity": 200,
+            "occupancy": 0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0
+            },
+            "route": ""
+          },
+          "next": {
+            "data": {
+              "number": 103,
+              "originCode": 1,
+              "destinationCode": 4,
+              "departureTime": "2025-06-20T08:45:00",
+              "capacity": 180,
+              "occupancy": 0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0
+              },
+              "route": ""
+            },
+            "next": {
+              "data": {
+                "number": 104,
+                "originCode": 1,
+                "destinationCode": 5,
+                "departureTime": "2025-06-17T09:15:00",
+                "capacity": 120,
+                "occupancy": 0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "route": ""
+              },
+              "next": {
+                "data": {
+                  "number": 105,
+                  "originCode": 1,
+                  "destinationCode": 6,
+                  "departureTime": "2025-06-19T16:20:00",
+                  "capacity": 130,
+                  "occupancy": 0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0
+                  },
+                  "route": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "front": {
+        "data": {
+          "id": 5,
+          "name": "Ana",
+          "nationality": "Argentina",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 6,
+            "name": "Hiroshi",
+            "nationality": "Japonés",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 7,
+              "name": "Marie",
+              "nationality": "Francesa",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 7,
+          "name": "Marie",
+          "nationality": "Francesa",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        }
+      },
+      "counter": 3
+    }
+  },
+  {
+    "code": 6,
+    "name": "Frankfurt Airport",
+    "country": "GERMANY",
+    "status": "Activo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101,
+          "originCode": 1,
+          "destinationCode": 2,
+          "departureTime": "2025-06-16T10:30:00",
+          "capacity": 150,
+          "occupancy": 0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0
+          },
+          "route": ""
+        },
+        "next": {
+          "data": {
+            "number": 102,
+            "originCode": 1,
+            "destinationCode": 3,
+            "departureTime": "2025-06-18T14:00:00",
+            "capacity": 200,
+            "occupancy": 0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0
+            },
+            "route": ""
+          },
+          "next": {
+            "data": {
+              "number": 103,
+              "originCode": 1,
+              "destinationCode": 4,
+              "departureTime": "2025-06-20T08:45:00",
+              "capacity": 180,
+              "occupancy": 0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0
+              },
+              "route": ""
+            },
+            "next": {
+              "data": {
+                "number": 104,
+                "originCode": 1,
+                "destinationCode": 5,
+                "departureTime": "2025-06-17T09:15:00",
+                "capacity": 120,
+                "occupancy": 0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "route": ""
+              },
+              "next": {
+                "data": {
+                  "number": 105,
+                  "originCode": 1,
+                  "destinationCode": 6,
+                  "departureTime": "2025-06-19T16:20:00",
+                  "capacity": 130,
+                  "occupancy": 0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0
+                  },
+                  "route": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "front": {
+        "data": {
+          "id": 5,
+          "name": "Ana",
+          "nationality": "Argentina",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 6,
+            "name": "Hiroshi",
+            "nationality": "Japonés",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 7,
+              "name": "Marie",
+              "nationality": "Francesa",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 7,
+          "name": "Marie",
+          "nationality": "Francesa",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        }
+      },
+      "counter": 3
+    }
+  },
+  {
+    "code": 7,
+    "name": "Aeropuerto de Buenos Aires",
+    "country": "ARGENTINA",
+    "status": "Inactivo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101,
+          "originCode": 1,
+          "destinationCode": 2,
+          "departureTime": "2025-06-16T10:30:00",
+          "capacity": 150,
+          "occupancy": 0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0
+          },
+          "route": ""
+        },
+        "next": {
+          "data": {
+            "number": 102,
+            "originCode": 1,
+            "destinationCode": 3,
+            "departureTime": "2025-06-18T14:00:00",
+            "capacity": 200,
+            "occupancy": 0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0
+            },
+            "route": ""
+          },
+          "next": {
+            "data": {
+              "number": 103,
+              "originCode": 1,
+              "destinationCode": 4,
+              "departureTime": "2025-06-20T08:45:00",
+              "capacity": 180,
+              "occupancy": 0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0
+              },
+              "route": ""
+            },
+            "next": {
+              "data": {
+                "number": 104,
+                "originCode": 1,
+                "destinationCode": 5,
+                "departureTime": "2025-06-17T09:15:00",
+                "capacity": 120,
+                "occupancy": 0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "route": ""
+              },
+              "next": {
+                "data": {
+                  "number": 105,
+                  "originCode": 1,
+                  "destinationCode": 6,
+                  "departureTime": "2025-06-19T16:20:00",
+                  "capacity": 130,
+                  "occupancy": 0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0
+                  },
+                  "route": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "front": {
+        "data": {
+          "id": 5,
+          "name": "Ana",
+          "nationality": "Argentina",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 6,
+            "name": "Hiroshi",
+            "nationality": "Japonés",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 7,
+              "name": "Marie",
+              "nationality": "Francesa",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 7,
+          "name": "Marie",
+          "nationality": "Francesa",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        }
+      },
+      "counter": 3
+    }
+  },
+  {
+    "code": 8,
+    "name": "Dragon City AirHub",
+    "country": "FANTASIA",
+    "status": "Activo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101,
+          "originCode": 1,
+          "destinationCode": 2,
+          "departureTime": "2025-06-16T10:30:00",
+          "capacity": 150,
+          "occupancy": 0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0
+          },
+          "route": ""
+        },
+        "next": {
+          "data": {
+            "number": 102,
+            "originCode": 1,
+            "destinationCode": 3,
+            "departureTime": "2025-06-18T14:00:00",
+            "capacity": 200,
+            "occupancy": 0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0
+            },
+            "route": ""
+          },
+          "next": {
+            "data": {
+              "number": 103,
+              "originCode": 1,
+              "destinationCode": 4,
+              "departureTime": "2025-06-20T08:45:00",
+              "capacity": 180,
+              "occupancy": 0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0
+              },
+              "route": ""
+            },
+            "next": {
+              "data": {
+                "number": 104,
+                "originCode": 1,
+                "destinationCode": 5,
+                "departureTime": "2025-06-17T09:15:00",
+                "capacity": 120,
+                "occupancy": 0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "route": ""
+              },
+              "next": {
+                "data": {
+                  "number": 105,
+                  "originCode": 1,
+                  "destinationCode": 6,
+                  "departureTime": "2025-06-19T16:20:00",
+                  "capacity": 130,
+                  "occupancy": 0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0
+                  },
+                  "route": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "front": {
+        "data": {
+          "id": 5,
+          "name": "Ana",
+          "nationality": "Argentina",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 6,
+            "name": "Hiroshi",
+            "nationality": "Japonés",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 7,
+              "name": "Marie",
+              "nationality": "Francesa",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 7,
+          "name": "Marie",
+          "nationality": "Francesa",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        }
+      },
+      "counter": 3
+    }
+  },
+  {
+    "code": 9,
+    "name": "Aeropuerto Internacional Arturo Merino Benítez",
+    "country": "CHILE",
+    "status": "Activo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101,
+          "originCode": 1,
+          "destinationCode": 2,
+          "departureTime": "2025-06-16T10:30:00",
+          "capacity": 150,
+          "occupancy": 0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0
+          },
+          "route": ""
+        },
+        "next": {
+          "data": {
+            "number": 102,
+            "originCode": 1,
+            "destinationCode": 3,
+            "departureTime": "2025-06-18T14:00:00",
+            "capacity": 200,
+            "occupancy": 0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0
+            },
+            "route": ""
+          },
+          "next": {
+            "data": {
+              "number": 103,
+              "originCode": 1,
+              "destinationCode": 4,
+              "departureTime": "2025-06-20T08:45:00",
+              "capacity": 180,
+              "occupancy": 0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0
+              },
+              "route": ""
+            },
+            "next": {
+              "data": {
+                "number": 104,
+                "originCode": 1,
+                "destinationCode": 5,
+                "departureTime": "2025-06-17T09:15:00",
+                "capacity": 120,
+                "occupancy": 0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "route": ""
+              },
+              "next": {
+                "data": {
+                  "number": 105,
+                  "originCode": 1,
+                  "destinationCode": 6,
+                  "departureTime": "2025-06-19T16:20:00",
+                  "capacity": 130,
+                  "occupancy": 0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0
+                  },
+                  "route": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "front": {
+        "data": {
+          "id": 1,
+          "name": "Camila",
+          "nationality": "Costarricense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 2,
+            "name": "Mateo",
+            "nationality": "Mexicano",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 3,
+              "name": "Sara",
+              "nationality": "Colombiana",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "state": "Active"
+            },
+            "next": {
+              "data": {
+                "id": 4,
+                "name": "John",
+                "nationality": "Estadounidense",
+                "flightHistory": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "state": "Active"
+              }
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 4,
+          "name": "John",
+          "nationality": "Estadounidense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        }
+      },
+      "counter": 4
+    }
+  },
+  {
+    "code": 10,
+    "name": "Beijing Capital International Airport",
+    "country": "CHINA",
+    "status": "Activo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101,
+          "originCode": 1,
+          "destinationCode": 2,
+          "departureTime": "2025-06-16T10:30:00",
+          "capacity": 150,
+          "occupancy": 0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0
+          },
+          "route": ""
+        },
+        "next": {
+          "data": {
+            "number": 102,
+            "originCode": 1,
+            "destinationCode": 3,
+            "departureTime": "2025-06-18T14:00:00",
+            "capacity": 200,
+            "occupancy": 0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0
+            },
+            "route": ""
+          },
+          "next": {
+            "data": {
+              "number": 103,
+              "originCode": 1,
+              "destinationCode": 4,
+              "departureTime": "2025-06-20T08:45:00",
+              "capacity": 180,
+              "occupancy": 0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0
+              },
+              "route": ""
+            },
+            "next": {
+              "data": {
+                "number": 104,
+                "originCode": 1,
+                "destinationCode": 5,
+                "departureTime": "2025-06-17T09:15:00",
+                "capacity": 120,
+                "occupancy": 0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "route": ""
+              },
+              "next": {
+                "data": {
+                  "number": 105,
+                  "originCode": 1,
+                  "destinationCode": 6,
+                  "departureTime": "2025-06-19T16:20:00",
+                  "capacity": 130,
+                  "occupancy": 0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0
+                  },
+                  "route": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "front": {
+        "data": {
+          "id": 1,
+          "name": "Camila",
+          "nationality": "Costarricense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 2,
+            "name": "Mateo",
+            "nationality": "Mexicano",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 3,
+              "name": "Sara",
+              "nationality": "Colombiana",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "state": "Active"
+            },
+            "next": {
+              "data": {
+                "id": 4,
+                "name": "John",
+                "nationality": "Estadounidense",
+                "flightHistory": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "state": "Active"
+              }
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 4,
+          "name": "John",
+          "nationality": "Estadounidense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        }
+      },
+      "counter": 4
+    }
+  },
+  {
+    "code": 11,
+    "name": "Aeropuerto de Atlantis",
+    "country": "MITICA",
+    "status": "Inactivo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101,
+          "originCode": 1,
+          "destinationCode": 2,
+          "departureTime": "2025-06-16T10:30:00",
+          "capacity": 150,
+          "occupancy": 0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0
+          },
+          "route": ""
+        },
+        "next": {
+          "data": {
+            "number": 102,
+            "originCode": 1,
+            "destinationCode": 3,
+            "departureTime": "2025-06-18T14:00:00",
+            "capacity": 200,
+            "occupancy": 0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0
+            },
+            "route": ""
+          },
+          "next": {
+            "data": {
+              "number": 103,
+              "originCode": 1,
+              "destinationCode": 4,
+              "departureTime": "2025-06-20T08:45:00",
+              "capacity": 180,
+              "occupancy": 0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0
+              },
+              "route": ""
+            },
+            "next": {
+              "data": {
+                "number": 104,
+                "originCode": 1,
+                "destinationCode": 5,
+                "departureTime": "2025-06-17T09:15:00",
+                "capacity": 120,
+                "occupancy": 0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "route": ""
+              },
+              "next": {
+                "data": {
+                  "number": 105,
+                  "originCode": 1,
+                  "destinationCode": 6,
+                  "departureTime": "2025-06-19T16:20:00",
+                  "capacity": 130,
+                  "occupancy": 0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0
+                  },
+                  "route": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "front": {
+        "data": {
+          "id": 1,
+          "name": "Camila",
+          "nationality": "Costarricense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 2,
+            "name": "Mateo",
+            "nationality": "Mexicano",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 3,
+              "name": "Sara",
+              "nationality": "Colombiana",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "state": "Active"
+            },
+            "next": {
+              "data": {
+                "id": 4,
+                "name": "John",
+                "nationality": "Estadounidense",
+                "flightHistory": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "state": "Active"
+              }
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 4,
+          "name": "John",
+          "nationality": "Estadounidense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        }
+      },
+      "counter": 4
+    }
+  },
+  {
+    "code": 12,
+    "name": "Aeropuerto Internacional de Monterrey",
+    "country": "MEXICO",
+    "status": "Activo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101,
+          "originCode": 1,
+          "destinationCode": 2,
+          "departureTime": "2025-06-16T10:30:00",
+          "capacity": 150,
+          "occupancy": 0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0
+          },
+          "route": ""
+        },
+        "next": {
+          "data": {
+            "number": 102,
+            "originCode": 1,
+            "destinationCode": 3,
+            "departureTime": "2025-06-18T14:00:00",
+            "capacity": 200,
+            "occupancy": 0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0
+            },
+            "route": ""
+          },
+          "next": {
+            "data": {
+              "number": 103,
+              "originCode": 1,
+              "destinationCode": 4,
+              "departureTime": "2025-06-20T08:45:00",
+              "capacity": 180,
+              "occupancy": 0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0
+              },
+              "route": ""
+            },
+            "next": {
+              "data": {
+                "number": 104,
+                "originCode": 1,
+                "destinationCode": 5,
+                "departureTime": "2025-06-17T09:15:00",
+                "capacity": 120,
+                "occupancy": 0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "route": ""
+              },
+              "next": {
+                "data": {
+                  "number": 105,
+                  "originCode": 1,
+                  "destinationCode": 6,
+                  "departureTime": "2025-06-19T16:20:00",
+                  "capacity": 130,
+                  "occupancy": 0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0
+                  },
+                  "route": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "front": {
+        "data": {
+          "id": 1,
+          "name": "Camila",
+          "nationality": "Costarricense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 2,
+            "name": "Mateo",
+            "nationality": "Mexicano",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 3,
+              "name": "Sara",
+              "nationality": "Colombiana",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "state": "Active"
+            },
+            "next": {
+              "data": {
+                "id": 4,
+                "name": "John",
+                "nationality": "Estadounidense",
+                "flightHistory": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "state": "Active"
+              }
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 4,
+          "name": "John",
+          "nationality": "Estadounidense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        }
+      },
+      "counter": 4
+    }
+  },
+  {
+    "code": 13,
+    "name": "Cape Town International Airport",
+    "country": "SOUTH AFRICA",
+    "status": "Activo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101,
+          "originCode": 1,
+          "destinationCode": 2,
+          "departureTime": "2025-06-16T10:30:00",
+          "capacity": 150,
+          "occupancy": 0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0
+          },
+          "route": ""
+        },
+        "next": {
+          "data": {
+            "number": 102,
+            "originCode": 1,
+            "destinationCode": 3,
+            "departureTime": "2025-06-18T14:00:00",
+            "capacity": 200,
+            "occupancy": 0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0
+            },
+            "route": ""
+          },
+          "next": {
+            "data": {
+              "number": 103,
+              "originCode": 1,
+              "destinationCode": 4,
+              "departureTime": "2025-06-20T08:45:00",
+              "capacity": 180,
+              "occupancy": 0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0
+              },
+              "route": ""
+            },
+            "next": {
+              "data": {
+                "number": 104,
+                "originCode": 1,
+                "destinationCode": 5,
+                "departureTime": "2025-06-17T09:15:00",
+                "capacity": 120,
+                "occupancy": 0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "route": ""
+              },
+              "next": {
+                "data": {
+                  "number": 105,
+                  "originCode": 1,
+                  "destinationCode": 6,
+                  "departureTime": "2025-06-19T16:20:00",
+                  "capacity": 130,
+                  "occupancy": 0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0
+                  },
+                  "route": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "front": {
+        "data": {
+          "id": 1,
+          "name": "Camila",
+          "nationality": "Costarricense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 2,
+            "name": "Mateo",
+            "nationality": "Mexicano",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 3,
+              "name": "Sara",
+              "nationality": "Colombiana",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "state": "Active"
+            },
+            "next": {
+              "data": {
+                "id": 4,
+                "name": "John",
+                "nationality": "Estadounidense",
+                "flightHistory": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "state": "Active"
+              }
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 4,
+          "name": "John",
+          "nationality": "Estadounidense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        }
+      },
+      "counter": 4
+    }
+  },
+  {
+    "code": 14,
+    "name": "Aeropuerto de Nimbus Prime",
+    "country": "AETHER",
+    "status": "Activo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101,
+          "originCode": 1,
+          "destinationCode": 2,
+          "departureTime": "2025-06-16T10:30:00",
+          "capacity": 150,
+          "occupancy": 0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0
+          },
+          "route": ""
+        },
+        "next": {
+          "data": {
+            "number": 102,
+            "originCode": 1,
+            "destinationCode": 3,
+            "departureTime": "2025-06-18T14:00:00",
+            "capacity": 200,
+            "occupancy": 0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0
+            },
+            "route": ""
+          },
+          "next": {
+            "data": {
+              "number": 103,
+              "originCode": 1,
+              "destinationCode": 4,
+              "departureTime": "2025-06-20T08:45:00",
+              "capacity": 180,
+              "occupancy": 0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0
+              },
+              "route": ""
+            },
+            "next": {
+              "data": {
+                "number": 104,
+                "originCode": 1,
+                "destinationCode": 5,
+                "departureTime": "2025-06-17T09:15:00",
+                "capacity": 120,
+                "occupancy": 0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "route": ""
+              },
+              "next": {
+                "data": {
+                  "number": 105,
+                  "originCode": 1,
+                  "destinationCode": 6,
+                  "departureTime": "2025-06-19T16:20:00",
+                  "capacity": 130,
+                  "occupancy": 0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0
+                  },
+                  "route": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "front": {
+        "data": {
+          "id": 1,
+          "name": "Camila",
+          "nationality": "Costarricense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 2,
+            "name": "Mateo",
+            "nationality": "Mexicano",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 3,
+              "name": "Sara",
+              "nationality": "Colombiana",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "state": "Active"
+            },
+            "next": {
+              "data": {
+                "id": 4,
+                "name": "John",
+                "nationality": "Estadounidense",
+                "flightHistory": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "state": "Active"
+              }
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 4,
+          "name": "John",
+          "nationality": "Estadounidense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        }
+      },
+      "counter": 4
+    }
+  },
+  {
+    "code": 15,
+    "name": "Aeropuerto de Lima",
+    "country": "PERU",
+    "status": "Inactivo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101,
+          "originCode": 1,
+          "destinationCode": 2,
+          "departureTime": "2025-06-16T10:30:00",
+          "capacity": 150,
+          "occupancy": 0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0
+          },
+          "route": ""
+        },
+        "next": {
+          "data": {
+            "number": 102,
+            "originCode": 1,
+            "destinationCode": 3,
+            "departureTime": "2025-06-18T14:00:00",
+            "capacity": 200,
+            "occupancy": 0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0
+            },
+            "route": ""
+          },
+          "next": {
+            "data": {
+              "number": 103,
+              "originCode": 1,
+              "destinationCode": 4,
+              "departureTime": "2025-06-20T08:45:00",
+              "capacity": 180,
+              "occupancy": 0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0
+              },
+              "route": ""
+            },
+            "next": {
+              "data": {
+                "number": 104,
+                "originCode": 1,
+                "destinationCode": 5,
+                "departureTime": "2025-06-17T09:15:00",
+                "capacity": 120,
+                "occupancy": 0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "route": ""
+              },
+              "next": {
+                "data": {
+                  "number": 105,
+                  "originCode": 1,
+                  "destinationCode": 6,
+                  "departureTime": "2025-06-19T16:20:00",
+                  "capacity": 130,
+                  "occupancy": 0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0
+                  },
+                  "route": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "front": {
+        "data": {
+          "id": 8,
+          "name": "Mohamed",
+          "nationality": "Egipcio",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 9,
+            "name": "Julia",
+            "nationality": "Italiana",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 10,
+              "name": "David",
+              "nationality": "Alemán",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 10,
+          "name": "David",
+          "nationality": "Alemán",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        }
+      },
+      "counter": 3
+    }
+  },
+  {
+    "code": 16,
+    "name": "Istanbul Airport",
+    "country": "TURKEY",
+    "status": "Activo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101,
+          "originCode": 1,
+          "destinationCode": 2,
+          "departureTime": "2025-06-16T10:30:00",
+          "capacity": 150,
+          "occupancy": 0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0
+          },
+          "route": ""
+        },
+        "next": {
+          "data": {
+            "number": 102,
+            "originCode": 1,
+            "destinationCode": 3,
+            "departureTime": "2025-06-18T14:00:00",
+            "capacity": 200,
+            "occupancy": 0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0
+            },
+            "route": ""
+          },
+          "next": {
+            "data": {
+              "number": 103,
+              "originCode": 1,
+              "destinationCode": 4,
+              "departureTime": "2025-06-20T08:45:00",
+              "capacity": 180,
+              "occupancy": 0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0
+              },
+              "route": ""
+            },
+            "next": {
+              "data": {
+                "number": 104,
+                "originCode": 1,
+                "destinationCode": 5,
+                "departureTime": "2025-06-17T09:15:00",
+                "capacity": 120,
+                "occupancy": 0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "route": ""
+              },
+              "next": {
+                "data": {
+                  "number": 105,
+                  "originCode": 1,
+                  "destinationCode": 6,
+                  "departureTime": "2025-06-19T16:20:00",
+                  "capacity": 130,
+                  "occupancy": 0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0
+                  },
+                  "route": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "front": {
+        "data": {
+          "id": 8,
+          "name": "Mohamed",
+          "nationality": "Egipcio",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 9,
+            "name": "Julia",
+            "nationality": "Italiana",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 10,
+              "name": "David",
+              "nationality": "Alemán",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 10,
+          "name": "David",
+          "nationality": "Alemán",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        }
+      },
+      "counter": 3
+    }
+  },
+  {
+    "code": 17,
+    "name": "Barcelona–El Prat Airport",
+    "country": "SPAIN",
+    "status": "Activo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101,
+          "originCode": 1,
+          "destinationCode": 2,
+          "departureTime": "2025-06-16T10:30:00",
+          "capacity": 150,
+          "occupancy": 0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0
+          },
+          "route": ""
+        },
+        "next": {
+          "data": {
+            "number": 102,
+            "originCode": 1,
+            "destinationCode": 3,
+            "departureTime": "2025-06-18T14:00:00",
+            "capacity": 200,
+            "occupancy": 0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0
+            },
+            "route": ""
+          },
+          "next": {
+            "data": {
+              "number": 103,
+              "originCode": 1,
+              "destinationCode": 4,
+              "departureTime": "2025-06-20T08:45:00",
+              "capacity": 180,
+              "occupancy": 0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0
+              },
+              "route": ""
+            },
+            "next": {
+              "data": {
+                "number": 104,
+                "originCode": 1,
+                "destinationCode": 5,
+                "departureTime": "2025-06-17T09:15:00",
+                "capacity": 120,
+                "occupancy": 0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "route": ""
+              },
+              "next": {
+                "data": {
+                  "number": 105,
+                  "originCode": 1,
+                  "destinationCode": 6,
+                  "departureTime": "2025-06-19T16:20:00",
+                  "capacity": 130,
+                  "occupancy": 0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0
+                  },
+                  "route": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "front": {
+        "data": {
+          "id": 8,
+          "name": "Mohamed",
+          "nationality": "Egipcio",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 9,
+            "name": "Julia",
+            "nationality": "Italiana",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 10,
+              "name": "David",
+              "nationality": "Alemán",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 10,
+          "name": "David",
+          "nationality": "Alemán",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        }
+      },
+      "counter": 3
+    }
+  },
+  {
+    "code": 18,
+    "name": "Aeropuerto Internacional Simón Bolívar",
+    "country": "VENEZUELA",
+    "status": "Inactivo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101,
+          "originCode": 1,
+          "destinationCode": 2,
+          "departureTime": "2025-06-16T10:30:00",
+          "capacity": 150,
+          "occupancy": 0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0
+          },
+          "route": ""
+        },
+        "next": {
+          "data": {
+            "number": 102,
+            "originCode": 1,
+            "destinationCode": 3,
+            "departureTime": "2025-06-18T14:00:00",
+            "capacity": 200,
+            "occupancy": 0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0
+            },
+            "route": ""
+          },
+          "next": {
+            "data": {
+              "number": 103,
+              "originCode": 1,
+              "destinationCode": 4,
+              "departureTime": "2025-06-20T08:45:00",
+              "capacity": 180,
+              "occupancy": 0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0
+              },
+              "route": ""
+            },
+            "next": {
+              "data": {
+                "number": 104,
+                "originCode": 1,
+                "destinationCode": 5,
+                "departureTime": "2025-06-17T09:15:00",
+                "capacity": 120,
+                "occupancy": 0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "route": ""
+              },
+              "next": {
+                "data": {
+                  "number": 105,
+                  "originCode": 1,
+                  "destinationCode": 6,
+                  "departureTime": "2025-06-19T16:20:00",
+                  "capacity": 130,
+                  "occupancy": 0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0
+                  },
+                  "route": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "front": {
+        "data": {
+          "id": 8,
+          "name": "Mohamed",
+          "nationality": "Egipcio",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 9,
+            "name": "Julia",
+            "nationality": "Italiana",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 10,
+              "name": "David",
+              "nationality": "Alemán",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 10,
+          "name": "David",
+          "nationality": "Alemán",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        }
+      },
+      "counter": 3
+    }
+  },
+  {
+    "code": 19,
+    "name": "Zürich Airport",
+    "country": "SWITZERLAND",
+    "status": "Activo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101,
+          "originCode": 1,
+          "destinationCode": 2,
+          "departureTime": "2025-06-16T10:30:00",
+          "capacity": 150,
+          "occupancy": 0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0
+          },
+          "route": ""
+        },
+        "next": {
+          "data": {
+            "number": 102,
+            "originCode": 1,
+            "destinationCode": 3,
+            "departureTime": "2025-06-18T14:00:00",
+            "capacity": 200,
+            "occupancy": 0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0
+            },
+            "route": ""
+          },
+          "next": {
+            "data": {
+              "number": 103,
+              "originCode": 1,
+              "destinationCode": 4,
+              "departureTime": "2025-06-20T08:45:00",
+              "capacity": 180,
+              "occupancy": 0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0
+              },
+              "route": ""
+            },
+            "next": {
+              "data": {
+                "number": 104,
+                "originCode": 1,
+                "destinationCode": 5,
+                "departureTime": "2025-06-17T09:15:00",
+                "capacity": 120,
+                "occupancy": 0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "route": ""
+              },
+              "next": {
+                "data": {
+                  "number": 105,
+                  "originCode": 1,
+                  "destinationCode": 6,
+                  "departureTime": "2025-06-19T16:20:00",
+                  "capacity": 130,
+                  "occupancy": 0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0
+                  },
+                  "route": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "front": {
+        "data": {
+          "id": 8,
+          "name": "Mohamed",
+          "nationality": "Egipcio",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 9,
+            "name": "Julia",
+            "nationality": "Italiana",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 10,
+              "name": "David",
+              "nationality": "Alemán",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 10,
+          "name": "David",
+          "nationality": "Alemán",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        }
+      },
+      "counter": 3
+    }
+  },
+  {
+    "code": 20,
+    "name": "Cielo Alto Air Station",
+    "country": "ESTELIA",
+    "status": "Activo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101,
+          "originCode": 1,
+          "destinationCode": 2,
+          "departureTime": "2025-06-16T10:30:00",
+          "capacity": 150,
+          "occupancy": 0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0
+          },
+          "route": ""
+        },
+        "next": {
+          "data": {
+            "number": 102,
+            "originCode": 1,
+            "destinationCode": 3,
+            "departureTime": "2025-06-18T14:00:00",
+            "capacity": 200,
+            "occupancy": 0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0
+            },
+            "route": ""
+          },
+          "next": {
+            "data": {
+              "number": 103,
+              "originCode": 1,
+              "destinationCode": 4,
+              "departureTime": "2025-06-20T08:45:00",
+              "capacity": 180,
+              "occupancy": 0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0
+              },
+              "route": ""
+            },
+            "next": {
+              "data": {
+                "number": 104,
+                "originCode": 1,
+                "destinationCode": 5,
+                "departureTime": "2025-06-17T09:15:00",
+                "capacity": 120,
+                "occupancy": 0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "route": ""
+              },
+              "next": {
+                "data": {
+                  "number": 105,
+                  "originCode": 1,
+                  "destinationCode": 6,
+                  "departureTime": "2025-06-19T16:20:00",
+                  "capacity": 130,
+                  "occupancy": 0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0
+                  },
+                  "route": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "front": {
+        "data": {
+          "id": 8,
+          "name": "Mohamed",
+          "nationality": "Egipcio",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 9,
+            "name": "Julia",
+            "nationality": "Italiana",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 10,
+              "name": "David",
+              "nationality": "Alemán",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 10,
+          "name": "David",
+          "nationality": "Alemán",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "state": "Active"
+        }
+      },
+      "counter": 3
+    }
+  }
+]

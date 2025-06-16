@@ -151,4 +151,9 @@ public class Passenger implements Comparable<Passenger> {
         throw new ListException("Flight not found in passenger's history: " + flightToRemove.getNumber());
     }
 
+    public String toStringForWaitingQueue() {
+        return id + " - " + name + " (" + nationality + ")";
+    }
+
+
 }

@@ -7,3 +7,6 @@
 <!--                        <VBox fx:id="vboxViewHistory" layoutX="167.0" layoutY="50.0" spacing="10">-->
 <!--                            <Button fx:id="btnViewHistory" onAction="#viewHistory" prefWidth="200" style="-fx-background-color: #ccd3d8;" text="Ver Historial" />-->
 <!--                        </VBox>-->
+
+Los aeropuertos y vuelos se conectan por medio de originAirportCode en Flight y
+code en AirPort

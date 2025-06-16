@@ -1,9 +1,11 @@
 package ucr.lab.TDA;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import ucr.lab.domain.Passenger;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Node {
     public Object data;
+    public Passenger dataP;
     public Node prev; //apuntador al nodo anterior
     public Node next; //apuntador al nodo siguiente
     public String priority;
@@ -24,6 +26,10 @@ public class Node {
         this.next = null;
         this.priority=priority;
 
+    }
+
+    public Node(Passenger dataP) {
+        this.dataP = dataP;
     }
 
     public Object getData() {
@@ -56,5 +62,13 @@ public class Node {
 
     public void setPriority(String priority) {
         this.priority = priority;
+    }
+
+    public Passenger getDataP() {
+        return dataP;
+    }
+
+    public void setDataP(Passenger dataP) {
+        this.dataP = dataP;
     }
 }

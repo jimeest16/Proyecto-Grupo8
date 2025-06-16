@@ -1,9 +1,6 @@
 package ucr.lab.domain;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.*;
 import ucr.lab.TDA.list.SinglyLinkedList;
 import ucr.lab.TDA.list.ListException;
 
@@ -11,7 +8,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Flight {
     @JsonProperty("flightNumber")
     private int number;

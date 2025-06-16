@@ -3,6 +3,7 @@ package ucr.lab.controller;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javafx.application.Platform;
@@ -10,6 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -18,14 +20,23 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.*;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import net.sf.jasperreports.engine.JasperCompileManager;
+import ucr.lab.HelloApplication;
+import ucr.lab.TDA.list.ListException;
 import ucr.lab.TDA.list.SinglyLinkedList;
+import ucr.lab.TDA.queue.LinkedQueue;
+import ucr.lab.TDA.queue.QueueException;
 import ucr.lab.domain.AirPort;
 import ucr.lab.domain.Departures;
+import ucr.lab.domain.Flight;
+import ucr.lab.domain.Passenger;
 import ucr.lab.utility.*;
 
 import java.awt.*;
+import java.awt.Label;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -50,6 +61,9 @@ import java.util.Map;
 
 public class AirPortController {
     @FXML
+    private AnchorPane ap;
+
+    @FXML
     private Button btCrear;
 
     @FXML
@@ -65,13 +79,13 @@ public class AirPortController {
     private TableColumn<AirPort, String> cPais;
 
     @FXML
-    private TableColumn<AirPort, SinglyLinkedList> cRegistro;
+    private TableColumn<AirPort, Flight> cRegistro;
 
     @FXML
     private ComboBox<String> mEstado;
 
     @FXML
-    private ComboBox<Departures> mSalidas;
+    private ComboBox<Flight> mSalidas; //tipo flight
 
     @FXML
     private RadioButton rbActivos;
@@ -103,15 +117,33 @@ public class AirPortController {
     @javafx.fxml.FXML
     public void initialize() throws IOException {
         ObjectMapper mapper = JacksonProvider.get();
-        List<Departures> list = mapper.readValue(file, new TypeReference<List<Departures>>() {});
-
+        mapper.registerModule(new JavaTimeModule());
+        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         File file = new File("src/main/resources/data/airports.json");
 
-        List<AirPort> airports = mapper.readValue(file, new TypeReference<List<AirPort>>() {});
-
-        // Inicializa la lista observable (esto asegura que nunca sea nula)
+        // inicializa la lista observable
         observableAirports = FXCollections.observableArrayList();
-        ObservableList<Departures> observableListDepartures = Util.getDeparturesList();
+        ObservableList<Flight> observableListDepartures = Util.getDeparturesList();
+
+        //cargar vuelos a aropuerto
+        List<AirPort> airports = mapper.readValue(file, new TypeReference<List<AirPort>>() {});
+        //List<Flight> list = mapper.readValue(file, new TypeReference<List<Flight>>() {});
+        //LinkedQueue cola = mapper.readValue(file, new TypeReference<LinkedQueue>() {});
+
+        for (AirPort airport : airports) {
+            SinglyLinkedList vuelosParaEsteAeropuerto = new SinglyLinkedList();
+            LinkedQueue waitingQueue = airport.getWaitingQueue();
+
+            for (Flight vuelo : observableListDepartures) {
+                if (vuelo.getOriginCode() == airport.getCode()) {
+                    vuelosParaEsteAeropuerto.add(vuelo);
+                }
+            }
+
+            airport.setDeparturesBoard(vuelosParaEsteAeropuerto);
+        }
+
+
         // Si la lista compartida en Utility no está inicializada, configúrala
         if (Util.getAirPortList() == null) {
             Util.setAirPortList(observableAirports);
@@ -142,20 +174,23 @@ public class AirPortController {
 
         // Add actions column (Edit/Delete)
         javafx.scene.control.TableColumn<AirPort, Void> actionsColumn = new javafx.scene.control.TableColumn<>("Actions");
-        actionsColumn.setPrefWidth(150);
+        actionsColumn.setPrefWidth(350);
 
         actionsColumn.setCellFactory(param -> new TableCell<>() {
             private final javafx.scene.control.Button editButton = new javafx.scene.control.Button("Edit");
             private final javafx.scene.control.Button deleteButton = new javafx.scene.control.Button("Delete");
-
+            private final javafx.scene.control.Button waitingQueueButton = new javafx.scene.control.Button("View waiting queue");
             {
                 editButton.getStyleClass().add("btn-blue");
                 deleteButton.getStyleClass().add("btn-red");
+                waitingQueueButton.getStyleClass().add("btn-red");
                 editButton.setOnAction(event -> {
                     AirPort airportToEdit = getTableView().getItems().get(getIndex());
                     try {
                         update(airportToEdit);
                     } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    } catch (ListException e) {
                         throw new RuntimeException(e);
                     }
                     //saveAirport();
@@ -165,6 +200,27 @@ public class AirPortController {
                     AirPort airportToDelete = getTableView().getItems().get(getIndex());
                     removeAirport(airportToDelete);
                 });
+                waitingQueueButton.setOnAction(event -> {
+                    AirPort airport = getTableView().getItems().get(getIndex());
+
+                    try {
+                        System.out.println("Tamaño de la lista de vuelos: " + airport.getDeparturesBoard().size());
+                        if (!airport.getDeparturesBoard().isEmpty()) {
+                            Flight vuelo = buscarVueloAsociado(airport);
+                            openWaitingQueueView(event, airport,vuelo);
+                        } else {
+                            FXUtil.alert("Advertencia", "Este aeropuerto no tiene vuelos disponibles.").showAndWait();
+                        }
+
+
+                    } catch (ListException e) {
+                        throw new RuntimeException(e);
+                    } catch (QueueException e) {
+                        throw new RuntimeException(e);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
             }
 
             @Override
@@ -173,7 +229,7 @@ public class AirPortController {
                 if (empty) {
                     setGraphic(null);
                 } else {
-                    HBox buttonsBox = new HBox(5, editButton, deleteButton);
+                    HBox buttonsBox = new HBox(5, editButton, deleteButton, waitingQueueButton);
                     setGraphic(buttonsBox);
                 }
             }
@@ -182,19 +238,47 @@ public class AirPortController {
         listarAeropuertos();
 
     }
+    public Flight buscarVueloAsociado(AirPort airport) {
+        for (Flight f : Util.getDeparturesList()) {
+            if (f.getOriginCode() == airport.getCode()) {
+                return f;
+            }
+        }
+        return null;
+    }
+
+    private void openWaitingQueueView(ActionEvent event, AirPort airport, Flight flight) throws QueueException, IOException {
+        try {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/ucr/lab/waitingQueue.fxml"));
+        AnchorPane centro = fxmlLoader.load();
+        // Obtener el controlador y pasar los datos
+        WaitingQueueController controller = fxmlLoader.getController();
+        controller.setDatos(airport, flight);
+
+            ap.getChildren().clear();
+            AnchorPane.setTopAnchor(centro, 0.0);
+            AnchorPane.setBottomAnchor(centro, 0.0);
+            AnchorPane.setLeftAnchor(centro, 0.0);
+            AnchorPane.setRightAnchor(centro, 0.0);
+
+            ap.getChildren().add(centro);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
     @javafx.fxml.FXML
     public void createAirport(ActionEvent actionEvent) throws IOException {
         ObservableList<AirPort> observableList = Util.getAirPortList();
-        ObservableList<Departures> departuresList = Util.getDeparturesList();
+        ObservableList<Flight> departuresList = Util.getDeparturesList();
         AirPortDatos data = new AirPortDatos(file);
 
         int id = Integer.parseInt(tfID.getText().trim());
         String name = tfNombre.getText().trim();
         String pais = tfPais.getText().trim();
         String active = mEstado.toString();
-        Departures departures = (Departures) mSalidas.getValue();
+        Flight departures = mSalidas.getValue();
 
         if (data.buscar(id)) {
             saveAirport();
@@ -215,7 +299,9 @@ public class AirPortController {
         }
 
         try {
-                AirPort airport = new AirPort(id, name, pais,active,departures);
+                SinglyLinkedList lista = new SinglyLinkedList();
+                lista.add(departures);
+                AirPort airport = new AirPort(id, name, pais,active, lista);
                 data.insert(airport); // agregar al archivo
                 observableList.add(airport); // agregar a ObservableList
                 FXUtil.confirmationDialog("Airport successfully added").showAndWait();
@@ -232,11 +318,11 @@ public class AirPortController {
     }
 
     @javafx.fxml.FXML
-    public void update(AirPort airPortToEdit ) throws IOException {
+    public void update(AirPort airPortToEdit ) throws IOException, ListException {
         tfID.setText(String.valueOf(airPortToEdit.getCode()));
         tfNombre.setText(airPortToEdit.getName());
         tfPais.setText(airPortToEdit.getCountry());
-        mSalidas.setValue(airPortToEdit.getDeparturesBoard());
+        mSalidas.setValue(airPortToEdit.getDeparturesBoard().getFlight(0));
         mEstado.setValue(airPortToEdit.getStatus());
     }
     @javafx.fxml.FXML
@@ -264,8 +350,9 @@ public class AirPortController {
                     FXUtil.alert("Error", "No se encontró ningún huésped con la cédula/identificación: " + id + ". Por favor, guarde el huésped primero.").showAndWait();
                     return;
                 }
-
-                AirPort updatedAirport = new AirPort(Integer.parseInt(tfID.getText()), firstName, country, status, mSalidas.getValue());
+                SinglyLinkedList lista = new SinglyLinkedList();
+                lista.add(mSalidas.getValue());
+                AirPort updatedAirport = new AirPort(Integer.parseInt(tfID.getText()), firstName, country, status, lista);
                 boolean success = data.actualizar(originalAirport, updatedAirport);
 
                 if (success) {
@@ -332,7 +419,7 @@ public class AirPortController {
             hotelList.addAll(listaDesdeArchivo); // añade la nueva información
 
         } catch (IOException e) {
-            FXUtil.alert("Error", "Could not load hotel data").showAndWait();
+            FXUtil.alert("Error", "Could not load airport data").showAndWait();
         }
     }
     private void saveDataToFile() {
@@ -368,7 +455,7 @@ public class AirPortController {
         String name = tfNombre.getText().trim();
         String country = tfPais.getText().trim();
         String status = mEstado.getSelectionModel().getSelectedItem(); // "Activo" o "Inactivo"
-        Departures selectedDeparture = mSalidas.getSelectionModel().getSelectedItem();
+        Flight selectedDeparture = mSalidas.getSelectionModel().getSelectedItem();
 
         if (codeText.isEmpty() || name.isEmpty() || country.isEmpty() || status == null || selectedDeparture == null) {
             FXUtil.alert("Por favor, complete todos los campos requeridos.", "error");
@@ -385,7 +472,9 @@ public class AirPortController {
         }
 
         // Se construye el nuevo aeropuerto
-        AirPort newAirport = new AirPort(code, name, country, status, selectedDeparture);
+        SinglyLinkedList lista = new SinglyLinkedList();
+        lista.add(selectedDeparture);
+        AirPort newAirport = new AirPort(code, name, country, status, lista);
 
         if (currentAirportToEdit != null) {
             // Actualiza aeropuerto existente

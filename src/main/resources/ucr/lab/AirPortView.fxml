@@ -12,12 +12,12 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="653.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.AirPortController">
+<AnchorPane fx:id="ap" prefHeight="653.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.AirPortController">
    <children>
       <!-- Header -->
       <Pane prefHeight="80.0" prefWidth="800.0" style="-fx-background-color: #e1e4e7;">
          <children>
-            <Label layoutX="241.0" layoutY="33.0" text="AirPort Manager✈" textFill="#546f9e">
+            <Label layoutX="241.0" layoutY="33.0" text="Airport Manager✈" textFill="#546f9e">
                <font>
                   <Font name="Elephant" size="37.0" />
                </font>

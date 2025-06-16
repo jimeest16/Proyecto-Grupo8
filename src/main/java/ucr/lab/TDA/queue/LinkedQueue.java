@@ -1,9 +1,16 @@
 package ucr.lab.TDA.queue;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import ucr.lab.TDA.Node;
+import ucr.lab.TDA.list.SinglyLinkedList;
+import ucr.lab.domain.Passenger;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static ucr.lab.utility.Util.compare;
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class LinkedQueue implements Queue {
     private Node front;
     private Node rear;
@@ -111,6 +118,11 @@ public class LinkedQueue implements Queue {
         return front.data;
     }
 
+    public Node frontN() throws QueueException {
+        if (isEmpty()) throw new QueueException("Queue is empty");
+        return front;
+    }
+
     @Override
     public String toString() {
         if(isEmpty()) return "Linked Queue is Empty";
@@ -127,6 +139,50 @@ public class LinkedQueue implements Queue {
             }
         } catch (QueueException e) {
             throw new RuntimeException(e);
+        }
+        return result;
+    }
+
+    public Node getFront() {
+        return front;
+    }
+
+    public void setFront(Node front) {
+        this.front = front;
+    }
+
+    public Node getRear() {
+        return rear;
+    }
+
+    public void setRear(Node rear) {
+        this.rear = rear;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
+    //esto son para que pueda leer correctamente los pasajeros en cola que estan el el aeropuerto, necesario para implementar la cola de espera
+    // Este método permite que Jackson llene la cola desde un arreglo JSON
+    @JsonProperty("waitingQueue")
+    public void setFromList(List<Passenger> passengers) throws QueueException {
+        for (Passenger e : passengers) {
+            enQueue(e);
+        }
+    }
+
+    //Este método permite que Jackson escriba la cola como un arreglo
+    @JsonProperty("waitingQueue")
+    public SinglyLinkedList getAsList() {
+        SinglyLinkedList result = new SinglyLinkedList();
+        Node current = front;
+        while (current != null) {
+            result.add(current.data);
+            current = current.next;
         }
         return result;
     }

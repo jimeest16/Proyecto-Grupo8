@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import ucr.lab.TDA.graph.EdgeWeight;
 import ucr.lab.TDA.graph.Vertex;
 import ucr.lab.TDA.list.DoublyLinkedList;
+import ucr.lab.TDA.list.SinglyLinkedList;
 import ucr.lab.TDA.queue.LinkedQueue;
 import ucr.lab.TDA.stack.LinkedStack;
 import ucr.lab.TDA.stack.Stack;
@@ -37,7 +38,8 @@ public class Util {
 
     /// airports list
     private static ObservableList<AirPort> airPortList = FXCollections.observableArrayList(); //lista para airports
-    private static ObservableList<Departures> departuresList = FXCollections.observableArrayList();
+    private static ObservableList<Flight> departuresList = FXCollections.observableArrayList(); //lista de salidad
+    private static ObservableList<Passenger> passengersList = FXCollections.observableArrayList(); //lista de la cola de espera
     //constructor estatico, inicializador estatico
 
     public static ObservableList<AirPort> getAirPortList() {
@@ -81,31 +83,31 @@ public class Util {
     }
 
     //LISTA DEPARTURES
-    public static ObservableList<Departures> getDeparturesList() {
+    public static ObservableList<Flight> getDeparturesList() {
         try {
             File file = new File("src/main/resources/data/departures.json");
-            DeparturesDatos departuresDatos = new DeparturesDatos(file); // archivo json de rooms
-            java.util.List<Departures> listaDesdeArchivo = departuresDatos.getAllDepartures(); // carga desde archivo
+            DeparturesDatos departuresDatos = new DeparturesDatos(file); // archivo json
+            java.util.List<Flight> listaDesdeArchivo = departuresDatos.getAllDepartures(); // carga desde archivo
 
-            ObservableList<Departures> list = departuresList; // lista observable compartida
+            ObservableList<Flight> list = departuresList; // lista observable compartida
             list.clear(); // limpia la lista actual
             list.addAll(listaDesdeArchivo); // añade la nueva información
             return list;
         } catch (IOException e) {
-            FXUtil.alert("Error", "Could not load hotel data").showAndWait();
+            FXUtil.alert("Error", "Could not load airport data").showAndWait();
             return FXCollections.observableArrayList(); // retorna lista vacía en caso de error
         }
 
     }
 
-    public static void setDeparturestList(ObservableList<Departures> newDeparture) {
+    public static void setDeparturestList(ObservableList<Flight> newDeparture) {
         departuresList.setAll(newDeparture);
     }
 
     // Este get es para verificar el contenido de la lista
-    public static DoublyLinkedList getDepartures() {
-        DoublyLinkedList departures = new DoublyLinkedList();
-        for (Departures departure : departuresList) {
+    public static SinglyLinkedList getDepartures() {
+        SinglyLinkedList departures = new SinglyLinkedList();
+        for (Flight departure : departuresList) {
             departures.add(departure);
             System.out.println(departure);
         }
@@ -117,15 +119,48 @@ public class Util {
         try {
             File file = new File("src/main/resources/data/departures.json");
             DeparturesDatos departuresDatos = new DeparturesDatos(file); // archivo json de rooms
-            java.util.List<Departures> listaDesdeArchivo = departuresDatos.getAllDepartures(); // carga desde archivo
+            java.util.List<Flight> listaDesdeArchivo = departuresDatos.getAllDepartures(); // carga desde archivo
 
-            ObservableList<Departures> list = Util.getDeparturesList(); // lista observable compartida
+            ObservableList<Flight> list = Util.getDeparturesList(); // lista observable compartida
             list.clear(); // limpia la lista actual
             list.addAll(listaDesdeArchivo); // añade la nueva información
 
         } catch (IOException e) {
             FXUtil.alert("Error", "Could not load hotel data").showAndWait();
         }
+    }
+
+    //Lista de pasajeros
+    public static Passenger getPassenger(int id) {
+        if (airPortList != null) {
+            for (Passenger pasajero : passengersList) {
+                if (pasajero.getId() == id) {
+                    return pasajero;
+                }
+            }
+        }
+        return null;
+    }
+
+    // Este get es para verificar el contenido de la lista, y tener pasajeros en una lista
+    public static DoublyLinkedList getPassengers() {
+        DoublyLinkedList airPorts = new DoublyLinkedList();
+        for (Passenger pasajero : passengersList) {
+            airPorts.add(pasajero);
+            System.out.println(pasajero);
+        }
+        return airPorts;
+    }
+
+    public static ObservableList<Passenger> getPassengerInList() {
+        ArrayList<Passenger> passengers = new ArrayList<>(passengersList);
+        if (!passengersList.isEmpty()) {
+            for (int i = 0; i < passengersList.size(); i++) {
+                Passenger passenger = passengersList.get(i);
+                System.out.println("Pasajero en posición " + i + ": " + passenger);
+            }
+        }
+        return FXCollections.observableArrayList(passengers);
     }
 
     //esto es para el reporte pdf

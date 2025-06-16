@@ -1,76 +1,51 @@
 [ {
-  "departureTime" : null,
-  "origin" : "London",
-  "gate_id" : null,
-  "status" : "ON TIME"
+  "capacity" : 150,
+  "occupancy" : 0,
+  "status" : "ON TIME",
+  "route" : "",
+  "flightNumber" : 101,
+  "originAirportCode" : 1,
+  "destinationAirportCode" : 2,
+  "departureDate" : "2025-06-16T10:30:00",
+  "passengerIDs" : [ ]
 }, {
-  "departureTime" : null,
-  "origin" : "New York",
-  "gate_id" : null,
-  "status" : "DELAYED"
+  "capacity" : 200,
+  "occupancy" : 0,
+  "status" : "DELAYED",
+  "route" : "",
+  "flightNumber" : 102,
+  "originAirportCode" : 2,
+  "destinationAirportCode" : 3,
+  "departureDate" : "2025-06-18T14:00:00",
+  "passengerIDs" : [ ]
 }, {
-  "departureTime" : null,
-  "origin" : "Tokyo",
-  "gate_id" : null,
-  "status" : "CANCELLED"
+  "capacity" : 180,
+  "occupancy" : 0,
+  "status" : "CANCELLED",
+  "route" : "",
+  "flightNumber" : 103,
+  "originAirportCode" : 3,
+  "destinationAirportCode" : 4,
+  "departureDate" : "2025-06-20T08:45:00",
+  "passengerIDs" : [ ]
 }, {
-  "departureTime" : null,
-  "origin" : "Paris",
-  "gate_id" : null,
-  "status" : "BOARDING"
+  "capacity" : 120,
+  "occupancy" : 0,
+  "status" : "BOARDING",
+  "route" : "",
+  "flightNumber" : 104,
+  "originAirportCode" :4,
+  "destinationAirportCode" : 5,
+  "departureDate" : "2025-06-17T09:15:00",
+  "passengerIDs" : [ ]
 }, {
-  "departureTime" : null,
-  "origin" : "Berlin",
-  "gate_id" : null,
-  "status" : "FINAL CALL"
-}, {
-  "departureTime" : null,
-  "origin" : "London",
-  "gate_id" : null,
-  "status" : "ON TIME"
-}, {
-  "departureTime" : null,
-  "origin" : "New York",
-  "gate_id" : null,
-  "status" : "DELAYED"
-}, {
-  "departureTime" : null,
-  "origin" : "Tokyo",
-  "gate_id" : null,
-  "status" : "CANCELLED"
-}, {
-  "departureTime" : null,
-  "origin" : "Paris",
-  "gate_id" : null,
-  "status" : "BOARDING"
-}, {
-  "departureTime" : null,
-  "origin" : "Berlin",
-  "gate_id" : null,
-  "status" : "FINAL CALL"
-}, {
-  "departureTime" : "2025-06-12",
-  "origin" : "London",
-  "gate_id" : "A01",
-  "status" : "ON TIME"
-}, {
-  "departureTime" : "2025-06-14",
-  "origin" : "New York",
-  "gate_id" : "B12",
-  "status" : "DELAYED"
-}, {
-  "departureTime" : "2025-06-16",
-  "origin" : "Tokyo",
-  "gate_id" : "C05",
-  "status" : "CANCELLED"
-}, {
-  "departureTime" : "2025-06-13",
-  "origin" : "Paris",
-  "gate_id" : "D07",
-  "status" : "BOARDING"
-}, {
-  "departureTime" : "2025-06-15",
-  "origin" : "Berlin",
-  "gate_id" : "E03",
-  "status" : "FINAL CALL"
+  "capacity" : 130,
+  "occupancy" : 0,
+  "status" : "FINAL CALL",
+  "route" : "",
+  "flightNumber" : 105,
+  "originAirportCode" : 5,
+  "destinationAirportCode" : 6,
+  "departureDate" : "2025-06-19T16:20:00",
+  "passengerIDs" : [ ]
 } ]
