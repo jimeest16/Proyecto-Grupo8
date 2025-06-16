@@ -4,67 +4,91 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e2e4e7;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.HelloController">
-
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #e0f2f7;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.HelloController">
     <children>
+        <VBox alignment="CENTER" layoutX="0.0" layoutY="0.0" prefHeight="500.0" prefWidth="700.0" spacing="40" style="-fx-padding: 30;">
+            <Pane prefHeight="220.0" prefWidth="600.0">
+                <children>
+                    <Text fill="#2a6e9a" fontSmoothingType="LCD" layoutX="50.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FlyLink Airlines" wrappingWidth="600.0" textAlignment="CENTER">
+                        <font>
+                            <Font name="Segoe UI Black" size="64.0" />
+                        </font>
+                    </Text>
+                    <Text fill="#5a5a5a" layoutX="50.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Integrated Aviation Management System" textAlignment="CENTER" wrappingWidth="600.0">
+                        <font>
+                            <Font name="Segoe UI Semibold" size="24.0" />
+                        </font>
+                    </Text>
+                    <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="300.0" layoutY="160.0" preserveRatio="true">
+                        <image>
+                            <Image url="@avion.png" />
+                        </image>
+                    </ImageView>
+                </children>
+            </Pane>
 
-        <Pane layoutX="147.0" layoutY="241.0" prefHeight="200.0" prefWidth="281.0">
-            <children>
-                <Button layoutX="11.0" layoutY="47.0" onAction="#handleLoginAdmin" style="-fx-background-color: #65749c;" text="Login Admin">
-                    <font>
-                        <Font name="Nirmala Text Semilight" size="14.0" />
-                    </font>
-                </Button>
-                <Button layoutX="153.0" layoutY="47.0" onAction="#handleLoginUser" style="-fx-background-color: #65749c;" text="Login Pasajero">
-                    <font>
-                        <Font name="Nirmala Text Semilight" size="14.0" />
-                    </font>
-                </Button>
-                <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="47.0" layoutY="83.0">
-                    <image>
-                        <Image url="@user.png" />
-                    </image>
-                </ImageView>
-                <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="183.0" layoutY="83.0">
-                    <image>
-                        <Image url="@admin.png" />
-                    </image>
-                </ImageView>
-            </children>
-        </Pane>
+            <VBox alignment="CENTER" spacing="20" style="-fx-padding: 25; -fx-background-color: #ffffff; -fx-border-radius: 12; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0, 0, 8);">
+                <children>
+                    <Text fill="#333333" strokeType="OUTSIDE" strokeWidth="0.0" text="Select your login role:">
+                        <font>
+                            <Font name="Segoe UI Bold" size="20.0" />
+                        </font>
+                    </Text>
+                    <HBox alignment="CENTER" spacing="40">
+                        <VBox alignment="CENTER" spacing="10">
+                            <children>
+                                <Button onAction="#handleLoginAdmin" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 30; -fx-border-radius: 8; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                                    <graphic>
+                                        <ImageView fitHeight="30.0" fitWidth="30.0" preserveRatio="true">
+                                            <image>
+                                                <Image url="@admin.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <font>
+                                        <Font name="Segoe UI Bold" size="16.0" />
+                                    </font>
+                                    <text>Login Administrator</text>
+                                </Button>
+                            </children>
+                        </VBox>
 
+                        <VBox alignment="CENTER" spacing="10">
+                            <children>
+                                <Button onAction="#handleLoginUser" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 30; -fx-border-radius: 8; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                                    <graphic>
+                                        <ImageView fitHeight="30.0" fitWidth="30.0" preserveRatio="true">
+                                            <image>
+                                                <Image url="@user.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <font>
+                                        <Font name="Segoe UI Bold" size="16.0" />
+                                    </font>
+                                    <text>Login Passenger</text>
+                                </Button>
+                            </children>
+                        </VBox>
+                    </HBox>
+                </children>
+            </VBox>
 
-        <Pane layoutX="46.0" layoutY="35.0" prefHeight="222.0" prefWidth="519.0">
-            <children>
-                <Text fill="#6e91b5" fontSmoothingType="LCD" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema de gestión" wrappingWidth="499.333">
-                    <font>
-                        <Font name="Bodoni MT Black" size="52.0" />
-                    </font>
-                </Text>
-                <Text layoutX="110.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aeropuertos - Rutas de Vuelo">
-                    <font>
-                        <Font name="Bell MT" size="23.0" />
-                    </font>
-                </Text>
-
-
-                <ImageView fitHeight="77.0" fitWidth="85.0" layoutX="207.0" layoutY="138.0" preserveRatio="false">
-                    <image>
-                        <Image url="@avion.png" />
-                    </image>
-                </ImageView>
-            </children>
-        </Pane>
-
-        <Pane layoutX="464.0" layoutY="375.0" prefHeight="51.0" prefWidth="143.0">
-            <children>
-                <Button layoutX="72.0" layoutY="25.0" onAction="#exitButton" style="-fx-background-color: #65749c;" text="Salir" />
-            </children>
-        </Pane>
-
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="50.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                <children>
+                    <Button onAction="#exitButton" text="Exit" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 25; -fx-border-radius: 5; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                        <font>
+                            <Font name="Segoe UI Bold" size="14.0" />
+                        </font>
+                    </Button>
+                </children>
+            </HBox>
+        </VBox>
     </children>
 </AnchorPane>

@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import ucr.lab.TDA.list.SinglyLinkedList;
 import ucr.lab.TDA.list.ListException;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -60,7 +61,6 @@ public class Flight {
         this.route = "";
     }
 
-
     public Flight(int capacity, int occupancy, String status, String route, LocalDateTime departureTime,
                   int flightNumber, int originAirportCode, int destinationAirportCode,
                   LocalDateTime departureDate, SinglyLinkedList passengerIDsList) {
@@ -70,10 +70,11 @@ public class Flight {
         this.occupancy = occupancy;
         this.status = status;
         this.route = route;
-        this.departureTime = departureTime;
+        this.departureTime = departureTime; // Asigna el primer departureTime
         this.number = flightNumber;
         this.originCode = originAirportCode;
         this.destinationCode = destinationCode;
+
 
         this.passengerIDs = passengerIDsList != null ? passengerIDsList : new SinglyLinkedList();
     }
@@ -109,22 +110,30 @@ public class Flight {
         return list;
     }
 
-    @JsonSetter("departureDate")
-    public void setDepartureTime(String departureTimeStr) {
-        if (departureTimeStr != null && !departureTimeStr.isEmpty()) {
-            this.departureTime = LocalDateTime.parse(departureTimeStr);
+    @JsonSetter("departureDate") // Mapea a la propiedad "departureDate" en JSON
+    public void setDepartureDateFromString(String departureDateStr) { // Renombrado para mayor claridad
+        if (departureDateStr != null && !departureDateStr.isEmpty()) {
+            this.departureTime = LocalDateTime.parse(departureDateStr);
         }
     }
 
+
     @JsonGetter("departureDate")
-    public String getDepartureDate() {
+    public String getDepartureDateAsString() {
         return this.departureTime != null ? this.departureTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME) : null;
     }
+
+
+    public LocalDate getDepartureDate() {
+        return this.departureTime != null ? this.departureTime.toLocalDate() : null;
+    }
+
+
 
     public void setNumber(int number) { this.number = number; }
     public void setOriginCode(int originCode) { this.originCode = originCode; }
     public void setDestinationCode(int destinationCode) { this.destinationCode = destinationCode; }
-    public void setDepartureTime(LocalDateTime departureTime) { this.departureTime = departureTime; }
+    public void setDepartureTime(LocalDateTime departureTime) { this.departureTime = departureTime; } // Setter para LocalDateTime
     public void setCapacity(int capacity) { this.capacity = capacity; }
     public void setOccupancy(int occupancy) { this.occupancy = occupancy; }
     public void setStatus(String status) { this.status = status; }
@@ -135,7 +144,8 @@ public class Flight {
     public int getNumber() { return number; }
     public int getOriginCode() { return originCode; }
     public int getDestinationCode() { return destinationCode; }
-    @JsonIgnore
+
+    @JsonIgnore // Ignora este getter para Jackson, solo para uso de la interfaz de usuario.
     public LocalDateTime getDepartureTimeAsObject() { return departureTime; }
     public int getCapacity() { return capacity; }
     public int getOccupancy() { return occupancy; }

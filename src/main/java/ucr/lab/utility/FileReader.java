@@ -358,5 +358,19 @@ public class FileReader {
             return new ArrayList<>();
         }
     }
-
+    public static List<Route> convertSinglyLinkedListToRouteList(SinglyLinkedList singlyLinkedList) throws ListException {
+        List<Route> list = new ArrayList<>();
+        if (singlyLinkedList != null && !singlyLinkedList.isEmpty()) {
+            for (int i = 1; i <= singlyLinkedList.size(); i++) {
+                Object element = singlyLinkedList.get(i);
+                if (element instanceof Route) {
+                    list.add((Route) element);
+                } else {
+                    // Opcional: Manejar el caso donde un elemento no es de tipo Route
+                    System.err.println("Advertencia: Elemento inesperado en SinglyLinkedList. Se esperaba un objeto Route, pero se encontró: " + element.getClass().getName());
+                }
+            }
+        }
+        return list;
+    }
 }
