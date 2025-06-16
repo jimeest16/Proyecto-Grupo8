@@ -24,32 +24,42 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 
 public class AdminController {
 
     private AVLTree passengerTree; // Árbol para objetos Passenger
     private AVLTree avlTree; // Árbol para IDs de pasajeros
-    // campos para la info de los passengers
+
+    // Campos para la información de los passengers (Mantener en Manage Users tab)
     @FXML private TextField txtId;
     @FXML private TextField txtName;
     @FXML private TextField txtNationality;
-    @FXML private TextArea txtOutput;
+    @FXML private TextArea txtOutput; // Used for general output on Manage Users tab
 
-    // Campos para la información del vuelo
+    // Campos para la información del vuelo (Mantener en Manage Users tab for now, but usually in Manage Flights)
     @FXML private TextField txtFlightNumber;
     @FXML private TextField txtOriginCode;
     @FXML private TextField txtDestinationCode;
-    @FXML private TextField txtDepartureTime; // Para LocalDateTime
+    @FXML private TextField txtDepartureTimeHour; // Changed from txtDepartureTime to reflect FXML name
+    @FXML private DatePicker dpDepartureDate; // Added for DatePicker
     @FXML private TextField txtCapacity;
     @FXML private TextField txtOccupancy;
     @FXML private TextField txtFlightStatus;
     @FXML private TextField txtRoute; // Campo para la ruta del vuelo
 
+    // NUEVOS CAMPOS para el tab "Manage Routes"
+    @FXML private ComboBox<String> cmbOrigin; // For origin airport selection
+    @FXML private ComboBox<String> cmbDestination; // For destination airport selection
+    @FXML private TextField txtDistance; // For route distance/duration
+    @FXML private TextArea textArea; // For output on the Manage Routes tab (renamed from txtOutput for clarity)
+
+
     // Constructor: Solo para inicializar los árboles, la carga de datos va en initialize()
     public AdminController() {
         this.passengerTree = new AVLTree();
         this.avlTree = new AVLTree();
-
     }
 
     @FXML
@@ -60,6 +70,15 @@ public class AdminController {
 
         // Carga de pasajeros al iniciar la interfaz
         loadAllPassengersToTrees();
+
+        // Inicializar ComboBoxes si existen (para el tab de rutas)
+        if (cmbOrigin != null) {
+            // Ejemplo de cómo poblar los ComboBoxes (deberías obtener esta data de tus aeropuertos)
+            cmbOrigin.getItems().addAll("SJO - San Jose", "LAX - Los Angeles", "MIA - Miami", "MAD - Madrid");
+        }
+        if (cmbDestination != null) {
+            cmbDestination.getItems().addAll("SJO - San Jose", "LAX - Los Angeles", "MIA - Miami", "MAD - Madrid");
+        }
     }
 
     private void loadAllPassengersToTrees() {
@@ -93,9 +112,17 @@ public class AdminController {
         }
     }
 
+    // This method is primarily for the 'Manage Users' tab's output
     private void appendOutput(String text) {
-        if (txtOutput != null) { // Siempre verificar nullidad antes de usar elementos @FXML
+        if (txtOutput != null) {
             txtOutput.appendText(text + "\n");
+        }
+    }
+
+    // This method is specifically for the 'Manage Routes' tab's output
+    private void appendRoutesOutput(String text) {
+        if (textArea != null) {
+            textArea.appendText(text + "\n");
         }
     }
 
@@ -123,7 +150,17 @@ public class AdminController {
                     int flightNum = Integer.parseInt(txtFlightNumber.getText().trim());
                     int originCode = Integer.parseInt(txtOriginCode.getText().trim());
                     int destinationCode = Integer.parseInt(txtDestinationCode.getText().trim());
-                    LocalDateTime departureTime = LocalDateTime.parse(txtDepartureTime.getText().trim());
+                    // Combine date from DatePicker and time from TextField
+                    LocalDateTime departureTime = null;
+                    if (dpDepartureDate.getValue() != null && !txtDepartureTimeHour.getText().trim().isEmpty()) {
+                        departureTime = dpDepartureDate.getValue().atStartOfDay().withHour(Integer.parseInt(txtDepartureTimeHour.getText().trim().split(":")[0]))
+                                .withMinute(Integer.parseInt(txtDepartureTimeHour.getText().trim().split(":")[1]));
+                    } else if (dpDepartureDate.getValue() != null) {
+                        departureTime = dpDepartureDate.getValue().atStartOfDay();
+                    } else {
+                        throw new DateTimeParseException("Fecha de salida no especificada o incompleta.", "", 0);
+                    }
+
                     int capacity = Integer.parseInt(txtCapacity.getText().trim());
                     int occupancy = Integer.parseInt(txtOccupancy.getText().trim());
                     String status = txtFlightStatus.getText().trim();
@@ -136,7 +173,7 @@ public class AdminController {
                     appendOutput("Vuelo agregado al historial del pasajero.\n");
 
                 } catch (NumberFormatException | DateTimeParseException e) {
-                    appendOutput("Error en el formato de los datos del vuelo. Pasajero creado, pero el vuelo no se añadió. Revise el número, códigos, capacidad, ocupación y la hora de salida (yyyy-MM-ddTHH:mm).\n");
+                    appendOutput("Error en el formato de los datos del vuelo. Pasajero creado, pero el vuelo no se añadió. Revise el número, códigos, capacidad, ocupación y la fecha/hora de salida (yyyy-MM-dd y HH:mm).\n");
                 }
             }
 
@@ -197,7 +234,15 @@ public class AdminController {
                             int flightNum = Integer.parseInt(txtFlightNumber.getText().trim());
                             int originCode = Integer.parseInt(txtOriginCode.getText().trim());
                             int destinationCode = Integer.parseInt(txtDestinationCode.getText().trim());
-                            LocalDateTime departureTime = LocalDateTime.parse(txtDepartureTime.getText().trim());
+                            LocalDateTime departureTime = null;
+                            if (dpDepartureDate.getValue() != null && !txtDepartureTimeHour.getText().trim().isEmpty()) {
+                                departureTime = dpDepartureDate.getValue().atStartOfDay().withHour(Integer.parseInt(txtDepartureTimeHour.getText().trim().split(":")[0]))
+                                        .withMinute(Integer.parseInt(txtDepartureTimeHour.getText().trim().split(":")[1]));
+                            } else if (dpDepartureDate.getValue() != null) {
+                                departureTime = dpDepartureDate.getValue().atStartOfDay();
+                            } else {
+                                throw new DateTimeParseException("Fecha de salida no especificada o incompleta.", "", 0);
+                            }
                             int capacity = Integer.parseInt(txtCapacity.getText().trim());
                             int occupancy = Integer.parseInt(txtOccupancy.getText().trim());
                             String status = txtFlightStatus.getText().trim();
@@ -366,12 +411,11 @@ public class AdminController {
         txtName.clear();
         txtNationality.clear();
 
-
-
         txtFlightNumber.clear();
         txtOriginCode.clear();
         txtDestinationCode.clear();
-        txtDepartureTime.clear();
+        txtDepartureTimeHour.clear(); // Corrected field name
+        if (dpDepartureDate != null) dpDepartureDate.setValue(null); // Clear DatePicker
         txtCapacity.clear();
         txtOccupancy.clear();
         txtFlightStatus.clear();
@@ -382,7 +426,6 @@ public class AdminController {
         List<Passenger> list = new ArrayList<>();
         if (singlyLinkedList != null && !singlyLinkedList.isEmpty()) {
             for (int i = 1; i <= singlyLinkedList.size(); i++) {
-
                 list.add((Passenger) singlyLinkedList.get(i));
             }
         }
@@ -392,6 +435,9 @@ public class AdminController {
     @FXML
     private void userManager() {
         try {
+            // This seems to open a separate PassengerView.fxml, which might not be needed
+            // if "Manage Users" tab is handling passenger management directly within AdminController.
+            // Consider if this method is still necessary.
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ucr/lab/PassengerView.fxml"));
             Parent root = loader.load();
 
@@ -421,24 +467,91 @@ public class AdminController {
         }
     }
 
-
     @FXML
     private void logout() {
         Platform.exit();
     }
 
+    @FXML
     public void addRoute(ActionEvent actionEvent) {
-        // Lógica para añadir ruta
-        appendOutput("Funcionalidad 'Add Route' no implementada aún.");
+        // Implement the logic for adding a route here
+        String origin = cmbOrigin.getValue();
+        String destination = cmbDestination.getValue();
+        String distanceText = txtDistance.getText();
+
+        if (origin == null || destination == null || origin.isEmpty() || destination.isEmpty() || distanceText.isEmpty()) {
+            appendRoutesOutput("Please select origin, destination, and enter distance.");
+            return;
+        }
+
+        try {
+            double distance = Double.parseDouble(distanceText);
+            appendRoutesOutput("Adding new route: " + origin + " to " + destination + " (Distance: " + distance + ")");
+            // Add your route logic here (e.g., call a service/manager to add the route)
+            clearRouteFields();
+        } catch (NumberFormatException e) {
+            appendRoutesOutput("Invalid distance. Please enter a numeric value.");
+        }
     }
 
+    @FXML
     public void modifyRoute(ActionEvent actionEvent) {
-        // Lógica para modificar ruta
-        appendOutput("Funcionalidad 'Modify Route' no implementada aún.");
+        // Implement the logic for modifying a route here
+        String origin = cmbOrigin.getValue();
+        String destination = cmbDestination.getValue();
+        String distanceText = txtDistance.getText();
+
+        if (origin == null || destination == null || origin.isEmpty() || destination.isEmpty() || distanceText.isEmpty()) {
+            appendRoutesOutput("Please select origin, destination, and enter distance to modify.");
+            return;
+        }
+
+        try {
+            double distance = Double.parseDouble(distanceText);
+            appendRoutesOutput("Modifying route: " + origin + " to " + destination + " (New Distance: " + distance + ")");
+            // Add your route modification logic here
+            clearRouteFields();
+        } catch (NumberFormatException e) {
+            appendRoutesOutput("Invalid distance. Please enter a numeric value.");
+        }
     }
 
+    @FXML
     public void shortestPath(ActionEvent actionEvent) {
-        // Lógica para encontrar la ruta más corta
-        appendOutput("Funcionalidad 'Shortest Path' no implementada aún.");
+        // Implement the logic for finding the shortest path here
+        String origin = cmbOrigin.getValue();
+        String destination = cmbDestination.getValue();
+
+        if (origin == null || destination == null || origin.isEmpty() || destination.isEmpty()) {
+            appendRoutesOutput("Please select both origin and destination airports to find the shortest path.");
+            return;
+        }
+        appendRoutesOutput("Finding shortest path from " + origin + " to " + destination + "...");
+        // Add your shortest path algorithm call here, and display results in textArea
     }
+
+    private void clearRouteFields() {
+        if (cmbOrigin != null) cmbOrigin.getSelectionModel().clearSelection();
+        if (cmbDestination != null) cmbDestination.getSelectionModel().clearSelection();
+        if (txtDistance != null) txtDistance.clear();
+    }
+
+    // You might want to consider removing these action methods if they are not directly tied
+    // to the functionality of the AdminController and are instead handled by separate views.
+    // However, if they launch new windows, they are fine here.
+    @FXML
+    private void modifyFlight(ActionEvent event) {
+        appendOutput("Funcionalidad 'Modify Flight' no implementada aún.");
+    }
+
+    @FXML
+    private void deleteFlight(ActionEvent event) {
+        appendOutput("Funcionalidad 'Delete Flight' no implementada aún.");
+    }
+
+    @FXML
+    private void addFlight(ActionEvent event) {
+        appendOutput("Funcionalidad 'Add Flight' no implementada aún.");
+    }
+
 }

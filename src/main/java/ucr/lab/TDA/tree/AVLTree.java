@@ -1,6 +1,8 @@
 package ucr.lab.TDA.tree;
 
 
+import ucr.lab.TDA.list.SinglyLinkedList;
+
 import static ucr.lab.utility.Util.compare;
 
 public class AVLTree implements Tree {
@@ -12,8 +14,27 @@ public class AVLTree implements Tree {
                 throw new TreeException("AVL Binary Search Tree is empty");
             return size(root);
         }
+    public SinglyLinkedList getElements() {
+        SinglyLinkedList elements = new SinglyLinkedList();
+        // Llama al método auxiliar para recolectar los elementos recursivamente
+        inOrderTraversal(root, elements);
+        return elements;
+    }
+    private void inOrderTraversal(BTreeNode node, SinglyLinkedList list) {
+        if (node != null) {
+            // Recorre el subárbol izquierdo
+            inOrderTraversal(node.left, list);
 
-        @Override
+            // Visita el nodo actual y añade su dato a la lista
+            // Aquí se asume que 'data' es el campo que contiene el objeto Passenger
+            list.add(node.data);
+
+            // Recorre el subárbol derecho
+            inOrderTraversal(node.right, list);
+        }
+    }
+
+    @Override
         public BTreeNode getRoot() {
             return root;
         }

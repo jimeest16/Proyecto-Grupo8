@@ -25,17 +25,17 @@ import java.util.TreeSet;
 
 public class UserController {
 
-    // ComboBoxes para la búsqueda de origen y destino, de tipo String para los NOMBRES de los aeropuertos
+
     @FXML private ComboBox<String> cbSearchOriginCode;
     @FXML private ComboBox<String> cbSearchDestinationCode;
 
     @FXML private DatePicker dpSearchDepartureDate;
 
-    // Tabla de vuelos disponibles y sus columnas
+
     @FXML private TableView<Flight> tvAvailableFlights;
     @FXML private TableColumn<Flight, Integer> colFlightNumber;
-    @FXML private TableColumn<Flight, Integer> colOriginCode; // Muestra el código del aeropuerto de origen
-    @FXML private TableColumn<Flight, Integer> colDestinationCode; // Muestra el código del aeropuerto de destino
+    @FXML private TableColumn<Flight, Integer> colOriginCode;
+    @FXML private TableColumn<Flight, Integer> colDestinationCode;
     @FXML private TableColumn<Flight, LocalDateTime> colDepartureTime;
     @FXML private TableColumn<Flight, Integer> colCapacity;
     @FXML private TableColumn<Flight, Integer> colOccupancy;
@@ -59,16 +59,14 @@ public class UserController {
         this.allAirports = new SinglyLinkedList(); // Inicializa la lista de aeropuertos
     }
 
-    /**
-     * Método de inicialización de JavaFX que se llama automáticamente al cargar el FXML.
-     */
+
     @FXML
     public void initialize() throws ListException {
         loadAllPassengersToTree();
         loadAllFlightsToList();
         loadAllAirportsToComboBoxes();
 
-        // --- ADD THESE DEBUG PRINTS ---
+
         System.out.println("\n--- DEBUG: Initialization Check ---");
         System.out.println("allAirports size: " + (allAirports != null ? allAirports.size() : "null"));
         if (allAirports != null && !allAirports.isEmpty()) {
@@ -88,7 +86,6 @@ public class UserController {
             }
         }
         System.out.println("--- END DEBUG: Initialization Check ---\n");
-        // --- END DEBUG PRINTS ---
 
         colFlightNumber.setCellValueFactory(new PropertyValueFactory<>("number"));
         colOriginCode.setCellValueFactory(new PropertyValueFactory<>("originCode"));
@@ -101,9 +98,7 @@ public class UserController {
 
         updateFlightTable(allFlights);
     }
-    /**
-     * Carga todos los pasajeros desde el archivo y los inserta en el árbol AVL.
-     */
+
     private void loadAllPassengersToTree() {
         SinglyLinkedList passengersListFromFile = FileReader.loadPassengers();
         try {
@@ -125,9 +120,7 @@ public class UserController {
         }
     }
 
-    /**
-     * Carga todos los vuelos desde el archivo y los añade a la lista interna `allFlights`.
-     */
+
     private void loadAllFlightsToList() {
         List<Flight> flightList = FileReader.loadFlightsAsListForInternalUse();
         if (flightList != null) {
@@ -140,10 +133,7 @@ public class UserController {
         }
     }
 
-    /**
-     * Carga todos los nombres de aeropuerto desde el archivo y popula los ComboBoxes.
-     * Los ComboBoxes mostrarán los nombres, y se usarán los códigos internamente para la lógica.
-     */
+
     private void loadAllAirportsToComboBoxes() {
         this.allAirports = FileReader.loadAirports(); // Carga la lista de aeropuertos desde FileReader
 
@@ -168,11 +158,6 @@ public class UserController {
         appendUserOutput("Nombres de aeropuerto cargados en los selectores.");
     }
 
-    /**
-     * Obtiene el código de aeropuerto a partir de su nombre, usando la lista `allAirports`.
-     * @param airportName El nombre del aeropuerto.
-     * @return El código del aeropuerto, o null si no se encuentra.
-     */
     private Integer getAirportCodeByName(String airportName) throws ListException {
         if (airportName == null || allAirports == null || allAirports.isEmpty()) {
             return null;
@@ -186,20 +171,14 @@ public class UserController {
         return null; // Aeropuerto no encontrado
     }
 
-    /**
-     * Añade un mensaje al área de salida de usuario.
-     * @param text El texto a añadir.
-     */
+
     private void appendUserOutput(String text) {
         if (txtUserOutput != null) {
             txtUserOutput.appendText(text + "\n");
         }
     }
 
-    /**
-     * Actualiza la TableView con los vuelos de la lista proporcionada.
-     * @param flightsToDisplay La SinglyLinkedList de vuelos a mostrar.
-     */
+
     private void updateFlightTable(SinglyLinkedList flightsToDisplay) {
         observableFlightList.clear();
         try {
@@ -213,13 +192,6 @@ public class UserController {
         tvAvailableFlights.setItems(observableFlightList);
     }
 
-    /**
-     * Convierte una SinglyLinkedList de vuelos a una CircularDoublyLinkedList.
-     * Necesario para el método saveFlights del FileReader.
-     * @param sll La SinglyLinkedList a convertir.
-     * @return Una nueva CircularDoublyLinkedList con los mismos elementos.
-     * @throws ListException Si hay un error al acceder a elementos de la lista.
-     */
     private CircularDoublyLinkedList convertSinglyLinkedListToCircularDoublyLinkedList(SinglyLinkedList sll) throws ListException {
         CircularDoublyLinkedList cdll = new CircularDoublyLinkedList();
         if (sll != null && !sll.isEmpty()) {
@@ -230,13 +202,7 @@ public class UserController {
         return cdll;
     }
 
-    /**
-     * Convierte una SinglyLinkedList de pasajeros a una List de pasajeros.
-     * Necesario para el método savePassengers del FileReader.
-     * @param sll La SinglyLinkedList a convertir.
-     * @return Una nueva List de pasajeros.
-     * @throws ListException Si hay un error al acceder a elementos de la lista.
-     */
+
     private List<Passenger> convertPassengerSinglyLinkedListToArrayList(SinglyLinkedList sll) throws ListException {
         List<Passenger> list = new ArrayList<>();
         if (sll != null && !sll.isEmpty()) {
@@ -247,10 +213,7 @@ public class UserController {
         return list;
     }
 
-    /**
-     * Maneja el evento de búsqueda de vuelos.
-     * Filtra los vuelos según los nombres de aeropuerto de origen, destino y fecha seleccionados.
-     */
+
     // En UserController.java
     @FXML
     private void handleSearchFlights() {
@@ -437,10 +400,6 @@ public class UserController {
         }
     }
 
-    /**
-     * Maneja el evento de embarque de pasajeros.
-     * Verifica si un pasajero tiene un tiquete válido para el vuelo seleccionado y simula el embarque.
-     */
     @FXML
     private void handleBoardPassenger() {
         Flight selectedFlight = tvAvailableFlights.getSelectionModel().getSelectedItem();
