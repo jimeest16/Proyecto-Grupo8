@@ -1,3 +1,4 @@
+
 [ {
   "code" : 1,
   "name" : "Los Angeles International Airport",
@@ -12,6 +13,7 @@
   "departuresBoard" : null
 }, {
   "code" : 3,
+
   "name" : "Aeropuerto Internacional de San José",
   "country" : "COSTA RICA",
   "status" : "Activo",
