@@ -1,6 +1,11 @@
 package ucr.lab.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import ucr.lab.TDA.list.SinglyLinkedList;
+import ucr.lab.TDA.queue.LinkedQueue;
+import ucr.lab.TDA.queue.QueueException;
+import ucr.lab.utility.Util;
 
 import java.util.Objects;
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -10,12 +15,29 @@ public class AirPort {
     private String name;
     private String country;
     private String status;// ACTIV0 O INACTIVO
-    private Departures departuresBoard;
-
+    //private Departures departuresBoard;
+    private SinglyLinkedList departuresBoard; //tipo Flight
+    @JsonProperty("waitingQueue")
+    private LinkedQueue waitingQueue; // tipo Passenger
     public AirPort() {
     }
 
-    public AirPort(int code, String name, String country, String status, Departures departuresBoard) {
+    //completo este lo usaria flight
+    public AirPort(int code, String name, String country, String status, SinglyLinkedList departuresBoard, LinkedQueue waitingQueue) throws QueueException {
+        this.code = code;
+        this.name = name;
+        this.country = country;
+        this.status = status;
+        this.departuresBoard = departuresBoard; // Lista de vuelos
+        LinkedQueue queue = new LinkedQueue();
+        for (Passenger p : Util.getPassengerInList()) {
+            queue.enQueue(p);
+        }
+        this.waitingQueue = queue;//Cola de espera de pasajeros
+
+    }
+    //este es para el manager Airport
+    public AirPort(int code, String name, String country, String status, SinglyLinkedList departuresBoard) {
         this.code = code;
         this.name = name;
         this.country = country;
@@ -49,7 +71,7 @@ public class AirPort {
         return status;
     }
 
-    public Departures getDeparturesBoard() {
+    public SinglyLinkedList getDeparturesBoard() {
         return departuresBoard;
     }
 
@@ -69,8 +91,16 @@ public class AirPort {
         this.country = country;
     }
 
-    public void setDeparturesBoard(Departures departuresBoard) {
+    public void setDeparturesBoard(SinglyLinkedList departuresBoard) {
         this.departuresBoard = departuresBoard;
+    }
+
+    public LinkedQueue getWaitingQueue() {
+        return waitingQueue;
+    }
+
+    public void setWaitingQueue(LinkedQueue waitingQueue) {
+        this.waitingQueue = waitingQueue;
     }
 
     @Override

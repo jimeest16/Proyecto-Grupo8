@@ -194,7 +194,7 @@ public class FileReader {
         return departuresSinglyList;
     }
 
-    public static void saveDepartures(List<Departures> departures) {
+    public static void saveDepartures(List<Flight> departures) {
         File file = new File(FILE_DEPARTURES);
         System.out.println("[PRUEBAS X CONSOLA:] Guardando " + departures.size() + " salidas en: " + file.getAbsolutePath());
         try {
@@ -206,11 +206,11 @@ public class FileReader {
         }
     }
 
-    public static void addDepartures(Departures newDeparture) {
-        List<Departures> departures = loadDeparturesAsList();
+    public static void addDepartures(Flight newDeparture) {
+        List<Flight> departures = loadDeparturesAsList();
         departures.add(newDeparture);
         saveDepartures(departures);
-        System.out.println("[PRUEBAS X CONSOLA:] Salida para aeropuerto " + newDeparture.getGateId() + " agregada y guardada.");
+        System.out.println("[PRUEBAS X CONSOLA:] Salida para aeropuerto " + newDeparture.getNumber() + " agregada y guardada.");
     }
 
 
@@ -354,11 +354,11 @@ public class FileReader {
         }
     }
 
-    private static List<Departures> loadDeparturesAsList() {
+    private static List<Flight> loadDeparturesAsList() {
         File file = new File(FILE_DEPARTURES);
         try {
             if (!file.exists() || file.length() == 0) return new ArrayList<>();
-            return mapper.readValue(file, new TypeReference<List<Departures>>() {});
+            return mapper.readValue(file, new TypeReference<List<Flight>>() {});
         } catch (IOException e) {
             e.printStackTrace();
             return new ArrayList<>();

@@ -1,11 +1,11 @@
 package ucr.lab.TDA.list;
 
 import static ucr.lab.utility.Util.compare;
-import static ucr.lab.utility.Util.instanceOf;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import ucr.lab.TDA.Node;
 import ucr.lab.domain.Flight;
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class SinglyLinkedList implements List {
     private Node first; //apuntador al inicio de la lista
     private boolean sorted;
@@ -330,5 +330,34 @@ public int sizeFlight()throws ListException{
         }
         return current.data; // Devolvemos el dato del nodo encontrado (que es un Object)
     }
+    public Flight getFlight(int index) {
+        Node current = first;
+        int i = 0;
+        while (current != null) {
+            if (i == index) return (Flight) current.data;
+            current = current.next;
+            i++;
+        }
+        throw new IndexOutOfBoundsException();
+    }
 
+    public void setFirst(Node first) {
+        this.first = first;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public boolean isSorted() {
+        return sorted;
+    }
+
+    public void setSorted(boolean sorted) {
+        this.sorted = sorted;
+    }
 }

@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 public class AirPortDatos {
     private File file = new File("src/main/resources/data/airports.json");
     private Gson gson = new GsonBuilder()
+            .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter())
             .registerTypeAdapter(LocalDate.class, new JsonSerializer<LocalDate>() {
                 @Override
                 public JsonElement serialize(LocalDate src, Type typeOfSrc, JsonSerializationContext context) {

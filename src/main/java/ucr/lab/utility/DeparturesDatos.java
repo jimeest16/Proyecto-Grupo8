@@ -5,8 +5,10 @@ import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
+import ucr.lab.TDA.list.SinglyLinkedList;
 import ucr.lab.domain.AirPort;
 import ucr.lab.domain.Departures;
+import ucr.lab.domain.Flight;
 
 import java.io.*;
 import java.io.FileReader;
@@ -17,27 +19,31 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class DeparturesDatos {
+    //ESTA CLASE MANEJA LOS DATOS DE LA LISTA DE SALIDAS DE CADA AEROPUERTOS QUE CONTIENE VUELOS
     private final File file;
     private Gson gson = new GsonBuilder()
             .setPrettyPrinting()
             .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
             .create();
 
-    private final List<Departures> departuresList;
+    private final List<Flight> departuresList;
     ObjectMapper mapper = JacksonProvider.get();
     public DeparturesDatos(File file) throws IOException {
-
-        List<Departures> list = mapper.readValue(file, new TypeReference<List<Departures>>() {});
         this.file = file;
-        if (file.exists()) {
-            this.departuresList = loadFromFile();
+
+        if (file.exists() && file.length() > 0) {
+            this.departuresList = mapper.readValue(file, new TypeReference<List<Flight>>() {});
+            System.out.println("⚙️ Departures cargados: " + this.departuresList.size());
         } else {
             this.departuresList = new ArrayList<>();
             saveToFile();
+            System.out.println("📄 Archivo creado: lista vacía de departures");
         }
+        System.out.println("🔍 Departures cargados correctamente: " + departuresList.size());
+
     }
 
-    public void insert(Departures departure) throws IOException {
+    public void insert(Flight departure) throws IOException {
         departuresList.add(departure);
         saveToFile();
     }
@@ -65,14 +71,14 @@ public class DeparturesDatos {
         return removed;
     }
 */
-private List<Departures> loadFromFile() {
+private List<Flight> loadFromFile() {
     if (!file.exists() || file.length() == 0) {
         System.out.println("Archivo no existe o está vacío.");
         return new ArrayList<>();
     }
 
     try (Reader reader = new FileReader(file)) {
-        JavaType type = mapper.getTypeFactory().constructCollectionType(List.class, Departures.class);
+        JavaType type = mapper.getTypeFactory().constructCollectionType(List.class, SinglyLinkedList.class);
         return mapper.readValue(reader, type);
     } catch (IOException e) {
         System.err.println("Error cargando datos: " + e.getMessage());
@@ -87,7 +93,7 @@ private List<Departures> loadFromFile() {
         }
     }
 
-    public List<Departures> getAllDepartures() {
+    public List<Flight> getAllDepartures() {
         return new ArrayList<>(departuresList);
     }
 
@@ -109,7 +115,7 @@ private List<Departures> loadFromFile() {
         }
     }*/
 
-    public List<Departures> findAll() {
+    public List<Flight> findAll() {
         return new ArrayList<>(departuresList);
     }
 }
