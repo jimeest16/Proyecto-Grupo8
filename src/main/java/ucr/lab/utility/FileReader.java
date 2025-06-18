@@ -1,20 +1,20 @@
 package ucr.lab.utility;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.core.type.TypeReference;
+
 import ucr.lab.TDA.list.CircularDoublyLinkedList;
 import ucr.lab.TDA.list.CircularLinkedList;
 import ucr.lab.TDA.list.ListException;
 import ucr.lab.TDA.list.SinglyLinkedList;
-
 import ucr.lab.domain.*;
-
 import java.io.File;
 import java.io.IOException;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class FileReader {
@@ -214,7 +214,7 @@ public class FileReader {
     }
 
 
-    public static CircularDoublyLinkedList loadFlights() {
+    public static SinglyLinkedList loadFlights() {
         CircularDoublyLinkedList flightList = new CircularDoublyLinkedList();
         File file = new File(FILE_FLIGHTS);
         System.out.println("[PRUEBAS X CONSOLA:] Cargando vuelos desde: " + file.getAbsolutePath());
@@ -235,7 +235,7 @@ public class FileReader {
         return flightList;
     }
 
-    public static void saveFlights(CircularDoublyLinkedList flights) throws ListException {
+    public static void saveFlights(SinglyLinkedList flights) throws ListException {
         List<Flight> tempFlights = new ArrayList<>();
         if (!flights.isEmpty()) {
             Object currentObj = flights.getFirst();
@@ -257,7 +257,7 @@ public class FileReader {
     }
 
     public static void addFlight(Flight newFlight) throws ListException {
-        CircularDoublyLinkedList flights = loadFlights();
+        SinglyLinkedList flights = loadFlights();
         flights.add(newFlight);
         saveFlights(flights);
         System.out.println("[PRUEBAS X CONSOLA:] Vuelo " + newFlight.getNumber() + " agregado y guardado.");
@@ -296,9 +296,14 @@ public class FileReader {
             }
             System.out.println("[PRUEBAS X CONSOLA:] INFO: Archivo de rutas encontrado en: " + file.getAbsolutePath());
 
+
             List<Route> tempRoutes = mapper.readValue(file, new TypeReference<List<Route>>() {});
-            for (Route route : tempRoutes) {
-                routesSinglyList.add(route);
+            if (tempRoutes != null) {
+                for (Route route : tempRoutes) {
+                    // Jackson con SinglyReader debería haber poblado correctamente destinationList.
+                    // Solo necesitamos añadir la Route a la SinglyLinkedList principal.
+                    routesSinglyList.add(route);
+                }
             }
             System.out.println("[PRUEBAS X CONSOLA:] " + routesSinglyList.size() + " rutas cargadas.");
         } catch (IOException e) {
@@ -306,12 +311,13 @@ public class FileReader {
             e.printStackTrace();
             return new SinglyLinkedList();
         } catch (Exception e) {
-            System.err.println("[Errores:] Error inesperado al cargar rutas: " + e.getMessage());
+            System.err.println("[Errores:] Error inesperado al cargar rutas (asegúrese que el JSON coincide con la clase Route y Destination, y SinglyReader funciona): " + e.getMessage());
             e.printStackTrace();
             return new SinglyLinkedList();
         }
         return routesSinglyList;
     }
+
 
     public static void saveRoutes(List<Route> routes) {
         File file = new File(FILE_ROUTES);
@@ -363,14 +369,72 @@ public class FileReader {
         if (singlyLinkedList != null && !singlyLinkedList.isEmpty()) {
             for (int i = 1; i <= singlyLinkedList.size(); i++) {
                 Object element = singlyLinkedList.get(i);
-                if (element instanceof Route) {
+                if (element instanceof Route) { // Asegura que solo se añaden objetos Route
                     list.add((Route) element);
                 } else {
-                    // Opcional: Manejar el caso donde un elemento no es de tipo Route
-                    System.err.println("Advertencia: Elemento inesperado en SinglyLinkedList. Se esperaba un objeto Route, pero se encontró: " + element.getClass().getName());
+                    System.err.println("Advertencia: Elemento inesperado en SinglyLinkedList. Se esperaba un objeto Route, pero se encontró: " + (element != null ? element.getClass().getName() : "null"));
+                    // Si encuentras un Flight aquí, es un problema serio de dónde se añadió.
                 }
             }
         }
         return list;
     }
+
+
+
+    public static HashMap<Integer, AirportRoute> loadAirportRoutes() {
+        HashMap<Integer, AirportRoute> airportRoutesMap = new HashMap<>();
+        File file = new File(FILE_ROUTES); // Si airportRoutes.json es diferente, actualiza la ruta
+        System.out.println("[PRUEBAS X CONSOLA:] Cargando rutas de aeropuertos desde: " + file.getAbsolutePath());
+
+        try {
+            if (!file.exists()) {
+                System.err.println("Advertencia: Archivo de rutas de aeropuertos NO ENCONTRADO en: " + file.getAbsolutePath());
+                return airportRoutesMap;
+            } else if (file.length() == 0) {
+                System.out.println("[PRUEBAS X CONSOLA:] Archivo de rutas de aeropuertos encontrado pero vacío.");
+                return airportRoutesMap;
+            }
+            System.out.println("[PRUEBAS X CONSOLA:] INFO: Archivo de rutas de aeropuertos encontrado en: " + file.getAbsolutePath());
+
+            // Si AirportRoute y Route son realmente lo mismo o se usan para el mismo archivo,
+            // esta parte puede ser redundante o generar conflicto.
+            // Si son diferentes, deben cargar de archivos diferentes.
+            List<AirportRoute> tempAirportRoutes = mapper.readValue(file, new TypeReference<List<AirportRoute>>() {});
+
+            if (tempAirportRoutes != null) {
+                for (AirportRoute route : tempAirportRoutes) {
+                    SinglyLinkedList actualDestinationList = new SinglyLinkedList();
+                    if (route.getDestinationList() != null) {
+                        for (int i = 1; i <= route.getDestinationList().size(); i++) {
+                            Object item = route.getDestinationList().get(i);
+
+                            if (item instanceof Destination) {
+                                actualDestinationList.add((Destination) item);
+                            } else {
+
+                                System.err.println("Advertencia: Objeto deserializado en destinationList NO ES DE TIPO Destination. Es: " + item.getClass().getName());
+
+                                throw new ClassCastException("Se esperaba ucr.lab.domain.Destination pero se encontró " + item.getClass().getName());
+                            }
+                        }
+                    }
+                    route.setDestinationList(actualDestinationList); // Reemplaza con la lista correcta
+                    airportRoutesMap.put(route.getOriginAirportCode(), route);
+                }
+            }
+            System.out.println("[PRUEBAS X CONSOLA:] " + airportRoutesMap.size() + " rutas de aeropuertos cargadas.");
+        } catch (IOException e) {
+            System.err.println("[Errores:] Error de I/O o JSON al cargar rutas de aeropuertos: " + e.getMessage());
+            e.printStackTrace();
+            return new HashMap<>();
+        } catch (Exception e) {
+            System.err.println("[Errores:] Error inesperado al cargar rutas de aeropuertos: " + e.getMessage());
+            e.printStackTrace();
+            return new HashMap<>();
+        }
+        return airportRoutesMap;
+    }
+
+
 }

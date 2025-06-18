@@ -53,7 +53,12 @@ public class Passenger implements Comparable<Passenger> {
         this.flightHistory = (flightHistory != null) ? flightHistory : new SinglyLinkedList();
         this.state = (state != null) ? state : "Active";
     }
- // Getters y Setters
+
+    public Passenger(int id) {
+        this.id = id;
+    }
+
+    // Getters y Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     public String getName() { return name; }

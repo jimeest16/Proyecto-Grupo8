@@ -1,22 +1,28 @@
-[
-  {
-    "originAirport": 1,
-    "destinationList": [
-      { "airportCode": 3, "distance": 450.5 },
-      { "airportCode": 12, "distance": 1200.75 }
-    ]
-  },
-  {
-    "originAirport": 5,
-    "destinationList": [
-      { "airportCode": 9, "distance": 800.0 },
-      { "airportCode": 6, "distance": 950.25 }
-    ]
-  },
-  {
-    "originAirport": 2,
-    "destinationList": [
-      { "airportCode": 1, "distance": 2450.0 }
-    ]
-  }
-]
+[ {
+  "originAirport" : 2,
+  "destinationList" : [ {
+    "airport_code" : 3,
+    "distance" : 200.0
+  }, {
+    "airport_code" : 8,
+    "distance" : 150.0
+  }, {
+    "airport_code" : 9,
+    "distance" : 50.0
+  }, {
+    "airport_code" : 20,
+    "distance" : 90.0
+  } ]
+}, {
+  "originAirport" : 8,
+  "destinationList" : [ {
+    "airport_code" : 10,
+    "distance" : 70.0
+  } ]
+}, {
+  "originAirport" : 6,
+  "destinationList" : [ {
+    "airport_code" : 10,
+    "distance" : 100.0
+  } ]
+} ]

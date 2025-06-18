@@ -35,6 +35,8 @@ module ucr.lab {
     opens ucr.lab.TDA.graph to com.fasterxml.jackson.databind, com.google.gson;
     exports ucr.lab.utility.Reader;
     opens ucr.lab.utility.Reader to com.fasterxml.jackson.databind, com.fasterxml.jackson.datatype.jsr310, javafx.fxml;
+    exports ucr.lab.utility.Writer;
+    opens ucr.lab.utility.Writer to com.fasterxml.jackson.databind, com.fasterxml.jackson.datatype.jsr310, javafx.fxml;
 
 
 }

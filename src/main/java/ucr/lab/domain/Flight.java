@@ -24,9 +24,11 @@ public class Flight {
 
     private SinglyLinkedList passengerIDs;
     private String route;
+    SinglyLinkedList availableRoutes;
 
     public Flight() {
         this.passengerIDs = new SinglyLinkedList();
+        this.route="";
     }
 
     public Flight(int number) {
@@ -74,6 +76,47 @@ public class Flight {
 
 
         this.passengerIDs = passengerIDsList != null ? passengerIDsList : new SinglyLinkedList();
+    }
+    public Flight(Integer number, Integer originCode, Integer destinationCode, LocalDateTime departureTime,
+                  Integer capacity, Integer occupancy, String status) {
+        this.number = number;
+        this.originCode = originCode;
+        this.destinationCode = destinationCode;
+        this.departureTime = departureTime;
+        this.capacity = capacity;
+        this.occupancy = occupancy;
+        this.status = status;
+        this.passengerIDs = new SinglyLinkedList(); // Inicializa la lista de pasajeros
+        this.route = ""; // Inicializa la nueva propiedad 'route'
+    }
+
+    public Flight(int number, int originCode, int destinationCode, LocalDateTime departureTime, int capacity) {
+        this.number = number;
+        this.originCode = originCode;
+        this.destinationCode = destinationCode;
+        this.departureTime = departureTime;
+        this.capacity=capacity;
+    }
+    public Flight(int number, int originCode, int destinationCode, LocalDateTime departureTime,
+                  int capacity, int occupancy, String status, SinglyLinkedList passengerIDs, String route) {
+        this.number = number;
+        this.originCode = originCode;
+        this.destinationCode = destinationCode;
+        this.departureTime = departureTime;
+        this.capacity = capacity;
+        this.occupancy = occupancy;
+        this.status = status;
+        this.passengerIDs = passengerIDs;
+        this.route = route;
+        this.availableRoutes = new SinglyLinkedList(); // Inicializar como lista vacía
+    }
+
+    public SinglyLinkedList getAvailableRoutes() {
+        return availableRoutes;
+    }
+
+    public void setAvailableRoutes(SinglyLinkedList availableRoutes) {
+        this.availableRoutes = availableRoutes;
     }
 
     @JsonIgnore
@@ -192,4 +235,13 @@ public class Flight {
         }
         return sb.toString();
     }
+    public void addPassengerID(Integer passengerId) {
+        if (this.passengerIDs == null) {
+            this.passengerIDs = new SinglyLinkedList(); // Asegurar inicialización
+        }
+        this.passengerIDs.add(passengerId);
+        this.occupancy++; // Incrementar ocupación al añadir pasajero
+    }
+
+
 }

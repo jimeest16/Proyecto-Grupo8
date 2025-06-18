@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
-<TabPane prefHeight="650.0" prefWidth="950.0" style="-fx-background-color: #f0f8ff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.AdminController">
+<?import javafx.scene.layout.AnchorPane?> <TabPane prefHeight="650.0" prefWidth="950.0" style="-fx-background-color: #f0f8ff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.AdminController">
 
     <tabs>
         <Tab style="-fx-background-color: #d8e6f0;" text="Welcome">
@@ -151,324 +144,29 @@
             </content>
         </Tab>
 
-        <Tab style="-fx-background-color: #e0f2f7;" text="Manage Flights">
-            <content>
-                <VBox spacing="25" style="-fx-background-color: #f7fafd; -fx-padding: 30;">
-                    <VBox alignment="CENTER" spacing="5">
-                        <children>
-                            <Text fill="#2a6e9a" strokeType="OUTSIDE" strokeWidth="0.0" text="Flight Management Hub">
-                                <font>
-                                    <Font name="Segoe UI Black" size="32.0" />
-                                </font>
-                            </Text>
-                            <Text fill="#5a5a5a" strokeType="OUTSIDE" strokeWidth="0.0" text="Efficiently add, modify, and manage all your flight operations.">
-                                <font>
-                                    <Font name="Segoe UI Semibold" size="16.0" />
-                                </font>
-                            </Text>
-                            <Text fill="#e8851b" strokeType="OUTSIDE" strokeWidth="0.0" text="Under development for full functionality." textAlignment="CENTER" wrappingWidth="400">
-                                <font>
-                                    <Font name="Segoe UI Regular" size="14.0" />
-                                </font>
-                            </Text>
-                        </children>
-                    </VBox>
-
-                    <HBox alignment="CENTER" spacing="30" style="-fx-padding: 20; -fx-background-color: #ffffff; -fx-border-radius: 12; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
-                        <children>
-                            <VBox alignment="CENTER" spacing="5">
-                                <children>
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" preserveRatio="true">
-                                        <image>
-                                            <Image url="@modify.png" />
-                                        </image>
-                                    </ImageView>
-                                    <Button onAction="#modifyRoute" style="-fx-background-color: #FFC107; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20; -fx-border-radius: 5; -fx-background-radius: 5;" text="Modify Flight" />
-                                    <Text fill="#666666" text="✅ Edit existing flights" />
-                                </children>
-                            </VBox>
-                            <VBox alignment="CENTER" spacing="5">
-                                <children>
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" preserveRatio="true">
-                                        <image>
-                                            <Image url="@eliminar.png" />
-                                        </image>
-                                    </ImageView>
-                                    <Button onAction="#shortestPath" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20; -fx-border-radius: 5; -fx-background-radius: 5;" text="Delete Flight" />
-                                    <Text fill="#666666" text="✅ Remove flights" />
-                                </children>
-                            </VBox>
-                            <VBox alignment="CENTER" spacing="5">
-                                <children>
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" preserveRatio="true">
-                                        <image>
-                                            <Image url="@agregar.png" />
-                                        </image>
-                                    </ImageView>
-                                    <Button onAction="#addRoute" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20; -fx-border-radius: 5; -fx-background-radius: 5;" text="Add Flight" />
-                                    <Text fill="#666666" text="✅ Create new flights" />
-                                </children>
-                            </VBox>
-                        </children>
-                    </HBox>
-                </VBox>
-            </content>
-        </Tab>
-
-        <Tab style="-fx-background-color: #e0f2f7;" text="Manage Users">
-            <content>
-                <VBox spacing="25" style="-fx-background-color: #f7fafd; -fx-padding: 30;">
-                    <VBox alignment="CENTER" spacing="5">
-                        <children>
-                            <Text fill="#2a6e9a" strokeType="OUTSIDE" strokeWidth="0.0" text="User and Passenger Management">
-                                <font>
-                                    <Font name="Segoe UI Black" size="32.0" />
-                                </font>
-                            </Text>
-                            <Text fill="#5a5a5a" strokeType="OUTSIDE" strokeWidth="0.0" text="Efficiently manage user accounts and passenger details.">
-                                <font>
-                                    <Font name="Segoe UI Semibold" size="16.0" />
-                                </font>
-                            </Text>
-                            <Text fill="#e8851b" strokeType="OUTSIDE" strokeWidth="0.0" text="Details are for display. Use the Login/Register screen to add/edit users." textAlignment="CENTER" wrappingWidth="400">
-                                <font>
-                                    <Font name="Segoe UI Regular" size="14.0" />
-                                </font>
-                            </Text>
-                        </children>
-                    </VBox>
-
-                    <HBox alignment="CENTER" spacing="30" style="-fx-padding: 20; -fx-background-color: #ffffff; -fx-border-radius: 12; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
-                        <children>
-                            <VBox alignment="CENTER" spacing="5">
-                                <children>
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" preserveRatio="true">
-                                        <image>
-                                            <Image url="@editar.png" />
-                                        </image>
-                                    </ImageView>
-                                    <Button onAction="#editUser" style="-fx-background-color: #FFC107; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20; -fx-border-radius: 5; -fx-background-radius: 5;" text="Modify Passenger" />
-                                </children>
-                            </VBox>
-                            <VBox alignment="CENTER" spacing="5">
-                                <children>
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" preserveRatio="true">
-                                        <image>
-                                            <Image url="@eliminarUsuario.png" />
-                                        </image>
-                                    </ImageView>
-                                    <Button onAction="#deleteUser" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20; -fx-border-radius: 5; -fx-background-radius: 5;" text="Delete Passenger" />
-                                </children>
-                            </VBox>
-                            <VBox alignment="CENTER" spacing="5">
-                                <children>
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" preserveRatio="true">
-                                        <image>
-                                            <Image url="@user.png" />
-                                        </image>
-                                    </ImageView>
-                                    <Button onAction="#addUser" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20; -fx-border-radius: 5; -fx-background-radius: 5;" text="Add Passenger" />
-                                </children>
-                            </VBox>
-                            <VBox alignment="CENTER" spacing="5">
-                                <children>
-                                    <ImageView fitHeight="50.0" fitWidth="50.0" preserveRatio="true">
-                                        <image>
-                                            <Image url="@buscador.png" />
-                                        </image>
-                                    </ImageView>
-                                    <Button onAction="#handleSearchPassenger" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20; -fx-border-radius: 5; -fx-background-radius: 5;" text="Search Passenger" />
-                                </children>
-                            </VBox>
-                        </children>
-                    </HBox>
-
-                    <HBox alignment="TOP_CENTER" spacing="30" VBox.vgrow="ALWAYS">
-                        <VBox spacing="10" style="-fx-padding: 20; -fx-background-color: #ffffff; -fx-border-radius: 8; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 5, 0, 0, 2);">
-                            <children>
-                                <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Passenger Details" />
-
-                                <HBox alignment="CENTER_LEFT" spacing="10">
-                                    <Label prefWidth="120" style="-fx-font-size: 14px; -fx-text-fill: #555555;" text="ID:" />
-                                    <TextField fx:id="txtId" prefWidth="200" promptText="Passenger ID" style="-fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" />
-                                </HBox>
-                                <HBox alignment="CENTER_LEFT" spacing="10">
-                                    <Label prefWidth="120" style="-fx-font-size: 14px; -fx-text-fill: #555555;" text="Name:" />
-                                    <TextField fx:id="txtName" prefWidth="200" promptText="Passenger Name" style="-fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" />
-                                </HBox>
-                                <HBox alignment="CENTER_LEFT" spacing="10">
-                                    <Label prefWidth="120" style="-fx-font-size: 14px; -fx-text-fill: #555555;" text="Nationality:" />
-                                    <TextField fx:id="txtNationality" prefWidth="200" promptText="Passenger Nationality" style="-fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" />
-                                </HBox>
-
-                                <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333333; -fx-padding: 10 0 0 0;" text="Flight Information (Optional)" />
-
-                                <HBox alignment="CENTER_LEFT" spacing="10">
-                                    <Label prefWidth="120" style="-fx-font-size: 14px; -fx-text-fill: #555555;" text="Flight Number:" />
-                                    <TextField fx:id="txtFlightNumber" prefWidth="200" promptText="e.g., 101" style="-fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" />
-                                </HBox>
-                                <HBox alignment="CENTER_LEFT" spacing="10">
-                                    <Label prefWidth="120" style="-fx-font-size: 14px; -fx-text-fill: #555555;" text="Origin Code:" />
-                                    <TextField fx:id="txtOriginCode" prefWidth="200" promptText="e.g., SJO" style="-fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" />
-                                </HBox>
-                                <HBox alignment="CENTER_LEFT" spacing="10">
-                                    <Label prefWidth="120" style="-fx-font-size: 14px; -fx-text-fill: #555555;" text="Destination Code:" />
-                                    <TextField fx:id="txtDestinationCode" prefWidth="200" promptText="e.g., LAX" style="-fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" />
-                                </HBox>
-                                <HBox alignment="CENTER_LEFT" spacing="10">
-                                    <Label prefWidth="120" style="-fx-font-size: 14px; -fx-text-fill: #555555;" text="Departure Date:" />
-                                    <DatePicker fx:id="dpDepartureDate" prefWidth="200" promptText="Select Date" style="-fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" />
-                                </HBox>
-                                <HBox alignment="CENTER_LEFT" spacing="10">
-                                    <Label prefWidth="120" style="-fx-font-size: 14px; -fx-text-fill: #555555;" text="Departure Time (HH:MM):" />
-                                    <TextField fx:id="txtDepartureTimeHour" prefWidth="200" promptText="e.g., 14:30" style="-fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" />
-                                </HBox>
-                                <HBox alignment="CENTER_LEFT" spacing="10">
-                                    <Label prefWidth="120" style="-fx-font-size: 14px; -fx-text-fill: #555555;" text="Capacity:" />
-                                    <TextField fx:id="txtCapacity" prefWidth="200" promptText="e.g., 150" style="-fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" />
-                                </HBox>
-                                <HBox alignment="CENTER_LEFT" spacing="10">
-                                    <Label prefWidth="120" style="-fx-font-size: 14px; -fx-text-fill: #555555;" text="Occupancy:" />
-                                    <TextField fx:id="txtOccupancy" prefWidth="200" promptText="e.g., 50" style="-fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" />
-                                </HBox>
-                                <HBox alignment="CENTER_LEFT" spacing="10">
-                                    <Label prefWidth="120" style="-fx-font-size: 14px; -fx-text-fill: #555555;" text="Flight Status:" />
-                                    <TextField fx:id="txtFlightStatus" prefWidth="200" promptText="e.g., Scheduled" style="-fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" />
-                                </HBox>
-                                <HBox alignment="CENTER_LEFT" spacing="10">
-                                    <Label prefWidth="120" style="-fx-font-size: 14px; -fx-text-fill: #555555;" text="Route (Optional):" />
-                                    <TextField fx:id="txtRoute" prefWidth="200" promptText="e.g., SJO-&gt;PTY-&gt;MAD" style="-fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" />
-                                </HBox>
-                                <Button onAction="#handleListPassengers" style="-fx-background-color: #607D8B; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20; -fx-border-radius: 5; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);" text="List All Passengers">
-                                    <font>
-                                        <Font name="Segoe UI Bold" size="14.0" />
-                                    </font>
-                                </Button>
-                            </children>
-                        </VBox>
-
-                        <VBox spacing="10" style="-fx-padding: 20; -fx-background-color: #ffffff; -fx-border-radius: 8; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 5, 0, 0, 2);" HBox.hgrow="ALWAYS">
-                            <children>
-                                <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Output / Results" />
-                                <TextArea fx:id="txtOutput" editable="false" prefHeight="400.0" prefWidth="450.0" style="-fx-control-inner-background: #f0f0f0; -fx-font-family: 'Consolas'; -fx-font-size: 13px; -fx-text-fill: #333333; -fx-border-color: #d0d0d0; -fx-border-radius: 5; -fx-background-radius: 5;" />
-                            </children>
-                        </VBox>
-                    </HBox>
-                </VBox>
-            </content>
-        </Tab>
-
         <Tab onSelectionChanged="#airportManager" style="-fx-background-color: #e0f2f7;" text="Manage Airports">
             <content>
-                <VBox alignment="CENTER" spacing="25" style="-fx-background-color: #f7fafd; -fx-padding: 30;">
-                    <children>
-                        <VBox alignment="CENTER" spacing="5">
-                            <children>
-                                <Text fill="#2a6e9a" strokeType="OUTSIDE" strokeWidth="0.0" text="Airport Management Center">
-                                    <font>
-                                        <Font name="Segoe UI Black" size="32.0" />
-                                    </font>
-                                </Text>
-                                <Text fill="#5a5a5a" strokeType="OUTSIDE" strokeWidth="0.0" text="Create, edit, activate, or deactivate airport records.">
-                                    <font>
-                                        <Font name="Segoe UI Semibold" size="16.0" />
-                                    </font>
-                                </Text>
-                            </children>
-                        </VBox>
-                        <Text fill="#e8851b" text="This section is ready for your detailed airport management components!" textAlignment="CENTER">
-                            <font>
-                                <Font name="Segoe UI Bold" size="18.0" />
-                            </font>
-                        </Text>
-                        <ImageView fitHeight="150.0" fitWidth="150.0" preserveRatio="true">
-                            <image>
-                                <Image url="@aeropuerto2.png" />
-                            </image>
-                        </ImageView>
-                    </children>
-                </VBox>
-            </content>
-        </Tab>
-
-        <Tab style="-fx-background-color: #e0f2f7;" text="Manage routes">
-            <content>
-                <VBox spacing="25" style="-fx-background-color: #f7fafd; -fx-padding: 30;">
-                    <children>
-                        <VBox alignment="CENTER" spacing="5">
-                            <children>
-                                <Text fill="#2a6e9a" strokeType="OUTSIDE" strokeWidth="0.0" text="Efficient Route Management">
-                                    <font>
-                                        <Font name="Segoe UI Black" size="24.0" />
-                                    </font>
-                                </Text>
-                                <Text fill="#5a5a5a" strokeType="OUTSIDE" strokeWidth="0.0" text="Streamline your flight operations by managing routes and connections.">
-                                    <font>
-                                        <Font name="Segoe UI Semibold" size="14.0" />
-                                    </font>
-                                </Text>
-                            </children>
-                        </VBox>
-
-                        <VBox alignment="CENTER" prefWidth="600.0" spacing="15" style="-fx-padding: 20; -fx-background-color: #ffffff; -fx-border-radius: 8; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
-                            <children>
-                                <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="New Route Information" />
-
-                                <ComboBox fx:id="cmbOrigin" prefWidth="450" promptText="Select Origin Airport" style="-fx-prompt-text-fill: #888888; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" />
-                                <ComboBox fx:id="cmbDestination" prefWidth="450" promptText="Select Destination Airport" style="-fx-prompt-text-fill: #888888; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" />
-
-                                <TextField fx:id="txtDistance" prefWidth="450" promptText="Enter Distance (in Kilometers or Minutes)" style="-fx-prompt-text-fill: #888888; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" />
-
-                                <HBox alignment="CENTER" spacing="15" style="-fx-padding: 10;">
-                                    <children>
-                                        <Button onAction="#addRoute" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20; -fx-border-radius: 5; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);" text="Add Route" />
-                                        <Button onAction="#modifyRoute" style="-fx-background-color: #FFC107; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20; -fx-border-radius: 5; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);" text="Modify Route" />
-                                        <Button onAction="#shortestPath" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20; -fx-border-radius: 5; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);" text="Find Shortest Path" />
-                                    </children>
-                                </HBox>
-                            </children>
-                        </VBox>
-
-                        <VBox alignment="CENTER" prefWidth="600.0" spacing="10" style="-fx-padding: 20; -fx-background-color: #ffffff; -fx-border-radius: 8; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
-                            <children>
-                                <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Route Information and Results" />
-                                <TextArea fx:id="textArea" editable="false" prefHeight="200" prefWidth="550" style="-fx-control-inner-background: #f0f0f0; -fx-font-family: 'Consolas'; -fx-font-size: 13px; -fx-text-fill: #333333; -fx-border-color: #d0d0d0; -fx-border-radius: 5; -fx-background-radius: 5;" />
-                            </children>
-                        </VBox>
-                    </children>
-                </VBox>
+                <AnchorPane fx:id="airportsTabContentPane" />
             </content>
         </Tab>
 
 
-        <Tab style="-fx-background-color: #d8e6f0;" text="Log out">
+        <Tab onSelectionChanged="#userManager" style="-fx-background-color: #e0f2f7;" text="Manage Users">
             <content>
-                <VBox alignment="CENTER" spacing="30" style="-fx-background-color: #f0f8ff; -fx-padding: 40 50;">
-                    <children>
-                        <Text fill="#2a6e9a" strokeType="OUTSIDE" strokeWidth="0.0" text="See You Soon!">
-                            <font>
-                                <Font name="Segoe UI Black" size="48.0" />
-                            </font>
-                        </Text>
-                        <Text fill="#5a5a5a" strokeType="OUTSIDE" strokeWidth="0.0" text="Thank you for using FlyLink Airlines Management System." textAlignment="CENTER" wrappingWidth="400">
-                            <font>
-                                <Font name="Segoe UI Semibold" size="18.0" />
-                            </font>
-                        </Text>
+                <AnchorPane fx:id="usersTabContentPane" />
+            </content>
+        </Tab>
 
-                        <VBox alignment="CENTER" spacing="15" style="-fx-padding: 20; -fx-background-color: #ffffff; -fx-border-radius: 12; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
-                            <children>
-                                <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Click the button below to securely log out of your account." />
-                                <Button fx:id="btnLogout" onAction="#logout" prefWidth="250" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 12 30; -fx-border-radius: 8; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);">
-                                    <font>
-                                        <Font name="Segoe UI Bold" size="18.0" />
-                                    </font>
-                                    <text>Log Out</text>
-                                </Button>
-                            </children>
-                        </VBox>
-                    </children>
-                </VBox>
+
+        <Tab onSelectionChanged="#flightManager" style="-fx-background-color: #e0f2f7;" text="Manage Flights">
+            <content>
+                <AnchorPane fx:id="flightsTabContentPane" />
+            </content>
+        </Tab>
+
+        <Tab onSelectionChanged="#routesManager" style="-fx-background-color: #e0f2f7;" text="Manage Routes">
+            <content>
+                <AnchorPane fx:id="routesTabContentPane" />
             </content>
         </Tab>
     </tabs>

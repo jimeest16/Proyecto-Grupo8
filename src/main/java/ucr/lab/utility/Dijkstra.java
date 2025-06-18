@@ -20,11 +20,15 @@ public class Dijkstra {
     private LinkedStack stack;
     private LinkedQueue queue;
 
+
+    private double lastCalculatedDistance;
+
     //Constructor
     public Dijkstra() {
         this.vertexList = new SinglyLinkedList();
         this.stack = new LinkedStack();
         this.queue = new LinkedQueue();
+        this.lastCalculatedDistance = Double.MAX_VALUE; // Initialize
     }
 
 
@@ -103,6 +107,8 @@ public class Dijkstra {
         if (!containsEdge(a, b)) {
             addRemoveVertexEdgeWeight(a, b, weight, "addEdge"); // Solo a → b
             // No agregar la inversa
+        } else {
+            addWeight(a, b, weight);
         }
     }
 
@@ -113,10 +119,10 @@ public class Dijkstra {
             throw new GraphException("There is no vertex associated with the given element");
         for (int i = 1; i <= vertexList.size(); i++){
             Vertex vertex = (Vertex) vertexList.getNode(i).data;
-            if (containsEdge(vertex, element))
-                removeEdge(vertex, element);
+            if (containsEdge(vertex, element)) //
+                removeEdge(vertex.data, element);
         }
-        vertexList.remove(new Vertex(element));
+        vertexList.remove(new Vertex(element)); // Removes the vertex itself
     }
 
 
@@ -132,10 +138,20 @@ public class Dijkstra {
             Vertex vertex = (Vertex) vertexList.getNode(i).data;
             switch (action) {
                 case "addEdge":
-                    vertex.edgesList.add(new EdgeWeight(b, weight));
+
+                    boolean found = false;
+                    for (int j = 1; j <= vertex.edgesList.size(); j++) {
+                        EdgeWeight edge = (EdgeWeight) vertex.edgesList.getNode(j).data;
+                        if (compare(edge.getEdge(), b) == 0) {
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found) {
+                        vertex.edgesList.add(new EdgeWeight(b, weight));
+                    }
                     break;
                 case "addWeight":
-
                     for (int j = 1; j <= vertex.edgesList.size(); j++) {
                         EdgeWeight edge = (EdgeWeight) vertex.edgesList.getNode(j).data;
                         if (compare(edge.getEdge(), b) == 0) {
@@ -145,8 +161,10 @@ public class Dijkstra {
                     }
                     break;
                 case "remove":
-                    if (!vertex.edgesList.isEmpty())
-                        vertex.edgesList.remove(new EdgeWeight(b, weight));
+                    if (!vertex.edgesList.isEmpty()) {
+
+                        vertex.edgesList.remove(new EdgeWeight(b, null));
+                    }
                     break;
             }
         }
@@ -157,11 +175,14 @@ public class Dijkstra {
     public String dfs() throws GraphException, StackException, ListException {
         setVisited(false);//marca todos los vertices como no vistados
         // inicia en el vertice 1
+        if (vertexList.isEmpty()) {
+            return "Grafo vacío.";
+        }
         Vertex vertex = (Vertex)vertexList.getNode(1).data;
-        String info =vertex+", ";
+        String info =vertex.data+", ";
         vertex.setVisited(true); //lo marca
         stack.clear();
-        stack.push(1); //lo apila
+        stack.push(1); //lo apila (push index)
         while( !stack.isEmpty() ){
             // obtiene un vertice adyacente no visitado,
             //el que esta en el tope de la pila
@@ -171,7 +192,7 @@ public class Dijkstra {
             else{
                 vertex = (Vertex)vertexList.getNode(index).data;
                 vertex.setVisited(true); // lo marca
-                info+=vertex+", ";
+                info+=vertex.data+", ";
                 stack.push(index); //inserta la posicion
             }
         }
@@ -183,20 +204,23 @@ public class Dijkstra {
     public String bfs() throws GraphException, QueueException, ListException {
         setVisited(false);//marca todos los vertices como no visitados
         // inicia en el vertice 1
+        if (vertexList.isEmpty()) {
+            return "Grafo vacío.";
+        }
         Vertex vertex = (Vertex)vertexList.getNode(1).data;
-        String info =vertex+", ";
+        String info =vertex.data+", ";
         vertex.setVisited(true); //lo marca
         queue.clear();
-        queue.enQueue(1); // encola el elemento
+        queue.enQueue(1); // encola el elemento (enqueue index)
         int index2;
         while(!queue.isEmpty()){
-            int index1 = (int) queue.deQueue(); // remueve el vertice de la cola
+            int index1 = (int) queue.deQueue(); // remueve el vertice de la cola (dequeue index)
             // hasta que no tenga vecinos sin visitar
             while((index2=adjacentVertexNotVisited(index1)) != -1 ){
                 // obtiene uno
                 vertex = (Vertex)vertexList.getNode(index2).data;
                 vertex.setVisited(true); //lo marco
-                info+=vertex+", ";
+                info+=vertex.data+", ";
                 queue.enQueue(index2); // lo encola
             }
         }
@@ -212,35 +236,28 @@ public class Dijkstra {
     }
 
     private int adjacentVertexNotVisited(int index) throws ListException {
-        Vertex vertex = (Vertex) vertexList.getNode(index).data;
-        for (int i = 1; i <= vertexList.size(); i++) {
-            Vertex adjVertex = (Vertex) vertexList.getNode(i).data;
-            // Verificar si hay una arista desde "vertex" a "adjVertex"
-            if (vertex.edgesList.contains(new EdgeWeight(adjVertex.data, null)) && !adjVertex.isVisited()) {
-                return i; // índice del vecino no visitado
+        Vertex currentVertex = (Vertex) vertexList.getNode(index).data;
+        if (currentVertex == null || currentVertex.edgesList.isEmpty()) {
+            return -1;
+        }
+
+
+        for (int i = 1; i <= currentVertex.edgesList.size(); i++) {
+            EdgeWeight edge = (EdgeWeight) currentVertex.edgesList.getNode(i).data;
+            Object adjacentElement = edge.getEdge();
+
+            int adjVertexIndex = indexOf(adjacentElement);
+            if (adjVertexIndex != -1) {
+                Vertex adjVertex = (Vertex) vertexList.getNode(adjVertexIndex).data;
+                if (!adjVertex.isVisited()) {
+                    return adjVertexIndex;
+                }
             }
         }
-        return -1; // no encontró
+        return -1;
     }
 
     @Override
-//        public String toString() {
-//            String result = "Singly Linked List Graph Content...";
-//            try {
-//                for(int i=1; i<=vertexList.size(); i++){
-//                    Vertex vertex = (Vertex)vertexList.getNode(i).data;
-//                    result+="\nThe vertex in the position "+i+" is: "+vertex;
-//                    if(!vertex.edgesList.isEmpty()){
-//                        result+="........EDGES AND WEIGHTS: "+vertex.edgesList;
-//                    }//if
-//
-//                }//for
-//            } catch (ListException ex) {
-//                System.out.println(ex.getMessage());
-//            }
-//
-//            return result;
-//        }
     public String toString() {
         String result = "...Cargando aeropuertos-rutas y sus pesos...";
         try {
@@ -260,14 +277,13 @@ public class Dijkstra {
     }
 
 
-    // ALGORTIMO TROPICALIZADO
-    public SinglyLinkedList dijkstra(Object origen, Object destino) throws Exception {
+    public SinglyLinkedList dijkstra(Object origen, Object destino) throws GraphException, ListException {
         if (vertexList.isEmpty()) {
-            throw new Exception("El grafo está vacío");
+            throw new GraphException("El grafo está vacío. No se pueden calcular rutas.");
         }
 
         int n = vertexList.size();
-        double[] distancia = new double[n + 1]; // índice 1 a n
+        double[] distancia = new double[n + 1];
         boolean[] visitado = new boolean[n + 1];
         int[] anterior = new int[n + 1];
 
@@ -281,49 +297,71 @@ public class Dijkstra {
         int indiceDestino = indexOf(destino);
 
         if (indiceOrigen == -1 || indiceDestino == -1) {
-            throw new Exception("El vértice origen o destino no existe");
+            throw new GraphException("El vértice origen [" + origen + "] o destino [" + destino + "] no existe en el grafo.");
         }
 
         distancia[indiceOrigen] = 0;
 
+
         for (int count = 1; count <= n; count++) {
             int u = minDistance(distancia, visitado, n);
-            if (u == -1 || u == indiceDestino) break;
+
+
+            if (u == -1 || (u == indiceDestino && distancia[u] != Double.MAX_VALUE)) {
+                break;
+            }
 
             visitado[u] = true;
             Vertex verticeU = (Vertex) vertexList.getNode(u).data;
 
+
             for (int i = 1; i <= verticeU.edgesList.size(); i++) {
                 EdgeWeight arista = (EdgeWeight) verticeU.edgesList.getNode(i).data;
-                int v = indexOf(arista.getEdge());
-                if (v == -1 || visitado[v]) continue;
+                Object edgeDestinationData = arista.getEdge();
+                int v = indexOf(edgeDestinationData);
 
-                double peso = Double.parseDouble(arista.getWeight().toString());
-                if (distancia[u] + peso < distancia[v]) {
+
+                if (v == -1) {
+                    System.err.println("Advertencia: El vértice destino de la arista '" + edgeDestinationData + "' no se encontró en la lista de vértices. Se ignorará esta arista.");
+                    continue;
+                }
+                if (visitado[v]) {
+                    continue;
+                }
+
+                double peso;
+                try {
+                    peso = Double.parseDouble(arista.getWeight().toString());
+                } catch (NumberFormatException e) {
+                    throw new GraphException("Error: El peso de la arista no es un número válido: " + arista.getWeight());
+                }
+
+
+                if (distancia[u] != Double.MAX_VALUE && distancia[u] + peso < distancia[v]) {
                     distancia[v] = distancia[u] + peso;
                     anterior[v] = u;
                 }
             }
-
         }
 
-        // reconstruir camino
-        SinglyLinkedList camino = new SinglyLinkedList();
-        int actual = indiceDestino;
-        if (distancia[actual] == Double.MAX_VALUE) {
-            camino.add("No hay camino desde " + origen + " hasta " + destino);
-            return vertexList;
+
+        SinglyLinkedList path = new SinglyLinkedList();
+        if (distancia[indiceDestino] == Double.MAX_VALUE) {
+
+            this.lastCalculatedDistance = Double.MAX_VALUE;
+            return path;
         }
 
-        while (actual != -1) {
-            Vertex vertice = (Vertex) vertexList.getNode(actual).data;
-            camino.addFirst(vertice.data); // insertar al inicio
-            actual = anterior[actual];
+        this.lastCalculatedDistance = distancia[indiceDestino];
+
+        int current = indiceDestino;
+        while (current != -1) {
+            Vertex vertex = (Vertex) vertexList.getNode(current).data;
+            path.addFirst(vertex.data);
+            current = anterior[current];
         }
 
-        camino.add("Distancia total: " + distancia[indiceDestino]);
-
-        return vertexList;
+        return path;
     }
 
     private int minDistance(double[] distancia, boolean[] visitado, int n) {
@@ -339,26 +377,12 @@ public class Dijkstra {
     }
 
 
-    public double obtenerDistanciaTotal(Object origen, Object destino) throws Exception {
-        SinglyLinkedList ruta = dijkstra(origen, destino);
-        double total = 0.0;
-
-        for (int i = 0; i < ruta.size() - 1; i++) {
-            Vertex v = (Vertex) vertexList.getNode(indexOf(ruta.getNode(i))).data;
-            for (int j = 1; j <= v.edgesList.size(); j++) {
-                EdgeWeight e = (EdgeWeight) v.edgesList.getNode(j).data;
-                if (e.getEdge().toString().equals(ruta.getNode(i + 1))) {
-                    total += Double.parseDouble(e.getWeight().toString());
-                    break;
-                }
-            }
-        }
-
-        return total;
+    public double getLastCalculatedDistance() {
+        return lastCalculatedDistance;
     }
 
 
-    public void agregarRuta(Object origen, Object destino, Object peso) throws Exception {
+    public void agregarRuta(Object origen, Object destino, Object peso) throws GraphException, ListException {
         if (!containsVertex(origen)) {
             addVertex(origen);
         }
@@ -388,10 +412,4 @@ public class Dijkstra {
         }
         return null; // no encontró la arista
     }
-
-
-
-
-
-
 }
