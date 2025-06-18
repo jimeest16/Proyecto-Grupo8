@@ -116,15 +116,9 @@ public class WaitingQueueController {
             nodo = nodo.next;
         }
 
-
-        if (textAreaPassangers == null) {
-            System.out.println("ERROR: textAreaPassangers es null, revisar fx:id e inyección");
-            return;
-        }
         // Asignar texto en UI thread
         Runnable update = () -> {
             textAreaPassangers.setText(datos.toString());
-            System.out.println("DEBUG: texto asignado a TextArea. getText():\n" + textAreaPassangers.getText());
         };
         if (Platform.isFxApplicationThread()) {
             update.run();
@@ -155,10 +149,12 @@ public class WaitingQueueController {
         convertirMapToPassenger();
         LinkedQueue cola = aeropuerto.getWaitingQueue();
         int embarcados = 0;
-
+        SinglyLinkedList listaPasajerosAbordando = new SinglyLinkedList();//pasar los pasajeros a una lista
+        if (vuelo == null) {
+            mostrarAlerta("Alerta","No existe vuelo, no se puede abordar", Alert.AlertType.WARNING);
+        }
         while (!cola.isEmpty() && vuelo.getOccupancy() < vuelo.getCapacity()) {
             Passenger pasajero = (Passenger) cola.deQueue();
-            SinglyLinkedList listaPasajerosAbordando = new SinglyLinkedList();//pasar los pasajeros a una lista
             listaPasajerosAbordando.add(pasajero);
             vuelo.setPassengerIDs(listaPasajerosAbordando); //agregarlos a la lista de ids de pasajeros del vuelo
 
@@ -169,11 +165,9 @@ public class WaitingQueueController {
         if (embarcados != 0) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Embarque");
-            alert.setHeaderText(null);
-            alert.setContentText(embarcados + " pasajeros fueron embarcados.");
+            alert.setHeaderText(embarcados + " pasajeros fueron embarcados.");
+            alert.setContentText("Vuelo actualizado: \n"+"La lista de identificaciones del vuelo es: "+ vuelo.getPassengerIDs());//se puede mejorar la salida
             alert.showAndWait();
-            System.out.println(embarcados + " pasajeros fueron embarcados.");
-            System.out.println("Vuelo actualizado: "+ vuelo);
         }
 
         textAreaPassangers.clear();
