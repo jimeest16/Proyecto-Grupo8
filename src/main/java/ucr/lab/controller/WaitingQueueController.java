@@ -6,14 +6,18 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import ucr.lab.HelloApplication;
 import ucr.lab.TDA.Node;
 import ucr.lab.TDA.list.SinglyLinkedList;
@@ -75,20 +79,18 @@ public class WaitingQueueController {
             textAreaPassangers.setText(datos);
         }
     }
-    public void volverAVistaAirportManager() {
+    public void volverAVistaAirportManager(ActionEvent actionEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ucr/lab/airportManager.fxml"));
-            AnchorPane centro = fxmlLoader.load();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ucr/lab/AirPortView.fxml"));
+            Parent root = loader.load();
 
-            ap.getChildren().clear();
-            AnchorPane.setTopAnchor(centro, 0.0);
-            AnchorPane.setBottomAnchor(centro, 0.0);
-            AnchorPane.setLeftAnchor(centro, 0.0);
-            AnchorPane.setRightAnchor(centro, 0.0);
-
-            ap.getChildren().add(centro);
+            Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Inicio de Sesión");
+            stage.show();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo regresar a la pantalla principal.", Alert.AlertType.ERROR);
         }
     }
     public void embarcarPasajeros() throws QueueException {
@@ -124,5 +126,13 @@ public class WaitingQueueController {
         }
 
         textAreaPassangers.setText(pasajerosEnCola.toString());
+    }
+
+    private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
+        Alert alert = new Alert(tipo);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
 }

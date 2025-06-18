@@ -7,20 +7,20 @@
     "occupancy" : 120,
     "status" : "Scheduled",
     "route" : "SJO-LAX",
+    "departureDate" : "2024-05-10T10:00:00",
     "flightNumber" : 101,
     "originAirportCode" : 3,
     "destinationAirportCode" : 1,
-    "departureDate" : "2024-05-10T10:00:00",
     "passengerIDs" : [ "P001", "P002", "P003", "P004" ]
   }, {
     "capacity" : 200,
     "occupancy" : 180,
     "status" : "Delayed",
     "route" : "LAX-JFK",
+    "departureDate" : "2024-06-01T15:30:00",
     "flightNumber" : 102,
     "originAirportCode" : 1,
     "destinationAirportCode" : 5,
-    "departureDate" : "2024-06-01T15:30:00",
     "passengerIDs" : [ "P005", "P006" ]
   } ],
   "state" : "Active"
@@ -33,10 +33,10 @@
     "occupancy" : 150,
     "status" : "Completed",
     "route" : "MEX-LIM",
+    "departureDate" : "2023-11-20T08:15:00",
     "flightNumber" : 205,
     "originAirportCode" : 7,
     "destinationAirportCode" : 2,
-    "departureDate" : "2023-11-20T08:15:00",
     "passengerIDs" : [ "P007" ]
   } ],
   "state" : "Active"
