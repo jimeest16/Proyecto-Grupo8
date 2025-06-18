@@ -2,11 +2,16 @@ package ucr.lab.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.Gson;
+import ucr.lab.TDA.Node;
 import ucr.lab.TDA.list.SinglyLinkedList;
 import ucr.lab.TDA.queue.LinkedQueue;
 import ucr.lab.TDA.queue.QueueException;
 import ucr.lab.utility.Util;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 @JsonIgnoreProperties(ignoreUnknown = true)
 
@@ -19,6 +24,8 @@ public class AirPort {
     private SinglyLinkedList departuresBoard; //tipo Flight
     @JsonProperty("waitingQueue")
     private LinkedQueue waitingQueue; // tipo Passenger
+
+    private List<Passenger> waitingPassengers;//para serializar
     public AirPort() {
     }
 
@@ -33,7 +40,7 @@ public class AirPort {
         for (Passenger p : Util.getPassengerInList()) {
             queue.enQueue(p);
         }
-        this.waitingQueue = queue;//Cola de espera de pasajeros
+        this.waitingQueue = waitingQueue;//Cola de espera de pasajeros
 
     }
     //este es para el manager Airport
@@ -125,5 +132,44 @@ public class AirPort {
                 ", active=" + status +
                 ", departuresBoard=" + departuresBoard +
                 '}';
+    }
+
+    //para que se lea correctamente la cola de espera
+    public void prepareForSerialization() throws QueueException {
+        waitingPassengers = new ArrayList<>();
+        if (waitingQueue != null) {
+            Node nodo = (Node) waitingQueue.frontN();
+            while (nodo != null) {
+                Object obj = nodo.data;
+                if (obj instanceof Passenger) {
+                    waitingPassengers.add((Passenger) obj);
+                } else {
+                    // Opcional: tratar o loggear caso inesperado
+                    System.out.println("WARN: elemento en cola no es Passenger en prepareForSerialization: " + obj.getClass());
+                }
+                nodo = nodo.next;
+            }
+        }
+    }
+
+    // Después de deserializar desde JSON: reconstruye waitingQueue
+    public void afterDeserialization(Gson gson) throws QueueException {
+        waitingQueue = new LinkedQueue();
+        if (waitingPassengers != null) {
+            for (Object item : waitingPassengers) {
+                if (item instanceof Passenger) {
+                    waitingQueue.enQueue((Passenger) item);
+                } else if (item instanceof Map) {
+                    // En caso de que Gson haya deserializado como LinkedTreeMap: reconvertir
+                    // Convierte el Map a JSON y luego a Passenger
+                    String json = gson.toJson(item);
+                    Passenger p = gson.fromJson(json, Passenger.class);
+                    waitingQueue.enQueue(p);
+                } else {
+                    // Opción: loggear o ignorar
+                    System.out.println("WARN: elemento unexpected en waitingPassengers: " + item.getClass());
+                }
+            }
+        }
     }
 }

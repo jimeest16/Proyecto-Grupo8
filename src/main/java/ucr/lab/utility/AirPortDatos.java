@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
+import ucr.lab.TDA.queue.QueueException;
 import ucr.lab.domain.AirPort;
 
 import java.io.*;
@@ -76,20 +77,22 @@ public class AirPortDatos {
         return removed;
     }
 
-    private List<AirPort> loadFromFile() {
+    private List<AirPort> loadFromFile() throws IOException {
         if (!file.exists() || file.length() == 0) {
             System.out.println("Archivo no existe o está vacío, creando lista vacía.");
             return new ArrayList<>();
         }
-
-        try (Reader reader = new FileReader(file)) {
-            Type listType = new TypeToken<List<AirPort>>() {}.getType();
-            List<AirPort> loaded = gson.fromJson(reader, listType);
-            return loaded != null ? loaded : new ArrayList<>();
-        } catch (IOException | JsonSyntaxException e) {
-            System.err.println("Error cargando datos de aeropuertos: " + e.getMessage());
-            return new ArrayList<>();
-        }
+            try (Reader reader = new FileReader(file)) {
+                List<AirPort> lista = gson.fromJson(reader, new TypeToken<List<AirPort>>(){}.getType());
+                for (AirPort ap : lista) {
+                    try {
+                        ap.afterDeserialization(gson);
+                    } catch (QueueException e) {
+                        e.printStackTrace();
+                    }
+                }
+                return lista;
+            }
     }
 
     private void saveToFile() throws IOException {

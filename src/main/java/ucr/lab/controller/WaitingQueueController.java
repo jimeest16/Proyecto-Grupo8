@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.google.gson.Gson;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,6 +34,7 @@ import ucr.lab.utility.Util;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 public class WaitingQueueController {
     @FXML
@@ -50,13 +53,13 @@ public class WaitingQueueController {
     private LinkedQueue colaPasajeros;
 
     @javafx.fxml.FXML
-    public void initialize() throws IOException {
+    public void initialize() throws IOException, QueueException {
         //Instanciar y serializar la cola de Pasajeros
         ObjectMapper mapper = JacksonProvider.get();
         mapper.registerModule(new JavaTimeModule());
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         File file = new File("src/main/resources/data/airports.json");
-
+        actualizarCola();
 
 }
     public void setDatos(AirPort aeropuerto, Flight vuelo) throws QueueException {
@@ -66,27 +69,82 @@ public class WaitingQueueController {
         labelAirport.setText(aeropuerto.getName());//colocar el nombre del aeropuerto arriba
     }
     private void actualizarCola() throws QueueException {
-        if (aeropuerto != null) {
-            String datos = "";
-            colaPasajeros = aeropuerto.getWaitingQueue(); //tipo passenger
-            Node actual =(Node) colaPasajeros.frontN();
+        if (aeropuerto == null) {
+            return;
+        }
+        LinkedQueue colaPasajeros = aeropuerto.getWaitingQueue();
+        if (colaPasajeros == null) {
+            mostrarAlerta("Error", "La cola de espera es null.", Alert.AlertType.ERROR);
+            return;
+        }
+        if (colaPasajeros.isEmpty()) {
+            mostrarAlerta("Sin pasajeros", "No hay cola de espera asociada a este aeropuerto.", Alert.AlertType.WARNING);
+            textAreaPassangers.clear();
+            return;
+        }
+        // Contar y listar - se pasa lo que viene del json Map a un formato legible
+        int count = 0;
+        Node nodo = (Node) colaPasajeros.frontN();
+        StringBuilder datos = new StringBuilder();
+        while (nodo != null) {
+            Object obj = nodo.data;
+            Passenger p = null;
+            if (obj instanceof Passenger) {
+                p = (Passenger) obj;
+            } else if (obj instanceof Map) {
+                @SuppressWarnings("unchecked")
+                Map<String, Object> map = (Map<String, Object>) obj;
+                // Extrae campos, cuidado con tipos numéricos (Gson suele poner Double para números)
+                int id = ((Number) map.get("id")).intValue();
+                String name = (String) map.get("name");
+                String nationality = (String) map.get("nationality");
+                //SinglyLinkedList flightHistory = (SinglyLinkedList) map.get("flightHistory");
+                //String state= (String) map.get("state") ;
 
-            while (actual != null) {
-                datos = actual.data.toString() + "\n";
-                actual = actual.next;
+                p = new Passenger(id, name, nationality);
+
+            } else {
+                System.out.println("DEBUG: elemento en cola no es Passenger ni Map: " + obj.getClass());
             }
+            if (p != null) {
+                datos.append("ID: ").append(p.getId()).append("\n");
+                datos.append("Nombre: ").append(p.getName()).append("\n");
+                datos.append("Nacionalidad: ").append(p.getNationality()).append("\n");
+                datos.append("--------------------------\n");
+                count++;
+            }
+            nodo = nodo.next;
+        }
 
-            textAreaPassangers.setText(datos);
+
+        if (textAreaPassangers == null) {
+            System.out.println("ERROR: textAreaPassangers es null, revisar fx:id e inyección");
+            return;
+        }
+        // Asignar texto en UI thread
+        Runnable update = () -> {
+            textAreaPassangers.setText(datos.toString());
+            System.out.println("DEBUG: texto asignado a TextArea. getText():\n" + textAreaPassangers.getText());
+        };
+        if (Platform.isFxApplicationThread()) {
+            update.run();
+        } else {
+            Platform.runLater(update);
         }
     }
     public void volverAVistaAirportManager(ActionEvent actionEvent) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ucr/lab/AirPortView.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ucr/lab/AdministratorView.fxml"));
             Parent root = loader.load();
+            AdminController controller = loader.getController();
+            AnchorPane anchorPane =  controller.getAirportsTabContentPane();
+
+            controller.setAirportsTabContentPane(anchorPane);
 
             Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Inicio de Sesión");
+            stage.setFullScreen(true);
+            stage.setTitle("Airports Manager");
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -94,6 +152,7 @@ public class WaitingQueueController {
         }
     }
     public void embarcarPasajeros() throws QueueException {
+        convertirMapToPassenger();
         LinkedQueue cola = aeropuerto.getWaitingQueue();
         int embarcados = 0;
 
@@ -107,13 +166,52 @@ public class WaitingQueueController {
             embarcados++;
         }
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Embarque");
-        alert.setHeaderText(null);
-        alert.setContentText(embarcados + " pasajeros fueron embarcados.");
-        alert.showAndWait();
+        if (embarcados != 0) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Embarque");
+            alert.setHeaderText(null);
+            alert.setContentText(embarcados + " pasajeros fueron embarcados.");
+            alert.showAndWait();
+            System.out.println(embarcados + " pasajeros fueron embarcados.");
+            System.out.println("Vuelo actualizado: "+ vuelo);
+        }
+
+        textAreaPassangers.clear();
+
 
         actualizarVista();
+    }
+    public void convertirMapToPassenger() throws QueueException {
+        LinkedQueue colaRaw = aeropuerto.getWaitingQueue();
+        LinkedQueue colaConvertida = new LinkedQueue();
+        Gson gson = new Gson(); // o usa la misma instancia que en tu app con adaptadores
+
+// Reconstruir una nueva cola con Passenger reales
+        while (!colaRaw.isEmpty()) {
+            Object obj = colaRaw.deQueue();
+            Passenger p = null;
+            if (obj instanceof Passenger) {
+                p = (Passenger) obj;
+            } else if (obj instanceof Map) {
+                @SuppressWarnings("unchecked")
+                Map<String, Object> map = (Map<String, Object>) obj;
+                // Convierte map a JSON y luego a Passenger
+                String json = gson.toJson(map);
+                try {
+                    p = gson.fromJson(json, Passenger.class);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    // Si no se puede, decide si saltas o lanzas error
+                    continue;
+                }
+            } else {
+                System.out.println("WARN: elemento inesperado en cola: " + obj.getClass());
+                continue;
+            }
+            colaConvertida.enQueue(p);
+        }
+// Reemplaza la cola en el aeropuerto
+        aeropuerto.setWaitingQueue(colaConvertida);
     }
     public void actualizarVista() {
         ObservableList<String> pasajerosEnCola = FXCollections.observableArrayList();

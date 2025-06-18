@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="731.0" prefWidth="1200.0" style="-fx-background-color: #f3f8fb; -fx-background-color: ;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.AirPortController">
+<AnchorPane prefHeight="969.0" prefWidth="1709.0" style="-fx-background-color: #f3f8fb; -fx-background-color: ;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.AirPortController">
    <VBox prefHeight="750.0" prefWidth="1191.0" spacing="30" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="0.0">
       <padding>
          <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
@@ -69,7 +69,7 @@
          </HBox>
 
          <HBox alignment="TOP_CENTER" spacing="30" VBox.vgrow="ALWAYS">
-            <VBox prefHeight="359.0" prefWidth="120.0" spacing="20" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 4);" HBox.hgrow="ALWAYS">
+            <VBox prefHeight="434.0" prefWidth="243.0" spacing="20" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 4);" HBox.hgrow="ALWAYS">
                <padding>
                   <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                </padding>
@@ -107,7 +107,7 @@
                </children>
             </VBox>
 
-            <VBox spacing="15" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 4);" HBox.hgrow="ALWAYS">
+            <VBox prefHeight="434.0" prefWidth="443.0" spacing="15" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 4);" HBox.hgrow="ALWAYS">
                <padding>
                   <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                </padding>
@@ -134,13 +134,13 @@
                         </HBox>
                      </children>
                   </HBox>
-                  <TableView fx:id="tvAirports" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                  <TableView fx:id="tvAirports" prefHeight="339.0" prefWidth="0.0" VBox.vgrow="ALWAYS">
                      <columns>
                         <TableColumn fx:id="cID" prefWidth="70.0" text="ID" />
                         <TableColumn fx:id="cNombre" prefWidth="115.0" text="Nombre" />
                         <TableColumn fx:id="cPais" prefWidth="105.0" text="País" />
-                        <TableColumn fx:id="cEstado" minWidth="0.0" prefWidth="176.0" text="Estado" />
-                        <TableColumn fx:id="cRegistro" minWidth="0.0" prefWidth="195.0" text="Registro de salidas" />
+                        <TableColumn fx:id="cEstado" minWidth="0.0" prefWidth="128.0" text="Estado" />
+                        <TableColumn fx:id="cRegistro" minWidth="0.0" prefWidth="182.0" text="Registro de salidas" />
                      </columns>
                   </TableView>
                </children>

@@ -118,6 +118,7 @@ public class LinkedQueue implements Queue {
         return front.data;
     }
 
+    //obtener el nodo del front
     public Node frontN() throws QueueException {
         if (isEmpty()) throw new QueueException("Queue is empty");
         return front;

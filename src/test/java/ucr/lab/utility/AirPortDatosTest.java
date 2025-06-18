@@ -3,6 +3,7 @@ package ucr.lab.utility;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ucr.lab.TDA.Node;
 import ucr.lab.TDA.list.SinglyLinkedList;
 import ucr.lab.TDA.queue.LinkedQueue;
 import ucr.lab.TDA.queue.QueueException;
@@ -34,7 +35,7 @@ class AirPortDatosTest {
 
     }
 
-    @AfterEach
+    //@AfterEach
     void tearDown() {
         if (tempFile.exists()) {
             tempFile.delete();
@@ -183,5 +184,16 @@ class AirPortDatosTest {
         boolean deleted = airportDatos.borrar(5);
         assertTrue(deleted);
         assertNull(airportDatos.buscarAirPort(5));
+    }
+    @Test
+    void testColaPasajeros() throws QueueException {
+        LinkedQueue cola = new LinkedQueue();
+        cola.enQueue(new Passenger(1, "Test", "Pais"));
+        cola.enQueue(new Passenger(2, "Otro", "Pais2"));
+        Node nodo = (Node) cola.frontN();
+        while (nodo != null) {
+            System.out.println("En cola: " + nodo.data);
+            nodo = nodo.next;
+        }
     }
 }

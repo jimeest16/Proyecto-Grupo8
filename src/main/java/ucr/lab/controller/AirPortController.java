@@ -12,6 +12,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -23,6 +25,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import ucr.lab.HelloApplication;
 import ucr.lab.TDA.list.ListException;
@@ -207,6 +210,7 @@ public class AirPortController {
                         System.out.println("Tamaño de la lista de vuelos: " + airport.getDeparturesBoard().size());
                         if (!airport.getDeparturesBoard().isEmpty()) {
                             Flight vuelo = buscarVueloAsociado(airport);
+                            System.out.println("DEBUG: vuelo encontrado = " + vuelo);
                             openWaitingQueueView(event, airport,vuelo);
                         } else {
                             FXUtil.alert("Advertencia", "Este aeropuerto no tiene vuelos disponibles.").showAndWait();
@@ -249,21 +253,20 @@ public class AirPortController {
 
     private void openWaitingQueueView(ActionEvent event, AirPort airport, Flight flight) throws QueueException, IOException {
         try {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/ucr/lab/waitingQueue.fxml"));
-        AnchorPane centro = fxmlLoader.load();
-        // Obtener el controlador y pasar los datos
-        WaitingQueueController controller = fxmlLoader.getController();
-        controller.setDatos(airport, flight);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ucr/lab/waitingQueue.fxml"));
+            Parent root = loader.load();
+            // Obtener el controlador y pasar los datos
+            WaitingQueueController controller = loader.getController();
+            controller.setDatos(airport, flight);
 
-            ap.getChildren().clear();
-            AnchorPane.setTopAnchor(centro, 0.0);
-            AnchorPane.setBottomAnchor(centro, 0.0);
-            AnchorPane.setLeftAnchor(centro, 0.0);
-            AnchorPane.setRightAnchor(centro, 0.0);
-
-            ap.getChildren().add(centro);
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Waiting Queue");
+            stage.setFullScreen(true);
+            stage.show();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            mostrarAlerta("Error", "No se pudo regresar a la pantalla principal.", Alert.AlertType.ERROR);
         }
     }
 
@@ -338,7 +341,7 @@ public class AirPortController {
             String salidas = mSalidas.getValue().toString();
 
             if (id.isEmpty() || firstName.isEmpty() || country.isEmpty() || status.isEmpty() || salidas.isEmpty()) {
-                FXUtil.alert("Error", "Todos los campos son obligatorios para actualizar un huésped.").showAndWait();
+                FXUtil.alert("Error", "Todos los campos son obligatorios para actualizar un aeropuerto.").showAndWait();
                 return;
             }
 
@@ -347,7 +350,7 @@ public class AirPortController {
                 AirPort originalAirport = data.buscarAirPort(Integer.parseInt(tfID.getText()));
 
                 if (originalAirport == null) {
-                    FXUtil.alert("Error", "No se encontró ningún huésped con la cédula/identificación: " + id + ". Por favor, guarde el huésped primero.").showAndWait();
+                    FXUtil.alert("Error", "No se encontró ningún aeropuerto con la cédula/identificación: " + id + ". Por favor, guarde el huésped primero.").showAndWait();
                     return;
                 }
                 SinglyLinkedList lista = new SinglyLinkedList();
@@ -585,6 +588,14 @@ public class AirPortController {
             System.err.println("Error generando el reporte: " + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
+        Alert alert = new Alert(tipo);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
 }
 

@@ -193,6 +193,7 @@ public class LoginController {
 
             Stage stage = (Stage) textUser.getScene().getWindow();
             stage.setScene(new Scene(root));
+            stage.setFullScreen(true);
             stage.setTitle("Sistema de Aeropuertos para: " + rol);
             stage.show();
         } catch (Exception e) {

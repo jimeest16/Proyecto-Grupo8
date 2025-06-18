@@ -31,7 +31,6 @@ public class AdminController {
 
     @FXML
     public void initialize() {
-
         System.out.println("AdminController inicializado.");
     }
 
@@ -123,6 +122,15 @@ public class AdminController {
                 System.err.println("Error al cargar el FXML de gestión de aeropuertos: " + e.getMessage());
             }
         }
+    }
+
+    //esto es para regresar del Waiting Queue en Airports Manager
+    public AnchorPane getAirportsTabContentPane() {
+        return airportsTabContentPane;
+    }
+
+    public void setAirportsTabContentPane(AnchorPane airportsTabContentPane) {
+        this.airportsTabContentPane = airportsTabContentPane;
     }
 
     @FXML
