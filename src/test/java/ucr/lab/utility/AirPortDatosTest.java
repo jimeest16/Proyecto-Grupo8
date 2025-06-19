@@ -31,8 +31,6 @@ class AirPortDatosTest {
     void setUp() throws IOException {
         File tempFile = new File(rutaArchivo);
         airportDatos = new AirPortDatos(tempFile);
-
-
     }
 
     //@AfterEach
@@ -147,7 +145,7 @@ class AirPortDatosTest {
         AirPort airport = new AirPort(1, "LAX", "USA", "Activo", lista);
         airportDatos.insert(airport);
 
-        List<AirPort> all = airportDatos.getAllAirPorts("active");
+        List<AirPort> all = airportDatos.getAllAirPorts("activos");
         assertEquals(1, all.size());
         assertEquals("LAX", all.get(0).getName());
     }
@@ -195,5 +193,18 @@ class AirPortDatosTest {
             System.out.println("En cola: " + nodo.data);
             nodo = nodo.next;
         }
+    }
+    @Test
+    void testTop5Aeropuertos() throws IOException {
+        List<AirPort> all1 = airportDatos.getAllAirPorts("activos");
+        List<AirPort> all2 = airportDatos.getAllAirPorts("inactivos");
+        List<AirPort> all3 = airportDatos.getAllAirPorts("todos");
+
+        System.out.println("----------Aeropuertos ACTIVOS------------");
+        System.out.println(all1);
+        System.out.println("----------Aeropuertos INACTIVOS----------");
+        System.out.println(all2);
+        System.out.println("----------TODOS LOS Aeropuertos-----------");
+        System.out.println(all3);
     }
 }

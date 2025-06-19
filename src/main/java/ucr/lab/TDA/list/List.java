@@ -2,7 +2,7 @@ package ucr.lab.TDA.list;
 
 import ucr.lab.TDA.Node;
 
-public interface List {
+public interface List<F> {
     int size() throws ListException; // Devuelve el número de elementos en la lista
     void clear(); //Remueve todos los elementos de la lista
     boolean isEmpty(); // true si la lista está vacía

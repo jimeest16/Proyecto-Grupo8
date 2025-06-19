@@ -26,7 +26,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import ucr.lab.HelloApplication;
 import ucr.lab.TDA.list.ListException;
 import ucr.lab.TDA.list.SinglyLinkedList;
@@ -540,53 +541,42 @@ public class AirPortController {
         tvAirports.setItems(lista);
     }
     @FXML
-    private void onGenerarReporteClick(ActionEvent event) {
-        generarReporteAeropuertos();  // Llama al método directamente
+    private void onGenerarReporteClick(ActionEvent event) throws JRException, IOException, ListException {
+        String jsonPath = "src/main/resources/data/airports.json";
+        String jrxmlPath = "src/main/resources/jasper/airports.jrxml";
+        String pdf = "src/main/resources/reportes/airports_output.pdf";
+
+        generarReporte(jsonPath, jrxmlPath,pdf); // Llama al método directamente
     }
 
-    public void generarReporteAeropuertos() {
-        try {
-            // Leer archivo JSON desde recursos
-            String jsonData = Util.readJsonFile("data/airports.json");
-            JsonDataSource dataSource = new JsonDataSource(
-                    new ByteArrayInputStream(jsonData.getBytes(StandardCharsets.UTF_8)),
-                    "$"
-            );
+    public static void generarReporte(String jsonPath, String jrxmlPath, String outputPath) throws IOException, JRException, ListException {
+        File file = new File(jsonPath);
+        AirPortDatos data = new AirPortDatos(file);
+       // List<AirPort> airPorts = data.loadFromFile();
+        List<AirPort> airPorts = data.getTop5AirportsWithMostFlights();//METODO PARA OBTENER EL TOP 5 DE AEROPUERTOS CON MÁS VUELOS SALIENTES
 
-            // Compilar el JRXML
-            String jrxmlPath = "src/main/resources/jasper/airports.jrxml";
-            String jasperPath = "src/main/resources/jasper/airports.jasper";
-            JasperCompileManager.compileReportToFile(jrxmlPath, jasperPath);
+        // Compilar el archivo .jrxml
+        JasperReport report = JasperCompileManager.compileReport(jrxmlPath);
 
-            // Cargar el .jasper desde classpath correctamente
-            InputStream template = getClass().getResourceAsStream("/jasper/airports.jasper");
-            if (template == null) throw new RuntimeException("No se encontró la plantilla airports.jasper");
+        // Crear fuente de datos desde la lista de clientes
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(airPorts);
 
-            // Crear el PDF
-            String outputPath = "src/main/resources/reportes/airports_output.pdf";
+        Map<String, Object> parameters = new HashMap<>(); // Parámetros opcionales
 
-            Map<String, Object> parameters = new HashMap<>();
-            parameters.put("Aviation System", "Aeropuerto Central S.A.");
-            try (OutputStream outputPdf = new FileOutputStream(outputPath)) {
-                JsonTemplateParameters reportParams = new JsonTemplateParameters(dataSource, template, outputPdf, parameters);
-                new JasperPdfCreator().writePdf(reportParams);
+        JasperPrint print = JasperFillManager.fillReport(report, parameters, dataSource);
+
+        // Exportar a PDF
+        JasperExportManager.exportReportToPdfFile(print, outputPath);
+
+        System.out.println("Reporte generado en: " + outputPath);
+        // Abrir el PDF
+        File pdfFile = new File(outputPath);
+        if (pdfFile.exists()) {
+            if (Desktop.isDesktopSupported()) {
+                Desktop.getDesktop().open(pdfFile);
+            } else {
+                System.out.println("Tu sistema no soporta Desktop.open()");
             }
-
-            System.out.println(" PDF generado exitosamente ");
-
-            // Abrir el PDF
-            File pdfFile = new File(outputPath);
-            if (pdfFile.exists()) {
-                if (Desktop.isDesktopSupported()) {
-                    Desktop.getDesktop().open(pdfFile);
-                } else {
-                    System.out.println("Tu sistema no soporta Desktop.open()");
-                }
-            }
-
-        } catch (Exception e) {
-            System.err.println("Error generando el reporte: " + e.getMessage());
-            e.printStackTrace();
         }
     }
 
@@ -597,5 +587,6 @@ public class AirPortController {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
+
 }
 

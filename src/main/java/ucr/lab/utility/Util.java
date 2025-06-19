@@ -3,6 +3,8 @@ package ucr.lab.utility;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import ucr.lab.TDA.graph.EdgeWeight;
 import ucr.lab.TDA.graph.Vertex;
 import ucr.lab.TDA.list.DoublyLinkedList;
@@ -13,6 +15,7 @@ import ucr.lab.TDA.stack.Stack;
 import ucr.lab.TDA.stack.StackException;
 import ucr.lab.domain.*;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -26,6 +29,7 @@ import java.nio.charset.StandardCharsets;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
 
 public class Util {
     private static Random random;
@@ -305,6 +309,36 @@ public class Util {
             if (p2 == null) return 1;  // p2 es menor
 
             return Integer.compare(p1.getId(), p2.getId());
+        }
+    }
+
+    //PARA GENERAR REPORTES, HAY QUE PASARLE UN json, la plantilla , ruta al pdf y una lista con datos del json(se puede traer con el FileReader o otra clase)
+    public static void generarReporte(String jsonPath, String jrxmlPath, String outputPath, List datos) throws IOException, JRException {
+       // File file = new File(jsonPath);
+        //FileReader data = new FileReader();
+
+        // Compilar el archivo .jrxml
+        JasperReport report = JasperCompileManager.compileReport(jrxmlPath);
+
+        // Crear fuente de datos desde la lista
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(datos);
+
+        Map<String, Object> parameters = new HashMap<>(); // Parámetros opcionales
+
+        JasperPrint print = JasperFillManager.fillReport(report, parameters, dataSource);
+
+        // Exportar a PDF
+        JasperExportManager.exportReportToPdfFile(print, outputPath);
+
+        System.out.println("Reporte generado en: " + outputPath);
+        // Abrir el PDF
+        File pdfFile = new File(outputPath);
+        if (pdfFile.exists()) {
+            if (Desktop.isDesktopSupported()) {
+                Desktop.getDesktop().open(pdfFile);
+            } else {
+                System.out.println("Tu sistema no soporta Desktop.open()");
+            }
         }
     }
 

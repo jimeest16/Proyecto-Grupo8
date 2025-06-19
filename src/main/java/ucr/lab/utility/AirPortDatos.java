@@ -4,17 +4,18 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
+import ucr.lab.TDA.list.ListException;
+import ucr.lab.TDA.list.SinglyLinkedList;
 import ucr.lab.TDA.queue.QueueException;
 import ucr.lab.domain.AirPort;
+import ucr.lab.domain.Flight;
 
 import java.io.*;
 import java.io.FileReader;
 import java.lang.reflect.Type;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class AirPortDatos {
@@ -77,7 +78,7 @@ public class AirPortDatos {
         return removed;
     }
 
-    private List<AirPort> loadFromFile() throws IOException {
+    public List<AirPort> loadFromFile() throws IOException {
         if (!file.exists() || file.length() == 0) {
             System.out.println("Archivo no existe o está vacío, creando lista vacía.");
             return new ArrayList<>();
@@ -101,9 +102,10 @@ public class AirPortDatos {
         }
     }
 
+    //obtener todos los aeropuertos por activos, inactivos o todos
     public List<AirPort> getAllAirPorts(String filtro) throws IOException {
         List<AirPort> result = new ArrayList<>();
-        AirPortDatos data = new AirPortDatos(file); // tu archivo binario de hoteles
+        AirPortDatos data = new AirPortDatos(file); // tu archivo
         List<AirPort> listaDesdeArchivo = data.findAll();
         for (AirPort airport : listaDesdeArchivo) {
             if (filtro.equalsIgnoreCase("activos") && airport.getStatus().equalsIgnoreCase("Activo")) {
@@ -117,9 +119,37 @@ public class AirPortDatos {
         return result;
     }
 
+    //lista para el reporte
+    public List<AirPort> getTop5AirportsWithMostFlights() throws IOException, ListException {
+        AirPortDatos data = new AirPortDatos(file);
+        List<AirPort> allAirports = data.findAll();
+
+        // Mapa para contar vuelos BOARDING por aeropuerto
+        Map<AirPort, Integer> boardingCountMap = new HashMap<>();
+
+        for (AirPort airport : allAirports) {
+            int count = 0;
+            SinglyLinkedList departures = airport.getDeparturesBoard();
+            for (Flight flight : departures.toFlightList()) {
+                if ("BOARDING".equalsIgnoreCase(flight.getStatus())) {
+                    count++;
+                }
+            }
+            boardingCountMap.put(airport, count);
+        }
+
+        // Ordenar los aeropuertos por cantidad de BOARDING, descendente
+        return boardingCountMap.entrySet()
+                .stream()
+                .sorted((e1, e2) -> Integer.compare(e2.getValue(), e1.getValue()))
+                .limit(5)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
+    }
+
     public static List<AirPort> get() throws IOException {
         AirPortDatos datos = new AirPortDatos(new File("src/main/resources/data/airports.json"));
-        return datos.loadFromFile();  // o usa datos.findAll() si prefieres usar Jackson
+        return datos.loadFromFile();  // o usar datos.findAll() si prefieres usar Jackson
     }
 
     public AirPort buscarAirPort(int id) {
@@ -128,11 +158,6 @@ public class AirPortDatos {
                 .findFirst()
                 .orElse(null);
     }
-    public void close() {
-        // No resources to close when using Gson + FileWriter
-    }
-
-
 
     public List<AirPort> findAll() throws IOException {
         ObjectMapper mapper = JacksonProvider.get();
