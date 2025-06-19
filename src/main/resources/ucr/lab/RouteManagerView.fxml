@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: #f7fafd;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.RouteController">
+<?import javafx.scene.canvas.Canvas?> <AnchorPane prefHeight="650.0" prefWidth="1200.0" style="-fx-background-color: #f7fafd;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.RouteController">
     <VBox spacing="20" style="-fx-padding: 25;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <children>
             <VBox alignment="CENTER" spacing="4">
@@ -38,21 +37,37 @@
 
                     <TextField fx:id="txtDistance" prefWidth="400" promptText="Enter Distance (in Kilometers or Minutes)" style="-fx-prompt-text-fill: #888888; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 4; -fx-background-radius: 4;" />
 
-                    <HBox spacing="8" alignment="CENTER">
+                    <HBox alignment="CENTER" spacing="8">
                         <Button onAction="#addRoute" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 11px; -fx-padding: 6 16; -fx-border-radius: 4; -fx-background-radius: 4;" text="Add Route" />
                         <Button onAction="#modifyRoute" style="-fx-background-color: #FFC107; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 11px; -fx-padding: 6 16; -fx-border-radius: 4; -fx-background-radius: 4;" text="Modify Route" />
                         <Button onAction="#shortestPath" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 11px; -fx-padding: 6 16; -fx-border-radius: 4; -fx-background-radius: 4;" text="Find Shortest Path" />
-                        <Button onAction="#clearRouteFields" style="-fx-background-color: #607D8B; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 11px; -fx-padding: 6 16; -fx-border-radius: 4; -fx-background-radius: 4;" text="Clear Fields" />
+                        <Button onAction="#clearFields" style="-fx-background-color: #607D8B; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 11px; -fx-padding: 6 16; -fx-border-radius: 4; -fx-background-radius: 4;" text="Clear Fields" />
+                        <Button onAction="#generateRandomRoutes" style="-fx-background-color: #17a2b8; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 11px; -fx-padding: 6 16; -fx-border-radius: 4; -fx-background-radius: 4;" text="Generate Random Routes" />
                     </HBox>
+                </children>
+            </VBox>
 
-                </children>
-            </VBox>
-            <VBox spacing="8" style="-fx-padding: 15; -fx-background-color: #ffffff; -fx-border-radius: 6; -fx-background-radius: 6; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 4, 0, 0, 2);">
+            <HBox spacing="20" VBox.vgrow="ALWAYS">
                 <children>
-                    <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Route Output / Console" />
-                    <TextArea fx:id="textArea" editable="false" prefHeight="200.0" prefWidth="400.0" style="-fx-control-inner-background: #f0f0f0; -fx-font-family: 'Consolas'; -fx-font-size: 12px; -fx-text-fill: #333333; -fx-border-color: #d0d0d0; -fx-border-radius: 4; -fx-background-radius: 4;" />
+                    <VBox spacing="8" style="-fx-padding: 15; -fx-background-color: #ffffff; -fx-border-radius: 6; -fx-background-radius: 6; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 4, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                        <children>
+                            <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Route information" />
+                            <TextArea fx:id="textArea" editable="false" style="-fx-control-inner-background: #f0f0f0; -fx-font-family: 'Consolas'; -fx-font-size: 12px; -fx-text-fill: #333333; -fx-border-color: #d0d0d0; -fx-border-radius: 4; -fx-background-radius: 4;" VBox.vgrow="ALWAYS" />
+
+                            <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Ruta Seleccionada" />
+                            <TextArea fx:id="textAreaContent" editable="false" prefHeight="60.0" style="-fx-control-inner-background: #f0f0f0; -fx-font-family: 'Consolas'; -fx-font-size: 12px; -fx-text-fill: #0056b3; -fx-border-color: #d0d0d0; -fx-border-radius: 4; -fx-background-radius: 4;" />
+                        </children>
+                    </VBox>
+
+                    <VBox spacing="8" style="-fx-padding: 15; -fx-background-color: #ffffff; -fx-border-radius: 6; -fx-background-radius: 6; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 4, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                        <children>
+                            <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Route visualization" />
+                            <Canvas fx:id="graphCanvas" style="-fx-border-color: #d0d0d0; -fx-border-radius: 4; -fx-background-color: #e9eff5;" VBox.vgrow="ALWAYS" />
+                            <Button onAction="#drawGraph" style="-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 11px; -fx-padding: 6 16; -fx-border-radius: 4; -fx-background-radius: 4;" text="Dibujar Grafo" />
+                        </children>
+                    </VBox>
                 </children>
-            </VBox>
+            </HBox>
         </children>
     </VBox>
 </AnchorPane>
