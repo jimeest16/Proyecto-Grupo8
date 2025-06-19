@@ -4,7 +4,14 @@ import static ucr.lab.utility.Util.compare;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import ucr.lab.TDA.Node;
+import ucr.lab.domain.AirPort;
 import ucr.lab.domain.Flight;
+
+import java.sql.Array;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SinglyLinkedList implements List {
     private Node first; //apuntador al inicio de la lista
@@ -304,12 +311,44 @@ public int sizeFlight()throws ListException{
 
     public <T> java.util.List<T> toList() {
         Node current = first;
-        java.util.List<T> list = new java.util.ArrayList<>();
+        java.util.List<T> list = new ArrayList<>();
         while (current != null) {
             list.add((T) current.data);
             current = current.next;
         }
         return list;
+    }
+    public java.util.List<Flight> toFlightList() {
+        java.util.List<Flight> result = new ArrayList<>();
+        Node current = first;
+
+        while (current != null) {
+            Object data = current.data;
+
+            if (data instanceof Flight) {
+                result.add((Flight) data); // ya está bien
+            } else if (data instanceof LinkedHashMap) {
+                LinkedHashMap<String, Object> map = (LinkedHashMap<String, Object>) data;
+                Flight f = new Flight();
+
+                f.setNumber(((Number) map.get("number")).intValue());
+                f.setOriginCode(((Number) map.get("originCode")).intValue());
+                f.setDestinationCode(((Number) map.get("destinationCode")).intValue());
+                f.setDepartureTime(LocalDateTime.parse(map.get("departureTime").toString())); // usar formatter si no es ISO
+                f.setCapacity(((Number) map.get("capacity")).intValue());
+                f.setOccupancy(((Number) map.get("occupancy")).intValue());
+                f.setStatus(map.get("status").toString());
+
+
+                result.add(f);
+            } else {
+                System.out.println("Objeto desconocido en la lista: " + data.getClass().getName());
+            }
+
+            current = current.next;
+        }
+
+        return result;
     }
 
     public Object get(int index) throws ListException {

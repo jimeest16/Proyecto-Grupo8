@@ -238,4 +238,10 @@
     "airport_code" : 6,
     "distance" : 1799.22
   } ]
+}, {
+  "originAirport" : 20,
+  "destinationList" : [ {
+    "airport_code" : 6,
+    "distance" : 890.0
+  } ]
 } ]

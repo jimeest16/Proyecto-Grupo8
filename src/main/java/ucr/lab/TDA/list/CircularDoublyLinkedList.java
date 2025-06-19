@@ -5,7 +5,7 @@ import ucr.lab.TDA.Node;
 
 import static ucr.lab.utility.Util.compare;
 
-public class CircularDoublyLinkedList extends SinglyLinkedList implements List {
+public class CircularDoublyLinkedList extends SinglyLinkedList implements List{
     private Node first; //apuntador al inicio de la lista
     private Node last; //apuntador al ultimo nodo de la lista
 
