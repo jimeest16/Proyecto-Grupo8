@@ -7,36 +7,37 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ap" prefHeight="700.0" prefWidth="1033.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.WaitingQueueController">
+<AnchorPane fx:id="ap" prefHeight="700.0" prefWidth="1033.0" style="-fx-background-color: #f4f6f9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.WaitingQueueController">
    <children>
-      <Pane prefHeight="90.0" prefWidth="1033.0" style="-fx-background-color: #d4eefa;">
+      <Pane prefHeight="90.0" prefWidth="1033.0" style="-fx-background-color: #3498db;">
          <children>
-            <Label layoutX="92.0" layoutY="29.0" text="Waiting Queue -">
+            <Label layoutX="92.0" layoutY="29.0" text="Waiting Queue -" textFill="WHITE">
                <font>
-                  <Font name="Segoe UI Black" size="22.0" />
+                  <Font name="Segoe UI Black" size="28.0" />
                </font>
             </Label>
-            <Label fx:id="labelAirport" layoutX="288.0" layoutY="30.0" text="Airport">
+            <Label fx:id="labelAirport" layoutX="320.0" layoutY="29.0" text="[Airport Name]" textFill="WHITE">
                <font>
-                  <Font name="Segoe UI Black" size="22.0" />
+                  <Font name="Segoe UI Black" size="28.0" />
                </font>
             </Label>
-            <Button fx:id="btBack" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#volverAVistaAirportManager" prefHeight="27.0" prefWidth="43.0" text="←">
+            <Button fx:id="btBack" layoutX="25.0" layoutY="25.0" mnemonicParsing="false" onAction="#volverAVistaAirportManager" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-background-radius: 5px;" text="←">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Segoe UI Bold" size="18.0" />
                </font>
             </Button>
          </children>
       </Pane>
-      <Label layoutX="88.0" layoutY="103.0" text="Passengers List:   ">
+      <Label layoutX="88.0" layoutY="120.0" text="Passengers List:" textFill="#2c3e50">
          <font>
-            <Font size="20.0" />
+            <Font name="Segoe UI Bold" size="24.0" />
          </font>
       </Label>
-      <TextArea fx:id="textAreaPassangers" editable="false" layoutX="88.0" layoutY="157.0" prefHeight="393.0" prefWidth="857.0" />
-      <Button fx:id="btBoardPassengers" layoutX="426.0" layoutY="589.0" mnemonicParsing="false" onAction="#embarcarPasajeros" text="Board Passengers">
+      <TextArea fx:id="textAreaPassangers" editable="false" layoutX="88.0" layoutY="170.0" prefHeight="400.0" prefWidth="857.0" style="-fx-control-inner-background: white; -fx-font-family: 'Consolas'; -fx-font-size: 14px; -fx-border-color: #bdc3c7; -fx-border-radius: 5px;" />
+      <Button fx:id="btBoardPassengers" layoutX="400.0" layoutY="600.0" mnemonicParsing="false" onAction="#embarcarPasajeros" prefHeight="50.0" prefWidth="230.0" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 8px;" text="Board Passengers">
          <font>
-            <Font size="20.0" />
-         </font></Button>
+            <Font name="Segoe UI Bold" size="22.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
