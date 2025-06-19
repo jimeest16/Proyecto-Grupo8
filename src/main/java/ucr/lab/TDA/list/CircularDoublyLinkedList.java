@@ -2,6 +2,7 @@ package ucr.lab.TDA.list;
 
 
 import ucr.lab.TDA.Node;
+import ucr.lab.domain.Flight;
 
 import static ucr.lab.utility.Util.compare;
 
@@ -292,6 +293,18 @@ public class CircularDoublyLinkedList extends SinglyLinkedList implements List{
             current = current.next;
         }
         return current.data;
+    }
+
+    public Flight getFlight(int index) throws ListException {
+        if (index < 0 || index >= size()) {
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
+        }
+        Node current = first;
+        // Recorremos la lista hasta llegar al índice solicitado
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return (Flight) current.data;
     }
 
     public <T> java.util.List<T> toList() {

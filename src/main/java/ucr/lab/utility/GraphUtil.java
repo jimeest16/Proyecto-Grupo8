@@ -116,8 +116,8 @@ public class GraphUtil {
 
             visitado[u] = true;
             Vertex verticeU = (Vertex) graph.vertexList.getNode(u).data;
-
-            for (int i = 1; i <= verticeU.edgesList.size(); i++) {
+            int sizeU = verticeU.edgesList.isEmpty()? 0 : verticeU.edgesList.size();
+            for (int i = 1; i <= sizeU; i++) {
                 EdgeWeight arista = (EdgeWeight) verticeU.edgesList.getNode(i).data;
                 int v = graph.indexOf(arista.getEdge());
                 if (v == -1 || visitado[v]) continue;

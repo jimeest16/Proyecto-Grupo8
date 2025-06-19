@@ -263,6 +263,10 @@ public class Util {
                 Passenger p1 = (Passenger) a;
                 Passenger p2 = (Passenger) b;
                 return new PassengerIdComparator().compare(p1, p2);
+            case "Flight":
+                Flight f1 = (Flight) a; int i1 = f1.getNumber();
+                Flight f2 = (Flight) b; int i2 = f2.getNumber();
+                return i1 < i2 ? -1 : i1 > i2 ? 1 : 0;
         }
         return 2; //Unknown
     }
@@ -274,6 +278,7 @@ public class Util {
         if (a instanceof EdgeWeight && b instanceof EdgeWeight) return "EdgeWeight";
         if (a instanceof Vertex && b instanceof Vertex) return "Vertex";
         if (a instanceof Passenger && b instanceof Passenger) return "Passenger";
+        if (a instanceof Flight && b instanceof Flight) return "Flight";
         return "Unknown";
     }
 

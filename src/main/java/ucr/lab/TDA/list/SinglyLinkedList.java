@@ -51,7 +51,7 @@ public int sizeFlight()throws ListException{
     @Override //es como un buscar
     public boolean contains(Object element) throws ListException {
         if (isEmpty())
-            throw new ListException("Singly Linked List is empty");
+            return false;
         Node aux = first;
         while (aux != null) {
             if (compare(aux.data, element) == 0)
@@ -369,7 +369,8 @@ public int sizeFlight()throws ListException{
         }
         return current.data; // Devolvemos el dato del nodo encontrado (que es un Object)
     }
-    public Flight getFlight(int index) {
+
+    public Flight getFlight(int index) throws ListException {
         Node current = first;
         int i = 0;
         while (current != null) {
