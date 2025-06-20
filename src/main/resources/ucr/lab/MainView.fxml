@@ -15,21 +15,16 @@
         <VBox alignment="CENTER" layoutX="0.0" layoutY="0.0" prefHeight="500.0" prefWidth="700.0" spacing="40" style="-fx-padding: 30;">
             <Pane prefHeight="220.0" prefWidth="600.0">
                 <children>
-                    <Text fill="#2a6e9a" fontSmoothingType="LCD" layoutX="50.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FlyLink Airlines" wrappingWidth="600.0" textAlignment="CENTER">
+                    <Text fill="#2a6e9a" fontSmoothingType="LCD" layoutX="50.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FlyInn Airlines" textAlignment="CENTER" wrappingWidth="600.0">
                         <font>
                             <Font name="Segoe UI Black" size="64.0" />
                         </font>
                     </Text>
-                    <Text fill="#5a5a5a" layoutX="50.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Integrated Aviation Management System" textAlignment="CENTER" wrappingWidth="600.0">
+                    <Text fill="#5a5a5a" layoutX="50.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Aviation Management System" textAlignment="CENTER" wrappingWidth="600.0">
                         <font>
                             <Font name="Segoe UI Semibold" size="24.0" />
                         </font>
                     </Text>
-                    <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="300.0" layoutY="160.0" preserveRatio="true">
-                        <image>
-                            <Image url="@avion.png" />
-                        </image>
-                    </ImageView>
                 </children>
             </Pane>
 
@@ -82,7 +77,7 @@
 
             <HBox alignment="BOTTOM_RIGHT" prefHeight="50.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                 <children>
-                    <Button onAction="#exitButton" text="Exit" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 25; -fx-border-radius: 5; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+                    <Button onAction="#exitButton" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 25; -fx-border-radius: 5; -fx-background-radius: 5; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);" text="Exit">
                         <font>
                             <Font name="Segoe UI Bold" size="14.0" />
                         </font>

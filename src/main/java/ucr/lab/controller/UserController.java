@@ -16,19 +16,20 @@ import ucr.lab.domain.Flight;
 import ucr.lab.domain.Passenger;
 import ucr.lab.utility.FileReader;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.Comparator; // Necesario para ordenar vuelos
+
+import static ucr.lab.utility.Util.compare;
 
 public class UserController {
 
+
     @FXML private ComboBox<String> cbSearchOriginCode;
     @FXML private ComboBox<String> cbSearchDestinationCode;
-    @FXML private DatePicker dpSearchDepartureDate;
 
     @FXML private TableView<Flight> tvAvailableFlights;
     @FXML private TableColumn<Flight, Integer> colFlightNumber;
@@ -57,21 +58,26 @@ public class UserController {
 
     @FXML
     public void initialize() throws ListException {
+
         loadAllPassengersToTree();
         loadAllFlightsToList();
         loadAllAirportsToComboBoxes();
 
+
         colFlightNumber.setCellValueFactory(new PropertyValueFactory<>("number"));
         colOriginCode.setCellValueFactory(new PropertyValueFactory<>("originCode"));
         colDestinationCode.setCellValueFactory(new PropertyValueFactory<>("destinationCode"));
+
         colDepartureTime.setCellValueFactory(new PropertyValueFactory<>("departureTimeAsObject"));
         colCapacity.setCellValueFactory(new PropertyValueFactory<>("capacity"));
         colOccupancy.setCellValueFactory(new PropertyValueFactory<>("occupancy"));
         colFlightStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
         colRoute.setCellValueFactory(new PropertyValueFactory<>("route"));
 
+
         updateFlightTable(allFlights);
     }
+
 
     private void loadAllPassengersToTree() {
         SinglyLinkedList passengersListFromFile = FileReader.loadPassengers();
@@ -95,6 +101,7 @@ public class UserController {
     }
 
     private void loadAllFlightsToList() {
+
         List<Flight> flightList = FileReader.loadFlightsAsListForInternalUse();
         if (flightList != null) {
             for (Flight flight : flightList) {
@@ -105,6 +112,7 @@ public class UserController {
             appendUserOutput("No se pudieron cargar los vuelos desde el archivo.");
         }
     }
+
 
     private void loadAllAirportsToComboBoxes() {
         this.allAirports = FileReader.loadAirports();
@@ -130,17 +138,31 @@ public class UserController {
         appendUserOutput("Nombres de aeropuerto cargados en los selectores.");
     }
 
+
     private Integer getAirportCodeByName(String airportName) throws ListException {
-        if (airportName == null || allAirports == null || allAirports.isEmpty()) {
+        if (airportName == null || airportName.isEmpty() || allAirports == null || allAirports.isEmpty()) {
             return null;
         }
         for (int i = 1; i <= allAirports.size(); i++) {
             AirPort airport = (AirPort) allAirports.get(i);
-            if (airport.getName().equals(airportName)) {
+            if (compare(airport.getName(), airportName) == 0) {
                 return airport.getCode();
             }
         }
         return null;
+    }
+
+    private String getAirportNameByCode(Integer airportCode) throws ListException {
+        if (airportCode == null || allAirports == null || allAirports.isEmpty()) {
+            return "Desconocido";
+        }
+        for (int i = 1; i <= allAirports.size(); i++) {
+            AirPort airport = (AirPort) allAirports.get(i);
+            if (compare(airport.getCode(), airportCode) == 0) {
+                return airport.getName();
+            }
+        }
+        return "Desconocido";
     }
 
     private void appendUserOutput(String text) {
@@ -148,6 +170,7 @@ public class UserController {
             txtUserOutput.appendText(text + "\n");
         }
     }
+
 
     private void updateFlightTable(SinglyLinkedList flightsToDisplay) {
         observableFlightList.clear();
@@ -162,6 +185,7 @@ public class UserController {
         tvAvailableFlights.setItems(observableFlightList);
     }
 
+
     private CircularDoublyLinkedList convertSinglyLinkedListToCircularDoublyLinkedList(SinglyLinkedList sll) throws ListException {
         CircularDoublyLinkedList cdll = new CircularDoublyLinkedList();
         if (sll != null && !sll.isEmpty()) {
@@ -172,28 +196,38 @@ public class UserController {
         return cdll;
     }
 
-    private List<Passenger> convertPassengerSinglyLinkedListToArrayList(SinglyLinkedList sll) throws ListException {
-        List<Passenger> list = new ArrayList<>();
-        if (sll != null && !sll.isEmpty()) {
-            for (int i = 1; i <= sll.size(); i++) {
-                list.add((Passenger) sll.get(i));
+    private CircularDoublyLinkedList convertPassengerTreeToCircularDoublyLinkedList() {
+        CircularDoublyLinkedList cdll = new CircularDoublyLinkedList();
+        if (passengerTree != null && !passengerTree.isEmpty()) {
+            try {
+
+                SinglyLinkedList passengersFromTree = passengerTree.getElements();
+                if (passengersFromTree != null) {
+                    for (int i = 1; i <= passengersFromTree.size(); i++) {
+                        cdll.add(passengersFromTree.get(i));
+                    }
+                }
+            } catch (Exception e) {
+                System.err.println("Error al convertir árbol de pasajeros a lista para guardar: " + e.getMessage());
+                e.printStackTrace();
             }
         }
-        return list;
+        return cdll;
     }
+
 
     @FXML
     private void handleSearchFlights() {
         try {
             String originName = cbSearchOriginCode.getValue();
             String destinationName = cbSearchDestinationCode.getValue();
-            LocalDate searchDepartureDate = dpSearchDepartureDate.getValue();
 
             Integer originCode = null;
             if (originName != null && !originName.isEmpty()) {
                 originCode = getAirportCodeByName(originName);
                 if (originCode == null) {
                     appendUserOutput("Error: Aeropuerto de origen '" + originName + "' no encontrado o código no válido.");
+                    updateFlightTable(new SinglyLinkedList());
                     return;
                 }
             }
@@ -203,14 +237,22 @@ public class UserController {
                 destinationCode = getAirportCodeByName(destinationName);
                 if (destinationCode == null) {
                     appendUserOutput("Error: Aeropuerto de destino '" + destinationName + "' no encontrado o código no válido.");
+                    updateFlightTable(new SinglyLinkedList());
                     return;
                 }
             }
 
-            // Validación: No permitir vuelos al mismo aeropuerto
-            if (originCode != null && destinationCode != null && originCode.equals(destinationCode)) {
+
+            if ((originName == null || originName.isEmpty()) && (destinationName == null || destinationName.isEmpty())) {
+                appendUserOutput("Mostrando todos los vuelos.");
+                updateFlightTable(allFlights);
+                return;
+            }
+
+
+            if (originCode != null && destinationCode != null && compare(originCode, destinationCode) == 0) {
                 appendUserOutput("Error: El aeropuerto de origen y destino no pueden ser el mismo.");
-                updateFlightTable(new SinglyLinkedList()); // Limpiar la tabla
+                updateFlightTable(new SinglyLinkedList()); // Clear table
                 return;
             }
 
@@ -219,33 +261,15 @@ public class UserController {
             for (int i = 1; i <= allFlights.size(); i++) {
                 Flight f = (Flight) allFlights.get(i);
 
-                boolean matches = true;
+                boolean matchesOrigin = (originCode == null || compare(f.getOriginCode(), originCode) == 0);
+                boolean matchesDestination = (destinationCode == null || compare(f.getDestinationCode(), destinationCode) == 0);
 
-                if (originCode != null && f.getOriginCode() != originCode) {
-                    matches = false;
-                }
-
-                if (matches && destinationCode != null && f.getDestinationCode() != destinationCode) {
-                    matches = false;
-                }
-
-                if (matches && searchDepartureDate != null) {
-                    if (f.getDepartureDate() == null || !f.getDepartureDate().equals(searchDepartureDate)) {
-                        matches = false;
-                    }
-                }
-
-                // Solo mostrar vuelos que no estén llenos en la búsqueda inicial
-                if (matches && f.getOccupancy() >= f.getCapacity()) {
-                    matches = false; // No añadir a los resultados de la búsqueda si ya está lleno
-                }
-
-                if (matches) {
+                if (matchesOrigin && matchesDestination) {
                     filteredFlights.add(f);
                 }
             }
 
-            // Ordenar los vuelos filtrados por fecha y hora de salida
+
             List<Flight> tempFlightList = new ArrayList<>();
             try {
                 for (int i = 1; i <= filteredFlights.size(); i++) {
@@ -254,7 +278,7 @@ public class UserController {
             } catch (ListException e) {
                 e.printStackTrace();
             }
-            tempFlightList.sort(Comparator.comparing(Flight::getDepartureTimeAsObject)); // Asume que getDepartureTimeAsObject devuelve LocalDateTime
+            tempFlightList.sort(Comparator.comparing(Flight::getDepartureTimeAsObject));
 
             SinglyLinkedList sortedFilteredFlights = new SinglyLinkedList();
             for (Flight f : tempFlightList) {
@@ -262,7 +286,9 @@ public class UserController {
             }
 
             if (sortedFilteredFlights.isEmpty()) {
-                appendUserOutput("No se encontraron vuelos disponibles con los criterios especificados.");
+                appendUserOutput("No se encontraron vuelos con los criterios especificados.");
+            } else {
+                appendUserOutput("Vuelos encontrados: " + sortedFilteredFlights.size());
             }
             updateFlightTable(sortedFilteredFlights);
 
@@ -275,11 +301,6 @@ public class UserController {
         }
     }
 
-    /**
-     * Maneja el evento de compra de tiquetes.
-     * Permite a un pasajero comprar un tiquete para el vuelo seleccionado.
-     * Incluye validación de cupo y sugerencia para el siguiente vuelo disponible si el actual está lleno.
-     */
     @FXML
     private void handleBuyTicket() {
         Flight selectedFlight = tvAvailableFlights.getSelectionModel().getSelectedItem();
@@ -305,55 +326,68 @@ public class UserController {
             }
             Passenger purchasingPassenger = (Passenger) foundNode.data;
 
-            // Validación de cupo
-            if (selectedFlight.getOccupancy() >= selectedFlight.getCapacity()) {
-                appendUserOutput("Lo sentimos, el vuelo " + selectedFlight.getNumber() + " (" + getAirportCodeByName(String.valueOf(selectedFlight.getOriginCode())) + " a " + getAirportCodeByName(String.valueOf(selectedFlight.getDestinationCode())) + ") ya está lleno.");
 
-                // Lógica para el "siguiente vuelo disponible" en la misma ruta
+            if (selectedFlight.getOccupancy() >= selectedFlight.getCapacity()) {
+                appendUserOutput("Lo sentimos, el vuelo " + selectedFlight.getNumber() + " (" + getAirportNameByCode(selectedFlight.getOriginCode()) + " a " + getAirportNameByCode(selectedFlight.getDestinationCode()) + ") ya está lleno.");
+
+
                 Flight nextAvailableFlight = findNextAvailableFlight(selectedFlight.getOriginCode(), selectedFlight.getDestinationCode(), selectedFlight.getDepartureTimeAsObject());
                 if (nextAvailableFlight != null) {
-                    appendUserOutput("Le sugerimos el siguiente vuelo disponible para esta ruta: Vuelo " + nextAvailableFlight.getNumber() +
+                    appendUserOutput("Se le ha sugerido el siguiente vuelo disponible. Para comprar, selecciónelo y presione 'Comprar Tiquete': Vuelo " + nextAvailableFlight.getNumber() +
                             " con salida el " + nextAvailableFlight.getDepartureTimeAsObject().toLocalDate() +
                             " a las " + nextAvailableFlight.getDepartureTimeAsObject().toLocalTime() +
                             " (Ocupación: " + nextAvailableFlight.getOccupancy() + "/" + nextAvailableFlight.getCapacity() + ").");
-                    // Opcional: Seleccionar automáticamente el siguiente vuelo en la tabla
+
                     tvAvailableFlights.getSelectionModel().select(nextAvailableFlight);
                 } else {
-                    appendUserOutput("No se encontraron otros vuelos disponibles para esta ruta en el futuro cercano.");
-                }
-                return; // No se puede comprar el tiquete para este vuelo
-            }
+                    appendUserOutput("Actualmente no hay vuelos disponibles para esta ruta. El pasajero " + purchasingPassenger.getName() + " ha sido puesto en lista de espera (simulada) para la ruta " +
+                            getAirportNameByCode(selectedFlight.getOriginCode()) + " a " + getAirportNameByCode(selectedFlight.getDestinationCode()) + ".");
 
-            // Verificar si el pasajero ya tiene un tiquete para este vuelo
-            if (selectedFlight.getPassengerIDs() != null && selectedFlight.getPassengerIDs().contains(passengerId)) {
-                appendUserOutput("El pasajero " + purchasingPassenger.getName() + " (ID: " + passengerId + ") ya tiene un tiquete para el vuelo " + selectedFlight.getNumber() + ".");
+                }
                 return;
             }
 
-            // Aumentar la ocupación del vuelo
+
+            if (selectedFlight.getPassengerIDs() != null) {
+                boolean alreadyHasTicket = false;
+                for (int i = 1; i <= selectedFlight.getPassengerIDs().size(); i++) {
+                    if (compare((Integer)selectedFlight.getPassengerIDs().get(i), passengerId) == 0) {
+                        alreadyHasTicket = true;
+                        break;
+                    }
+                }
+                if (alreadyHasTicket) {
+                    appendUserOutput("El pasajero " + purchasingPassenger.getName() + " (ID: " + passengerId + ") ya tiene un tiquete para el vuelo " + selectedFlight.getNumber() + ".");
+                    return;
+                }
+            }
+
+
             selectedFlight.setOccupancy(selectedFlight.getOccupancy() + 1);
 
-            // Añadir el ID del pasajero a la lista de pasajeros del vuelo
+
             if (selectedFlight.getPassengerIDs() == null) {
                 selectedFlight.setPassengerIDs(new SinglyLinkedList());
             }
             selectedFlight.getPassengerIDs().add(passengerId);
 
-            // Añadir el vuelo al historial del pasajero
+
             purchasingPassenger.addFlight(selectedFlight);
 
             try {
-                // Guardar todos los vuelos (para actualizar la ocupación) y los pasajeros (para actualizar su historial)
+
                 FileReader.saveFlights(convertSinglyLinkedListToCircularDoublyLinkedList(allFlights));
-                // Recargar los pasajeros para obtener la versión más reciente del árbol
-                loadAllPassengersToTree(); // Para asegurar que el historial del pasajero esté actualizado en el árbol
+
+                FileReader.savePassengers((List<Passenger>) convertPassengerTreeToCircularDoublyLinkedList());
+                loadAllPassengersToTree();
             } catch (Exception e) {
                 appendUserOutput("Error al guardar cambios en los archivos de datos: " + e.getMessage());
                 e.printStackTrace();
-                // Revertir cambios si el guardado falla
+
                 selectedFlight.setOccupancy(selectedFlight.getOccupancy() - 1);
                 try {
                     if (selectedFlight.getPassengerIDs() != null) {
+
                         selectedFlight.getPassengerIDs().remove(Integer.valueOf(passengerId));
                     }
                 } catch (Exception listEx) {
@@ -362,6 +396,7 @@ public class UserController {
 
                 if (purchasingPassenger.getFlightHistory() != null) {
                     try {
+
                         purchasingPassenger.removeFlight(selectedFlight);
                     } catch (ListException listEx) {
                         System.err.println("Error al deshacer la adición del vuelo al historial del pasajero: " + listEx.getMessage());
@@ -374,10 +409,9 @@ public class UserController {
                     " en el vuelo " + selectedFlight.getNumber() + ". Ocupación actual: " +
                     selectedFlight.getOccupancy() + "/" + selectedFlight.getCapacity());
 
-            tvAvailableFlights.refresh(); // Refrescar la tabla para mostrar la nueva ocupación
-            txtPassengerIdForTicket.clear(); // Limpiar el campo del ID
-            handleSearchFlights(); // Re-ejecutar la búsqueda para actualizar la tabla con vuelos disponibles
-            // (si el vuelo comprado estaba en la lista y ahora está lleno, desaparecerá)
+            tvAvailableFlights.refresh();
+            txtPassengerIdForTicket.clear();
+            handleSearchFlights();
 
         } catch (NumberFormatException e) {
             appendUserOutput("El ID del pasajero debe ser un número válido.");
@@ -392,26 +426,19 @@ public class UserController {
         }
     }
 
-    /**
-     * Busca el siguiente vuelo disponible para una ruta específica después de una hora de salida dada.
-     * @param originCode Código del aeropuerto de origen.
-     * @param destinationCode Código del aeropuerto de destino.
-     * @param currentDepartureTime Hora de salida del vuelo actual (para buscar vuelos posteriores).
-     * @return El siguiente vuelo disponible o null si no se encuentra ninguno.
-     */
     private Flight findNextAvailableFlight(int originCode, int destinationCode, LocalDateTime currentDepartureTime) throws ListException {
         Flight nextFlight = null;
         LocalDateTime earliestNextTime = null;
 
         for (int i = 1; i <= allFlights.size(); i++) {
             Flight f = (Flight) allFlights.get(i);
-            // Comprueba si la ruta coincide y si el vuelo es posterior al actual
-            if (f.getOriginCode() == originCode && f.getDestinationCode() == destinationCode &&
+
+            if (compare(f.getOriginCode(), originCode) == 0 && compare(f.getDestinationCode(), destinationCode) == 0 &&
                     f.getDepartureTimeAsObject() != null && f.getDepartureTimeAsObject().isAfter(currentDepartureTime)) {
 
-                // Comprueba si el vuelo tiene cupo disponible
+
                 if (f.getOccupancy() < f.getCapacity()) {
-                    // Si es el primer vuelo disponible encontrado o es más temprano que el "próximo" vuelo guardado
+
                     if (nextFlight == null || f.getDepartureTimeAsObject().isBefore(earliestNextTime)) {
                         nextFlight = f;
                         earliestNextTime = f.getDepartureTimeAsObject();
@@ -421,7 +448,6 @@ public class UserController {
         }
         return nextFlight;
     }
-
 
     @FXML
     private void handleBoardPassenger() {
@@ -453,9 +479,9 @@ public class UserController {
             if (passengerFlightHistory != null) {
                 for (int i = 1; i <= passengerFlightHistory.size(); i++) {
                     Flight f = (Flight) passengerFlightHistory.get(i);
-                    // Verificamos si el pasajero tiene un tiquete para este vuelo específico (número y hora)
-                    if (f.getNumber() == selectedFlight.getNumber() &&
-                            f.getDepartureTimeAsObject().equals(selectedFlight.getDepartureTimeAsObject())) {
+                    // Verify passenger has a ticket for this specific flight (by number and departure time)
+                    if (compare(f.getNumber(), selectedFlight.getNumber()) == 0 &&
+                            compare(f.getDepartureTimeAsObject(), selectedFlight.getDepartureTimeAsObject()) == 0) {
                         hasTicketForThisFlight = true;
                         break;
                     }
@@ -469,13 +495,10 @@ public class UserController {
 
             appendUserOutput("Pasajero " + boardingPassenger.getName() + " (ID: " + passengerId + ") embarcado exitosamente en el vuelo " + selectedFlight.getNumber() + ".");
 
+
             try {
-                // Aquí, el embarque no cambia la ocupación, solo el estado conceptual del pasajero.
-                // Si el embarque implica que ya no se puede comprar ese asiento, la lógica de ocupación
-                // debería estar en handleBuyTicket, que es donde se "reserva" el asiento.
-                // Guardamos para asegurar cualquier cambio en el historial del pasajero, aunque en este método no haya cambios directos en el Flight.
                 FileReader.saveFlights(convertSinglyLinkedListToCircularDoublyLinkedList(allFlights));
-                // Recargar los pasajeros para asegurar cualquier cambio de estado del pasajero si fuera necesario
+                FileReader.savePassengers((List<Passenger>) convertPassengerTreeToCircularDoublyLinkedList());
                 loadAllPassengersToTree();
             } catch (Exception e) {
                 appendUserOutput("Error al guardar cambios de embarque en los archivos de datos: " + e.getMessage());

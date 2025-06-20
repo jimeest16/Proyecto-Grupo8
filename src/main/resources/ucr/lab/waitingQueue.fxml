@@ -33,7 +33,7 @@
             <Font name="Segoe UI Bold" size="24.0" />
          </font>
       </Label>
-      <TextArea fx:id="textAreaPassangers" editable="false" layoutX="88.0" layoutY="170.0" prefHeight="400.0" prefWidth="857.0" style="-fx-control-inner-background: white; -fx-font-family: 'Consolas'; -fx-font-size: 14px; -fx-border-color: #bdc3c7; -fx-border-radius: 5px;" />
+      <TextArea fx:id="textAreaPassangers" editable="false" layoutX="109.0" layoutY="170.0" prefHeight="393.0" prefWidth="756.0" style="-fx-control-inner-background: white; -fx-font-family: 'Consolas'; -fx-font-size: 14px; -fx-border-color: #bdc3c7; -fx-border-radius: 5px;" />
       <Button fx:id="btBoardPassengers" layoutX="400.0" layoutY="600.0" mnemonicParsing="false" onAction="#embarcarPasajeros" prefHeight="50.0" prefWidth="230.0" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-background-radius: 8px;" text="Board Passengers">
          <font>
             <Font name="Segoe UI Bold" size="22.0" />
