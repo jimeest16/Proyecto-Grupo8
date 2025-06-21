@@ -1,30 +1,4 @@
 [ {
-  "id" : 123456789,
-  "name" : "Juan Pérez",
-  "nationality" : "Costarricense",
-  "flightHistory" : [ {
-    "capacity" : 150,
-    "occupancy" : 120,
-    "status" : "Scheduled",
-    "route" : "SJO-LAX",
-    "departureDate" : "2024-05-10T10:00:00",
-    "flightNumber" : 101,
-    "originAirportCode" : 3,
-    "destinationAirportCode" : 1,
-    "passengerIDs" : [ "P001", "P002", "P003", "P004" ]
-  }, {
-    "capacity" : 200,
-    "occupancy" : 180,
-    "status" : "Delayed",
-    "route" : "LAX-JFK",
-    "departureDate" : "2024-06-01T15:30:00",
-    "flightNumber" : 102,
-    "originAirportCode" : 1,
-    "destinationAirportCode" : 5,
-    "passengerIDs" : [ "P005", "P006" ]
-  } ],
-  "state" : "Active"
-}, {
   "id" : 987654321,
   "name" : "Maria García",
   "nationality" : "Mexicana",
@@ -33,6 +7,7 @@
     "occupancy" : 150,
     "status" : "Completed",
     "route" : "MEX-LIM",
+    "availableRoutes" : null,
     "departureDate" : "2023-11-20T08:15:00",
     "flightNumber" : 205,
     "originAirportCode" : 7,
