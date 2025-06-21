@@ -8,6 +8,13 @@ import static ucr.lab.utility.Util.compare;
 public class AVLTree implements Tree {
         public BTreeNode root; //se refiere a la raiz del arbol
 
+    public Object find(Object element) throws TreeException {
+        try {
+            return search(root, element);
+        } catch (ClassCastException e) {
+            throw new TreeException("Error de tipo de dato al buscar: " + e.getMessage());
+        }
+    }
         @Override
         public int size() throws TreeException {
             if (isEmpty())
@@ -16,7 +23,7 @@ public class AVLTree implements Tree {
         }
     public SinglyLinkedList getElements() {
         SinglyLinkedList elements = new SinglyLinkedList();
-        // Llama al método auxiliar para recolectar los elementos recursivamente
+
         inOrderTraversal(root, elements);
         return elements;
     }

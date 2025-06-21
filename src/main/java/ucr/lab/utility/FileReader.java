@@ -30,7 +30,7 @@ public class FileReader {
         mapper.registerModule(new JavaTimeModule());
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
-       // mapper.setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
+        // mapper.setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
         mapper.configure(com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
@@ -215,36 +215,72 @@ public class FileReader {
 
 
     public static SinglyLinkedList loadFlights() {
-        CircularDoublyLinkedList flightList = new CircularDoublyLinkedList();
+        SinglyLinkedList flightSinglyList = new SinglyLinkedList(); // Cambiado a SinglyLinkedList
         File file = new File(FILE_FLIGHTS);
         System.out.println("[PRUEBAS X CONSOLA:] Cargando vuelos desde: " + file.getAbsolutePath());
         try {
             if (!file.exists() || file.length() == 0) {
                 System.out.println("[PRUEBAS X CONSOLA:] Archivo de vuelos no encontrado o vacío. Retornando lista vacía.");
-                return flightList;
+                return flightSinglyList;
             }
             List<Flight> flights = mapper.readValue(file, new TypeReference<List<Flight>>() {});
             for (Flight f : flights) {
-                flightList.add(f);
+                flightSinglyList.add(f);
             }
-            System.out.println("[PRUEBAS X CONSOLA:] " + flightList.size() + " vuelos cargados.");
+            System.out.println("[PRUEBAS X CONSOLA:] " + flightSinglyList.size() + " vuelos cargados.");
         } catch (Exception e) {
             System.err.println("[Errores:] Error al cargar vuelos: " + e.getMessage());
             e.printStackTrace();
         }
-        return flightList;
+        return flightSinglyList;
     }
 
-    public static void saveFlights(SinglyLinkedList flights) throws ListException {
+
+    public static void saveFlights(SinglyLinkedList flights) { // No lanza ListException directamente aqui
         List<Flight> tempFlights = new ArrayList<>();
-        if (!flights.isEmpty()) {
-            Object currentObj = flights.getFirst();
-            Object startObj = currentObj;
-            do {
-                tempFlights.add((Flight) currentObj);
-                currentObj = flights.getNext();
-            } while (currentObj != startObj);
+        int currentSize = 0; // Para depuración y protección contra bucles infinitos
+        // --- INICIO DE DEPURACIÓN Y SEGURIDAD ---
+        System.out.println("[DEBUG FileReader] saveFlights - Intentando guardar SinglyLinkedList de vuelos.");
+        if (flights != null) {
+            try {
+                currentSize = flights.size(); // Obtener el tamaño inicial
+                System.out.println("[DEBUG FileReader] saveFlights - Tamaño reportado de la lista SinglyLinkedList: " + currentSize);
+                // Añadimos un límite de protección para evitar OutOfMemoryError en caso de un bucle infinito
+                // Ajusta este límite si esperas listas legítimamente muy grandes.
+                int maxElementsToProcess = Math.min(currentSize, 1000000); // Límite de 1 millón de elementos
+
+                if (!flights.isEmpty()) {
+                    for (int i = 1; i <= maxElementsToProcess; i++) { // Iterar hasta el tamaño o el límite de seguridad
+                        // --- INICIO DE DEPURACIÓN ---
+                        // System.out.println("[DEBUG FileReader] saveFlights - Obteniendo elemento " + i); // Descomentar para depuración intensa
+                        // --- FIN DE DEPURACIÓN ---
+                        Object element = flights.get(i);
+                        if (element instanceof Flight) {
+                            tempFlights.add((Flight) element);
+                        } else {
+                            System.err.println("[DEBUG FileReader ERROR] Elemento no-Flight en la lista de vuelos: " + (element != null ? element.getClass().getName() : "null") + " en índice: " + i);
+                            // Puedes decidir si lanzar una excepción o simplemente saltar este elemento corrupto
+                        }
+                    }
+                }
+                if (currentSize > maxElementsToProcess) {
+                    System.err.println("[DEBUG FileReader WARNING] La lista SinglyLinkedList de vuelos excedió el límite de procesamiento (" + maxElementsToProcess + "). Podría haber más vuelos de los esperados.");
+                }
+
+            } catch (ListException e) {
+                System.err.println("[Errores:] Error de lista al preparar vuelos para guardar: " + e.getMessage());
+                e.printStackTrace();
+                return; // Salir si hay un error de lista
+            } catch (OutOfMemoryError oome) {
+                System.err.println("[CRÍTICO] OutOfMemoryError detectado al convertir SinglyLinkedList a ArrayList en saveFlights. El tamaño de la lista de origen es probablemente excesivo o hay un bucle.");
+                oome.printStackTrace();
+                return;
+            }
+        } else {
+            System.out.println("[DEBUG FileReader] saveFlights - La lista de vuelos es nula. No se guardará nada.");
         }
+        // --- FIN DE DEPURACIÓN Y SEGURIDAD ---
+
         File file = new File(FILE_FLIGHTS);
         System.out.println("[PRUEBAS X CONSOLA:] Guardando " + tempFlights.size() + " vuelos en: " + file.getAbsolutePath());
         try {
@@ -255,7 +291,6 @@ public class FileReader {
             e.printStackTrace();
         }
     }
-
     public static void addFlight(Flight newFlight) throws ListException {
         SinglyLinkedList flights = loadFlights();
         flights.add(newFlight);
@@ -435,6 +470,4 @@ public class FileReader {
         }
         return airportRoutesMap;
     }
-
-
 }
