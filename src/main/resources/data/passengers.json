@@ -5,26 +5,44 @@
     "nationality": "Costarricense",
     "flightHistory": [
       {
-        "capacity": 150,
-        "occupancy": 120,
-        "status": "Scheduled",
-        "route": "SJO-LAX",
-        "departureDate": "2024-05-10T10:00:00",
-        "flightNumber": 101,
-        "originAirportCode": 3,
-        "destinationAirportCode": 1
-
+        "capacity": 100,
+        "occupancy": 20,
+        "status": "Active",
+        "route": "2-7",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 2,
+        "originAirportCode": 2,
+        "destinationAirportCode": 7
       },
       {
         "capacity": 200,
-        "occupancy": 180,
-        "status": "Delayed",
-        "route": "LAX-JFK",
-        "departureDate": "2024-06-01T15:30:00",
-        "flightNumber": 102,
-        "originAirportCode": 1,
-        "destinationAirportCode": 5
-
+        "occupancy": 30,
+        "status": "Active",
+        "route": "14-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 4,
+        "originAirportCode": 14,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
       }
     ],
     "state": "Active"
@@ -35,15 +53,44 @@
     "nationality": "Mexicana",
     "flightHistory": [
       {
-        "capacity": 180,
-        "occupancy": 150,
-        "status": "Completed",
-        "route": "MEX-LIM",
-        "departureDate": "2023-11-20T08:15:00",
-        "flightNumber": 205,
+        "capacity": 100,
+        "occupancy": 20,
+        "status": "Active",
+        "route": "2-7",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 2,
+        "originAirportCode": 2,
+        "destinationAirportCode": 7
+      },
+      {
+        "capacity": 200,
+        "occupancy": 30,
+        "status": "Active",
+        "route": "14-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 4,
+        "originAirportCode": 14,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
         "originAirportCode": 7,
-        "destinationAirportCode": 2
-
+        "destinationAirportCode": 20
       }
     ],
     "state": "Active"
@@ -52,1127 +99,5382 @@
     "id": 880011223,
     "name": "Jimena Salas",
     "nationality": "Costa Rica",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 100,
+        "occupancy": 20,
+        "status": "Active",
+        "route": "2-7",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 2,
+        "originAirportCode": 2,
+        "destinationAirportCode": 7
+      },
+      {
+        "capacity": 200,
+        "occupancy": 30,
+        "status": "Active",
+        "route": "14-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 4,
+        "originAirportCode": 14,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000001,
     "name": "Pedro Ramírez",
     "nationality": "Colombiana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 200,
+        "occupancy": 30,
+        "status": "Active",
+        "route": "14-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 4,
+        "originAirportCode": 14,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000002,
     "name": "Ana López",
     "nationality": "Argentina",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 200,
+        "occupancy": 30,
+        "status": "Active",
+        "route": "14-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 4,
+        "originAirportCode": 14,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000003,
     "name": "Carlos Sánchez",
     "nationality": "Chilena",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 200,
+        "occupancy": 30,
+        "status": "Active",
+        "route": "14-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 4,
+        "originAirportCode": 14,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000004,
     "name": "Laura Torres",
     "nationality": "Peruana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 200,
+        "occupancy": 30,
+        "status": "Active",
+        "route": "14-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 4,
+        "originAirportCode": 14,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000005,
     "name": "Diego Castro",
     "nationality": "Española",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000006,
     "name": "Sofía Vargas",
     "nationality": "Venezolana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000007,
     "name": "Fernando Rojas",
     "nationality": "Ecuatoriana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000008,
     "name": "Gabriela Morales",
     "nationality": "Uruguaya",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000009,
     "name": "Manuel Díaz",
     "nationality": "Paraguaya",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000010,
     "name": "Valeria Ruiz",
     "nationality": "Boliviana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000011,
     "name": "Ricardo Flores",
     "nationality": "Guatemalteca",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000012,
     "name": "Andrea Castillo",
     "nationality": "Hondureña",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000013,
     "name": "Pablo Navarro",
     "nationality": "Salvadoreña",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000014,
     "name": "Camila Soto",
     "nationality": "Nicaragüense",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000015,
     "name": "Gonzalo Méndez",
     "nationality": "Panameña",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000016,
     "name": "Daniela Gómez",
     "nationality": "Dominicana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000017,
     "name": "Jorge Ramos",
     "nationality": "Cubana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000018,
     "name": "Mariana Vega",
     "nationality": "Puertorriqueña",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000019,
     "name": "Luis Herrera",
     "nationality": "Canadiense",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000020,
     "name": "Carolina Reyes",
     "nationality": "Estadounidense",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000021,
     "name": "Arturo Guzmán",
     "nationality": "Británica",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000022,
     "name": "Alejandra Silva",
     "nationality": "Francesa",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000023,
     "name": "Sergio Moreno",
     "nationality": "Alemana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000024,
     "name": "Natalia Salazar",
     "nationality": "Italiana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000025,
     "name": "Benjamín Pérez",
     "nationality": "Japonesa",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000026,
     "name": "Isabella Ferrer",
     "nationality": "China",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000027,
     "name": "Mateo Luna",
     "nationality": "Coreana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000028,
     "name": "Emilia Soto",
     "nationality": "Australiana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000029,
     "name": "Gabriel Ponce",
     "nationality": "Neozelandesa",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000030,
     "name": "Lucía Godoy",
     "nationality": "Sudafricana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000031,
     "name": "Jerónimo Pineda",
     "nationality": "Egipcia",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000032,
     "name": "Victoria Rojas",
     "nationality": "Marroquí",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000033,
     "name": "Martín Campos",
     "nationality": "Saudita",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000034,
     "name": "Renata Mendoza",
     "nationality": "India",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000035,
     "name": "Diego Rivera",
     "nationality": "Turca",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000036,
     "name": "Valentina Ortiz",
     "nationality": "Griega",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000037,
     "name": "Joaquín León",
     "nationality": "Portuguesa",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000038,
     "name": "Catalina Bravo",
     "nationality": "Belga",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000039,
     "name": "Sebastián Soto",
     "nationality": "Suiza",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000040,
     "name": "Florencia Núñez",
     "nationality": "Sueca",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000041,
     "name": "Andrés Flores",
     "nationality": "Noruega",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000042,
     "name": "Paulina Vidal",
     "nationality": "Finlandesa",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000043,
     "name": "Daniel Espinoza",
     "nationality": "Danesa",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000044,
     "name": "Nicole Rojas",
     "nationality": "Irlandesa",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000045,
     "name": "Francisco Soto",
     "nationality": "Escocesa",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000046,
     "name": "Michelle Lagos",
     "nationality": "Galesa",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000047,
     "name": "Roberto Guzmán",
     "nationality": "Polaca",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000048,
     "name": "Camila Orellana",
     "nationality": "Checa",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000049,
     "name": "Felipe Herrera",
     "nationality": "Húngara",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000050,
     "name": "Belén Palma",
     "nationality": "Rumana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000051,
     "name": "Esteban Sepúlveda",
     "nationality": "Búlgara",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000052,
     "name": "Antonia Fuenzalida",
     "nationality": "Serbio",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000053,
     "name": "Ignacio Bustamante",
     "nationality": "Croata",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000054,
     "name": "Fernanda Quiroz",
     "nationality": "Eslovaca",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000055,
     "name": "Vicente Díaz",
     "nationality": "Eslovena",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      },
+      {
+        "capacity": 150,
+        "occupancy": 40,
+        "status": "Active",
+        "route": "1-8",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 8,
+        "originAirportCode": 1,
+        "destinationAirportCode": 8
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000056,
     "name": "Josefa Rivas",
     "nationality": "Bosnia",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      },
+      {
+        "capacity": 150,
+        "occupancy": 40,
+        "status": "Active",
+        "route": "1-8",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 8,
+        "originAirportCode": 1,
+        "destinationAirportCode": 8
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000057,
     "name": "Tomás Vera",
     "nationality": "Albanesa",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      },
+      {
+        "capacity": 150,
+        "occupancy": 40,
+        "status": "Active",
+        "route": "1-8",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 8,
+        "originAirportCode": 1,
+        "destinationAirportCode": 8
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000058,
     "name": "Paz Cisternas",
     "nationality": "Macedonia",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000059,
     "name": "Matías Osorio",
     "nationality": "Montenegrina",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000060,
     "name": "Constanza Pino",
     "nationality": "Kosovar",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000061,
     "name": "Diego Fernández",
     "nationality": "Chipriota",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000062,
     "name": "Sofia Gallardo",
     "nationality": "Maltesa",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000063,
     "name": "Lucas Morales",
     "nationality": "Islandesa",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000064,
     "name": "Emilia Soto",
     "nationality": "Lituana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000065,
     "name": "Benjamín Pérez",
     "nationality": "Letona",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000066,
     "name": "Isabella Ferrer",
     "nationality": "Estonia",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000067,
     "name": "Mateo Luna",
     "nationality": "Bielorrusa",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000068,
     "name": "Emilia Soto",
     "nationality": "Ucraniana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000069,
     "name": "Gabriel Ponce",
     "nationality": "Rusa",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000070,
     "name": "Lucía Godoy",
     "nationality": "Georgiana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 70,
+        "status": "Active",
+        "route": "12-9",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 1,
+        "originAirportCode": 12,
+        "destinationAirportCode": 9
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000071,
     "name": "Jerónimo Pineda",
     "nationality": "Azerbaiyana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000072,
     "name": "Victoria Rojas",
     "nationality": "Armenia",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000073,
     "name": "Martín Campos",
     "nationality": "Kazaja",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000074,
     "name": "Renata Mendoza",
     "nationality": "Uzbeka",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000075,
     "name": "Diego Rivera",
     "nationality": "Turcomana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000076,
     "name": "Valentina Ortiz",
     "nationality": "Kirguisa",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000077,
     "name": "Joaquín León",
     "nationality": "Tayika",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000078,
     "name": "Catalina Bravo",
     "nationality": "Afgana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000079,
     "name": "Sebastián Soto",
     "nationality": "Pakistaní",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000080,
     "name": "Florencia Núñez",
     "nationality": "Bangladeshí",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000081,
     "name": "Andrés Flores",
     "nationality": "Nepalesa",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000082,
     "name": "Paulina Vidal",
     "nationality": "Butanesa",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000083,
     "name": "Daniel Espinoza",
     "nationality": "Sri Lankesa",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000084,
     "name": "Nicole Rojas",
     "nationality": "Maldiva",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000085,
     "name": "Francisco Soto",
     "nationality": "Tailandesa",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000086,
     "name": "Michelle Lagos",
     "nationality": "Vietnamita",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000087,
     "name": "Roberto Guzmán",
     "nationality": "Camboyana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000088,
     "name": "Camila Orellana",
     "nationality": "Laosiana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000089,
     "name": "Felipe Herrera",
     "nationality": "Birmana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000090,
     "name": "Belén Palma",
     "nationality": "Malaya",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000091,
     "name": "Esteban Sepúlveda",
     "nationality": "Singapurense",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000092,
     "name": "Antonia Fuenzalida",
     "nationality": "Indonesia",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000093,
     "name": "Ignacio Bustamante",
     "nationality": "Filipina",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000094,
     "name": "Fernanda Quiroz",
     "nationality": "Timorense",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 100,
+        "occupancy": 90,
+        "status": "Active",
+        "route": "10-12",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 7,
+        "originAirportCode": 10,
+        "destinationAirportCode": 12
+      },
+      {
+        "capacity": 100,
+        "occupancy": 60,
+        "status": "Active",
+        "route": "7-5",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 9,
+        "originAirportCode": 7,
+        "destinationAirportCode": 5
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000095,
     "name": "Vicente Díaz",
     "nationality": "Papú",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 150,
+        "occupancy": 40,
+        "status": "Active",
+        "route": "1-8",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 8,
+        "originAirportCode": 1,
+        "destinationAirportCode": 8
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000096,
     "name": "Josefa Rivas",
     "nationality": "Fiyiana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 150,
+        "occupancy": 40,
+        "status": "Active",
+        "route": "1-8",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 8,
+        "originAirportCode": 1,
+        "destinationAirportCode": 8
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000097,
     "name": "Tomás Vera",
     "nationality": "Salomonense",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 150,
+        "occupancy": 40,
+        "status": "Active",
+        "route": "1-8",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 8,
+        "originAirportCode": 1,
+        "destinationAirportCode": 8
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000098,
     "name": "Paz Cisternas",
     "nationality": "Vanuatuense",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 150,
+        "occupancy": 40,
+        "status": "Active",
+        "route": "1-8",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 8,
+        "originAirportCode": 1,
+        "destinationAirportCode": 8
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000099,
     "name": "Matías Osorio",
     "nationality": "Samoana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 150,
+        "occupancy": 40,
+        "status": "Active",
+        "route": "1-8",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 8,
+        "originAirportCode": 1,
+        "destinationAirportCode": 8
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000100,
     "name": "Constanza Pino",
     "nationality": "Tongan",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 150,
+        "occupancy": 40,
+        "status": "Active",
+        "route": "1-8",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 8,
+        "originAirportCode": 1,
+        "destinationAirportCode": 8
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000101,
     "name": "Diego Fernández",
     "nationality": "Tuvaluana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 150,
+        "occupancy": 40,
+        "status": "Active",
+        "route": "1-8",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 8,
+        "originAirportCode": 1,
+        "destinationAirportCode": 8
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000102,
     "name": "Sofia Gallardo",
     "nationality": "Nauruana",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 150,
+        "occupancy": 40,
+        "status": "Active",
+        "route": "1-8",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 8,
+        "originAirportCode": 1,
+        "destinationAirportCode": 8
+      }
+    ],
     "state": "Active"
   },
   {
     "id": 100000103,
     "name": "Lucas Morales",
     "nationality": "Kiribatiana",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000104,
-    "name": "Emilia Soto",
-    "nationality": "Marshalesa",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000105,
-    "name": "Benjamín Pérez",
-    "nationality": "Palaoana",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000106,
-    "name": "Isabella Ferrer",
-    "nationality": "Micronesia",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000107,
-    "name": "Mateo Luna",
-    "nationality": "Argelina",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000108,
-    "name": "Emilia Soto",
-    "nationality": "Egipcia",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000109,
-    "name": "Gabriel Ponce",
-    "nationality": "Libia",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000110,
-    "name": "Lucía Godoy",
-    "nationality": "Tunecina",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000111,
-    "name": "Jerónimo Pineda",
-    "nationality": "Marroquí",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000112,
-    "name": "Victoria Rojas",
-    "nationality": "Mauritana",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000113,
-    "name": "Martín Campos",
-    "nationality": "Senegalesa",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000114,
-    "name": "Renata Mendoza",
-    "nationality": "Maliense",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000115,
-    "name": "Diego Rivera",
-    "nationality": "Nigerina",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000116,
-    "name": "Valentina Ortiz",
-    "nationality": "Chadiana",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000117,
-    "name": "Joaquín León",
-    "nationality": "Sudanesa",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000118,
-    "name": "Catalina Bravo",
-    "nationality": "Etíope",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000119,
-    "name": "Sebastián Soto",
-    "nationality": "Eritrea",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000120,
-    "name": "Florencia Núñez",
-    "nationality": "Somalí",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000121,
-    "name": "Andrés Flores",
-    "nationality": "Yibutiana",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000122,
-    "name": "Paulina Vidal",
-    "nationality": "Keniata",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000123,
-    "name": "Daniel Espinoza",
-    "nationality": "Ugandesa",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000124,
-    "name": "Nicole Rojas",
-    "nationality": "Ruandesa",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000125,
-    "name": "Francisco Soto",
-    "nationality": "Burundesa",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000126,
-    "name": "Michelle Lagos",
-    "nationality": "Tanzana",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000127,
-    "name": "Roberto Guzmán",
-    "nationality": "Congoleña",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000128,
-    "name": "Camila Orellana",
-    "nationality": "Angoleña",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000129,
-    "name": "Felipe Herrera",
-    "nationality": "Zambiana",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000130,
-    "name": "Belén Palma",
-    "nationality": "Zimbabuense",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000131,
-    "name": "Esteban Sepúlveda",
-    "nationality": "Botsuana",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000132,
-    "name": "Antonia Fuenzalida",
-    "nationality": "Namibia",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000133,
-    "name": "Ignacio Bustamante",
-    "nationality": "Madrileña",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000134,
-    "name": "Fernanda Quiroz",
-    "nationality": "Mozambiqueña",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000135,
-    "name": "Vicente Díaz",
-    "nationality": "Malauí",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000136,
-    "name": "Josefa Rivas",
-    "nationality": "Lesotense",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000137,
-    "name": "Tomás Vera",
-    "nationality": "Suazilandesa",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000138,
-    "name": "Paz Cisternas",
-    "nationality": "Comorense",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000139,
-    "name": "Matías Osorio",
-    "nationality": "Mauriciana",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000140,
-    "name": "Constanza Pino",
-    "nationality": "Seychellense",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000141,
-    "name": "Diego Fernández",
-    "nationality": "Liberiana",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000142,
-    "name": "Sofia Gallardo",
-    "nationality": "Sierra leonesa",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000143,
-    "name": "Lucas Morales",
-    "nationality": "Costamarfileña",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000144,
-    "name": "Emilia Soto",
-    "nationality": "Ghanesa",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000145,
-    "name": "Benjamín Pérez",
-    "nationality": "Togolesa",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000146,
-    "name": "Isabella Ferrer",
-    "nationality": "Beninesa",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000147,
-    "name": "Mateo Luna",
-    "nationality": "Nigeriana",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000148,
-    "name": "Emilia Soto",
-    "nationality": "Camerunense",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000149,
-    "name": "Gabriel Ponce",
-    "nationality": "Gabonesa",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000150,
-    "name": "Lucía Godoy",
-    "nationality": "Guineana",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000151,
-    "name": "Jerónimo Pineda",
-    "nationality": "Guineana-Bissauense",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000152,
-    "name": "Victoria Rojas",
-    "nationality": "Caboverdiana",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000153,
-    "name": "Martín Campos",
-    "nationality": "Santotomense",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000154,
-    "name": "Renata Mendoza",
-    "nationality": "Ecuatoguineana",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000155,
-    "name": "Diego Rivera",
-    "nationality": "Centroafricana",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000156,
-    "name": "Valentina Ortiz",
-    "nationality": "Congoleña (Rep. Dem.)",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000157,
-    "name": "Joaquín León",
-    "nationality": "Surinamesa",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000158,
-    "name": "Catalina Bravo",
-    "nationality": "Guyanesa",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000159,
-    "name": "Sebastián Soto",
-    "nationality": "Francesa",
-    "flightHistory": [],
-    "state": "Active"
-  },
-  {
-    "id": 100000160,
-    "name": "Florencia Núñez",
-    "nationality": "Neerlandesa",
-    "flightHistory": [],
+    "flightHistory": [
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "2-4",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 3,
+        "originAirportCode": 2,
+        "destinationAirportCode": 4
+      },
+      {
+        "capacity": 150,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "5-1",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 5,
+        "originAirportCode": 5,
+        "destinationAirportCode": 1
+      },
+      {
+        "capacity": 200,
+        "occupancy": 100,
+        "status": "Active",
+        "route": "7-20",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 6,
+        "originAirportCode": 7,
+        "destinationAirportCode": 20
+      },
+      {
+        "capacity": 150,
+        "occupancy": 40,
+        "status": "Active",
+        "route": "1-8",
+        "departureDate": "2025-06-19T15:56:00.1091625",
+        "flightNumber": 8,
+        "originAirportCode": 1,
+        "destinationAirportCode": 8
+      }
+    ],
     "state": "Active"
   }
-]
+  ]

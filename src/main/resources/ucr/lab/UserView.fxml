@@ -45,7 +45,7 @@
                             <Label style="-fx-font-size: 13px; -fx-text-fill: #555555;" text="Destino " />
                             <ComboBox fx:id="cbSearchDestinationCode" prefWidth="130.0" promptText="Seleccionar" style="-fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 4; -fx-background-radius: 4;" />
                             <Button onAction="#handleSearchFlights" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 6 15; -fx-border-radius: 4; -fx-background-radius: 4; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0, 0, 1);" text="Buscar Vuelos" />
-                            <Button onAction="#handleClearAllData" text="Borrar" />
+                            <Button onAction="#clearFields" text="Borrar" />
                         </HBox>
                     </children>
                 </VBox>

@@ -19,3 +19,32 @@ admin: Vista administrator cargada exitosamente.
 [2025-06-21 15:41:07] System: Mostrando lista de vuelos.
 [2025-06-21 15:41:07] Admin: Pestaña 'Gestionar Vuelos' cargada.
 [2025-06-21 15:41:11] Admin: Pestaña 'Gestionar Usuarios' cargada.
+admin: Intento de inicio de sesión fallido: contraseña incorrecta.
+admin: Inicio de sesión exitoso como administrator.
+[2025-06-21 16:19:33] Admin: Panel de administración iniciado.
+admin: Vista administrator cargada exitosamente.
+[2025-06-21 16:19:35] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-21 16:19:36] Admin: Pestaña 'Gestionar Usuarios' cargada.
+[2025-06-21 16:19:52] System: FlightController inicializado.
+[2025-06-21 16:19:52] System: Aeropuertos cargados en los ComboBoxes.
+[2025-06-21 16:19:52] System: Carga de todos los vuelos. Cantidad: 9
+[2025-06-21 16:19:52] System: Mostrando lista de vuelos.
+[2025-06-21 16:19:52] Admin: Pestaña 'Gestionar Vuelos' cargada.
+[2025-06-21 16:19:54] System: Mostrando lista de vuelos con filtro: Active.
+[2025-06-21 16:19:54] System: Mostrando vuelos con estado 'Active'.
+[2025-06-21 16:19:54] System: Mostrando lista de vuelos con filtro: Complete.
+[2025-06-21 16:19:54] System: Mostrando vuelos con estado 'Complete'.
+[2025-06-21 16:19:56] System: Carga de todos los vuelos. Cantidad: 9
+[2025-06-21 16:19:56] System: Mostrando lista de vuelos.
+[2025-06-21 16:19:56] System: Listando todos los vuelos.
+[2025-06-21 16:20:00] Admin: Pestaña 'Gestionar Rutas' cargada.
+jime: Inicio de sesión exitoso como user.
+jime: Vista user cargada exitosamente.
+jime: Inicio de sesión exitoso como user.
+jime: Vista user cargada exitosamente.
+jime: Inicio de sesión exitoso como user.
+jime: Vista user cargada exitosamente.
+jime: Inicio de sesión exitoso como user.
+jime: Vista user cargada exitosamente.
+jime: Inicio de sesión exitoso como user.
+jime: Vista user cargada exitosamente.
