@@ -7,1870 +7,10 @@
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originCode": 1.0,
-          "destinationCode": 2.0,
-          "departureTime": "2025-06-18T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": ""
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originCode": 1.0,
-            "destinationCode": 3.0,
-            "departureTime": "2025-06-20T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": ""
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originCode": 1.0,
-              "destinationCode": 4.0,
-              "departureTime": "2025-06-22T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": ""
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originCode": 1.0,
-                "destinationCode": 5.0,
-                "departureTime": "2025-06-19T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": ""
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originCode": 1.0,
-                  "destinationCode": 6.0,
-                  "departureTime": "2025-06-21T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": ""
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 2,
-    "name": "John F. Kennedy International Airport",
-    "country": "USA",
-    "status": "Inactivo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originCode": 1.0,
-          "destinationCode": 2.0,
-          "departureTime": "2025-06-18T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": ""
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originCode": 1.0,
-            "destinationCode": 3.0,
-            "departureTime": "2025-06-20T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": ""
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originCode": 1.0,
-              "destinationCode": 4.0,
-              "departureTime": "2025-06-22T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": ""
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originCode": 1.0,
-                "destinationCode": 5.0,
-                "departureTime": "2025-06-19T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": ""
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originCode": 1.0,
-                  "destinationCode": 6.0,
-                  "departureTime": "2025-06-21T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": ""
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 3,
-    "name": "Aeropuerto Internacional de San José",
-    "country": "COSTA RICA",
-    "status": "Activo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originCode": 1.0,
-          "destinationCode": 2.0,
-          "departureTime": "2025-06-18T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": ""
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originCode": 1.0,
-            "destinationCode": 3.0,
-            "departureTime": "2025-06-20T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": ""
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originCode": 1.0,
-              "destinationCode": 4.0,
-              "departureTime": "2025-06-22T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": ""
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originCode": 1.0,
-                "destinationCode": 5.0,
-                "departureTime": "2025-06-19T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": ""
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originCode": 1.0,
-                  "destinationCode": 6.0,
-                  "departureTime": "2025-06-21T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": ""
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 4,
-    "name": "Ciudad Celeste International Airport",
-    "country": "TERRANOVA",
-    "status": "Inactivo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originCode": 1.0,
-          "destinationCode": 2.0,
-          "departureTime": "2025-06-18T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": ""
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originCode": 1.0,
-            "destinationCode": 3.0,
-            "departureTime": "2025-06-20T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": ""
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originCode": 1.0,
-              "destinationCode": 4.0,
-              "departureTime": "2025-06-22T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": ""
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originCode": 1.0,
-                "destinationCode": 5.0,
-                "departureTime": "2025-06-19T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": ""
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originCode": 1.0,
-                  "destinationCode": 6.0,
-                  "departureTime": "2025-06-21T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": ""
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 5,
-    "name": "Narita International Airport",
-    "country": "JAPAN",
-    "status": "Activo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originCode": 1.0,
-          "destinationCode": 2.0,
-          "departureTime": "2025-06-18T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": ""
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originCode": 1.0,
-            "destinationCode": 3.0,
-            "departureTime": "2025-06-20T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": ""
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originCode": 1.0,
-              "destinationCode": 4.0,
-              "departureTime": "2025-06-22T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": ""
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originCode": 1.0,
-                "destinationCode": 5.0,
-                "departureTime": "2025-06-19T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": ""
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originCode": 1.0,
-                  "destinationCode": 6.0,
-                  "departureTime": "2025-06-21T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": ""
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 6,
-    "name": "Frankfurt Airport",
-    "country": "GERMANY",
-    "status": "Activo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originCode": 1.0,
-          "destinationCode": 2.0,
-          "departureTime": "2025-06-18T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": ""
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originCode": 1.0,
-            "destinationCode": 3.0,
-            "departureTime": "2025-06-20T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": ""
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originCode": 1.0,
-              "destinationCode": 4.0,
-              "departureTime": "2025-06-22T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": ""
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originCode": 1.0,
-                "destinationCode": 5.0,
-                "departureTime": "2025-06-19T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": ""
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originCode": 1.0,
-                  "destinationCode": 6.0,
-                  "departureTime": "2025-06-21T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": ""
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 7,
-    "name": "Aeropuerto de Buenos Aires",
-    "country": "ARGENTINA",
-    "status": "Inactivo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originCode": 1.0,
-          "destinationCode": 2.0,
-          "departureTime": "2025-06-18T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": ""
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originCode": 1.0,
-            "destinationCode": 3.0,
-            "departureTime": "2025-06-20T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": ""
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originCode": 1.0,
-              "destinationCode": 4.0,
-              "departureTime": "2025-06-22T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": ""
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originCode": 1.0,
-                "destinationCode": 5.0,
-                "departureTime": "2025-06-19T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": ""
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originCode": 1.0,
-                  "destinationCode": 6.0,
-                  "departureTime": "2025-06-21T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": ""
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 8,
-    "name": "Dragon City AirHub",
-    "country": "FANTASIA",
-    "status": "Activo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originCode": 1.0,
-          "destinationCode": 2.0,
-          "departureTime": "2025-06-18T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": ""
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originCode": 1.0,
-            "destinationCode": 3.0,
-            "departureTime": "2025-06-20T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": ""
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originCode": 1.0,
-              "destinationCode": 4.0,
-              "departureTime": "2025-06-22T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": ""
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originCode": 1.0,
-                "destinationCode": 5.0,
-                "departureTime": "2025-06-19T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": ""
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originCode": 1.0,
-                  "destinationCode": 6.0,
-                  "departureTime": "2025-06-21T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": ""
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 9,
-    "name": "Aeropuerto Internacional Arturo Merino Benítez",
-    "country": "CHILE",
-    "status": "Activo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originCode": 1.0,
-          "destinationCode": 2.0,
-          "departureTime": "2025-06-18T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": ""
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originCode": 1.0,
-            "destinationCode": 3.0,
-            "departureTime": "2025-06-20T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": ""
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originCode": 1.0,
-              "destinationCode": 4.0,
-              "departureTime": "2025-06-22T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": ""
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originCode": 1.0,
-                "destinationCode": 5.0,
-                "departureTime": "2025-06-19T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": ""
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originCode": 1.0,
-                  "destinationCode": 6.0,
-                  "departureTime": "2025-06-21T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": ""
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 10,
-    "name": "Beijing Capital International Airport",
-    "country": "CHINA",
-    "status": "Activo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originCode": 1.0,
-          "destinationCode": 2.0,
-          "departureTime": "2025-06-18T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": ""
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originCode": 1.0,
-            "destinationCode": 3.0,
-            "departureTime": "2025-06-20T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": ""
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originCode": 1.0,
-              "destinationCode": 4.0,
-              "departureTime": "2025-06-22T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": ""
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originCode": 1.0,
-                "destinationCode": 5.0,
-                "departureTime": "2025-06-19T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": ""
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originCode": 1.0,
-                  "destinationCode": 6.0,
-                  "departureTime": "2025-06-21T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": ""
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 11,
-    "name": "Aeropuerto de Atlantis",
-    "country": "MITICA",
-    "status": "Inactivo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originCode": 1.0,
-          "destinationCode": 2.0,
-          "departureTime": "2025-06-18T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": ""
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originCode": 1.0,
-            "destinationCode": 3.0,
-            "departureTime": "2025-06-20T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": ""
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originCode": 1.0,
-              "destinationCode": 4.0,
-              "departureTime": "2025-06-22T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": ""
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originCode": 1.0,
-                "destinationCode": 5.0,
-                "departureTime": "2025-06-19T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": ""
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originCode": 1.0,
-                  "destinationCode": 6.0,
-                  "departureTime": "2025-06-21T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": ""
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 12,
-    "name": "Aeropuerto Internacional de Monterrey",
-    "country": "MEXICO",
-    "status": "Activo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originCode": 1.0,
-          "destinationCode": 2.0,
-          "departureTime": "2025-06-18T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": ""
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originCode": 1.0,
-            "destinationCode": 3.0,
-            "departureTime": "2025-06-20T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": ""
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originCode": 1.0,
-              "destinationCode": 4.0,
-              "departureTime": "2025-06-22T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": ""
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originCode": 1.0,
-                "destinationCode": 5.0,
-                "departureTime": "2025-06-19T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": ""
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originCode": 1.0,
-                  "destinationCode": 6.0,
-                  "departureTime": "2025-06-21T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": ""
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 13,
-    "name": "Cape Town International Airport",
-    "country": "SOUTH AFRICA",
-    "status": "Activo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originCode": 1.0,
-          "destinationCode": 2.0,
-          "departureTime": "2025-06-18T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": ""
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originCode": 1.0,
-            "destinationCode": 3.0,
-            "departureTime": "2025-06-20T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": ""
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originCode": 1.0,
-              "destinationCode": 4.0,
-              "departureTime": "2025-06-22T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": ""
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originCode": 1.0,
-                "destinationCode": 5.0,
-                "departureTime": "2025-06-19T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": ""
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originCode": 1.0,
-                  "destinationCode": 6.0,
-                  "departureTime": "2025-06-21T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": ""
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 14,
-    "name": "Aeropuerto de Nimbus Prime",
-    "country": "AETHER",
-    "status": "Activo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originCode": 1.0,
-          "destinationCode": 2.0,
-          "departureTime": "2025-06-18T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": ""
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originCode": 1.0,
-            "destinationCode": 3.0,
-            "departureTime": "2025-06-20T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": ""
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originCode": 1.0,
-              "destinationCode": 4.0,
-              "departureTime": "2025-06-22T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": ""
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originCode": 1.0,
-                "destinationCode": 5.0,
-                "departureTime": "2025-06-19T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": ""
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originCode": 1.0,
-                  "destinationCode": 6.0,
-                  "departureTime": "2025-06-21T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": ""
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 15,
-    "name": "Aeropuerto de Lima",
-    "country": "PERU",
-    "status": "Inactivo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originCode": 1.0,
-          "destinationCode": 2.0,
-          "departureTime": "2025-06-18T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": ""
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originCode": 1.0,
-            "destinationCode": 3.0,
-            "departureTime": "2025-06-20T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": ""
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originCode": 1.0,
-              "destinationCode": 4.0,
-              "departureTime": "2025-06-22T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": ""
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originCode": 1.0,
-                "destinationCode": 5.0,
-                "departureTime": "2025-06-19T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": ""
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originCode": 1.0,
-                  "destinationCode": 6.0,
-                  "departureTime": "2025-06-21T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": ""
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 16,
-    "name": "Istanbul Airport",
-    "country": "TURKEY",
-    "status": "Activo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originCode": 1.0,
-          "destinationCode": 2.0,
-          "departureTime": "2025-06-18T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": ""
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originCode": 1.0,
-            "destinationCode": 3.0,
-            "departureTime": "2025-06-20T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": ""
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originCode": 1.0,
-              "destinationCode": 4.0,
-              "departureTime": "2025-06-22T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": ""
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originCode": 1.0,
-                "destinationCode": 5.0,
-                "departureTime": "2025-06-19T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": ""
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originCode": 1.0,
-                  "destinationCode": 6.0,
-                  "departureTime": "2025-06-21T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": ""
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 17,
-    "name": "Barcelona–El Prat Airport",
-    "country": "SPAIN",
-    "status": "Activo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originCode": 1.0,
-          "destinationCode": 2.0,
-          "departureTime": "2025-06-18T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": ""
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originCode": 1.0,
-            "destinationCode": 3.0,
-            "departureTime": "2025-06-20T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": ""
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originCode": 1.0,
-              "destinationCode": 4.0,
-              "departureTime": "2025-06-22T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": ""
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originCode": 1.0,
-                "destinationCode": 5.0,
-                "departureTime": "2025-06-19T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": ""
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originCode": 1.0,
-                  "destinationCode": 6.0,
-                  "departureTime": "2025-06-21T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": ""
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 18,
-    "name": "Aeropuerto Internacional Simón Bolívar",
-    "country": "VENEZUELA",
-    "status": "Inactivo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originCode": 1.0,
-          "destinationCode": 2.0,
-          "departureTime": "2025-06-18T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": ""
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originCode": 1.0,
-            "destinationCode": 3.0,
-            "departureTime": "2025-06-20T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": ""
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originCode": 1.0,
-              "destinationCode": 4.0,
-              "departureTime": "2025-06-22T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": ""
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originCode": 1.0,
-                "destinationCode": 5.0,
-                "departureTime": "2025-06-19T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": ""
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originCode": 1.0,
-                  "destinationCode": 6.0,
-                  "departureTime": "2025-06-21T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": ""
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 19,
-    "name": "Zürich Airport",
-    "country": "SWITZERLAND",
-    "status": "Activo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originCode": 1.0,
-          "destinationCode": 2.0,
-          "departureTime": "2025-06-18T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": ""
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originCode": 1.0,
-            "destinationCode": 3.0,
-            "departureTime": "2025-06-20T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": ""
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originCode": 1.0,
-              "destinationCode": 4.0,
-              "departureTime": "2025-06-22T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": ""
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originCode": 1.0,
-                "destinationCode": 5.0,
-                "departureTime": "2025-06-19T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": ""
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originCode": 1.0,
-                  "destinationCode": 6.0,
-                  "departureTime": "2025-06-21T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": ""
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 20,
-    "name": "Cielo Alto Air Station",
-    "country": "ESTELIA",
-    "status": "Activo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originCode": 1.0,
-          "destinationCode": 2.0,
-          "departureTime": "2025-06-18T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": ""
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originCode": 1.0,
-            "destinationCode": 3.0,
-            "departureTime": "2025-06-20T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": ""
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originCode": 1.0,
-              "destinationCode": 4.0,
-              "departureTime": "2025-06-22T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": ""
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originCode": 1.0,
-                "destinationCode": 5.0,
-                "departureTime": "2025-06-19T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": ""
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originCode": 1.0,
-                  "destinationCode": 6.0,
-                  "departureTime": "2025-06-21T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": ""
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 1,
-    "name": "Los Angeles International Airport",
-    "country": "USA",
-    "status": "Activo",
-    "departuresBoard": {
-      "first": {
-        "data": {
           "number": 101,
           "originCode": 1,
           "destinationCode": 2,
-          "departureTime": "2025-06-18T10:30:00",
+          "departureTime": "2025-06-21T10:30:00",
           "capacity": 150,
           "occupancy": 0,
           "status": "ON TIME",
@@ -1885,7 +25,7 @@
             "number": 102,
             "originCode": 1,
             "destinationCode": 3,
-            "departureTime": "2025-06-20T14:00:00",
+            "departureTime": "2025-06-23T14:00:00",
             "capacity": 200,
             "occupancy": 0,
             "status": "DELAYED",
@@ -1900,7 +40,7 @@
               "number": 103,
               "originCode": 1,
               "destinationCode": 4,
-              "departureTime": "2025-06-22T08:45:00",
+              "departureTime": "2025-06-25T08:45:00",
               "capacity": 180,
               "occupancy": 0,
               "status": "CANCELLED",
@@ -1915,7 +55,7 @@
                 "number": 104,
                 "originCode": 1,
                 "destinationCode": 5,
-                "departureTime": "2025-06-19T09:15:00",
+                "departureTime": "2025-06-22T09:15:00",
                 "capacity": 120,
                 "occupancy": 0,
                 "status": "BOARDING",
@@ -1930,7 +70,7 @@
                   "number": 105,
                   "originCode": 1,
                   "destinationCode": 6,
-                  "departureTime": "2025-06-21T16:20:00",
+                  "departureTime": "2025-06-24T16:20:00",
                   "capacity": 130,
                   "occupancy": 0,
                   "status": "FINAL CALL",
@@ -2023,7 +163,7 @@
           "number": 101,
           "originCode": 1,
           "destinationCode": 2,
-          "departureTime": "2025-06-18T10:30:00",
+          "departureTime": "2025-06-21T10:30:00",
           "capacity": 150,
           "occupancy": 0,
           "status": "ON TIME",
@@ -2038,7 +178,7 @@
             "number": 102,
             "originCode": 1,
             "destinationCode": 3,
-            "departureTime": "2025-06-20T14:00:00",
+            "departureTime": "2025-06-23T14:00:00",
             "capacity": 200,
             "occupancy": 0,
             "status": "DELAYED",
@@ -2053,7 +193,7 @@
               "number": 103,
               "originCode": 1,
               "destinationCode": 4,
-              "departureTime": "2025-06-22T08:45:00",
+              "departureTime": "2025-06-25T08:45:00",
               "capacity": 180,
               "occupancy": 0,
               "status": "CANCELLED",
@@ -2068,7 +208,7 @@
                 "number": 104,
                 "originCode": 1,
                 "destinationCode": 5,
-                "departureTime": "2025-06-19T09:15:00",
+                "departureTime": "2025-06-22T09:15:00",
                 "capacity": 120,
                 "occupancy": 0,
                 "status": "BOARDING",
@@ -2083,7 +223,7 @@
                   "number": 105,
                   "originCode": 1,
                   "destinationCode": 6,
-                  "departureTime": "2025-06-21T16:20:00",
+                  "departureTime": "2025-06-24T16:20:00",
                   "capacity": 130,
                   "occupancy": 0,
                   "status": "FINAL CALL",
@@ -2167,7 +307,7 @@
   },
   {
     "code": 3,
-    "name": "Aeropuerto Internacional de San José",
+    "name": "Aeropuerto Internacional Juan Santamaría",
     "country": "COSTA RICA",
     "status": "Activo",
     "departuresBoard": {
@@ -2176,7 +316,7 @@
           "number": 101,
           "originCode": 1,
           "destinationCode": 2,
-          "departureTime": "2025-06-18T10:30:00",
+          "departureTime": "2025-06-21T10:30:00",
           "capacity": 150,
           "occupancy": 0,
           "status": "ON TIME",
@@ -2191,7 +331,7 @@
             "number": 102,
             "originCode": 1,
             "destinationCode": 3,
-            "departureTime": "2025-06-20T14:00:00",
+            "departureTime": "2025-06-23T14:00:00",
             "capacity": 200,
             "occupancy": 0,
             "status": "DELAYED",
@@ -2206,7 +346,7 @@
               "number": 103,
               "originCode": 1,
               "destinationCode": 4,
-              "departureTime": "2025-06-22T08:45:00",
+              "departureTime": "2025-06-25T08:45:00",
               "capacity": 180,
               "occupancy": 0,
               "status": "CANCELLED",
@@ -2221,7 +361,7 @@
                 "number": 104,
                 "originCode": 1,
                 "destinationCode": 5,
-                "departureTime": "2025-06-19T09:15:00",
+                "departureTime": "2025-06-22T09:15:00",
                 "capacity": 120,
                 "occupancy": 0,
                 "status": "BOARDING",
@@ -2236,7 +376,7 @@
                   "number": 105,
                   "originCode": 1,
                   "destinationCode": 6,
-                  "departureTime": "2025-06-21T16:20:00",
+                  "departureTime": "2025-06-24T16:20:00",
                   "capacity": 130,
                   "occupancy": 0,
                   "status": "FINAL CALL",
@@ -2329,7 +469,7 @@
           "number": 101,
           "originCode": 1,
           "destinationCode": 2,
-          "departureTime": "2025-06-18T10:30:00",
+          "departureTime": "2025-06-21T10:30:00",
           "capacity": 150,
           "occupancy": 0,
           "status": "ON TIME",
@@ -2344,7 +484,7 @@
             "number": 102,
             "originCode": 1,
             "destinationCode": 3,
-            "departureTime": "2025-06-20T14:00:00",
+            "departureTime": "2025-06-23T14:00:00",
             "capacity": 200,
             "occupancy": 0,
             "status": "DELAYED",
@@ -2359,7 +499,7 @@
               "number": 103,
               "originCode": 1,
               "destinationCode": 4,
-              "departureTime": "2025-06-22T08:45:00",
+              "departureTime": "2025-06-25T08:45:00",
               "capacity": 180,
               "occupancy": 0,
               "status": "CANCELLED",
@@ -2374,7 +514,7 @@
                 "number": 104,
                 "originCode": 1,
                 "destinationCode": 5,
-                "departureTime": "2025-06-19T09:15:00",
+                "departureTime": "2025-06-22T09:15:00",
                 "capacity": 120,
                 "occupancy": 0,
                 "status": "BOARDING",
@@ -2389,7 +529,7 @@
                   "number": 105,
                   "originCode": 1,
                   "destinationCode": 6,
-                  "departureTime": "2025-06-21T16:20:00",
+                  "departureTime": "2025-06-24T16:20:00",
                   "capacity": 130,
                   "occupancy": 0,
                   "status": "FINAL CALL",
@@ -2470,7 +610,7 @@
           "number": 101,
           "originCode": 1,
           "destinationCode": 2,
-          "departureTime": "2025-06-18T10:30:00",
+          "departureTime": "2025-06-21T10:30:00",
           "capacity": 150,
           "occupancy": 0,
           "status": "ON TIME",
@@ -2485,7 +625,7 @@
             "number": 102,
             "originCode": 1,
             "destinationCode": 3,
-            "departureTime": "2025-06-20T14:00:00",
+            "departureTime": "2025-06-23T14:00:00",
             "capacity": 200,
             "occupancy": 0,
             "status": "DELAYED",
@@ -2500,7 +640,7 @@
               "number": 103,
               "originCode": 1,
               "destinationCode": 4,
-              "departureTime": "2025-06-22T08:45:00",
+              "departureTime": "2025-06-25T08:45:00",
               "capacity": 180,
               "occupancy": 0,
               "status": "CANCELLED",
@@ -2515,7 +655,7 @@
                 "number": 104,
                 "originCode": 1,
                 "destinationCode": 5,
-                "departureTime": "2025-06-19T09:15:00",
+                "departureTime": "2025-06-22T09:15:00",
                 "capacity": 120,
                 "occupancy": 0,
                 "status": "BOARDING",
@@ -2530,7 +670,7 @@
                   "number": 105,
                   "originCode": 1,
                   "destinationCode": 6,
-                  "departureTime": "2025-06-21T16:20:00",
+                  "departureTime": "2025-06-24T16:20:00",
                   "capacity": 130,
                   "occupancy": 0,
                   "status": "FINAL CALL",
@@ -2611,7 +751,7 @@
           "number": 101,
           "originCode": 1,
           "destinationCode": 2,
-          "departureTime": "2025-06-18T10:30:00",
+          "departureTime": "2025-06-21T10:30:00",
           "capacity": 150,
           "occupancy": 0,
           "status": "ON TIME",
@@ -2626,7 +766,7 @@
             "number": 102,
             "originCode": 1,
             "destinationCode": 3,
-            "departureTime": "2025-06-20T14:00:00",
+            "departureTime": "2025-06-23T14:00:00",
             "capacity": 200,
             "occupancy": 0,
             "status": "DELAYED",
@@ -2641,7 +781,7 @@
               "number": 103,
               "originCode": 1,
               "destinationCode": 4,
-              "departureTime": "2025-06-22T08:45:00",
+              "departureTime": "2025-06-25T08:45:00",
               "capacity": 180,
               "occupancy": 0,
               "status": "CANCELLED",
@@ -2656,7 +796,7 @@
                 "number": 104,
                 "originCode": 1,
                 "destinationCode": 5,
-                "departureTime": "2025-06-19T09:15:00",
+                "departureTime": "2025-06-22T09:15:00",
                 "capacity": 120,
                 "occupancy": 0,
                 "status": "BOARDING",
@@ -2671,7 +811,7 @@
                   "number": 105,
                   "originCode": 1,
                   "destinationCode": 6,
-                  "departureTime": "2025-06-21T16:20:00",
+                  "departureTime": "2025-06-24T16:20:00",
                   "capacity": 130,
                   "occupancy": 0,
                   "status": "FINAL CALL",
@@ -2752,7 +892,7 @@
           "number": 101,
           "originCode": 1,
           "destinationCode": 2,
-          "departureTime": "2025-06-18T10:30:00",
+          "departureTime": "2025-06-21T10:30:00",
           "capacity": 150,
           "occupancy": 0,
           "status": "ON TIME",
@@ -2767,7 +907,7 @@
             "number": 102,
             "originCode": 1,
             "destinationCode": 3,
-            "departureTime": "2025-06-20T14:00:00",
+            "departureTime": "2025-06-23T14:00:00",
             "capacity": 200,
             "occupancy": 0,
             "status": "DELAYED",
@@ -2782,7 +922,7 @@
               "number": 103,
               "originCode": 1,
               "destinationCode": 4,
-              "departureTime": "2025-06-22T08:45:00",
+              "departureTime": "2025-06-25T08:45:00",
               "capacity": 180,
               "occupancy": 0,
               "status": "CANCELLED",
@@ -2797,7 +937,7 @@
                 "number": 104,
                 "originCode": 1,
                 "destinationCode": 5,
-                "departureTime": "2025-06-19T09:15:00",
+                "departureTime": "2025-06-22T09:15:00",
                 "capacity": 120,
                 "occupancy": 0,
                 "status": "BOARDING",
@@ -2812,7 +952,7 @@
                   "number": 105,
                   "originCode": 1,
                   "destinationCode": 6,
-                  "departureTime": "2025-06-21T16:20:00",
+                  "departureTime": "2025-06-24T16:20:00",
                   "capacity": 130,
                   "occupancy": 0,
                   "status": "FINAL CALL",
@@ -2885,7 +1025,7 @@
   {
     "code": 8,
     "name": "Dragon City AirHub",
-    "country": "FANTASIA",
+    "country": "JAPAN",
     "status": "Activo",
     "departuresBoard": {
       "first": {
@@ -2893,7 +1033,7 @@
           "number": 101,
           "originCode": 1,
           "destinationCode": 2,
-          "departureTime": "2025-06-18T10:30:00",
+          "departureTime": "2025-06-21T10:30:00",
           "capacity": 150,
           "occupancy": 0,
           "status": "ON TIME",
@@ -2908,7 +1048,7 @@
             "number": 102,
             "originCode": 1,
             "destinationCode": 3,
-            "departureTime": "2025-06-20T14:00:00",
+            "departureTime": "2025-06-23T14:00:00",
             "capacity": 200,
             "occupancy": 0,
             "status": "DELAYED",
@@ -2923,7 +1063,7 @@
               "number": 103,
               "originCode": 1,
               "destinationCode": 4,
-              "departureTime": "2025-06-22T08:45:00",
+              "departureTime": "2025-06-25T08:45:00",
               "capacity": 180,
               "occupancy": 0,
               "status": "CANCELLED",
@@ -2938,7 +1078,7 @@
                 "number": 104,
                 "originCode": 1,
                 "destinationCode": 5,
-                "departureTime": "2025-06-19T09:15:00",
+                "departureTime": "2025-06-22T09:15:00",
                 "capacity": 120,
                 "occupancy": 0,
                 "status": "BOARDING",
@@ -2953,7 +1093,7 @@
                   "number": 105,
                   "originCode": 1,
                   "destinationCode": 6,
-                  "departureTime": "2025-06-21T16:20:00",
+                  "departureTime": "2025-06-24T16:20:00",
                   "capacity": 130,
                   "occupancy": 0,
                   "status": "FINAL CALL",
@@ -3034,7 +1174,7 @@
           "number": 101,
           "originCode": 1,
           "destinationCode": 2,
-          "departureTime": "2025-06-18T10:30:00",
+          "departureTime": "2025-06-21T10:30:00",
           "capacity": 150,
           "occupancy": 0,
           "status": "ON TIME",
@@ -3049,7 +1189,7 @@
             "number": 102,
             "originCode": 1,
             "destinationCode": 3,
-            "departureTime": "2025-06-20T14:00:00",
+            "departureTime": "2025-06-23T14:00:00",
             "capacity": 200,
             "occupancy": 0,
             "status": "DELAYED",
@@ -3064,7 +1204,7 @@
               "number": 103,
               "originCode": 1,
               "destinationCode": 4,
-              "departureTime": "2025-06-22T08:45:00",
+              "departureTime": "2025-06-25T08:45:00",
               "capacity": 180,
               "occupancy": 0,
               "status": "CANCELLED",
@@ -3079,7 +1219,7 @@
                 "number": 104,
                 "originCode": 1,
                 "destinationCode": 5,
-                "departureTime": "2025-06-19T09:15:00",
+                "departureTime": "2025-06-22T09:15:00",
                 "capacity": 120,
                 "occupancy": 0,
                 "status": "BOARDING",
@@ -3094,7 +1234,7 @@
                   "number": 105,
                   "originCode": 1,
                   "destinationCode": 6,
-                  "departureTime": "2025-06-21T16:20:00",
+                  "departureTime": "2025-06-24T16:20:00",
                   "capacity": 130,
                   "occupancy": 0,
                   "status": "FINAL CALL",
@@ -3187,7 +1327,7 @@
           "number": 101,
           "originCode": 1,
           "destinationCode": 2,
-          "departureTime": "2025-06-18T10:30:00",
+          "departureTime": "2025-06-21T10:30:00",
           "capacity": 150,
           "occupancy": 0,
           "status": "ON TIME",
@@ -3202,7 +1342,7 @@
             "number": 102,
             "originCode": 1,
             "destinationCode": 3,
-            "departureTime": "2025-06-20T14:00:00",
+            "departureTime": "2025-06-23T14:00:00",
             "capacity": 200,
             "occupancy": 0,
             "status": "DELAYED",
@@ -3217,7 +1357,7 @@
               "number": 103,
               "originCode": 1,
               "destinationCode": 4,
-              "departureTime": "2025-06-22T08:45:00",
+              "departureTime": "2025-06-25T08:45:00",
               "capacity": 180,
               "occupancy": 0,
               "status": "CANCELLED",
@@ -3232,7 +1372,7 @@
                 "number": 104,
                 "originCode": 1,
                 "destinationCode": 5,
-                "departureTime": "2025-06-19T09:15:00",
+                "departureTime": "2025-06-22T09:15:00",
                 "capacity": 120,
                 "occupancy": 0,
                 "status": "BOARDING",
@@ -3247,7 +1387,7 @@
                   "number": 105,
                   "originCode": 1,
                   "destinationCode": 6,
-                  "departureTime": "2025-06-21T16:20:00",
+                  "departureTime": "2025-06-24T16:20:00",
                   "capacity": 130,
                   "occupancy": 0,
                   "status": "FINAL CALL",
@@ -3331,8 +1471,8 @@
   },
   {
     "code": 11,
-    "name": "Aeropuerto de Atlantis",
-    "country": "MITICA",
+    "name": "Argelia Airport",
+    "country": "ARGELIA",
     "status": "Inactivo",
     "departuresBoard": {
       "first": {
@@ -3340,7 +1480,7 @@
           "number": 101,
           "originCode": 1,
           "destinationCode": 2,
-          "departureTime": "2025-06-18T10:30:00",
+          "departureTime": "2025-06-21T10:30:00",
           "capacity": 150,
           "occupancy": 0,
           "status": "ON TIME",
@@ -3355,7 +1495,7 @@
             "number": 102,
             "originCode": 1,
             "destinationCode": 3,
-            "departureTime": "2025-06-20T14:00:00",
+            "departureTime": "2025-06-23T14:00:00",
             "capacity": 200,
             "occupancy": 0,
             "status": "DELAYED",
@@ -3370,7 +1510,7 @@
               "number": 103,
               "originCode": 1,
               "destinationCode": 4,
-              "departureTime": "2025-06-22T08:45:00",
+              "departureTime": "2025-06-25T08:45:00",
               "capacity": 180,
               "occupancy": 0,
               "status": "CANCELLED",
@@ -3385,7 +1525,7 @@
                 "number": 104,
                 "originCode": 1,
                 "destinationCode": 5,
-                "departureTime": "2025-06-19T09:15:00",
+                "departureTime": "2025-06-22T09:15:00",
                 "capacity": 120,
                 "occupancy": 0,
                 "status": "BOARDING",
@@ -3400,7 +1540,7 @@
                   "number": 105,
                   "originCode": 1,
                   "destinationCode": 6,
-                  "departureTime": "2025-06-21T16:20:00",
+                  "departureTime": "2025-06-24T16:20:00",
                   "capacity": 130,
                   "occupancy": 0,
                   "status": "FINAL CALL",
@@ -3493,7 +1633,7 @@
           "number": 101,
           "originCode": 1,
           "destinationCode": 2,
-          "departureTime": "2025-06-18T10:30:00",
+          "departureTime": "2025-06-21T10:30:00",
           "capacity": 150,
           "occupancy": 0,
           "status": "ON TIME",
@@ -3508,7 +1648,7 @@
             "number": 102,
             "originCode": 1,
             "destinationCode": 3,
-            "departureTime": "2025-06-20T14:00:00",
+            "departureTime": "2025-06-23T14:00:00",
             "capacity": 200,
             "occupancy": 0,
             "status": "DELAYED",
@@ -3523,7 +1663,7 @@
               "number": 103,
               "originCode": 1,
               "destinationCode": 4,
-              "departureTime": "2025-06-22T08:45:00",
+              "departureTime": "2025-06-25T08:45:00",
               "capacity": 180,
               "occupancy": 0,
               "status": "CANCELLED",
@@ -3538,7 +1678,7 @@
                 "number": 104,
                 "originCode": 1,
                 "destinationCode": 5,
-                "departureTime": "2025-06-19T09:15:00",
+                "departureTime": "2025-06-22T09:15:00",
                 "capacity": 120,
                 "occupancy": 0,
                 "status": "BOARDING",
@@ -3553,7 +1693,7 @@
                   "number": 105,
                   "originCode": 1,
                   "destinationCode": 6,
-                  "departureTime": "2025-06-21T16:20:00",
+                  "departureTime": "2025-06-24T16:20:00",
                   "capacity": 130,
                   "occupancy": 0,
                   "status": "FINAL CALL",
@@ -3646,7 +1786,7 @@
           "number": 101,
           "originCode": 1,
           "destinationCode": 2,
-          "departureTime": "2025-06-18T10:30:00",
+          "departureTime": "2025-06-21T10:30:00",
           "capacity": 150,
           "occupancy": 0,
           "status": "ON TIME",
@@ -3661,7 +1801,7 @@
             "number": 102,
             "originCode": 1,
             "destinationCode": 3,
-            "departureTime": "2025-06-20T14:00:00",
+            "departureTime": "2025-06-23T14:00:00",
             "capacity": 200,
             "occupancy": 0,
             "status": "DELAYED",
@@ -3676,7 +1816,7 @@
               "number": 103,
               "originCode": 1,
               "destinationCode": 4,
-              "departureTime": "2025-06-22T08:45:00",
+              "departureTime": "2025-06-25T08:45:00",
               "capacity": 180,
               "occupancy": 0,
               "status": "CANCELLED",
@@ -3691,7 +1831,7 @@
                 "number": 104,
                 "originCode": 1,
                 "destinationCode": 5,
-                "departureTime": "2025-06-19T09:15:00",
+                "departureTime": "2025-06-22T09:15:00",
                 "capacity": 120,
                 "occupancy": 0,
                 "status": "BOARDING",
@@ -3706,7 +1846,7 @@
                   "number": 105,
                   "originCode": 1,
                   "destinationCode": 6,
-                  "departureTime": "2025-06-21T16:20:00",
+                  "departureTime": "2025-06-24T16:20:00",
                   "capacity": 130,
                   "occupancy": 0,
                   "status": "FINAL CALL",
@@ -3791,7 +1931,7 @@
   {
     "code": 14,
     "name": "Aeropuerto de Nimbus Prime",
-    "country": "AETHER",
+    "country": "FRANCE",
     "status": "Activo",
     "departuresBoard": {
       "first": {
@@ -3799,7 +1939,7 @@
           "number": 101,
           "originCode": 1,
           "destinationCode": 2,
-          "departureTime": "2025-06-18T10:30:00",
+          "departureTime": "2025-06-21T10:30:00",
           "capacity": 150,
           "occupancy": 0,
           "status": "ON TIME",
@@ -3814,7 +1954,7 @@
             "number": 102,
             "originCode": 1,
             "destinationCode": 3,
-            "departureTime": "2025-06-20T14:00:00",
+            "departureTime": "2025-06-23T14:00:00",
             "capacity": 200,
             "occupancy": 0,
             "status": "DELAYED",
@@ -3829,7 +1969,7 @@
               "number": 103,
               "originCode": 1,
               "destinationCode": 4,
-              "departureTime": "2025-06-22T08:45:00",
+              "departureTime": "2025-06-25T08:45:00",
               "capacity": 180,
               "occupancy": 0,
               "status": "CANCELLED",
@@ -3844,7 +1984,7 @@
                 "number": 104,
                 "originCode": 1,
                 "destinationCode": 5,
-                "departureTime": "2025-06-19T09:15:00",
+                "departureTime": "2025-06-22T09:15:00",
                 "capacity": 120,
                 "occupancy": 0,
                 "status": "BOARDING",
@@ -3859,7 +1999,7 @@
                   "number": 105,
                   "originCode": 1,
                   "destinationCode": 6,
-                  "departureTime": "2025-06-21T16:20:00",
+                  "departureTime": "2025-06-24T16:20:00",
                   "capacity": 130,
                   "occupancy": 0,
                   "status": "FINAL CALL",
@@ -3952,7 +2092,7 @@
           "number": 101,
           "originCode": 1,
           "destinationCode": 2,
-          "departureTime": "2025-06-18T10:30:00",
+          "departureTime": "2025-06-21T10:30:00",
           "capacity": 150,
           "occupancy": 0,
           "status": "ON TIME",
@@ -3967,7 +2107,7 @@
             "number": 102,
             "originCode": 1,
             "destinationCode": 3,
-            "departureTime": "2025-06-20T14:00:00",
+            "departureTime": "2025-06-23T14:00:00",
             "capacity": 200,
             "occupancy": 0,
             "status": "DELAYED",
@@ -3982,7 +2122,7 @@
               "number": 103,
               "originCode": 1,
               "destinationCode": 4,
-              "departureTime": "2025-06-22T08:45:00",
+              "departureTime": "2025-06-25T08:45:00",
               "capacity": 180,
               "occupancy": 0,
               "status": "CANCELLED",
@@ -3997,7 +2137,7 @@
                 "number": 104,
                 "originCode": 1,
                 "destinationCode": 5,
-                "departureTime": "2025-06-19T09:15:00",
+                "departureTime": "2025-06-22T09:15:00",
                 "capacity": 120,
                 "occupancy": 0,
                 "status": "BOARDING",
@@ -4012,7 +2152,7 @@
                   "number": 105,
                   "originCode": 1,
                   "destinationCode": 6,
-                  "departureTime": "2025-06-21T16:20:00",
+                  "departureTime": "2025-06-24T16:20:00",
                   "capacity": 130,
                   "occupancy": 0,
                   "status": "FINAL CALL",
@@ -4093,7 +2233,7 @@
           "number": 101,
           "originCode": 1,
           "destinationCode": 2,
-          "departureTime": "2025-06-18T10:30:00",
+          "departureTime": "2025-06-21T10:30:00",
           "capacity": 150,
           "occupancy": 0,
           "status": "ON TIME",
@@ -4108,7 +2248,7 @@
             "number": 102,
             "originCode": 1,
             "destinationCode": 3,
-            "departureTime": "2025-06-20T14:00:00",
+            "departureTime": "2025-06-23T14:00:00",
             "capacity": 200,
             "occupancy": 0,
             "status": "DELAYED",
@@ -4123,7 +2263,7 @@
               "number": 103,
               "originCode": 1,
               "destinationCode": 4,
-              "departureTime": "2025-06-22T08:45:00",
+              "departureTime": "2025-06-25T08:45:00",
               "capacity": 180,
               "occupancy": 0,
               "status": "CANCELLED",
@@ -4138,7 +2278,7 @@
                 "number": 104,
                 "originCode": 1,
                 "destinationCode": 5,
-                "departureTime": "2025-06-19T09:15:00",
+                "departureTime": "2025-06-22T09:15:00",
                 "capacity": 120,
                 "occupancy": 0,
                 "status": "BOARDING",
@@ -4153,7 +2293,7 @@
                   "number": 105,
                   "originCode": 1,
                   "destinationCode": 6,
-                  "departureTime": "2025-06-21T16:20:00",
+                  "departureTime": "2025-06-24T16:20:00",
                   "capacity": 130,
                   "occupancy": 0,
                   "status": "FINAL CALL",
@@ -4234,7 +2374,7 @@
           "number": 101,
           "originCode": 1,
           "destinationCode": 2,
-          "departureTime": "2025-06-18T10:30:00",
+          "departureTime": "2025-06-21T10:30:00",
           "capacity": 150,
           "occupancy": 0,
           "status": "ON TIME",
@@ -4249,7 +2389,7 @@
             "number": 102,
             "originCode": 1,
             "destinationCode": 3,
-            "departureTime": "2025-06-20T14:00:00",
+            "departureTime": "2025-06-23T14:00:00",
             "capacity": 200,
             "occupancy": 0,
             "status": "DELAYED",
@@ -4264,7 +2404,7 @@
               "number": 103,
               "originCode": 1,
               "destinationCode": 4,
-              "departureTime": "2025-06-22T08:45:00",
+              "departureTime": "2025-06-25T08:45:00",
               "capacity": 180,
               "occupancy": 0,
               "status": "CANCELLED",
@@ -4279,7 +2419,7 @@
                 "number": 104,
                 "originCode": 1,
                 "destinationCode": 5,
-                "departureTime": "2025-06-19T09:15:00",
+                "departureTime": "2025-06-22T09:15:00",
                 "capacity": 120,
                 "occupancy": 0,
                 "status": "BOARDING",
@@ -4294,7 +2434,7 @@
                   "number": 105,
                   "originCode": 1,
                   "destinationCode": 6,
-                  "departureTime": "2025-06-21T16:20:00",
+                  "departureTime": "2025-06-24T16:20:00",
                   "capacity": 130,
                   "occupancy": 0,
                   "status": "FINAL CALL",
@@ -4375,7 +2515,7 @@
           "number": 101,
           "originCode": 1,
           "destinationCode": 2,
-          "departureTime": "2025-06-18T10:30:00",
+          "departureTime": "2025-06-21T10:30:00",
           "capacity": 150,
           "occupancy": 0,
           "status": "ON TIME",
@@ -4390,7 +2530,7 @@
             "number": 102,
             "originCode": 1,
             "destinationCode": 3,
-            "departureTime": "2025-06-20T14:00:00",
+            "departureTime": "2025-06-23T14:00:00",
             "capacity": 200,
             "occupancy": 0,
             "status": "DELAYED",
@@ -4405,7 +2545,7 @@
               "number": 103,
               "originCode": 1,
               "destinationCode": 4,
-              "departureTime": "2025-06-22T08:45:00",
+              "departureTime": "2025-06-25T08:45:00",
               "capacity": 180,
               "occupancy": 0,
               "status": "CANCELLED",
@@ -4420,7 +2560,7 @@
                 "number": 104,
                 "originCode": 1,
                 "destinationCode": 5,
-                "departureTime": "2025-06-19T09:15:00",
+                "departureTime": "2025-06-22T09:15:00",
                 "capacity": 120,
                 "occupancy": 0,
                 "status": "BOARDING",
@@ -4435,7 +2575,7 @@
                   "number": 105,
                   "originCode": 1,
                   "destinationCode": 6,
-                  "departureTime": "2025-06-21T16:20:00",
+                  "departureTime": "2025-06-24T16:20:00",
                   "capacity": 130,
                   "occupancy": 0,
                   "status": "FINAL CALL",
@@ -4516,7 +2656,7 @@
           "number": 101,
           "originCode": 1,
           "destinationCode": 2,
-          "departureTime": "2025-06-18T10:30:00",
+          "departureTime": "2025-06-21T10:30:00",
           "capacity": 150,
           "occupancy": 0,
           "status": "ON TIME",
@@ -4531,7 +2671,7 @@
             "number": 102,
             "originCode": 1,
             "destinationCode": 3,
-            "departureTime": "2025-06-20T14:00:00",
+            "departureTime": "2025-06-23T14:00:00",
             "capacity": 200,
             "occupancy": 0,
             "status": "DELAYED",
@@ -4546,7 +2686,7 @@
               "number": 103,
               "originCode": 1,
               "destinationCode": 4,
-              "departureTime": "2025-06-22T08:45:00",
+              "departureTime": "2025-06-25T08:45:00",
               "capacity": 180,
               "occupancy": 0,
               "status": "CANCELLED",
@@ -4561,7 +2701,7 @@
                 "number": 104,
                 "originCode": 1,
                 "destinationCode": 5,
-                "departureTime": "2025-06-19T09:15:00",
+                "departureTime": "2025-06-22T09:15:00",
                 "capacity": 120,
                 "occupancy": 0,
                 "status": "BOARDING",
@@ -4576,7 +2716,7 @@
                   "number": 105,
                   "originCode": 1,
                   "destinationCode": 6,
-                  "departureTime": "2025-06-21T16:20:00",
+                  "departureTime": "2025-06-24T16:20:00",
                   "capacity": 130,
                   "occupancy": 0,
                   "status": "FINAL CALL",
@@ -4657,7 +2797,7 @@
           "number": 101,
           "originCode": 1,
           "destinationCode": 2,
-          "departureTime": "2025-06-18T10:30:00",
+          "departureTime": "2025-06-21T10:30:00",
           "capacity": 150,
           "occupancy": 0,
           "status": "ON TIME",
@@ -4672,7 +2812,7 @@
             "number": 102,
             "originCode": 1,
             "destinationCode": 3,
-            "departureTime": "2025-06-20T14:00:00",
+            "departureTime": "2025-06-23T14:00:00",
             "capacity": 200,
             "occupancy": 0,
             "status": "DELAYED",
@@ -4687,7 +2827,7 @@
               "number": 103,
               "originCode": 1,
               "destinationCode": 4,
-              "departureTime": "2025-06-22T08:45:00",
+              "departureTime": "2025-06-25T08:45:00",
               "capacity": 180,
               "occupancy": 0,
               "status": "CANCELLED",
@@ -4702,7 +2842,7 @@
                 "number": 104,
                 "originCode": 1,
                 "destinationCode": 5,
-                "departureTime": "2025-06-19T09:15:00",
+                "departureTime": "2025-06-22T09:15:00",
                 "capacity": 120,
                 "occupancy": 0,
                 "status": "BOARDING",
@@ -4717,7 +2857,7 @@
                   "number": 105,
                   "originCode": 1,
                   "destinationCode": 6,
-                  "departureTime": "2025-06-21T16:20:00",
+                  "departureTime": "2025-06-24T16:20:00",
                   "capacity": 130,
                   "occupancy": 0,
                   "status": "FINAL CALL",

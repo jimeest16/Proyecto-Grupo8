@@ -89,7 +89,7 @@ class AirPortDatosTest {
 
         airportDatos.insert(new AirPort(2, "John F. Kennedy International Airport", "USA", "Inactivo", lista, colaPasajeros1));
 
-        airportDatos.insert(new AirPort(3, "Aeropuerto Internacional de San José", "COSTA RICA", "Activo", lista, colaPasajeros1));
+        airportDatos.insert(new AirPort(3, "Aeropuerto Internacional Juan Santamaría", "COSTA RICA", "Activo", lista, colaPasajeros1));
 
         airportDatos.insert(new AirPort(4, "Ciudad Celeste International Airport", "TERRANOVA", "Inactivo", lista, colaPasajeros2));
 
@@ -99,7 +99,7 @@ class AirPortDatosTest {
 
         airportDatos.insert(new AirPort(7, "Aeropuerto de Buenos Aires", "ARGENTINA", "Inactivo", lista, colaPasajeros2));
 
-        airportDatos.insert(new AirPort(8, "Dragon City AirHub", "FANTASIA", "Activo", lista, colaPasajeros2));
+        airportDatos.insert(new AirPort(8, "Dragon City AirHub", "JAPAN", "Activo", lista, colaPasajeros2));
 
         airportDatos.insert(new AirPort(9, "Aeropuerto Internacional Arturo Merino Benítez", "CHILE", "Activo",
                lista, colaPasajeros1));
@@ -107,7 +107,7 @@ class AirPortDatosTest {
         airportDatos.insert(new AirPort(10, "Beijing Capital International Airport", "CHINA", "Activo",
                 lista, colaPasajeros1));
 
-        airportDatos.insert(new AirPort(11, "Aeropuerto de Atlantis", "MITICA", "Inactivo",
+        airportDatos.insert(new AirPort(11, "Argelia Airport", "ARGELIA", "Inactivo",
                 lista, colaPasajeros1));
 
         airportDatos.insert(new AirPort(12, "Aeropuerto Internacional de Monterrey", "MEXICO", "Activo",
@@ -116,7 +116,7 @@ class AirPortDatosTest {
         airportDatos.insert(new AirPort(13, "Cape Town International Airport", "SOUTH AFRICA", "Activo",
                 lista, colaPasajeros1));
 
-        airportDatos.insert(new AirPort(14, "Aeropuerto de Nimbus Prime", "AETHER", "Activo",
+        airportDatos.insert(new AirPort(14, "Aeropuerto de Nimbus Prime", "FRANCE", "Activo",
                 lista, colaPasajeros1));
 
         airportDatos.insert(new AirPort(15, "Aeropuerto de Lima", "PERU", "Inactivo",

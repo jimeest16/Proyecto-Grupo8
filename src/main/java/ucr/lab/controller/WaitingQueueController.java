@@ -146,8 +146,9 @@ public class WaitingQueueController {
         }
     }
     public void embarcarPasajeros() throws QueueException {
+
         convertirMapToPassenger();
-        LinkedQueue cola = aeropuerto.getWaitingQueue();
+        LinkedQueue cola = aeropuerto.getWaitingQueue();//con pasajeros en lista de espera
         int embarcados = 0;
         SinglyLinkedList listaPasajerosAbordando = new SinglyLinkedList();//pasar los pasajeros a una lista
         if (vuelo == null) {
@@ -156,17 +157,20 @@ public class WaitingQueueController {
         while (!cola.isEmpty() && vuelo.getOccupancy() < vuelo.getCapacity()) {
             Passenger pasajero = (Passenger) cola.deQueue();
             listaPasajerosAbordando.add(pasajero);
-            vuelo.setPassengerIDs(listaPasajerosAbordando); //agregarlos a la lista de ids de pasajeros del vuelo
-
+            vuelo.addPassengerID(pasajero.getId());
+            pasajero.addFlight(vuelo);
             //pasajero.addToFlightHistory(vueloAsignado);
             embarcados++;
+            vuelo.setOccupancy(embarcados);
+            System.out.println(vuelo);
         }
+        //vuelo.setPassengerIDs(listaPasajerosAbordando); //agregarlos a la lista de ids de pasajeros del vuelo
 
         if (embarcados != 0) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Embarque");
             alert.setHeaderText(embarcados + " pasajeros fueron embarcados.");
-            alert.setContentText("Vuelo actualizado: \n"+"La lista de identificaciones del vuelo es: "+ vuelo.getPassengerIDs());//se puede mejorar la salida
+            alert.setContentText("Vuelo actualizado: \n"+"La lista de identificaciones del vuelo es: "+ vuelo.getPassengerIDs().toList());//se puede mejorar la salida
             alert.showAndWait();
         }
 

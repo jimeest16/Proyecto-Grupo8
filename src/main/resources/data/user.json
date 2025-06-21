@@ -1,4 +1,4 @@
-  [ {
+[ {
   "id" : 1,
   "name" : "Jimena",
   "password" : "mlph",
@@ -52,4 +52,16 @@
   "password" : "pass123",
   "email" : "jime@123.com",
   "role" : "usuario"
+}, {
+  "id" : 1001,
+  "name" : "userCami",
+  "password" : "45678",
+  "email" : "montoyablancoca@gmail.com",
+  "role" : "user"
+}, {
+  "id" : 1002,
+  "name" : "cami",
+  "password" : "fdpl",
+  "email" : "monto@gmail.com",
+  "role" : "administrator"
 } ]
