@@ -1,6 +1,5 @@
 package ucr.lab.controller;
 
-import HistorialEventos.Sistema;
 import javafx.application.Platform;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -8,40 +7,62 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.AnchorPane;
-
-import java.io.IOException;
-
-
+import ucr.lab.TDA.queue.LinkedQueue;
+import ucr.lab.TDA.queue.QueueException;
 import ucr.lab.domain.User;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class AdminController {
 
-    @FXML
-    private AnchorPane usersTabContentPane;
-    @FXML
-    private AnchorPane flightsTabContentPane;
-    @FXML
-    private AnchorPane routesTabContentPane;
-    @FXML
-    private AnchorPane airportsTabContentPane;
+    @FXML private AnchorPane usersTabContentPane;
+    @FXML private AnchorPane flightsTabContentPane;
+    @FXML private AnchorPane routesTabContentPane;
+    @FXML private AnchorPane airportsTabContentPane;
 
-    private Sistema sistemaBitacora;
+    private LinkedQueue bitacora = new LinkedQueue();
+    private final String RUTA_BITACORA = "bitacora.txt";
     private User loggedInAdmin;
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); // Formatter for date and time
 
-    public AdminController(Sistema sistema, User loggedInAdmin) {
-        this.sistemaBitacora = sistema;
+    public AdminController(User loggedInAdmin) {
         this.loggedInAdmin = loggedInAdmin;
+    }
+    public void setAirportsTabContentPane(AnchorPane airportsTabContentPane) {
+        this.airportsTabContentPane = airportsTabContentPane;
+    }
+    public AnchorPane getAirportsTabContentPane() {
+        return airportsTabContentPane;
     }
 
     public AdminController() {
     }
 
+    private void registrarEnBitacora(String mensaje) {
+        String nombre = (loggedInAdmin != null) ? loggedInAdmin.getName() : "Admin";
+        String timestamp = LocalDateTime.now().format(FORMATTER); // Get current date and time
+        String entrada = "[" + timestamp + "] " + nombre + ": " + mensaje; // Include timestamp
+        try {
+            bitacora.enQueue(entrada);
+            try (FileWriter fw = new FileWriter(RUTA_BITACORA, true);
+                 BufferedWriter bw = new BufferedWriter(fw);
+                 PrintWriter out = new PrintWriter(bw)) {
+                out.println(entrada);
+            }
+        } catch (IOException | QueueException e) {
+            System.err.println("Error al registrar en bitácora: " + e.getMessage());
+        }
+    }
+
     @FXML
     public void initialize() {
-        System.out.println("AdminController initialized.");
-        if (sistemaBitacora != null) {
-            sistemaBitacora.registrarEvento(loggedInAdmin != null ? loggedInAdmin.getName() : "Admin Desconocido", "Panel de administración iniciado.");
-        }
+        System.out.println(LocalDateTime.now().format(FORMATTER) + " AdminController initialized.");
+        registrarEnBitacora("Panel de administración iniciado.");
     }
 
     @FXML
@@ -53,22 +74,15 @@ public class AdminController {
 
                 if (usersTabContentPane != null) {
                     usersTabContentPane.getChildren().setAll(userContent);
-                    System.out.println("Pestaña 'Manage Users' cargada.");
-                    if (sistemaBitacora != null) {
-                        sistemaBitacora.registrarEvento(loggedInAdmin != null ? loggedInAdmin.getName() : "Admin", "Pestaña 'Gestionar Usuarios' cargada.");
-                    }
+                    System.out.println(LocalDateTime.now().format(FORMATTER) + " Pestaña 'Manage Users' cargada.");
+                    registrarEnBitacora("Pestaña 'Gestionar Usuarios' cargada.");
                 } else {
-                    System.err.println("Error: usersTabContentPane no está inicializado en FXML.");
-                    if (sistemaBitacora != null) {
-                        sistemaBitacora.registrarEvento(loggedInAdmin != null ? loggedInAdmin.getName() : "Admin", "Error: usersTabContentPane no inicializado al cargar 'Gestionar Usuarios'.");
-                    }
+                    System.err.println(LocalDateTime.now().format(FORMATTER) + " usersTabContentPane no inicializado.");
+                    registrarEnBitacora("Error: usersTabContentPane no inicializado.");
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-                System.err.println("Error al cargar el FXML de gestión de usuarios: " + e.getMessage());
-                if (sistemaBitacora != null) {
-                    sistemaBitacora.registrarEvento(loggedInAdmin != null ? loggedInAdmin.getName() : "Admin", "Error al cargar FXML 'Gestionar Usuarios': " + e.getMessage());
-                }
+                registrarEnBitacora("Error al cargar 'Gestionar Usuarios': " + e.getMessage());
             }
         }
     }
@@ -82,22 +96,15 @@ public class AdminController {
 
                 if (flightsTabContentPane != null) {
                     flightsTabContentPane.getChildren().setAll(flightContent);
-                    System.out.println("Pestaña 'Manage Flights' cargada.");
-                    if (sistemaBitacora != null) {
-                        sistemaBitacora.registrarEvento(loggedInAdmin != null ? loggedInAdmin.getName() : "Admin", "Pestaña 'Gestionar Vuelos' cargada.");
-                    }
+                    System.out.println(LocalDateTime.now().format(FORMATTER) + " Pestaña 'Manage Flights' cargada.");
+                    registrarEnBitacora("Pestaña 'Gestionar Vuelos' cargada.");
                 } else {
-                    System.err.println("Error: flightsTabContentPane no está inicializado en FXML.");
-                    if (sistemaBitacora != null) {
-                        sistemaBitacora.registrarEvento(loggedInAdmin != null ? loggedInAdmin.getName() : "Admin", "Error: flightsTabContentPane no inicializado al cargar 'Gestionar Vuelos'.");
-                    }
+                    System.err.println(LocalDateTime.now().format(FORMATTER) + " flightsTabContentPane no inicializado.");
+                    registrarEnBitacora("Error: flightsTabContentPane no inicializado.");
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-                System.err.println("Error al cargar el FXML de gestión de vuelos: " + e.getMessage());
-                if (sistemaBitacora != null) {
-                    sistemaBitacora.registrarEvento(loggedInAdmin != null ? loggedInAdmin.getName() : "Admin", "Error al cargar FXML 'Gestionar Vuelos': " + e.getMessage());
-                }
+                registrarEnBitacora("Error al cargar 'Gestionar Vuelos': " + e.getMessage());
             }
         }
     }
@@ -111,22 +118,15 @@ public class AdminController {
 
                 if (routesTabContentPane != null) {
                     routesTabContentPane.getChildren().setAll(routeContent);
-                    System.out.println("Pestaña 'Manage Routes' cargada.");
-                    if (sistemaBitacora != null) {
-                        sistemaBitacora.registrarEvento(loggedInAdmin != null ? loggedInAdmin.getName() : "Admin", "Pestaña 'Gestionar Rutas' cargada.");
-                    }
+                    System.out.println(LocalDateTime.now().format(FORMATTER) + " Pestaña 'Manage Routes' cargada.");
+                    registrarEnBitacora("Pestaña 'Gestionar Rutas' cargada.");
                 } else {
-                    System.err.println("Error: routesTabContentPane no está inicializado en FXML.");
-                    if (sistemaBitacora != null) {
-                        sistemaBitacora.registrarEvento(loggedInAdmin != null ? loggedInAdmin.getName() : "Admin", "Error: routesTabContentPane no inicializado al cargar 'Gestionar Rutas'.");
-                    }
+                    System.err.println(LocalDateTime.now().format(FORMATTER) + " routesTabContentPane no inicializado.");
+                    registrarEnBitacora("Error: routesTabContentPane no inicializado.");
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-                System.err.println("Error al cargar el FXML de gestión de rutas: " + e.getMessage());
-                if (sistemaBitacora != null) {
-                    sistemaBitacora.registrarEvento(loggedInAdmin != null ? loggedInAdmin.getName() : "Admin", "Error al cargar FXML 'Gestionar Rutas': " + e.getMessage());
-                }
+                registrarEnBitacora("Error al cargar 'Gestionar Rutas': " + e.getMessage());
             }
         }
     }
@@ -140,39 +140,22 @@ public class AdminController {
 
                 if (airportsTabContentPane != null) {
                     airportsTabContentPane.getChildren().setAll(airportContent);
-                    System.out.println("Pestaña 'Manage Airports' cargada.");
-                    if (sistemaBitacora != null) {
-                        sistemaBitacora.registrarEvento(loggedInAdmin != null ? loggedInAdmin.getName() : "Admin", "Pestaña 'Gestionar Aeropuertos' cargada.");
-                    }
+                    System.out.println(LocalDateTime.now().format(FORMATTER) + " Pestaña 'Manage Airports' cargada.");
+                    registrarEnBitacora("Pestaña 'Gestionar Aeropuertos' cargada.");
                 } else {
-                    System.err.println("Error: airportsTabContentPane no está inicializado en FXML.");
-                    if (sistemaBitacora != null) {
-                        sistemaBitacora.registrarEvento(loggedInAdmin != null ? loggedInAdmin.getName() : "Admin", "Error: airportsTabContentPane no inicializado al cargar 'Gestionar Aeropuertos'.");
-                    }
+                    System.err.println(LocalDateTime.now().format(FORMATTER) + " airportsTabContentPane no inicializado.");
+                    registrarEnBitacora("Error: airportsTabContentPane no inicializado.");
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-                System.err.println("Error al cargar el FXML de gestión de aeropuertos: " + e.getMessage());
-                if (sistemaBitacora != null) {
-                    sistemaBitacora.registrarEvento(loggedInAdmin != null ? loggedInAdmin.getName() : "Admin", "Error al cargar FXML 'Gestionar Aeropuertos': " + e.getMessage());
-                }
+                registrarEnBitacora("Error al cargar 'Gestionar Aeropuertos': " + e.getMessage());
             }
         }
     }
 
-    public AnchorPane getAirportsTabContentPane() {
-        return airportsTabContentPane;
-    }
-
-    public void setAirportsTabContentPane(AnchorPane airportsTabContentPane) {
-        this.airportsTabContentPane = airportsTabContentPane;
-    }
-
     @FXML
     private void logout() {
-        if (sistemaBitacora != null) {
-            sistemaBitacora.registrarEvento(loggedInAdmin != null ? loggedInAdmin.getName() : "Admin", "Cierre de sesión de administrador.");
-        }
+        registrarEnBitacora("Cierre de sesión del administrador.");
         Platform.exit();
     }
 }

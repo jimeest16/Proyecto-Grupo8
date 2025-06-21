@@ -1,33 +1,60 @@
 package ucr.lab.TDA.queue;
 
-import HistorialEventos.Sistema;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Main {
+
+    private static final LinkedQueue bitacora = new LinkedQueue();
+    private static final String RUTA_BITACORA = "bitacora.txt";
+    private static final DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
     public static void main(String[] args) {
-        Sistema miSistema = new Sistema();
+        registrarEvento("JuanPerez", "Ingresó al sistema.");
+        registrarEvento("AnaGarcia", "Registró reservación para vuelo CR-NYC el 2025-07-15.");
+        registrarEvento("JuanPerez", "Consultó historial de vuelos.");
 
-        // Simular eventos
-        miSistema.ingresoAlSistema("JuanPerez");
-        miSistema.registrarReservacion("AnaGarcia", "Vuelo CR-NYC el 2025-07-15");
-        miSistema.historialVuelos("JuanPerez");
-
-        // Pequeña pausa para simular el paso del tiempo o permitir que las operaciones se asienten
         try {
             Thread.sleep(100);
         } catch (InterruptedException e) {
-            Thread.currentThread().interrupt(); // Restablece el estado de interrupción
+            Thread.currentThread().interrupt();
         }
 
-        miSistema.ingresoAlSistema("PedroLopez");
-        miSistema.registrarReservacion("PedroLopez", "Hotel San Jose del 2025-08-01 al 2025-08-05");
+        registrarEvento("PedroLopez", "Ingresó al sistema.");
+        registrarEvento("PedroLopez", "Registró reservación para hotel del 2025-08-01 al 2025-08-05.");
 
-        // Mostrar la bitácora
-        // Tu toString() de LinkedQueue se encarga de mostrar y re-encolar,
-        // por lo que la cola no se vacía permanentemente.
-        miSistema.mostrarBitacora();
+        // Mostrar bitácora
+        System.out.println("\n--- Bitácora de eventos ---");
+        mostrarBitacora();
 
-        // Puedes mostrarla de nuevo para confirmar que los elementos siguen ahí
         System.out.println("\n--- Mostrando bitácora de nuevo (debería tener los mismos elementos) ---");
-        miSistema.mostrarBitacora();
+        mostrarBitacora();
+    }
+
+    private static void registrarEvento(String autor, String mensaje) {
+        String marcaTiempo = LocalDateTime.now().format(formato);
+        String entrada = "[" + marcaTiempo + "] " + autor + ": " + mensaje;
+        try {
+            bitacora.enQueue(entrada);
+            try (FileWriter fw = new FileWriter(RUTA_BITACORA, true);
+                 BufferedWriter bw = new BufferedWriter(fw);
+                 PrintWriter out = new PrintWriter(bw)) {
+                out.println(entrada);
+            }
+        } catch (IOException | QueueException e) {
+            System.err.println("Error al registrar en la bitácora: " + e.getMessage());
+        }
+    }
+
+    private static void mostrarBitacora() {
+        try {
+            System.out.println(bitacora);
+        } catch (Exception e) {
+            System.err.println("Error al mostrar la bitácora: " + e.getMessage());
+        }
     }
 }

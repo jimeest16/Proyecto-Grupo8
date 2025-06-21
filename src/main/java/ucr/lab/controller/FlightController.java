@@ -5,22 +5,26 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import ucr.lab.TDA.list.ListException;
 import ucr.lab.TDA.list.SinglyLinkedList;
+import ucr.lab.TDA.queue.LinkedQueue;
+import ucr.lab.TDA.queue.QueueException;
 import ucr.lab.data.AirportManager;
 import ucr.lab.data.FlightManager;
 import ucr.lab.domain.AirPort;
 import ucr.lab.domain.Flight;
-
 import ucr.lab.domain.Passenger;
+import ucr.lab.domain.User;
 import ucr.lab.utility.FileReader;
 
-import java.io.File;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class FlightController {
@@ -47,8 +51,30 @@ public class FlightController {
     @FXML
     private TextArea txtFlightOutput;
 
+    private LinkedQueue bitacora = new LinkedQueue(); // Bitacora
+    private final String RUTA_BITACORA = "bitacora.txt"; // Log
+    private User loggedInAdmin;
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
     public FlightController() {
 
+    }
+
+
+    private void registrarEnBitacora(String mensaje) {
+        String nombre = (loggedInAdmin != null) ? loggedInAdmin.getName() : "System"; // system para la compu
+        String timestamp = LocalDateTime.now().format(FORMATTER);
+        String entrada = "[" + timestamp + "] " + nombre + ": " + mensaje;
+        try {
+            bitacora.enQueue(entrada);
+            try (FileWriter fw = new FileWriter(RUTA_BITACORA, true);
+                 BufferedWriter bw = new BufferedWriter(fw);
+                 PrintWriter out = new PrintWriter(bw)) {
+                out.println(entrada);
+            }
+        } catch (IOException | QueueException e) {
+            System.err.println(LocalDateTime.now().format(FORMATTER) + " Error al registrar en bitácora: " + e.getMessage());
+        }
     }
 
     @FXML
@@ -57,14 +83,16 @@ public class FlightController {
             FlightManager.loadFlights();
             AirportManager.loadAirports();
         } catch (IOException e) {
+            registrarEnBitacora("Error durante la inicialización de FlightController: " + e.getMessage());
             throw new RuntimeException(e);
         }
         this.flightsList = FlightManager.getFlights().toList();
         this.airportList = AirportManager.getAirports().toList();
 
-        // Load airports for combo boxes
+        registrarEnBitacora("FlightController inicializado.");
+
         loadAirportsAndPopulateComboBoxes();
-        // Load existing flights
+
         loadAllFlights(false);
     }
 
@@ -78,27 +106,35 @@ public class FlightController {
                 cmbFlightDestination.getItems().add(airportDisplay);
             }
             appendFlightOutput("Aeropuertos cargados en los ComboBoxes.");
+            registrarEnBitacora("Aeropuertos cargados en los ComboBoxes.");
         } catch (ClassCastException e) {
-            appendFlightOutput("Error de tipo de dato. Asegúrese que SinglyLinkedList contiene objetos AirPort. " + e.getMessage());
+            String errorMessage = "Error de tipo de dato. Asegúrese que SinglyLinkedList contiene objetos AirPort. " + e.getMessage();
+            appendFlightOutput(errorMessage);
+            registrarEnBitacora(errorMessage);
             e.printStackTrace();
         } catch (Exception e) {
-            appendFlightOutput("Error inesperado al poblar ComboBoxes de aeropuertos: " + e.getMessage());
+            String errorMessage = "Error inesperado al poblar ComboBoxes de aeropuertos: " + e.getMessage();
+            appendFlightOutput(errorMessage);
+            registrarEnBitacora(errorMessage);
             e.printStackTrace();
         }
     }
 
     private void loadAllFlights(boolean clear) throws ListException {
         appendFlightOutput("Vuelos cargados: " + flightsList.size());
+        registrarEnBitacora("Carga de todos los vuelos. Cantidad: " + flightsList.size());
         displayFlights(clear, null); // Display all loaded flights
     }
 
     private void displayFlights(boolean clear, String statusFilter) throws ListException {
-        if (clear)txtFlightOutput.clear();
+        if (clear) txtFlightOutput.clear();
         if (flightsList.isEmpty()) {
             appendFlightOutput("No hay vuelos para mostrar.");
+            registrarEnBitacora("No hay vuelos para mostrar en la interfaz.");
             return;
         }
         appendFlightOutput("=== Lista de Vuelos ===");
+        registrarEnBitacora("Mostrando lista de vuelos" + (statusFilter != null ? " con filtro: " + statusFilter : "") + ".");
         for (Flight flight : flightsList) {
             if (statusFilter != null && !statusFilter.isEmpty()){
                 if (statusFilter.equals(flight.getStatus()))
@@ -118,34 +154,50 @@ public class FlightController {
             LocalDate departureDate = dpFlightDepartureDate.getValue();
             String departureTimeStr = txtFlightDepartureTime.getText().trim();
             int capacity = Integer.parseInt(txtFlightCapacity.getText().trim());
+
             if (originDisplay == null || destinationDisplay == null || departureDate == null || departureTimeStr.isEmpty() || idFlightNumber.getText().trim().isEmpty() || txtFlightCapacity.getText().trim().isEmpty()) {
                 appendFlightOutput("Por favor, complete todos los campos obligatorios para crear el vuelo.");
+                registrarEnBitacora("Intento de creación de vuelo fallido: campos incompletos.");
                 return;
             }
             if (FlightManager.getFlights().contains(new Flight(flightNumber))) {
                 appendFlightOutput("Error: Ya existe un vuelo con el número " + flightNumber + ".");
+                registrarEnBitacora("Error al crear vuelo: el número de vuelo " + flightNumber + " ya existe.");
                 return;
             }
+
             int originCode = extractAirportCode(originDisplay);
             int destinationCode = extractAirportCode(destinationDisplay);
             LocalTime departureTime = LocalTime.parse(departureTimeStr, DateTimeFormatter.ofPattern("HH:mm"));
             LocalDateTime fullDepartureDateTime = LocalDateTime.of(departureDate, departureTime);
+
             Flight newFlight = new Flight(capacity, 0, "Scheduled", originCode + "-" + destinationCode, fullDepartureDateTime,
                     flightNumber, originCode, destinationCode, fullDepartureDateTime, new SinglyLinkedList());
+
             FlightManager.add(newFlight);
             flightsList.add(newFlight);
             appendFlightOutput("Vuelo " + flightNumber + " creado exitosamente.");
+            registrarEnBitacora("Vuelo " + flightNumber + " creado exitosamente.");
             clearFlightFields();
-            loadAllFlights(false); // Refresh display
+            loadAllFlights(false);
+
         } catch (NumberFormatException e) {
-            appendFlightOutput("Error: El número de vuelo y la capacidad deben ser números válidos.");
+            String errorMessage = "Error: El número de vuelo y la capacidad deben ser números válidos. " + e.getMessage();
+            appendFlightOutput(errorMessage);
+            registrarEnBitacora(errorMessage);
         } catch (DateTimeParseException e) {
-            appendFlightOutput("Error: Formato de hora de salida inválido. Use HH:mm (ej. 14:30).");
+            String errorMessage = "Error: Formato de hora de salida inválido. Use HH:mm (ej. 14:30). " + e.getMessage();
+            appendFlightOutput(errorMessage);
+            registrarEnBitacora(errorMessage);
         } catch (ListException e) {
-            appendFlightOutput("Error al agregar vuelo a la lista: " + e.getMessage());
+            String errorMessage = "Error al agregar vuelo a la lista: " + e.getMessage();
+            appendFlightOutput(errorMessage);
+            registrarEnBitacora(errorMessage);
             e.printStackTrace();
         } catch (Exception e) {
-            appendFlightOutput("Error inesperado al crear vuelo: " + e.getMessage());
+            String errorMessage = "Error inesperado al crear vuelo: " + e.getMessage();
+            appendFlightOutput(errorMessage);
+            registrarEnBitacora(errorMessage);
             e.printStackTrace();
         }
     }
@@ -155,32 +207,45 @@ public class FlightController {
     private void assignPassengerToFlight(ActionEvent event) {
         if (idFlightNumber.getText().trim().isEmpty() || txtPassengerIdToAssign.getText().trim().isEmpty()) {
             appendFlightOutput("Para asignar un pasajero ingrese el id del vuelo y del pasajero.");
+            registrarEnBitacora("Intento de asignación de pasajero fallido: campos incompletos.");
             return;
         }
         try {
             int flightNumber = Integer.parseInt(idFlightNumber.getText().trim());
             int passengerId = Integer.parseInt(txtPassengerIdToAssign.getText().trim());
-            if (!FlightManager.getFlights().contains(new Flight(flightNumber)))
+
+            if (!FlightManager.getFlights().contains(new Flight(flightNumber))) {
                 appendFlightOutput("El vuelo " + flightNumber + " no existe.");
-            else if (!FileReader.loadPassengers().contains(new Passenger(passengerId)))
+                registrarEnBitacora("Error al asignar pasajero: el vuelo " + flightNumber + " no existe.");
+            } else if (!FileReader.loadPassengers().contains(new Passenger(passengerId))) {
                 appendFlightOutput("El pasajero " + passengerId + " no existe.");
-            else {
+                registrarEnBitacora("Error al asignar pasajero: el pasajero " + passengerId + " no existe.");
+            } else {
                 int index = FlightManager.getFlights().indexOf(new Flight(flightNumber));
-                if (FlightManager.getFlights().getFlight(index-1).getPassengerIDs().contains(passengerId))
+                Flight targetFlight = FlightManager.getFlights().getFlight(index);
+                if (targetFlight.getPassengerIDs().contains(passengerId)) {
                     appendFlightOutput("El vuelo ya contiene al pasajero " + passengerId + ".");
-                else{
-                    FlightManager.getFlights().getFlight(index-1).getPassengerIDs().add(passengerId);
+                    registrarEnBitacora("Error al asignar pasajero: el pasajero " + passengerId + " ya está en el vuelo " + flightNumber + ".");
+                } else {
+                    targetFlight.getPassengerIDs().add(passengerId);
                     FlightManager.saveFlights();
                     appendFlightOutput("Pasajero " + passengerId + " agregado al vuelo " + flightNumber + ".");
+                    registrarEnBitacora("Pasajero " + passengerId + " agregado al vuelo " + flightNumber + " exitosamente.");
                 }
             }
         } catch (NumberFormatException e) {
-            appendFlightOutput("Error: El número de vuelo y la capacidad deben ser números válidos.");
+            String errorMessage = "Error: El número de vuelo y el ID del pasajero deben ser números válidos. " + e.getMessage();
+            appendFlightOutput(errorMessage);
+            registrarEnBitacora(errorMessage);
         } catch (ListException e) {
-            appendFlightOutput("Error al agregar vuelo a la lista: " + e.getMessage());
+            String errorMessage = "Error al gestionar la lista de vuelos o pasajeros: " + e.getMessage();
+            appendFlightOutput(errorMessage);
+            registrarEnBitacora(errorMessage);
             e.printStackTrace();
         } catch (Exception e) {
-            appendFlightOutput("Error inesperado al crear vuelo: " + e.getMessage());
+            String errorMessage = "Error inesperado al asignar pasajero: " + e.getMessage();
+            appendFlightOutput(errorMessage);
+            registrarEnBitacora(errorMessage);
             e.printStackTrace();
         }
     }
@@ -198,6 +263,7 @@ public class FlightController {
         txtPassengerIdToAssign.clear();
         txtFlightOutput.clear();
         appendFlightOutput("Campos de vuelo limpiados.");
+        registrarEnBitacora("Campos de gestión de vuelos limpiados.");
     }
 
 
@@ -206,27 +272,33 @@ public class FlightController {
     private void showCompletedFlights(ActionEvent event) {
         try {
             displayFlights(true, "Complete");
+            registrarEnBitacora("Mostrando vuelos con estado 'Complete'.");
         } catch (ListException e) {
-            appendFlightOutput("Error al filtrar vuelos completados: " + e.getMessage());
+            String errorMessage = "Error al filtrar vuelos completados: " + e.getMessage();
+            appendFlightOutput(errorMessage);
+            registrarEnBitacora(errorMessage);
             e.printStackTrace();
         }
     }
 
     @FXML
     private void listAllFlights(ActionEvent event) throws ListException {
-        loadAllFlights(true); // Reload and display all flights
+        loadAllFlights(true);
+        registrarEnBitacora("Listando todos los vuelos.");
     }
 
     private void appendFlightOutput(String text) {
         if (txtFlightOutput != null)
-            txtFlightOutput.appendText(text + "\n");
+            txtFlightOutput.appendText("[" + LocalDateTime.now().format(FORMATTER) + "] " + text + "\n");
     }
 
     private int extractAirportCode(String airportDisplay) {
         try {
             return Integer.parseInt(airportDisplay.split(" - ")[0]);
         } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
-            appendFlightOutput("Error al extraer código de aeropuerto: formato inválido '" + airportDisplay + "'");
+            String errorMessage = "Error al extraer código de aeropuerto: formato inválido '" + airportDisplay + "'";
+            appendFlightOutput(errorMessage);
+            registrarEnBitacora(errorMessage);
             return -1;
         }
     }
@@ -243,16 +315,22 @@ public class FlightController {
         txtPassengerIdToAssign.clear();
         txtFlightOutput.clear();
         appendFlightOutput("Campos de gestión de vuelos limpiados.");
+        registrarEnBitacora("Campos de gestión de vuelos limpiados (método sin evento).");
     }
 
     public void simulateFlight(ActionEvent event) {
+        // Implementation for simulateFlight remains unchanged
+        registrarEnBitacora("Simulación de vuelo iniciada.");
     }
 
     public void showActiveFlights(ActionEvent event) {
         try {
             displayFlights(true, "Active");
+            registrarEnBitacora("Mostrando vuelos con estado 'Active'.");
         } catch (ListException e) {
-            appendFlightOutput("Error al filtrar vuelos completados: " + e.getMessage());
+            String errorMessage = "Error al filtrar vuelos activos: " + e.getMessage();
+            appendFlightOutput(errorMessage);
+            registrarEnBitacora(errorMessage);
             e.printStackTrace();
         }
     }

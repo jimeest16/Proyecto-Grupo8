@@ -24,42 +24,29 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import ucr.lab.HelloApplication;
 import ucr.lab.TDA.list.ListException;
 import ucr.lab.TDA.list.SinglyLinkedList;
 import ucr.lab.TDA.queue.LinkedQueue;
 import ucr.lab.TDA.queue.QueueException;
 import ucr.lab.domain.AirPort;
-import ucr.lab.domain.Departures;
 import ucr.lab.domain.Flight;
-import ucr.lab.domain.Passenger;
 import ucr.lab.utility.*;
 
 import java.awt.*;
-import java.awt.Label;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.time.LocalDateTime;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
-
-//para generar el reporte pdf
-import net.sf.jasperreports.engine.data.JsonDataSource;
-
-import java.io.ByteArrayInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -117,6 +104,8 @@ public class AirPortController {
             .setPrettyPrinting()
             .registerTypeAdapter(LocalDate.class, new LocalDateAdapter())
             .create();
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
 
     @javafx.fxml.FXML
     public void initialize() throws IOException {
@@ -131,8 +120,6 @@ public class AirPortController {
 
         //cargar vuelos a aropuerto
         List<AirPort> airports = mapper.readValue(file, new TypeReference<List<AirPort>>() {});
-        //List<Flight> list = mapper.readValue(file, new TypeReference<List<Flight>>() {});
-        //LinkedQueue cola = mapper.readValue(file, new TypeReference<LinkedQueue>() {});
 
         for (AirPort airport : airports) {
             SinglyLinkedList vuelosParaEsteAeropuerto = new SinglyLinkedList();
@@ -208,10 +195,10 @@ public class AirPortController {
                     AirPort airport = getTableView().getItems().get(getIndex());
 
                     try {
-                        System.out.println("Tamaño de la lista de vuelos: " + airport.getDeparturesBoard().size());
+                        System.out.println(LocalDateTime.now().format(FORMATTER) + " Tamaño de la lista de vuelos: " + airport.getDeparturesBoard().size());
                         if (!airport.getDeparturesBoard().isEmpty()) {
                             Flight vuelo = buscarVueloAsociado(airport);
-                            System.out.println("DEBUG: vuelo encontrado = " + vuelo);
+                            System.out.println(LocalDateTime.now().format(FORMATTER) + " DEBUG: vuelo encontrado = " + vuelo);
                             openWaitingQueueView(event, airport,vuelo);
                         } else {
                             FXUtil.alert("Advertencia", "Este aeropuerto no tiene vuelos disponibles.").showAndWait();
@@ -278,46 +265,47 @@ public class AirPortController {
         ObservableList<Flight> departuresList = Util.getDeparturesList();
         AirPortDatos data = new AirPortDatos(file);
 
-        int id = Integer.parseInt(tfID.getText().trim());
+        String idText = tfID.getText().trim();
         String name = tfNombre.getText().trim();
         String pais = tfPais.getText().trim();
-        String active = mEstado.toString();
+        String status = mEstado.getValue(); // Correctly get selected item
         Flight departures = mSalidas.getValue();
 
-        if (data.buscar(id)) {
-            saveAirport();
-        }
-        if ((Objects.equals(active, "Activo"))) {
-          // airportDatos.getAllAirPorts("activos");
-            active = "Activo";
-        } else {
-          //  airportDatos.getAllAirPorts("inactivos");
-            active = "Inactivo";
-        }
-
-        if (id == 0 || name.isEmpty() || pais.isEmpty()) {
+        if (idText.isEmpty() || name.isEmpty() || pais.isEmpty() || status == null || departures == null) {
             alert.setAlertType(Alert.AlertType.ERROR);
             alert.setContentText("Please fill all the spaces");
             alert.showAndWait();
             return;
         }
 
+        int id;
         try {
-                SinglyLinkedList lista = new SinglyLinkedList();
-                lista.add(departures);
-                AirPort airport = new AirPort(id, name, pais,active, lista);
-                data.insert(airport); // agregar al archivo
-                observableList.add(airport); // agregar a ObservableList
-                FXUtil.confirmationDialog("Airport successfully added").showAndWait();
-                cleanFields();
-                updateObservableList();
-
+            id = Integer.parseInt(idText);
+            if (id <= 0) throw new NumberFormatException("ID must be a positive number.");
         } catch (NumberFormatException e) {
+            FXUtil.alert("Error", "Invalid ID. Please enter a valid positive number.").showAndWait();
+            return;
+        }
+
+        try {
+            if (data.buscar(id)) {
+                FXUtil.alert("Error", "An airport with this ID already exists.").showAndWait();
+                return;
+            }
+            SinglyLinkedList lista = new SinglyLinkedList();
+            lista.add(departures);
+            AirPort airport = new AirPort(id, name, pais, status, lista);
+            data.insert(airport); // agregar al archivo
+            observableList.add(airport); // agregar a ObservableList
+            FXUtil.confirmationDialog("Airport successfully added").showAndWait();
+            cleanFields();
+            updateObservableList();
+
+        } catch (NumberFormatException e) { // Redundant catch, already handled above for id
             FXUtil.alert("Error", "Invalid value").showAndWait();
         } catch (IOException e) {
             FXUtil.alert("File Error", "Could not write to file").showAndWait();
         }
-        //tvAirports.setItems(observableAirports);
         cleanFields();
     }
 
@@ -326,51 +314,65 @@ public class AirPortController {
         tfID.setText(String.valueOf(airPortToEdit.getCode()));
         tfNombre.setText(airPortToEdit.getName());
         tfPais.setText(airPortToEdit.getCountry());
-        mSalidas.setValue(airPortToEdit.getDeparturesBoard().getFlight(0));
+        if (airPortToEdit.getDeparturesBoard() != null && !airPortToEdit.getDeparturesBoard().isEmpty()) {
+            mSalidas.setValue(airPortToEdit.getDeparturesBoard().getFlight(0));
+        } else {
+            mSalidas.setValue(null);
+        }
         mEstado.setValue(airPortToEdit.getStatus());
+        tfID.setEditable(false); // Make ID non-editable during update
+        btCrear.setText("Update"); // Change button text to indicate update mode
+        currentAirportToEdit = airPortToEdit; // Set the current airport being edited
     }
     @javafx.fxml.FXML
     public void updateAirport(ActionEvent actionEvent ) throws IOException {
 
-        tfID.setEditable(false); // Prevent editing ID during update
-        //btCrear.setText("Update");
+        // ID should be non-editable, so we directly use its text
+        String idText = tfID.getText().trim();
+        String name = tfNombre.getText().trim();
+        String country = tfPais.getText().trim();
+        String status = mEstado.getValue();
+        Flight selectedDeparture = mSalidas.getValue();
 
-            String id = tfID.getText().trim();
-            String firstName = tfNombre.getText().trim();
-            String country = tfPais.getText().trim();
-            String status = mEstado.getValue().trim();
-            String salidas = mSalidas.getValue().toString();
 
-            if (id.isEmpty() || firstName.isEmpty() || country.isEmpty() || status.isEmpty() || salidas.isEmpty()) {
-                FXUtil.alert("Error", "Todos los campos son obligatorios para actualizar un aeropuerto.").showAndWait();
+        if (idText.isEmpty() || name.isEmpty() || country.isEmpty() || status == null || selectedDeparture == null) {
+            FXUtil.alert("Error", "Todos los campos son obligatorios para actualizar un aeropuerto.").showAndWait();
+            return;
+        }
+
+        try {
+            int code = Integer.parseInt(idText);
+            AirPortDatos data = new AirPortDatos(file);
+            AirPort originalAirport = data.buscarAirPort(code);
+
+            if (originalAirport == null) {
+                FXUtil.alert("Error", "No se encontró ningún aeropuerto con la identificación: " + code + ".").showAndWait();
                 return;
             }
 
-            try {
-                AirPortDatos data = new AirPortDatos(file);
-                AirPort originalAirport = data.buscarAirPort(Integer.parseInt(tfID.getText()));
+            SinglyLinkedList lista = new SinglyLinkedList();
+            lista.add(selectedDeparture);
+            AirPort updatedAirport = new AirPort(code, name, country, status, lista);
 
-                if (originalAirport == null) {
-                    FXUtil.alert("Error", "No se encontró ningún aeropuerto con la cédula/identificación: " + id + ". Por favor, guarde el huésped primero.").showAndWait();
-                    return;
-                }
-                SinglyLinkedList lista = new SinglyLinkedList();
-                lista.add(mSalidas.getValue());
-                AirPort updatedAirport = new AirPort(Integer.parseInt(tfID.getText()), firstName, country, status, lista);
-                boolean success = data.actualizar(originalAirport, updatedAirport);
+            boolean success = data.actualizar(originalAirport, updatedAirport);
 
-                if (success) {
-                    FXUtil.confirmationDialog("¡Aeropuerto actualizado exitosamente!").showAndWait();
-                    cleanFields();
-                    updateObservableList(); // Actualiza la tabla
-                } else {
-                    FXUtil.alert("Error", "Fallo al actualizar aeropuerto con identificación: " + id).showAndWait();
-                }
-            } catch (IOException e) {
-                FXUtil.alert("Error", "Fallo al actualizar aeropuerto: " + e.getMessage()).showAndWait();
-                e.printStackTrace();
+            if (success) {
+                FXUtil.confirmationDialog("¡Aeropuerto actualizado exitosamente!").showAndWait();
+                cleanFields();
+                updateObservableList(); // Actualiza la tabla
+                currentAirportToEdit = null; // Exit update mode
+                btCrear.setText("Crear"); // Reset button text
+                tfID.setEditable(true); // Make ID editable again
+            } else {
+                FXUtil.alert("Error", "Fallo al actualizar aeropuerto con identificación: " + code).showAndWait();
             }
+        } catch (NumberFormatException e) {
+            FXUtil.alert("Error", "Invalid ID format for update.").showAndWait();
+        } catch (IOException e) {
+            FXUtil.alert("Error", "Fallo al actualizar aeropuerto: " + e.getMessage()).showAndWait();
+            e.printStackTrace();
         }
+    }
 
     public void cleanFields() {
         tfID.clear();
@@ -378,6 +380,9 @@ public class AirPortController {
         tfPais.clear();
         mEstado.setValue(null);
         mSalidas.setValue(null);
+        tfID.setEditable(true); // Ensure ID is editable after clearing fields, especially if previously in update mode
+        btCrear.setText("Crear"); // Reset button text
+        currentAirportToEdit = null; // Reset edit state
     }
 
     @javafx.fxml.FXML
@@ -395,7 +400,6 @@ public class AirPortController {
             this.alert.setAlertType(Alert.AlertType.INFORMATION);
             this.alert.showAndWait();
         }
-        //tvAirports.setItems(observableAirports);
     }
 
     @javafx.fxml.FXML
@@ -500,7 +504,7 @@ public class AirPortController {
             }
             currentAirportToEdit = null;
             btCrear.setText("Crear");
-            tfID.setEditable(false);
+            tfID.setEditable(true); // Reset to editable
         } else {
             // Registro nuevo aeropuerto
             observableAirports.add(newAirport);
@@ -552,7 +556,7 @@ public class AirPortController {
     public static void generarReporte(String jsonPath, String jrxmlPath, String outputPath) throws IOException, JRException, ListException {
         File file = new File(jsonPath);
         AirPortDatos data = new AirPortDatos(file);
-       // List<AirPort> airPorts = data.loadFromFile();
+        // List<AirPort> airPorts = data.loadFromFile();
         List<AirPort> airPorts = data.getTop5AirportsWithMostFlights();//METODO PARA OBTENER EL TOP 5 DE AEROPUERTOS CON MÁS VUELOS SALIENTES
 
         // Compilar el archivo .jrxml
@@ -589,4 +593,3 @@ public class AirPortController {
     }
 
 }
-

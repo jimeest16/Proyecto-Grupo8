@@ -1,6 +1,5 @@
 package ucr.lab.controller;
 
-import HistorialEventos.Sistema;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,12 +13,16 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import ucr.lab.TDA.list.CircularLinkedList;
 import ucr.lab.TDA.list.ListException;
+import ucr.lab.TDA.queue.LinkedQueue;
+import ucr.lab.TDA.queue.QueueException;
 import ucr.lab.domain.User;
 import ucr.lab.utility.FileReader;
 import ucr.lab.utility.PasswordEncription;
 
-
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import static ucr.lab.utility.Util.compare;
 
@@ -27,34 +30,32 @@ public class LoginController {
 
     @FXML
     private TextField textUser;
-
     @FXML
     private PasswordField textPassword;
-
     @FXML
     private Label labelRol;
-
     @FXML
     private TextField textEmail;
 
-    // para generar una lista de usuarios
     private CircularLinkedList usersList;
-
     private String rolEscogido;
 
+    private final LinkedQueue bitacora = new LinkedQueue();
+    private final String RUTA_BITACORA = "bitacora.txt";
 
-    private Sistema sistemaBitacora;
-
-    // Constructor para inyectar la instancia de Sistema
-    public LoginController() {
-
-        this.sistemaBitacora = new Sistema();
+    private void registrarEnBitacora(String autor, String mensaje) {
+        String entrada = autor + ": " + mensaje;
+        try {
+            bitacora.enQueue(entrada);
+            try (FileWriter fw = new FileWriter(RUTA_BITACORA, true);
+                 BufferedWriter bw = new BufferedWriter(fw);
+                 PrintWriter out = new PrintWriter(bw)) {
+                out.println(entrada);
+            }
+        } catch (IOException | QueueException e) {
+            System.err.println("Error al registrar en bitácora: " + e.getMessage());
+        }
     }
-
-    public LoginController(Sistema sistema) {
-        this.sistemaBitacora = sistema;
-    }
-
 
     public void setRolEscogido(String rolEscogido) {
         this.rolEscogido = rolEscogido;
@@ -65,8 +66,6 @@ public class LoginController {
 
     public void initialize() throws ListException {
         usersList = FileReader.loadUsers();
-
-
     }
 
     @FXML
@@ -89,27 +88,25 @@ public class LoginController {
 
             if (username == null || username.isEmpty() || password == null || password.isEmpty()) {
                 mostrarAlerta("Campos vacíos", "Por favor llene todos los espacios.", Alert.AlertType.ERROR);
-                // --- REGISTRO EN LA BITÁCORA: Intento de login con campos vacíos ---
-                sistemaBitacora.registrarEvento("Desconocido", "Intento de inicio de sesión fallido: campos vacíos.");
+                registrarEnBitacora("Desconocido", "Intento de inicio de sesión fallido: campos vacíos.");
                 return;
             }
 
             String encrypted = PasswordEncription.encriptPassWord(password);
 
-            User current = (User) usersList.getFirst();
-
             if (usersList.isEmpty()) {
                 mostrarAlerta("Sin usuarios", "No se ha registrado ningún usuario todavía.", Alert.AlertType.ERROR);
-                // --- REGISTRO EN LA BITÁCORA: Intento de login sin usuarios ---
-                sistemaBitacora.registrarEvento("Sistema", "Intento de inicio de sesión fallido: no hay usuarios registrados.");
+                registrarEnBitacora("Sistema", "Intento de inicio de sesión fallido: no hay usuarios registrados.");
                 return;
             }
+
+            User current = (User) usersList.getFirst();
+            User inicio = current;
 
             boolean usuarioEncontrado = false;
             boolean contraseñaCorrecta = false;
             boolean rolCorrecto = false;
 
-            User inicio = current;
             do {
                 if (compare(current.getName(), username) == 0) {
                     usuarioEncontrado = true;
@@ -119,8 +116,7 @@ public class LoginController {
 
                         if (compare(current.getRole(), rolEscogido) == 0) {
                             rolCorrecto = true;
-                            // --- REGISTRO EN LA BITÁCORA: Login exitoso ---
-                            sistemaBitacora.registrarEvento(username, "Inicio de sesión exitoso como " + rolEscogido + ".");
+                            registrarEnBitacora(username, "Inicio de sesión exitoso como " + rolEscogido + ".");
                             cargarVistaSegunRol(current.getRole());
                             return;
                         }
@@ -131,27 +127,23 @@ public class LoginController {
 
             if (!usuarioEncontrado) {
                 mostrarAlerta("Error de inicio", "Usuario no encontrado.", Alert.AlertType.ERROR);
-
-                sistemaBitacora.registrarEvento(username, "Intento de inicio de sesión fallido: usuario no encontrado.");
+                registrarEnBitacora(username, "Intento de inicio de sesión fallido: usuario no encontrado.");
             } else if (!contraseñaCorrecta) {
                 mostrarAlerta("Error de inicio", "Contraseña incorrecta.", Alert.AlertType.ERROR);
-
-                sistemaBitacora.registrarEvento(username, "Intento de inicio de sesión fallido: contraseña incorrecta.");
+                registrarEnBitacora(username, "Intento de inicio de sesión fallido: contraseña incorrecta.");
             } else if (!rolCorrecto) {
                 mostrarAlerta("Rol incorrecto", "El usuario no tiene permisos para este rol: " + rolEscogido, Alert.AlertType.ERROR);
-
-                sistemaBitacora.registrarEvento(username, "Intento de inicio de sesión fallido: el usuario no tiene el rol '" + rolEscogido + "'.");
+                registrarEnBitacora(username, "Intento de inicio de sesión fallido: rol '" + rolEscogido + "' no válido.");
             }
+
         } catch (ListException ex) {
             ex.printStackTrace();
             mostrarAlerta("Error de lista", "Error al procesar la lista de usuarios: " + ex.getMessage(), Alert.AlertType.ERROR);
-
-            sistemaBitacora.registrarEvento("Sistema", "Error interno al procesar lista de usuarios durante el login: " + ex.getMessage());
+            registrarEnBitacora("Sistema", "Error al procesar lista durante login: " + ex.getMessage());
         } catch (Exception ex) {
             ex.printStackTrace();
             mostrarAlerta("Error inesperado", "Ha ocurrido un error: " + ex.getMessage(), Alert.AlertType.ERROR);
-
-            sistemaBitacora.registrarEvento("Sistema", "Error inesperado durante el login: " + ex.getMessage());
+            registrarEnBitacora("Sistema", "Error inesperado durante login: " + ex.getMessage());
         }
     }
 
@@ -165,9 +157,9 @@ public class LoginController {
             if (username == null || username.isEmpty() ||
                     password == null || password.isEmpty() ||
                     email == null || email.isEmpty()) {
-                mostrarAlerta("Campos vacíos", "Por favor llene todos los espacios.", Alert.AlertType.WARNING);
 
-                sistemaBitacora.registrarEvento("Desconocido", "Intento de registro fallido: campos vacíos.");
+                mostrarAlerta("Campos vacíos", "Por favor llene todos los espacios.", Alert.AlertType.WARNING);
+                registrarEnBitacora("Desconocido", "Intento de registro fallido: campos vacíos.");
                 return;
             }
 
@@ -177,8 +169,7 @@ public class LoginController {
                 do {
                     if (compare(current.getName(), username) == 0) {
                         mostrarAlerta("Error", "Ya existe un usuario con ese nombre.", Alert.AlertType.ERROR);
-
-                        sistemaBitacora.registrarEvento(username, "Intento de registro fallido: nombre de usuario ya existe.");
+                        registrarEnBitacora(username, "Intento de registro fallido: nombre de usuario ya existe.");
                         return;
                     }
                     current = (User) usersList.getNext();
@@ -204,19 +195,17 @@ public class LoginController {
             usersList.add(nuevoUsuario);
 
             FileReader.saveUsers(usersList);
-            mostrarAlerta("Registro exitoso", "Usuario registrado correctamente. Ahora puede iniciar sesión.", Alert.AlertType.INFORMATION);
+            mostrarAlerta("Registro exitoso", "Usuario registrado correctamente.", Alert.AlertType.INFORMATION);
 
-            sistemaBitacora.registrarEvento(username, "Registro de nuevo usuario exitoso con rol: " + rolEscogido + ".");
+            registrarEnBitacora(username, "Registro exitoso como " + rolEscogido + ".");
         } catch (ListException e) {
             e.printStackTrace();
-            mostrarAlerta("Error de lista", "Error al registrar el usuario en la lista: " + e.getMessage(), Alert.AlertType.ERROR);
-
-            sistemaBitacora.registrarEvento("Sistema", "Error interno al registrar usuario en la lista: " + e.getMessage());
+            mostrarAlerta("Error de lista", "Error al registrar usuario: " + e.getMessage(), Alert.AlertType.ERROR);
+            registrarEnBitacora("Sistema", "Error de lista durante registro: " + e.getMessage());
         } catch (Exception e) {
             e.printStackTrace();
             mostrarAlerta("Error", "No se pudo registrar el usuario: " + e.getMessage(), Alert.AlertType.ERROR);
-
-            sistemaBitacora.registrarEvento("Sistema", "Error inesperado durante el registro de usuario: " + e.getMessage());
+            registrarEnBitacora("Sistema", "Error inesperado durante registro: " + e.getMessage());
         }
     }
 
@@ -232,12 +221,11 @@ public class LoginController {
             stage.setTitle("Sistema de Aeropuertos para: " + rol);
             stage.show();
 
-            sistemaBitacora.registrarEvento(textUser.getText(), "Vista " + rol + " cargada exitosamente.");
+            registrarEnBitacora(textUser.getText(), "Vista " + rol + " cargada exitosamente.");
         } catch (Exception e) {
             e.printStackTrace();
             mostrarAlerta("Error", "Error al cargar la vista de " + rol, Alert.AlertType.ERROR);
-
-            sistemaBitacora.registrarEvento(textUser.getText(), "Error al cargar la vista " + rol + ": " + e.getMessage());
+            registrarEnBitacora(textUser.getText(), "Error al cargar la vista " + rol + ": " + e.getMessage());
         }
     }
 
@@ -252,12 +240,11 @@ public class LoginController {
             stage.setTitle("Inicio de Sesión");
             stage.show();
 
-            sistemaBitacora.registrarEvento("Usuario Interfaz", "Se retrocedió a la pantalla principal.");
+            registrarEnBitacora("Usuario Interfaz", "Se retrocedió a la pantalla principal.");
         } catch (IOException e) {
             e.printStackTrace();
             mostrarAlerta("Error", "No se pudo regresar a la pantalla principal.", Alert.AlertType.ERROR);
-
-            sistemaBitacora.registrarEvento("Sistema", "Error al intentar retroceder a la pantalla principal: " + e.getMessage());
+            registrarEnBitacora("Sistema", "Error al retroceder a pantalla principal: " + e.getMessage());
         }
     }
 
