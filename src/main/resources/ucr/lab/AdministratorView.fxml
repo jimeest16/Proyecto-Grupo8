@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.Image?>
@@ -8,26 +9,28 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.layout.AnchorPane?> <TabPane prefHeight="650.0" prefWidth="950.0" style="-fx-background-color: #f0f8ff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.AdminController">
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane fx:id="tabPaneMain" prefHeight="580.0" prefWidth="850.0" style="-fx-background-color: #f0f8ff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.AdminController">
 
     <tabs>
         <Tab style="-fx-background-color: #d8e6f0;" text="Welcome">
             <content>
-                <VBox spacing="30" style="-fx-background-color: #f0f8ff; -fx-padding: 40 50;">
+                <VBox spacing="20" style="-fx-background-color: #f0f8ff; -fx-padding: 30 40;">
                     <children>
-                        <VBox alignment="CENTER" spacing="10" style="-fx-padding: 20; -fx-background-color: #ffffff; -fx-border-radius: 12; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0, 0, 8);">
+                        <VBox alignment="CENTER" spacing="8" style="-fx-padding: 15; -fx-background-color: #ffffff; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 6);">
                             <children>
                                 <Text fill="#2a6e9a" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to FlyLink Airlines">
                                     <font>
-                                        <Font name="Segoe UI Black" size="38.0" />
+                                        <Font name="Segoe UI Black" size="30.0" />
                                     </font>
                                 </Text>
-                                <Text fill="#5a5a5a" strokeType="OUTSIDE" strokeWidth="0.0" text="Your comprehensive aviation management system" textAlignment="CENTER" wrappingWidth="450.0">
+                                <Text fill="#5a5a5a" strokeType="OUTSIDE" strokeWidth="0.0" text="Your comprehensive aviation management system" textAlignment="CENTER" wrappingWidth="400.0">
                                     <font>
-                                        <Font name="Segoe UI Semibold" size="18.0" />
+                                        <Font name="Segoe UI Semibold" size="16.0" />
                                     </font>
                                 </Text>
-                                <ImageView fitHeight="150.0" fitWidth="250.0" preserveRatio="true">
+                                <ImageView fitHeight="120.0" fitWidth="200.0" preserveRatio="true">
                                     <image>
                                         <Image url="@aerolinea.png" />
                                     </image>
@@ -35,103 +38,103 @@
                             </children>
                         </VBox>
 
-                        <VBox spacing="20" style="-fx-padding: 30; -fx-background-color: #ffffff; -fx-border-radius: 12; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 15, 0, 0, 8);">
+                        <VBox spacing="15" style="-fx-padding: 20; -fx-background-color: #ffffff; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
                             <children>
                                 <Text fill="#2a6e9a" strokeType="OUTSIDE" strokeWidth="0.0" text="Effortless Management at Your Fingertips">
                                     <font>
-                                        <Font name="Segoe UI Bold" size="22.0" />
+                                        <Font name="Segoe UI Bold" size="20.0" />
                                     </font>
                                 </Text>
-                                <Text fill="#5a5a5a" strokeType="OUTSIDE" strokeWidth="0.0" text="Navigate through the tabs above to manage every aspect of your airline operations:" wrappingWidth="700.0">
+                                <Text fill="#5a5a5a" strokeType="OUTSIDE" strokeWidth="0.0" text="Navigate through the tabs above to manage every aspect of your airline operations:" wrappingWidth="650.0">
                                     <font>
-                                        <Font name="Segoe UI Regular" size="15.0" />
+                                        <Font name="Segoe UI Regular" size="14.0" />
                                     </font>
                                 </Text>
 
-                                <HBox alignment="TOP_CENTER" spacing="40" VBox.vgrow="ALWAYS">
-                                    <VBox alignment="TOP_CENTER" spacing="10" style="-fx-padding: 15; -fx-background-color: #f8fcff; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-color: #e0f2f7;" HBox.hgrow="ALWAYS">
+                                <HBox alignment="TOP_CENTER" spacing="20" VBox.vgrow="ALWAYS">
+                                    <VBox alignment="TOP_CENTER" spacing="8" style="-fx-padding: 10; -fx-background-color: #f8fcff; -fx-border-radius: 6; -fx-background-radius: 6; -fx-border-color: #e0f2f7;" HBox.hgrow="ALWAYS">
                                         <children>
-                                            <ImageView fitHeight="60.0" fitWidth="60.0" preserveRatio="true">
+                                            <ImageView fitHeight="50.0" fitWidth="50.0" preserveRatio="true">
                                                 <image>
                                                     <Image url="@avion.2.png" />
                                                 </image>
                                             </ImageView>
                                             <Text fill="#333333" strokeType="OUTSIDE" strokeWidth="0.0" text="Flights">
                                                 <font>
-                                                    <Font name="Segoe UI Bold" size="16.0" />
+                                                    <Font name="Segoe UI Bold" size="15.0" />
                                                 </font>
                                             </Text>
-                                            <VBox alignment="TOP_LEFT" spacing="5">
+                                            <VBox alignment="TOP_LEFT" spacing="3">
                                                 <children>
-                                                    <Text style="-fx-font-size: 14px; -fx-fill: #666666;" text="• Create a flight" />
-                                                    <Text style="-fx-font-size: 14px; -fx-fill: #666666;" text="• Assign passengers" />
-                                                    <Text style="-fx-font-size: 14px; -fx-fill: #666666;" text="• Display active and completed flights" />
-                                                    <Text style="-fx-font-size: 14px; -fx-fill: #666666;" text="• Simulate a flight" />
+                                                    <Text style="-fx-font-size: 13px; -fx-fill: #666666;" text="• Create a flight" />
+                                                    <Text style="-fx-font-size: 13px; -fx-fill: #666666;" text="• Assign passengers" />
+                                                    <Text style="-fx-font-size: 13px; -fx-fill: #666666;" text="• Display active and completed flights" />
+                                                    <Text style="-fx-font-size: 13px; -fx-fill: #666666;" text="• Simulate a flight" />
                                                 </children>
                                             </VBox>
                                         </children>
                                     </VBox>
 
-                                    <VBox alignment="TOP_CENTER" spacing="10" style="-fx-padding: 15; -fx-background-color: #f8fcff; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-color: #e0f2f7;" HBox.hgrow="ALWAYS">
+                                    <VBox alignment="TOP_CENTER" spacing="8" style="-fx-padding: 10; -fx-background-color: #f8fcff; -fx-border-radius: 6; -fx-background-radius: 6; -fx-border-color: #e0f2f7;" HBox.hgrow="ALWAYS">
                                         <children>
-                                            <ImageView fitHeight="60.0" fitWidth="60.0" preserveRatio="true">
+                                            <ImageView fitHeight="50.0" fitWidth="50.0" preserveRatio="true">
                                                 <image>
                                                     <Image url="@ruta.png" />
                                                 </image>
                                             </ImageView>
                                             <Text fill="#333333" strokeType="OUTSIDE" strokeWidth="0.0" text="Routes">
                                                 <font>
-                                                    <Font name="Segoe UI Bold" size="16.0" />
+                                                    <Font name="Segoe UI Bold" size="15.0" />
                                                 </font>
                                             </Text>
-                                            <VBox alignment="TOP_LEFT" spacing="5">
+                                            <VBox alignment="TOP_LEFT" spacing="3">
                                                 <children>
-                                                    <Text style="-fx-font-size: 14px; -fx-fill: #666666;" text="• Add route" />
-                                                    <Text style="-fx-font-size: 14px; -fx-fill: #666666;" text="• Modify route" />
+                                                    <Text style="-fx-font-size: 13px; -fx-fill: #666666;" text="• Add route" />
+                                                    <Text style="-fx-font-size: 13px; -fx-fill: #666666;" text="• Modify route" />
                                                 </children>
                                             </VBox>
                                         </children>
                                     </VBox>
 
-                                    <VBox alignment="TOP_CENTER" spacing="10" style="-fx-padding: 15; -fx-background-color: #f8fcff; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-color: #e0f2f7;" HBox.hgrow="ALWAYS">
+                                    <VBox alignment="TOP_CENTER" spacing="8" style="-fx-padding: 10; -fx-background-color: #f8fcff; -fx-border-radius: 6; -fx-background-radius: 6; -fx-border-color: #e0f2f7;" HBox.hgrow="ALWAYS">
                                         <children>
-                                            <ImageView fitHeight="60.0" fitWidth="60.0" preserveRatio="true">
+                                            <ImageView fitHeight="50.0" fitWidth="50.0" preserveRatio="true">
                                                 <image>
                                                     <Image url="@pasajeros.png" />
                                                 </image>
                                             </ImageView>
                                             <Text fill="#333333" strokeType="OUTSIDE" strokeWidth="0.0" text="Passengers">
                                                 <font>
-                                                    <Font name="Segoe UI Bold" size="16.0" />
+                                                    <Font name="Segoe UI Bold" size="15.0" />
                                                 </font>
                                             </Text>
-                                            <VBox alignment="TOP_LEFT" spacing="5">
+                                            <VBox alignment="TOP_LEFT" spacing="3">
                                                 <children>
-                                                    <Text style="-fx-font-size: 14px; -fx-fill: #666666;" text="• Check in new passenger" />
-                                                    <Text style="-fx-font-size: 14px; -fx-fill: #666666;" text="• Search passenger ID" />
-                                                    <Text style="-fx-font-size: 14px; -fx-fill: #666666;" text="• Display flight history" />
+                                                    <Text style="-fx-font-size: 13px; -fx-fill: #666666;" text="• Check in new passenger" />
+                                                    <Text style="-fx-font-size: 13px; -fx-fill: #666666;" text="• Search passenger ID" />
+                                                    <Text style="-fx-font-size: 13px; -fx-fill: #666666;" text="• Display flight history" />
                                                 </children>
                                             </VBox>
                                         </children>
                                     </VBox>
 
-                                    <VBox alignment="TOP_CENTER" spacing="10" style="-fx-padding: 15; -fx-background-color: #f8fcff; -fx-border-radius: 8; -fx-background-radius: 8; -fx-border-color: #e0f2f7;" HBox.hgrow="ALWAYS">
+                                    <VBox alignment="TOP_CENTER" spacing="8" style="-fx-padding: 10; -fx-background-color: #f8fcff; -fx-border-radius: 6; -fx-background-radius: 6; -fx-border-color: #e0f2f7;" HBox.hgrow="ALWAYS">
                                         <children>
-                                            <ImageView fitHeight="60.0" fitWidth="60.0" preserveRatio="true">
+                                            <ImageView fitHeight="50.0" fitWidth="50.0" preserveRatio="true">
                                                 <image>
                                                     <Image url="@aeropuerto2.png" />
                                                 </image>
                                             </ImageView>
                                             <Text fill="#333333" strokeType="OUTSIDE" strokeWidth="0.0" text="Airports">
                                                 <font>
-                                                    <Font name="Segoe UI Bold" size="16.0" />
+                                                    <Font name="Segoe UI Bold" size="15.0" />
                                                 </font>
                                             </Text>
-                                            <VBox alignment="TOP_LEFT" spacing="5">
+                                            <VBox alignment="TOP_LEFT" spacing="3">
                                                 <children>
-                                                    <Text style="-fx-font-size: 14px; -fx-fill: #666666;" text="• Create, edit, eliminate" />
-                                                    <Text style="-fx-font-size: 14px; -fx-fill: #666666;" text="• Activate or deactivate" />
-                                                    <Text style="-fx-font-size: 14px; -fx-fill: #666666;" text="• List airports" />
+                                                    <Text style="-fx-font-size: 13px; -fx-fill: #666666;" text="• Create, edit, eliminate" />
+                                                    <Text style="-fx-font-size: 13px; -fx-fill: #666666;" text="• Activate or deactivate" />
+                                                    <Text style="-fx-font-size: 13px; -fx-fill: #666666;" text="• List airports" />
                                                 </children>
                                             </VBox>
                                         </children>
@@ -150,13 +153,11 @@
             </content>
         </Tab>
 
-
         <Tab onSelectionChanged="#userManager" style="-fx-background-color: #e0f2f7;" text="Manage Users">
             <content>
                 <AnchorPane fx:id="usersTabContentPane" />
             </content>
         </Tab>
-
 
         <Tab onSelectionChanged="#flightManager" style="-fx-background-color: #e0f2f7;" text="Manage Flights">
             <content>

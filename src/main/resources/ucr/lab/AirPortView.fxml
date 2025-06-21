@@ -18,130 +18,127 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="969.0" prefWidth="1709.0" style="-fx-background-color: #f3f8fb; -fx-background-color: ;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.AirPortController">
-   <VBox prefHeight="750.0" prefWidth="1191.0" spacing="30" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="0.0">
+<AnchorPane prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #f3f8fb;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.AirPortController">
+   <VBox prefHeight="650.0" prefWidth="900.0" spacing="20" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <padding>
-         <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+         <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
       </padding>
       <children>
-         <VBox alignment="CENTER" spacing="8">
+         <VBox alignment="CENTER" spacing="6">
             <children>
                <Text fill="#2a6e9a" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestión de Aeropuertos">
                   <font>
-                     <Font name="Segoe UI Black" size="36.0" />
+                     <Font name="Segoe UI Black" size="30.0" />
                   </font>
                </Text>
-               <Text fill="#5a5a5a" strokeType="OUTSIDE" strokeWidth="0.0" text="Administra los aeropuertos para una experiencia de vuelo innolvidable!">
+               <Text fill="#5a5a5a" strokeType="OUTSIDE" strokeWidth="0.0" text="Administra los aeropuertos para una experiencia de vuelo inolvidable!">
                   <font>
-                     <Font name="Segoe UI Semibold" size="18.0" />
+                     <Font name="Segoe UI Semibold" size="16.0" />
                   </font>
                </Text>
             </children>
          </VBox>
 
-         <HBox alignment="CENTER" spacing="40" style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0, 0, 8);">
+         <HBox alignment="CENTER" spacing="25" style="-fx-background-color: #ffffff; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 6);">
             <padding>
-               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
             </padding>
             <children>
-               <VBox alignment="CENTER" spacing="5">
-                  <Button fx:id="btCrear" onAction="#createAirport" prefHeight="36.0" prefWidth="186.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 25; -fx-border-radius: 8; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);" text="Crear Aeropuerto">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
-               </VBox>
-               <VBox alignment="CENTER" spacing="5">
-                  <Button fx:id="btCrear2" onAction="#updateAirport" prefHeight="36.0" prefWidth="211.0" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 25; -fx-border-radius: 8; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);" text="Modificar Aeropuerto">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
-               </VBox>
-               <VBox alignment="CENTER" prefHeight="36.0" prefWidth="206.0" spacing="5">
-                  <Button fx:id="btCrear1" onAction="#onGenerarReporteClick" prefHeight="36.0" prefWidth="223.0" style="-fx-background-color: #607D8B; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 25; -fx-border-radius: 8; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);" text="Generar Reporte">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
-               </VBox>
+               <Button fx:id="btCrear" onAction="#createAirport" prefHeight="32.0" prefWidth="160.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 6 20; -fx-border-radius: 6; -fx-background-radius: 6; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0, 0, 1);" text="Crear Aeropuerto">
+                  <font>
+                     <Font size="13.0" />
+                  </font>
+               </Button>
+               <Button fx:id="btCrear2" onAction="#updateAirport" prefHeight="32.0" prefWidth="180.0" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 6 20; -fx-border-radius: 6; -fx-background-radius: 6; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0, 0, 1);" text="Modificar Aeropuerto">
+                  <font>
+                     <Font size="13.0" />
+                  </font>
+               </Button>
+               <Button fx:id="btCrear1" onAction="#onGenerarReporteClick" prefHeight="32.0" prefWidth="180.0" style="-fx-background-color: #607D8B; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 6 20; -fx-border-radius: 6; -fx-background-radius: 6; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0, 0, 1);" text="Generar Reporte">
+                  <font>
+                     <Font size="13.0" />
+                  </font>
+               </Button>
             </children>
          </HBox>
 
-         <HBox alignment="TOP_CENTER" spacing="30" VBox.vgrow="ALWAYS">
-            <VBox prefHeight="434.0" prefWidth="243.0" spacing="20" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 4);" HBox.hgrow="ALWAYS">
+         <HBox alignment="TOP_CENTER" spacing="20" VBox.vgrow="ALWAYS">
+            <VBox prefHeight="350.0" prefWidth="350.0" spacing="15" style="-fx-background-color: #ffffff; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6, 0, 0, 3);" HBox.hgrow="ALWAYS">
                <padding>
-                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </padding>
                <children>
-                  <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Información del Aeropuerto" />
-                  <GridPane hgap="15" vgap="15">
+                  <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Información del Aeropuerto" />
+                  <GridPane hgap="10" vgap="10">
                      <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="120.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
                      </columnConstraints>
                      <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Label style="-fx-font-size: 15px; -fx-text-fill: #666666;" text="ID Aeropuerto:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                        <TextField fx:id="tfID" promptText="Ej: 1001" style="-fx-font-size: 14px; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 6; -fx-background-radius: 6;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Label style="-fx-font-size: 14px; -fx-text-fill: #666666;" text="ID Aeropuerto:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <TextField fx:id="tfID" promptText="Ej: 1001" style="-fx-font-size: 13px; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-                        <Label style="-fx-font-size: 15px; -fx-text-fill: #666666;" text="Nombre:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                        <TextField fx:id="tfNombre" promptText="Ej: Juan Santamaría Intl." style="-fx-font-size: 14px; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 6; -fx-background-radius: 6;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label style="-fx-font-size: 14px; -fx-text-fill: #666666;" text="Nombre:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <TextField fx:id="tfNombre" promptText="Ej: Juan Santamaría Intl." style="-fx-font-size: 13px; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                        <Label style="-fx-font-size: 15px; -fx-text-fill: #666666;" text="País:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                        <TextField fx:id="tfPais" promptText="Ej: Costa Rica" style="-fx-font-size: 14px; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 6; -fx-background-radius: 6;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label style="-fx-font-size: 14px; -fx-text-fill: #666666;" text="País:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <TextField fx:id="tfPais" promptText="Ej: Costa Rica" style="-fx-font-size: 13px; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-                        <Label style="-fx-font-size: 15px; -fx-text-fill: #666666;" text="Estado:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                        <ComboBox fx:id="mEstado" prefWidth="260.0" promptText="Seleccione Estado" style="-fx-font-size: 14px; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 6; -fx-background-radius: 6;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label style="-fx-font-size: 14px; -fx-text-fill: #666666;" text="Estado:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <ComboBox fx:id="mEstado" prefWidth="210.0" promptText="Seleccione Estado" style="-fx-font-size: 13px; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-                        <Label style="-fx-font-size: 15px; -fx-text-fill: #666666;" text="Registro de salidas:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                        <ComboBox fx:id="mSalidas" prefWidth="260.0" promptText="Seleccione Registro de Salidas" style="-fx-font-size: 14px; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 6; -fx-background-radius: 6;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label style="-fx-font-size: 14px; -fx-text-fill: #666666;" text="Reg. Salidas:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <ComboBox fx:id="mSalidas" prefWidth="210.0" promptText="Seleccione Registro de Salidas" style="-fx-font-size: 13px; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
                </children>
             </VBox>
 
-            <VBox prefHeight="434.0" prefWidth="443.0" spacing="15" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 4);" HBox.hgrow="ALWAYS">
+            <VBox prefHeight="350.0" prefWidth="500.0" spacing="10" style="-fx-background-color: #ffffff; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6, 0, 0, 3);" HBox.hgrow="ALWAYS">
                <padding>
-                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </padding>
                <children>
-                  <HBox alignment="CENTER_LEFT" spacing="20">
+                  <HBox alignment="CENTER_LEFT" spacing="15">
                      <children>
-                        <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Aeropuertos Registrados" />
-                        <HBox alignment="CENTER_RIGHT" spacing="10" HBox.hgrow="ALWAYS">
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Aeropuertos Registrados" />
+                        <HBox alignment="CENTER_RIGHT" spacing="8" HBox.hgrow="ALWAYS">
                            <children>
                               <RadioButton fx:id="rbActivos" text="Activos">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="airportFilterGroup" />
                                  </toggleGroup>
                                  <font>
-                                    <Font name="Segoe UI Regular" size="14.0" />
+                                    <Font name="Segoe UI Regular" size="13.0" />
                                  </font>
                               </RadioButton>
                               <RadioButton fx:id="rbInactivos" text="Inactivos" toggleGroup="$airportFilterGroup">
                                  <font>
-                                    <Font name="Segoe UI Regular" size="14.0" />
+                                    <Font name="Segoe UI Regular" size="13.0" />
                                  </font>
                               </RadioButton>
                            </children>
                         </HBox>
                      </children>
                   </HBox>
-                  <TableView fx:id="tvAirports" prefHeight="339.0" prefWidth="0.0" VBox.vgrow="ALWAYS">
+                  <TableView fx:id="tvAirports" prefHeight="270.0" prefWidth="450.0" VBox.vgrow="ALWAYS">
                      <columns>
-                        <TableColumn fx:id="cID" prefWidth="70.0" text="ID" />
-                        <TableColumn fx:id="cNombre" prefWidth="115.0" text="Nombre" />
-                        <TableColumn fx:id="cPais" prefWidth="105.0" text="País" />
-                        <TableColumn fx:id="cEstado" minWidth="0.0" prefWidth="128.0" text="Estado" />
-                        <TableColumn fx:id="cRegistro" minWidth="0.0" prefWidth="182.0" text="Registro de salidas" />
+                        <TableColumn fx:id="cID" prefWidth="60.0" text="ID" />
+                        <TableColumn fx:id="cNombre" prefWidth="100.0" text="Nombre" />
+                        <TableColumn fx:id="cPais" prefWidth="90.0" text="País" />
+                        <TableColumn fx:id="cEstado" minWidth="0.0" prefWidth="100.0" text="Estado" />
+                        <TableColumn fx:id="cRegistro" minWidth="0.0" prefWidth="140.0" text="Reg. Salidas" />
                      </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
                   </TableView>
                </children>
             </VBox>
