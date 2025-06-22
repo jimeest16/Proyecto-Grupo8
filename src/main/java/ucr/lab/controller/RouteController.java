@@ -5,11 +5,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Font;
+import net.sf.jasperreports.engine.JRException;
 import ucr.lab.TDA.list.ListException;
 import ucr.lab.TDA.list.SinglyLinkedList;
 import ucr.lab.TDA.tree.AVLTree;
 import ucr.lab.TDA.graph.GraphException;
+import ucr.lab.data.FlightManager;
 import ucr.lab.domain.*;
+import ucr.lab.utility.AirPortDatos;
 import ucr.lab.utility.FileReader;
 import ucr.lab.utility.Dijkstra;
 
@@ -18,7 +21,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import ucr.lab.utility.Util;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
 import java.util.List;
 
@@ -768,6 +774,22 @@ public class RouteController {
         } catch (Exception e) {
             appendRoutesOutput("Error inesperado al dibujar el grafo: " + e.getMessage());
         }
+    }
+
+    public void generateReport(ActionEvent actionEvent) throws JRException, IOException {
+        showAlert("Cargando el Reporte...", "Espera un momento","");
+
+        String jsonPath = "src/main/resources/data/flight.json";
+        String jrxmlPath = "src/main/resources/jasper/routes.jrxml";
+        String pdf = "src/main/resources/reportes/routes_report.pdf";
+
+        File file = new File(jsonPath);
+        List<Flight>routesList = FileReader.loadFlightsAsListForInternalUse();
+        // SinglyLinkedList datos = FlightManager.loadFlights();;
+        // List<Route> datos = data.getMostUsedRoutes();//METODO PARA OBTENER las rutas más usadas
+
+        Util.generarReporte(jsonPath,jrxmlPath,pdf, routesList);
+
     }
 
     private class DrawnRouteData {

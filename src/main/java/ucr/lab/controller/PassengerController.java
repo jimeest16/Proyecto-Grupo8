@@ -1,9 +1,12 @@
 package ucr.lab.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import net.sf.jasperreports.engine.JRException;
 import ucr.lab.TDA.list.ListException;
 import ucr.lab.TDA.list.SinglyLinkedList;
 import ucr.lab.TDA.tree.AVLTree;
@@ -13,7 +16,10 @@ import ucr.lab.domain.Flight;
 import ucr.lab.domain.Passenger;
 import ucr.lab.utility.Dijkstra;
 import ucr.lab.utility.FileReader;
+import ucr.lab.utility.Util;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
@@ -393,4 +399,24 @@ public class PassengerController {
         }
     }
 
+    public void generateReport(ActionEvent actionEvent) throws JRException, IOException {
+        mostrarAlerta("Cargando el Reporte...", "Espera un momento", Alert.AlertType.CONFIRMATION);
+
+        String jsonPath = "src/main/resources/data/passengers.json";
+        String jrxmlPath = "src/main/resources/jasper/passengers.jrxml";
+        String pdf = "src/main/resources/reportes/passengers_report.pdf";
+
+        File file = new File(jsonPath);
+        List<Passenger>passengersList = FileReader.loadPassengers().toList();
+
+        Util.generarReporte(jsonPath,jrxmlPath,pdf, passengersList);
+    }
+
+    private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
+        Alert alert = new Alert(tipo);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
 }

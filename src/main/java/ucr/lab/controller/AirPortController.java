@@ -126,7 +126,7 @@ public class AirPortController {
             LinkedQueue waitingQueue = airport.getWaitingQueue();
 
             for (Flight vuelo : observableListDepartures) {
-                if (vuelo.getOriginCode() == airport.getCode()) {
+                if (vuelo.getOriginAirportCode() == airport.getCode()) {
                     vuelosParaEsteAeropuerto.add(vuelo);
                 }
             }
@@ -232,7 +232,7 @@ public class AirPortController {
     }
     public Flight buscarVueloAsociado(AirPort airport) {
         for (Flight f : Util.getDeparturesList()) {
-            if (f.getOriginCode() == airport.getCode()) {
+            if (f.getOriginAirportCode() == airport.getCode()) {
                 return f;
             }
         }
@@ -546,11 +546,14 @@ public class AirPortController {
     }
     @FXML
     private void onGenerarReporteClick(ActionEvent event) throws JRException, IOException, ListException {
+        mostrarAlerta("Cargando el Reporte...", "Espera un momento", Alert.AlertType.INFORMATION);
+
         String jsonPath = "src/main/resources/data/airports.json";
         String jrxmlPath = "src/main/resources/jasper/airports.jrxml";
-        String pdf = "src/main/resources/reportes/airports_output.pdf";
+        String pdf = "src/main/resources/reportes/airports_report.pdf";
 
         generarReporte(jsonPath, jrxmlPath,pdf); // Llama al método directamente
+
     }
 
     public static void generarReporte(String jsonPath, String jrxmlPath, String outputPath) throws IOException, JRException, ListException {

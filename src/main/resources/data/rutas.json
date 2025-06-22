@@ -1,241 +1,241 @@
 [ {
   "originAirport" : 1,
   "destinationList" : [ {
-    "airport_code" : 4,
-    "distance" : 1223.07
+    "airport_code" : 3,
+    "distance" : 1500.99
+  }, {
+    "airport_code" : 5,
+    "distance" : 728.72
   }, {
     "airport_code" : 6,
-    "distance" : 1343.29
-  }, {
-    "airport_code" : 8,
-    "distance" : 1889.22
+    "distance" : 1988.8
   } ]
 }, {
   "originAirport" : 2,
   "destinationList" : [ {
-    "airport_code" : 1,
-    "distance" : 1182.29
+    "airport_code" : 8,
+    "distance" : 1905.96
   }, {
-    "airport_code" : 4,
-    "distance" : 917.11
+    "airport_code" : 13,
+    "distance" : 1620.75
   }, {
-    "airport_code" : 5,
-    "distance" : 386.87
+    "airport_code" : 15,
+    "distance" : 904.62
   } ]
 }, {
   "originAirport" : 3,
   "destinationList" : [ {
     "airport_code" : 2,
-    "distance" : 503.82
+    "distance" : 1091.68
   }, {
     "airport_code" : 5,
-    "distance" : 730.54
+    "distance" : 140.5
   }, {
     "airport_code" : 6,
-    "distance" : 99.56
+    "distance" : 666.03
   } ]
 }, {
   "originAirport" : 4,
   "destinationList" : [ {
-    "airport_code" : 2,
-    "distance" : 1824.49
+    "airport_code" : 10,
+    "distance" : 1827.7
   }, {
-    "airport_code" : 3,
-    "distance" : 1631.88
+    "airport_code" : 16,
+    "distance" : 407.4
   }, {
-    "airport_code" : 5,
-    "distance" : 1171.43
+    "airport_code" : 17,
+    "distance" : 1926.57
   } ]
 }, {
   "originAirport" : 5,
   "destinationList" : [ {
+    "airport_code" : 1,
+    "distance" : 819.72
+  }, {
     "airport_code" : 3,
-    "distance" : 1083.2
+    "distance" : 1075.35
   }, {
-    "airport_code" : 7,
-    "distance" : 1822.64
-  }, {
-    "airport_code" : 8,
-    "distance" : 1813.29
+    "airport_code" : 6,
+    "distance" : 656.21
   } ]
 }, {
   "originAirport" : 6,
   "destinationList" : [ {
     "airport_code" : 1,
-    "distance" : 367.91
+    "distance" : 1538.01
   }, {
     "airport_code" : 3,
-    "distance" : 1500.24
+    "distance" : 499.79
   }, {
-    "airport_code" : 5,
-    "distance" : 852.38
+    "airport_code" : 4,
+    "distance" : 1946.05
   } ]
 }, {
   "originAirport" : 7,
   "destinationList" : [ {
     "airport_code" : 3,
-    "distance" : 657.32
+    "distance" : 395.84
   }, {
     "airport_code" : 4,
-    "distance" : 759.9
+    "distance" : 793.77
   }, {
-    "airport_code" : 6,
-    "distance" : 1870.83
+    "airport_code" : 11,
+    "distance" : 1546.98
   } ]
 }, {
   "originAirport" : 8,
   "destinationList" : [ {
-    "airport_code" : 4,
-    "distance" : 1926.11
+    "airport_code" : 3,
+    "distance" : 1359.73
   }, {
     "airport_code" : 6,
-    "distance" : 432.68
+    "distance" : 429.88
   }, {
     "airport_code" : 7,
-    "distance" : 522.77
+    "distance" : 1309.74
   } ]
 }, {
   "originAirport" : 9,
   "destinationList" : [ {
     "airport_code" : 2,
-    "distance" : 586.88
-  }, {
-    "airport_code" : 3,
-    "distance" : 1876.5
+    "distance" : 1751.72
   }, {
     "airport_code" : 4,
-    "distance" : 66.56
+    "distance" : 1635.31
+  }, {
+    "airport_code" : 5,
+    "distance" : 1581.12
   } ]
 }, {
   "originAirport" : 10,
   "destinationList" : [ {
-    "airport_code" : 3,
-    "distance" : 1192.41
-  }, {
     "airport_code" : 5,
-    "distance" : 951.29
+    "distance" : 1894.6
   }, {
     "airport_code" : 6,
-    "distance" : 342.09
+    "distance" : 1715.35
+  }, {
+    "airport_code" : 7,
+    "distance" : 883.07
   } ]
 }, {
   "originAirport" : 11,
   "destinationList" : [ {
     "airport_code" : 1,
-    "distance" : 1054.86
+    "distance" : 1721.87
   }, {
-    "airport_code" : 2,
-    "distance" : 546.18
+    "airport_code" : 4,
+    "distance" : 296.01
   }, {
-    "airport_code" : 3,
-    "distance" : 114.13
+    "airport_code" : 6,
+    "distance" : 141.21
   } ]
 }, {
   "originAirport" : 12,
   "destinationList" : [ {
-    "airport_code" : 1,
-    "distance" : 1154.74
+    "airport_code" : 2,
+    "distance" : 1974.85
   }, {
     "airport_code" : 4,
-    "distance" : 1936.95
+    "distance" : 1859.81
   }, {
-    "airport_code" : 10,
-    "distance" : 246.56
+    "airport_code" : 8,
+    "distance" : 1017.41
   } ]
 }, {
   "originAirport" : 13,
   "destinationList" : [ {
-    "airport_code" : 4,
-    "distance" : 1373.21
+    "airport_code" : 1,
+    "distance" : 789.7
   }, {
-    "airport_code" : 7,
-    "distance" : 825.69
+    "airport_code" : 2,
+    "distance" : 638.87
   }, {
-    "airport_code" : 11,
-    "distance" : 1025.47
+    "airport_code" : 5,
+    "distance" : 1989.88
   } ]
 }, {
   "originAirport" : 14,
   "destinationList" : [ {
     "airport_code" : 4,
-    "distance" : 878.87
+    "distance" : 1361.67
   }, {
-    "airport_code" : 7,
-    "distance" : 963.16
+    "airport_code" : 5,
+    "distance" : 608.04
   }, {
     "airport_code" : 8,
-    "distance" : 367.43
+    "distance" : 1634.15
   } ]
 }, {
   "originAirport" : 15,
   "destinationList" : [ {
-    "airport_code" : 1,
-    "distance" : 1790.54
-  }, {
     "airport_code" : 4,
-    "distance" : 802.84
+    "distance" : 1097.06
   }, {
     "airport_code" : 5,
-    "distance" : 417.69
+    "distance" : 1007.89
+  }, {
+    "airport_code" : 7,
+    "distance" : 840.56
   } ]
 }, {
   "originAirport" : 16,
   "destinationList" : [ {
+    "airport_code" : 1,
+    "distance" : 325.46
+  }, {
     "airport_code" : 3,
-    "distance" : 830.94
+    "distance" : 236.77
   }, {
-    "airport_code" : 4,
-    "distance" : 1938.3
-  }, {
-    "airport_code" : 5,
-    "distance" : 1307.0
+    "airport_code" : 7,
+    "distance" : 1086.22
   } ]
 }, {
   "originAirport" : 17,
   "destinationList" : [ {
     "airport_code" : 1,
-    "distance" : 51.62
+    "distance" : 1110.27
   }, {
     "airport_code" : 2,
-    "distance" : 66.98
+    "distance" : 940.72
   }, {
-    "airport_code" : 5,
-    "distance" : 512.2
+    "airport_code" : 3,
+    "distance" : 1610.12
   } ]
 }, {
   "originAirport" : 18,
   "destinationList" : [ {
+    "airport_code" : 1,
+    "distance" : 1049.98
+  }, {
+    "airport_code" : 2,
+    "distance" : 512.46
+  }, {
     "airport_code" : 3,
-    "distance" : 1555.97
-  }, {
-    "airport_code" : 4,
-    "distance" : 134.71
-  }, {
-    "airport_code" : 6,
-    "distance" : 1105.09
+    "distance" : 252.35
   } ]
 }, {
   "originAirport" : 19,
   "destinationList" : [ {
     "airport_code" : 2,
-    "distance" : 1451.7
+    "distance" : 1220.65
   }, {
     "airport_code" : 3,
-    "distance" : 826.75
+    "distance" : 1105.97
   }, {
     "airport_code" : 4,
-    "distance" : 1827.47
+    "distance" : 1896.63
   } ]
 }, {
   "originAirport" : 20,
   "destinationList" : [ {
-    "airport_code" : 4,
-    "distance" : 77.08
-  }, {
     "airport_code" : 5,
-    "distance" : 220.06
+    "distance" : 1239.79
   }, {
-    "airport_code" : 6,
-    "distance" : 161.41
+    "airport_code" : 7,
+    "distance" : 1056.4
+  }, {
+    "airport_code" : 13,
+    "distance" : 313.17
   } ]
 } ]

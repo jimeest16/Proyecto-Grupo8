@@ -202,10 +202,10 @@ public class UserController {
             Flight flight = (Flight) allFlights.get(i);
 
 
-            boolean matchesOrigin = originCode == null || flight.getOriginCode() == originCode;
+            boolean matchesOrigin = originCode == null || flight.getOriginAirportCode() == originCode;
 
 
-            boolean matchesDestination = destinationCode == null || flight.getDestinationCode()==destinationCode;
+            boolean matchesDestination = destinationCode == null || flight.getDestinationAirportCode()==destinationCode;
 
             if (matchesOrigin && matchesDestination) {
                 filteredList.add(flight);
@@ -291,7 +291,7 @@ public class UserController {
 
 
             System.out.println("[DEBUG BuyTicket] Pasajero ID: " + passenger.getId() + ", Nombre: " + passenger.getName());
-            System.out.println("[DEBUG BuyTicket] Vuelo Seleccionado: " + selectedFlight.getNumber() + ", Origen: " + selectedFlight.getOriginCode() + ", Destino: " + selectedFlight.getDestinationCode() + ", Fecha: " + selectedFlight.getDepartureTimeAsObject());
+            System.out.println("[DEBUG BuyTicket] Vuelo Seleccionado: " + selectedFlight.getNumber() + ", Origen: " + selectedFlight.getOriginAirportCode() + ", Destino: " + selectedFlight.getDestinationAirportCode() + ", Fecha: " + selectedFlight.getDepartureTimeAsObject());
 
             if (selectedFlight.getOccupancy() >= selectedFlight.getCapacity()) {
                 showAlert(Alert.AlertType.ERROR, "Vuelo Lleno", "Lo sentimos, el vuelo " + selectedFlight.getNumber() + " ya no tiene asientos disponibles.");

@@ -14,9 +14,9 @@ public class Flight {
     @JsonProperty("flightNumber")
     private int number;
     @JsonProperty("originAirportCode")
-    private int originCode;
-    @JsonProperty("destinationAirportCode")
-    private int destinationCode;
+    private int originAirportCode;
+   @JsonProperty("destinationAirportCode")
+    private int destinationAirportCode;
     private LocalDateTime departureTime;
     private int capacity;
     private int occupancy;
@@ -39,8 +39,8 @@ public class Flight {
     public Flight(int number, int originCode, int destinationCode, LocalDateTime departureTime, int capacity, int occupancy, String status) {
         this();
         this.number = number;
-        this.originCode = originCode;
-        this.destinationCode = destinationCode;
+        this.originAirportCode = originCode;
+        this.destinationAirportCode = destinationCode;
         this.departureTime = departureTime;
         this.capacity = capacity;
         this.occupancy = occupancy;
@@ -50,8 +50,8 @@ public class Flight {
 
     public Flight(int number, int originCode, int destinationCode, LocalDateTime departureTime, int capacity, int occupancy, String status, SinglyLinkedList passengerIDs) {
         this.number = number;
-        this.originCode = originCode;
-        this.destinationCode = destinationCode;
+        this.originAirportCode = originCode;
+        this.destinationAirportCode = destinationCode;
         this.departureTime = departureTime;
         this.capacity = capacity;
         this.occupancy = occupancy;
@@ -71,8 +71,8 @@ public class Flight {
         this.route = route;
         this.departureTime = departureTime; // Asigna el primer departureTime
         this.number = flightNumber;
-        this.originCode = originAirportCode;
-        this.destinationCode = destinationCode;
+        this.originAirportCode = originAirportCode;
+        this.destinationAirportCode = destinationAirportCode;
 
 
         this.passengerIDs = passengerIDsList != null ? passengerIDsList : new SinglyLinkedList();
@@ -80,8 +80,8 @@ public class Flight {
     public Flight(Integer number, Integer originCode, Integer destinationCode, LocalDateTime departureTime,
                   Integer capacity, Integer occupancy, String status) {
         this.number = number;
-        this.originCode = originCode;
-        this.destinationCode = destinationCode;
+        this.originAirportCode = originCode;
+        this.destinationAirportCode = destinationCode;
         this.departureTime = departureTime;
         this.capacity = capacity;
         this.occupancy = occupancy;
@@ -92,16 +92,16 @@ public class Flight {
 
     public Flight(int number, int originCode, int destinationCode, LocalDateTime departureTime, int capacity) {
         this.number = number;
-        this.originCode = originCode;
-        this.destinationCode = destinationCode;
+        this.originAirportCode = originCode;
+        this.destinationAirportCode = destinationCode;
         this.departureTime = departureTime;
         this.capacity=capacity;
     }
     public Flight(int number, int originCode, int destinationCode, LocalDateTime departureTime,
                   int capacity, int occupancy, String status, SinglyLinkedList passengerIDs, String route) {
         this.number = number;
-        this.originCode = originCode;
-        this.destinationCode = destinationCode;
+        this.originAirportCode = originCode;
+        this.destinationAirportCode = destinationCode;
         this.departureTime = departureTime;
         this.capacity = capacity;
         this.occupancy = occupancy;
@@ -171,8 +171,8 @@ public class Flight {
 
 
     public void setNumber(int number) { this.number = number; }
-    public void setOriginCode(int originCode) { this.originCode = originCode; }
-    public void setDestinationCode(int destinationCode) { this.destinationCode = destinationCode; }
+    public void setOriginAirportCode(int originCode) { this.originAirportCode = originCode; }
+    public void setDestinationAirportCode(int destinationCode) { this.destinationAirportCode = destinationCode; }
     public void setDepartureTime(LocalDateTime departureTime) { this.departureTime = departureTime; } // Setter para LocalDateTime
     public void setCapacity(int capacity) { this.capacity = capacity; }
     public void setOccupancy(int occupancy) { this.occupancy = occupancy; }
@@ -182,8 +182,8 @@ public class Flight {
     public void setRoute(String route) { this.route = route; }
 
     public int getNumber() { return number; }
-    public int getOriginCode() { return originCode; }
-    public int getDestinationCode() { return destinationCode; }
+    public int getOriginAirportCode() { return originAirportCode; }
+    public int getDestinationAirportCode() { return destinationAirportCode; }
 
     @JsonIgnore // Ignora este getter para Jackson, solo para uso de la interfaz de usuario.
     public LocalDateTime getDepartureTimeAsObject() { return departureTime; }
@@ -203,7 +203,7 @@ public class Flight {
         if (route != null && !route.isEmpty()) {
             sb.append(route);
         } else {
-            sb.append(originCode).append("->").append(destinationCode);
+            sb.append(originAirportCode).append("->").append(destinationAirportCode);
         }
 
         if (departureTime != null) {

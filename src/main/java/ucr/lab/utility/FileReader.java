@@ -1,5 +1,8 @@
 package ucr.lab.utility;
 
+import com.fasterxml.jackson.core.exc.StreamReadException;
+import com.fasterxml.jackson.databind.DatabindException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -31,7 +34,7 @@ public class FileReader {
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
         // mapper.setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
-        mapper.configure(com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
     public static CircularLinkedList loadUsers() throws ListException {
@@ -352,7 +355,16 @@ public class FileReader {
         }
         return routesSinglyList;
     }
-
+    public static List<Route> loadRoutesInList() {
+        File file = new File(FILE_ROUTES);
+        try {
+            if (!file.exists() || file.length() == 0) return new ArrayList<>();
+            return mapper.readValue(file, new TypeReference<List<Route>>() {});
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
 
     public static void saveRoutes(List<Route> routes) {
         File file = new File(FILE_ROUTES);
