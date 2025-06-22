@@ -19,124 +19,32 @@ admin: Vista administrator cargada exitosamente.
 [2025-06-21 15:41:07] System: Mostrando lista de vuelos.
 [2025-06-21 15:41:07] Admin: Pestaña 'Gestionar Vuelos' cargada.
 [2025-06-21 15:41:11] Admin: Pestaña 'Gestionar Usuarios' cargada.
-cami: Inicio de sesión exitoso como administrator.
-[2025-06-21 16:49:53] Admin: Panel de administración iniciado.
-cami: Vista administrator cargada exitosamente.
-[2025-06-21 16:49:58] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
-[2025-06-21 16:50:07] Admin: Pestaña 'Gestionar Rutas' cargada.
-CAMI: Intento de inicio de sesión fallido: usuario no encontrado.
-cami: Inicio de sesión exitoso como administrator.
-[2025-06-21 16:59:11] Admin: Panel de administración iniciado.
-cami: Vista administrator cargada exitosamente.
-[2025-06-21 16:59:13] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
-[2025-06-21 16:59:20] Admin: Pestaña 'Gestionar Usuarios' cargada.
-[2025-06-21 16:59:22] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
-[2025-06-21 17:03:02] Admin: Pestaña 'Gestionar Rutas' cargada.
-cami: Inicio de sesión exitoso como administrator.
-[2025-06-21 17:19:59] Admin: Panel de administración iniciado.
-cami: Vista administrator cargada exitosamente.
-[2025-06-21 17:20:02] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
-[2025-06-21 17:20:06] Admin: Pestaña 'Gestionar Usuarios' cargada.
-[2025-06-21 17:20:08] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
-cami: Inicio de sesión exitoso como administrator.
-[2025-06-21 17:24:28] Admin: Panel de administración iniciado.
-cami: Vista administrator cargada exitosamente.
-[2025-06-21 17:24:31] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
-[2025-06-21 17:24:36] Admin: Pestaña 'Gestionar Rutas' cargada.
-[2025-06-21 17:24:40] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
-[2025-06-21 17:24:46] Admin: Pestaña 'Gestionar Rutas' cargada.
-[2025-06-21 17:24:50] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
-[2025-06-21 17:25:26] Admin: Pestaña 'Gestionar Rutas' cargada.
-cami: Inicio de sesión exitoso como administrator.
-[2025-06-21 17:48:48] Admin: Panel de administración iniciado.
-cami: Vista administrator cargada exitosamente.
-[2025-06-21 17:48:51] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
-[2025-06-21 17:48:56] Admin: Pestaña 'Gestionar Rutas' cargada.
 admin: Intento de inicio de sesión fallido: contraseña incorrecta.
 admin: Inicio de sesión exitoso como administrator.
-[2025-06-21 17:50:01] Admin: Panel de administración iniciado.
+[2025-06-21 16:19:33] Admin: Panel de administración iniciado.
 admin: Vista administrator cargada exitosamente.
-[2025-06-21 17:50:03] System: FlightController inicializado.
-[2025-06-21 17:50:03] System: Aeropuertos cargados en los ComboBoxes.
-[2025-06-21 17:50:03] System: Carga de todos los vuelos. Cantidad: 9
-[2025-06-21 17:50:03] System: Mostrando lista de vuelos.
-[2025-06-21 17:50:03] Admin: Pestaña 'Gestionar Vuelos' cargada.
-[2025-06-21 17:50:06] Admin: Pestaña 'Gestionar Rutas' cargada.
-admin: Inicio de sesión exitoso como administrator.
-[2025-06-21 17:50:57] Admin: Panel de administración iniciado.
-admin: Vista administrator cargada exitosamente.
-[2025-06-21 17:51:00] System: FlightController inicializado.
-[2025-06-21 17:51:00] System: Aeropuertos cargados en los ComboBoxes.
-[2025-06-21 17:51:00] System: Carga de todos los vuelos. Cantidad: 9
-[2025-06-21 17:51:00] System: Mostrando lista de vuelos.
-[2025-06-21 17:51:00] Admin: Pestaña 'Gestionar Vuelos' cargada.
-[2025-06-21 17:51:03] Admin: Pestaña 'Gestionar Rutas' cargada.
-admin: Intento de inicio de sesión fallido: contraseña incorrecta.
-cami: Inicio de sesión exitoso como administrator.
-[2025-06-21 17:51:53] Admin: Panel de administración iniciado.
-cami: Vista administrator cargada exitosamente.
-[2025-06-21 17:51:56] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
-[2025-06-21 17:51:59] Admin: Pestaña 'Gestionar Rutas' cargada.
-admin: Inicio de sesión exitoso como administrator.
-[2025-06-21 17:58:11] Admin: Panel de administración iniciado.
-admin: Vista administrator cargada exitosamente.
-[2025-06-21 17:58:13] System: FlightController inicializado.
-[2025-06-21 17:58:13] System: Aeropuertos cargados en los ComboBoxes.
-[2025-06-21 17:58:13] System: Carga de todos los vuelos. Cantidad: 9
-[2025-06-21 17:58:13] System: Mostrando lista de vuelos.
-[2025-06-21 17:58:13] Admin: Pestaña 'Gestionar Vuelos' cargada.
-[2025-06-21 17:58:15] Admin: Pestaña 'Gestionar Rutas' cargada.
-cami: Inicio de sesión exitoso como administrator.
-[2025-06-21 18:02:56] Admin: Panel de administración iniciado.
-cami: Vista administrator cargada exitosamente.
-[2025-06-21 18:02:59] System: FlightController inicializado.
-[2025-06-21 18:02:59] System: Aeropuertos cargados en los ComboBoxes.
-[2025-06-21 18:02:59] System: Carga de todos los vuelos. Cantidad: 9
-[2025-06-21 18:02:59] System: Mostrando lista de vuelos.
-[2025-06-21 18:02:59] Admin: Pestaña 'Gestionar Vuelos' cargada.
-[2025-06-21 18:03:00] Admin: Pestaña 'Gestionar Rutas' cargada.
-cami: Inicio de sesión exitoso como administrator.
-[2025-06-21 18:08:28] Admin: Panel de administración iniciado.
-cami: Vista administrator cargada exitosamente.
-[2025-06-21 18:08:31] System: FlightController inicializado.
-[2025-06-21 18:08:31] System: Aeropuertos cargados en los ComboBoxes.
-[2025-06-21 18:08:31] System: Carga de todos los vuelos. Cantidad: 9
-[2025-06-21 18:08:31] System: Mostrando lista de vuelos.
-[2025-06-21 18:08:31] Admin: Pestaña 'Gestionar Vuelos' cargada.
-[2025-06-21 18:08:32] Admin: Pestaña 'Gestionar Rutas' cargada.
-admin: Intento de inicio de sesión fallido: contraseña incorrecta.
-cami: Inicio de sesión exitoso como administrator.
-[2025-06-21 18:11:43] Admin: Panel de administración iniciado.
-cami: Vista administrator cargada exitosamente.
-[2025-06-21 18:11:45] Admin: Pestaña 'Gestionar Rutas' cargada.
-cami: Inicio de sesión exitoso como administrator.
-[2025-06-21 18:19:06] Admin: Panel de administración iniciado.
-cami: Vista administrator cargada exitosamente.
-[2025-06-21 18:19:09] Admin: Pestaña 'Gestionar Rutas' cargada.
-Desconocido: Intento de registro fallido: campos vacíos.
-cami: Inicio de sesión exitoso como administrator.
-[2025-06-21 18:25:34] Admin: Panel de administración iniciado.
-cami: Vista administrator cargada exitosamente.
-[2025-06-21 18:25:36] System: FlightController inicializado.
-[2025-06-21 18:25:37] System: Aeropuertos cargados en los ComboBoxes.
-[2025-06-21 18:25:37] System: Carga de todos los vuelos. Cantidad: 9
-[2025-06-21 18:25:37] System: Mostrando lista de vuelos.
-[2025-06-21 18:25:37] Admin: Pestaña 'Gestionar Vuelos' cargada.
-[2025-06-21 18:25:38] Admin: Pestaña 'Gestionar Rutas' cargada.
-cami: Inicio de sesión exitoso como administrator.
-[2025-06-21 18:29:53] Admin: Panel de administración iniciado.
-cami: Vista administrator cargada exitosamente.
-[2025-06-21 18:29:56] Admin: Pestaña 'Gestionar Rutas' cargada.
-[2025-06-21 18:32:56] Admin: Pestaña 'Gestionar Usuarios' cargada.
-[2025-06-21 18:38:09] Admin: Pestaña 'Gestionar Rutas' cargada.
-cami: Inicio de sesión exitoso como administrator.
-[2025-06-21 18:45:09] Admin: Panel de administración iniciado.
-cami: Vista administrator cargada exitosamente.
-[2025-06-21 18:45:12] System: FlightController inicializado.
-[2025-06-21 18:45:12] System: Aeropuertos cargados en los ComboBoxes.
-[2025-06-21 18:45:12] System: Carga de todos los vuelos. Cantidad: 9
-[2025-06-21 18:45:12] System: Mostrando lista de vuelos.
-[2025-06-21 18:45:12] Admin: Pestaña 'Gestionar Vuelos' cargada.
-[2025-06-21 18:45:13] Admin: Pestaña 'Gestionar Rutas' cargada.
-[2025-06-21 18:45:16] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
-[2025-06-21 18:45:17] Admin: Pestaña 'Gestionar Usuarios' cargada.
+[2025-06-21 16:19:35] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-21 16:19:36] Admin: Pestaña 'Gestionar Usuarios' cargada.
+[2025-06-21 16:19:52] System: FlightController inicializado.
+[2025-06-21 16:19:52] System: Aeropuertos cargados en los ComboBoxes.
+[2025-06-21 16:19:52] System: Carga de todos los vuelos. Cantidad: 9
+[2025-06-21 16:19:52] System: Mostrando lista de vuelos.
+[2025-06-21 16:19:52] Admin: Pestaña 'Gestionar Vuelos' cargada.
+[2025-06-21 16:19:54] System: Mostrando lista de vuelos con filtro: Active.
+[2025-06-21 16:19:54] System: Mostrando vuelos con estado 'Active'.
+[2025-06-21 16:19:54] System: Mostrando lista de vuelos con filtro: Complete.
+[2025-06-21 16:19:54] System: Mostrando vuelos con estado 'Complete'.
+[2025-06-21 16:19:56] System: Carga de todos los vuelos. Cantidad: 9
+[2025-06-21 16:19:56] System: Mostrando lista de vuelos.
+[2025-06-21 16:19:56] System: Listando todos los vuelos.
+[2025-06-21 16:20:00] Admin: Pestaña 'Gestionar Rutas' cargada.
+jime: Inicio de sesión exitoso como user.
+jime: Vista user cargada exitosamente.
+jime: Inicio de sesión exitoso como user.
+jime: Vista user cargada exitosamente.
+jime: Inicio de sesión exitoso como user.
+jime: Vista user cargada exitosamente.
+jime: Inicio de sesión exitoso como user.
+jime: Vista user cargada exitosamente.
+jime: Inicio de sesión exitoso como user.
+jime: Vista user cargada exitosamente.
