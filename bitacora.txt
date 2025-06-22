@@ -48,3 +48,33 @@ jime: Inicio de sesión exitoso como user.
 jime: Vista user cargada exitosamente.
 jime: Inicio de sesión exitoso como user.
 jime: Vista user cargada exitosamente.
+admin: Inicio de sesión exitoso como administrator.
+[2025-06-22 14:14:13] Admin: Panel de administración iniciado.
+admin: Vista administrator cargada exitosamente.
+[2025-06-22 14:14:20] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-22 14:15:50] Admin: Pestaña 'Gestionar Usuarios' cargada.
+[2025-06-22 14:15:51] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-22 14:16:15] Admin: Panel de administración iniciado.
+[2025-06-22 14:16:17] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-22 14:16:23] Admin: Panel de administración iniciado.
+[2025-06-22 14:16:24] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-22 14:16:28] Admin: Panel de administración iniciado.
+[2025-06-22 14:16:30] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-22 14:16:33] Admin: Panel de administración iniciado.
+[2025-06-22 14:16:34] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-22 14:16:38] Admin: Panel de administración iniciado.
+[2025-06-22 14:16:39] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-22 14:16:58] Admin: Panel de administración iniciado.
+[2025-06-22 14:16:59] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-22 14:17:15] Admin: Panel de administración iniciado.
+[2025-06-22 14:17:16] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-22 14:17:41] Admin: Panel de administración iniciado.
+[2025-06-22 14:17:43] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-22 14:17:48] Admin: Panel de administración iniciado.
+[2025-06-22 14:17:55] Admin: Pestaña 'Gestionar Usuarios' cargada.
+[2025-06-22 14:18:36] System: FlightController inicializado.
+[2025-06-22 14:18:36] System: Aeropuertos cargados en los ComboBoxes.
+[2025-06-22 14:18:36] System: Carga de todos los vuelos. Cantidad: 9
+[2025-06-22 14:18:36] System: Mostrando lista de vuelos.
+[2025-06-22 14:18:36] Admin: Pestaña 'Gestionar Vuelos' cargada.
+[2025-06-22 14:18:40] Admin: Pestaña 'Gestionar Rutas' cargada.
