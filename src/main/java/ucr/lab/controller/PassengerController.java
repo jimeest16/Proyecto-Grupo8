@@ -406,8 +406,7 @@ public class PassengerController {
         String jrxmlPath = "src/main/resources/jasper/passengers.jrxml";
         String pdf = "src/main/resources/reportes/passengers_report.pdf";
 
-        File file = new File(jsonPath);
-        List<Passenger>passengersList = FileReader.loadPassengers().toList();
+        List<Passenger>passengersList = FileReader.loadPassengersAsList();
 
         Util.generarReporte(jsonPath,jrxmlPath,pdf, passengersList);
     }

@@ -283,7 +283,7 @@ public class UserController {
             appendUserOutput("ⓘ Error: No se seleccionó ningún vuelo.");
             return;
         }
-        appendUserOutput("Vuelo seleccionado: #" + selectedFlight.getNumber() + " (" + selectedFlight.getOriginCode() + " -> " + selectedFlight.getDestinationCode() + ")");
+        appendUserOutput("Vuelo seleccionado: #" + selectedFlight.getNumber() + " (" + selectedFlight.getOriginAirportCode() + " -> " + selectedFlight.getDestinationAirportCode() + ")");
 
         if (passengerIdText.isEmpty()) {
             showAlert(Alert.AlertType.WARNING, "ID de Pasajero Vacío", "Por favor, ingrese el ID del pasajero.");

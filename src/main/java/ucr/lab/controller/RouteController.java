@@ -783,10 +783,7 @@ public class RouteController {
         String jrxmlPath = "src/main/resources/jasper/routes.jrxml";
         String pdf = "src/main/resources/reportes/routes_report.pdf";
 
-        File file = new File(jsonPath);
-        List<Flight>routesList = FileReader.loadFlightsAsListForInternalUse();
-        // SinglyLinkedList datos = FlightManager.loadFlights();;
-        // List<Route> datos = data.getMostUsedRoutes();//METODO PARA OBTENER las rutas más usadas
+        List<Flight>routesList = FileReader.loadFlightsAsListForInternalUse(); //METODO PARA OBTENER las rutas más usadas
 
         Util.generarReporte(jsonPath,jrxmlPath,pdf, routesList);
 

@@ -390,7 +390,7 @@ public class FileReader {
         }
     }
 
-    private static List<Passenger> loadPassengersAsList() {
+    public static List<Passenger> loadPassengersAsList() {
         File file = new File(FILE_PASSENGER);
         try {
             if (!file.exists() || file.length() == 0) return new ArrayList<>();

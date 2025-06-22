@@ -48,3 +48,25 @@ jime: Inicio de sesión exitoso como user.
 jime: Vista user cargada exitosamente.
 jime: Inicio de sesión exitoso como user.
 jime: Vista user cargada exitosamente.
+cami: Inicio de sesión exitoso como administrator.
+[2025-06-21 19:15:52] Admin: Panel de administración iniciado.
+cami: Vista administrator cargada exitosamente.
+[2025-06-21 19:15:54] System: FlightController inicializado.
+[2025-06-21 19:15:54] System: Aeropuertos cargados en los ComboBoxes.
+[2025-06-21 19:15:54] System: Carga de todos los vuelos. Cantidad: 9
+[2025-06-21 19:15:54] System: Mostrando lista de vuelos.
+[2025-06-21 19:15:55] Admin: Pestaña 'Gestionar Vuelos' cargada.
+[2025-06-21 19:15:57] Admin: Pestaña 'Gestionar Rutas' cargada.
+[2025-06-21 19:15:59] Admin: Pestaña 'Gestionar Usuarios' cargada.
+cami: Inicio de sesión exitoso como administrator.
+[2025-06-21 19:17:00] Admin: Panel de administración iniciado.
+cami: Vista administrator cargada exitosamente.
+[2025-06-21 19:17:02] Admin: Pestaña 'Gestionar Rutas' cargada.
+[2025-06-21 19:17:04] System: FlightController inicializado.
+[2025-06-21 19:17:04] System: Aeropuertos cargados en los ComboBoxes.
+[2025-06-21 19:17:04] System: Carga de todos los vuelos. Cantidad: 9
+[2025-06-21 19:17:04] System: Mostrando lista de vuelos.
+[2025-06-21 19:17:04] Admin: Pestaña 'Gestionar Vuelos' cargada.
+[2025-06-21 19:17:05] Admin: Pestaña 'Gestionar Usuarios' cargada.
+[2025-06-21 22:27:45] Admin: Pestaña 'Gestionar Rutas' cargada.
+[2025-06-21 22:28:05] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
