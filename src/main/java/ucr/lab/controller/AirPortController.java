@@ -106,6 +106,12 @@ public class AirPortController {
             .create();
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
+    public void setAirportsTabContentPane(AnchorPane airportsTabContentPane) {
+        this.ap = airportsTabContentPane;
+    }
+    public AnchorPane getAirportsTabContentPane() {
+        return ap;
+    }
 
     @javafx.fxml.FXML
     public void initialize() throws IOException {

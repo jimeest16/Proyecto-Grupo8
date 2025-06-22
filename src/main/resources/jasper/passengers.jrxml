@@ -12,6 +12,7 @@
     <field name="nationality" class="java.lang.String"/>
     <field name="flightCount" class="java.lang.Integer"/>
 
+    <sortField name="flightCount" order="Descending"/>
     <title>
         <band height="50">
             <staticText>

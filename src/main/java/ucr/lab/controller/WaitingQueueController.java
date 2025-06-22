@@ -130,10 +130,9 @@ public class WaitingQueueController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ucr/lab/AdministratorView.fxml"));
             Parent root = loader.load();
-            AdminController controller = loader.getController();
-            AnchorPane anchorPane =  controller.getAirportsTabContentPane();
 
-            controller.setAirportsTabContentPane(anchorPane);
+            AdminController controller = loader.getController();
+            controller.mostrarTabDeAirports();
 
             Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -168,8 +167,8 @@ public class WaitingQueueController {
 
         if (embarcados != 0) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Embarque");
-            alert.setHeaderText(embarcados + " pasajeros fueron embarcados.");
+            alert.setTitle("Abordaje");
+            alert.setHeaderText(embarcados + " pasajeros fueron abordados.");
             alert.setContentText("Vuelo actualizado: \n"+"La lista de identificaciones del vuelo es: "+ vuelo.getPassengerIDs().toList());//se puede mejorar la salida
             alert.showAndWait();
         }

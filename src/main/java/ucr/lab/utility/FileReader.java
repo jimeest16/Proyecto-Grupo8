@@ -318,6 +318,19 @@ public class FileReader {
             return new ArrayList<>();
         }
     }
+    //Carga una lista de vuelos para reporte de promedio de ocupación/Porcentaje de ocupación promedio por vuelo
+
+    private static List<Flight> loadReportFlight() {
+        File file = new File(FILE_DEPARTURES);
+
+        try {
+            if (!file.exists() || file.length() == 0) return new ArrayList<>();
+            return mapper.readValue(file, new TypeReference<List<Flight>>() {});
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
 
 
     public static SinglyLinkedList loadRoutes() {

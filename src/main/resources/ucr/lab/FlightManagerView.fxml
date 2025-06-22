@@ -71,10 +71,26 @@
                 </VBox>
                 <VBox alignment="CENTER" spacing="5">
                     <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" preserveRatio="true">
+                     <image>
+                        <Image url="@clean.png" />
+                     </image>
+                  </ImageView>
                         <Button onAction="#clearFlightFields" style="-fx-background-color: #607D8B; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20; -fx-border-radius: 5; -fx-background-radius: 5;" text="Limpiar Campos" />
                         <Text fill="#666666" text="✅ Restablecer campos" />
                     </children>
                 </VBox>
+            <VBox alignment="CENTER" spacing="5">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" preserveRatio="true">
+                     <image>
+                        <Image url="@report.png" />
+                     </image>
+                  </ImageView>
+                  <Button onAction="#generateReport" style="-fx-background-color: #ed6224; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20; -fx-border-radius: 5; -fx-background-radius: 5;" text="Generar Reporte" />
+                  <Text fill="#666666" text="✅ Promedio de ocupación" />
+               </children>
+            </VBox>
             </children>
         </HBox>
 

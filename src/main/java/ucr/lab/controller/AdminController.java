@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import ucr.lab.TDA.queue.LinkedQueue;
 import ucr.lab.TDA.queue.QueueException;
@@ -19,6 +20,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class AdminController {
+    @FXML
+    private TabPane tabPanePrincipal;
+
+    @FXML
+    private Tab airportsTab;
 
     @FXML private AnchorPane usersTabContentPane;
     @FXML private AnchorPane flightsTabContentPane;
@@ -33,6 +39,7 @@ public class AdminController {
     public AdminController(User loggedInAdmin) {
         this.loggedInAdmin = loggedInAdmin;
     }
+
     public void setAirportsTabContentPane(AnchorPane airportsTabContentPane) {
         this.airportsTabContentPane = airportsTabContentPane;
     }
@@ -157,5 +164,13 @@ public class AdminController {
     private void logout() {
         registrarEnBitacora("Cierre de sesión del administrador.");
         Platform.exit();
+    }
+
+    public void mostrarTabDeAirports() {
+        if (tabPanePrincipal != null && airportsTab != null) {
+            tabPanePrincipal.getSelectionModel().select(airportsTab);
+        } else {
+            System.out.println("No se encontró el TabPane o la pestaña de aeropuertos.");
+        }
     }
 }

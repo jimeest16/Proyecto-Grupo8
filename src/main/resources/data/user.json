@@ -64,4 +64,10 @@
   "password" : "fdpl",
   "email" : "monto@gmail.com",
   "role" : "administrator"
+}, {
+  "id" : 1003,
+  "name" : "camila",
+  "password" : "45678",
+  "email" : "cam@gmail.com",
+  "role" : "user"
 } ]

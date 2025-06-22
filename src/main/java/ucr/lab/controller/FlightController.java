@@ -1,8 +1,10 @@
 package ucr.lab.controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import net.sf.jasperreports.engine.JRException;
 import ucr.lab.TDA.list.ListException;
 import ucr.lab.TDA.list.SinglyLinkedList;
 import ucr.lab.TDA.queue.LinkedQueue;
@@ -14,6 +16,7 @@ import ucr.lab.domain.Flight;
 import ucr.lab.domain.Passenger;
 import ucr.lab.domain.User;
 import ucr.lab.utility.FileReader;
+import ucr.lab.utility.Util;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -333,5 +336,25 @@ public class FlightController {
             registrarEnBitacora(errorMessage);
             e.printStackTrace();
         }
+    }
+//genera el reporte Porcentaje de ocupación promedio por vuelo
+    public void generateReport(ActionEvent actionEvent) throws JRException, IOException {
+        showAlert("Cargando el Reporte...", "Espera un momento","");
+
+        String jsonPath = "src/main/resources/data/flights.json";
+        String jrxmlPath = "src/main/resources/jasper/flights.jrxml";
+        String pdf = "src/main/resources/reportes/flights_report.pdf";
+
+        List<Flight>flightList = FileReader.loadFlightsAsListForInternalUse(); //METODO PARA OBTENER
+        Util.generarReporte(jsonPath,jrxmlPath,pdf, flightList);
+    }
+    private void showAlert(String title, String header, String content) {
+        Platform.runLater(() -> {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle(title);
+            alert.setHeaderText(header);
+            alert.setContentText(content);
+            alert.showAndWait();
+        });
     }
 }

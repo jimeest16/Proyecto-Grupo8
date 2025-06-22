@@ -26,6 +26,8 @@ public class Flight {
     private String route;
     SinglyLinkedList availableRoutes;
 
+    private double porcentajeOccupancy;
+
     public Flight() {
         this.passengerIDs = new SinglyLinkedList();
         this.route="";
@@ -109,6 +111,15 @@ public class Flight {
         this.passengerIDs = passengerIDs;
         this.route = route;
         this.availableRoutes = new SinglyLinkedList(); // Inicializar como lista vacía
+    }
+
+    //para el reporte
+    public double getPorcentajeOccupancy() {
+        return (double) occupancy /capacity;
+    }
+
+    public void setPorcentajeOccupancy(double porcentajeOccupancy) {
+        this.porcentajeOccupancy = (double) occupancy /capacity;
     }
 
     public SinglyLinkedList getAvailableRoutes() {
