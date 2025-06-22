@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports
+                                  http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="FlightReport"
+              pageWidth="595" pageHeight="842" columnWidth="515"
+              leftMargin="40" rightMargin="40" topMargin="50" bottomMargin="50"
+              uuid="a3d599b2-357d-47e0-b11f-ead8f872180f">
+
+    <field name="route" class="java.lang.String"/>
+    <field name="originAirportCode" class="java.lang.Integer"/>
+    <field name="destinationAirportCode" class="java.lang.Integer"/>
+
+    <title>
+        <band height="40">
+            <staticText>
+                <reportElement x="0" y="10" width="515" height="30"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Flight Report]]></text>
+            </staticText>
+        </band>
+    </title>
+
+    <columnHeader>
+        <band height="25">
+            <staticText>
+                <reportElement x="0" y="0" width="180" height="25" backcolor="#DDDDDD" mode="Opaque"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle" />
+                <text><![CDATA[Route]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x="180" y="0" width="165" height="25" backcolor="#DDDDDD" mode="Opaque"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle" />
+                <text><![CDATA[Origin Airport Code]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x="345" y="0" width="170" height="25" backcolor="#DDDDDD" mode="Opaque"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle" />
+                <text><![CDATA[Destination Airport Code]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <detail>
+        <band height="20">
+            <textField>
+                <reportElement x="0" y="0" width="180" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{route}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="180" y="0" width="165" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{originAirportCode}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="345" y="0" width="170" height="20"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{destinationAirportCode}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>

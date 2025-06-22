@@ -203,10 +203,10 @@ public class UserController {
             Flight flight = (Flight) allFlights.get(i);
 
 
-            boolean matchesOrigin = originCode == null || flight.getOriginCode() == originCode;
+            boolean matchesOrigin = originCode == null || flight.getOriginAirportCode() == originCode;
 
 
-            boolean matchesDestination = destinationCode == null || flight.getDestinationCode()==destinationCode;
+            boolean matchesDestination = destinationCode == null || flight.getDestinationAirportCode()==destinationCode;
 
             if (matchesOrigin && matchesDestination) {
                 filteredList.add(flight);
@@ -283,7 +283,7 @@ public class UserController {
             appendUserOutput("ⓘ Error: No se seleccionó ningún vuelo.");
             return;
         }
-        appendUserOutput("Vuelo seleccionado: #" + selectedFlight.getNumber() + " (" + selectedFlight.getOriginCode() + " -> " + selectedFlight.getDestinationCode() + ")");
+        appendUserOutput("Vuelo seleccionado: #" + selectedFlight.getNumber() + " (" + selectedFlight.getOriginAirportCode() + " -> " + selectedFlight.getDestinationAirportCode() + ")");
 
         if (passengerIdText.isEmpty()) {
             showAlert(Alert.AlertType.WARNING, "ID de Pasajero Vacío", "Por favor, ingrese el ID del pasajero.");
@@ -301,7 +301,10 @@ public class UserController {
                 appendUserOutput("❌ Error: Pasajero con ID " + passengerId + " no encontrado.");
                 return;
             }
-            appendUserOutput("Pasajero encontrado: " + passenger.getName() + " (ID: " + passenger.getId() + ")");
+
+
+            System.out.println("[DEBUG BuyTicket] Pasajero ID: " + passenger.getId() + ", Nombre: " + passenger.getName());
+            System.out.println("[DEBUG BuyTicket] Vuelo Seleccionado: " + selectedFlight.getNumber() + ", Origen: " + selectedFlight.getOriginAirportCode() + ", Destino: " + selectedFlight.getDestinationAirportCode() + ", Fecha: " + selectedFlight.getDepartureTimeAsObject());
 
             if (selectedFlight.getOccupancy() >= selectedFlight.getCapacity()) {
                 showAlert(Alert.AlertType.ERROR, "Vuelo Lleno", "Lo sentimos, el vuelo " + selectedFlight.getNumber() + " ya no tiene asientos disponibles.");

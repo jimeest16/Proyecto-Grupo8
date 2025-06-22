@@ -332,8 +332,8 @@ public int sizeFlight()throws ListException{
                 Flight f = new Flight();
 
                 f.setNumber(((Number) map.get("number")).intValue());
-                f.setOriginCode(((Number) map.get("originCode")).intValue());
-                f.setDestinationCode(((Number) map.get("destinationCode")).intValue());
+                f.setOriginAirportCode(((Number) map.get("originCode")).intValue());
+                f.setDestinationAirportCode(((Number) map.get("destinationCode")).intValue());
                 f.setDepartureTime(LocalDateTime.parse(map.get("departureTime").toString())); // usar formatter si no es ISO
                 f.setCapacity(((Number) map.get("capacity")).intValue());
                 f.setOccupancy(((Number) map.get("occupancy")).intValue());

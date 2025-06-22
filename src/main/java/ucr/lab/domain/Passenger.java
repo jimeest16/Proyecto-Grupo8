@@ -28,7 +28,7 @@ public class Passenger implements Comparable<Passenger> {
     @JsonDeserialize(using = SinglyListDeserializer.class) // Usadeserializador
     @JsonProperty("flightHistory")
     private SinglyLinkedList flightHistory;
-
+    private int flightCount;
     @JsonProperty("state")
     private String state;
 
@@ -76,6 +76,14 @@ public class Passenger implements Comparable<Passenger> {
 
     public String getState() { return state; }
     public void setState(String state) { this.state = state; }
+
+    public int getFlightCount() throws ListException {
+        return flightHistory.size();
+    }
+
+    public void setFlightCount(int flightCount) {
+        this.flightCount = flightCount;
+    }
 
     public void addFlight(Flight flight) {
         if (this.flightHistory == null) {
