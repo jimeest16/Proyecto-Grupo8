@@ -78,3 +78,75 @@ admin: Vista administrator cargada exitosamente.
 [2025-06-22 14:18:36] System: Mostrando lista de vuelos.
 [2025-06-22 14:18:36] Admin: Pestaña 'Gestionar Vuelos' cargada.
 [2025-06-22 14:18:40] Admin: Pestaña 'Gestionar Rutas' cargada.
+jime: Inicio de sesión exitoso como user.
+jime: Vista user cargada exitosamente.
+admin: Inicio de sesión exitoso como administrator.
+[2025-06-22 14:26:55] Admin: Panel de administración iniciado.
+admin: Vista administrator cargada exitosamente.
+[2025-06-22 14:26:58] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-22 14:27:11] Admin: Panel de administración iniciado.
+[2025-06-22 14:27:12] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-22 14:27:29] Admin: Panel de administración iniciado.
+[2025-06-22 14:27:58] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-22 14:28:02] Admin: Panel de administración iniciado.
+[2025-06-22 14:28:04] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+admin: Intento de inicio de sesión fallido: contraseña incorrecta.
+admin: Inicio de sesión exitoso como administrator.
+[2025-06-22 14:31:27] Admin: Panel de administración iniciado.
+admin: Vista administrator cargada exitosamente.
+[2025-06-22 14:31:34] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-22 14:31:39] Admin: Pestaña 'Gestionar Usuarios' cargada.
+[2025-06-22 14:32:09] Admin: Pestaña 'Gestionar Rutas' cargada.
+admin: Inicio de sesión exitoso como administrator.
+[2025-06-22 14:41:29] Admin: Panel de administración iniciado.
+admin: Vista administrator cargada exitosamente.
+[2025-06-22 14:41:32] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-22 14:42:17] Admin: Panel de administración iniciado.
+[2025-06-22 14:42:18] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-22 14:42:21] Admin: Panel de administración iniciado.
+[2025-06-22 14:42:23] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-22 14:42:27] Admin: Panel de administración iniciado.
+[2025-06-22 14:42:44] Admin: Pestaña 'Gestionar Usuarios' cargada.
+[2025-06-22 14:42:57] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-22 14:42:58] Admin: Pestaña 'Gestionar Usuarios' cargada.
+[2025-06-22 14:43:08] System: FlightController inicializado.
+[2025-06-22 14:43:08] System: Aeropuertos cargados en los ComboBoxes.
+[2025-06-22 14:43:08] System: Carga de todos los vuelos. Cantidad: 9
+[2025-06-22 14:43:08] System: Mostrando lista de vuelos.
+[2025-06-22 14:43:08] Admin: Pestaña 'Gestionar Vuelos' cargada.
+[2025-06-22 14:43:10] Admin: Pestaña 'Gestionar Rutas' cargada.
+Usuario Interfaz: Se retrocedió a la pantalla principal.
+admin: Inicio de sesión exitoso como administrator.
+[2025-06-22 14:59:56] Admin: Panel de administración iniciado.
+admin: Vista administrator cargada exitosamente.
+[2025-06-22 14:59:58] Admin: Pestaña 'Gestionar Rutas' cargada.
+admin: Inicio de sesión exitoso como administrator.
+[2025-06-22 15:26:10] Admin: Panel de administración iniciado.
+admin: Vista administrator cargada exitosamente.
+[2025-06-22 15:26:12] Admin: Pestaña 'Gestionar Rutas' cargada.
+admin: Inicio de sesión exitoso como administrator.
+[2025-06-22 15:33:17] Admin: Panel de administración iniciado.
+admin: Vista administrator cargada exitosamente.
+[2025-06-22 15:33:19] Admin: Pestaña 'Gestionar Rutas' cargada.
+admin: Inicio de sesión exitoso como administrator.
+[2025-06-22 15:40:36] Admin: Panel de administración iniciado.
+admin: Vista administrator cargada exitosamente.
+[2025-06-22 15:40:38] Admin: Pestaña 'Gestionar Rutas' cargada.
+admin: Inicio de sesión exitoso como administrator.
+[2025-06-22 15:58:22] Admin: Panel de administración iniciado.
+admin: Vista administrator cargada exitosamente.
+[2025-06-22 15:58:24] Admin: Pestaña 'Gestionar Rutas' cargada.
+jime: Inicio de sesión exitoso como user.
+jime: Vista user cargada exitosamente.
+jime: Inicio de sesión exitoso como user.
+jime: Vista user cargada exitosamente.
+jime: Inicio de sesión exitoso como user.
+jime: Vista user cargada exitosamente.
+jime: Inicio de sesión exitoso como user.
+jime: Vista user cargada exitosamente.
+jime: Inicio de sesión exitoso como user.
+jime: Vista user cargada exitosamente.
+jime: Inicio de sesión exitoso como user.
+jime: Vista user cargada exitosamente.
+jime: Inicio de sesión exitoso como user.
+jime: Vista user cargada exitosamente.

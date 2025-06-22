@@ -1,6 +1,7 @@
 package ucr.lab.TDA.tree;
 
 
+import ucr.lab.TDA.list.ListException;
 import ucr.lab.TDA.list.SinglyLinkedList;
 
 import static ucr.lab.utility.Util.compare;
@@ -494,6 +495,27 @@ public class AVLTree implements Tree {
         }
     }
 
-    }//fin class AVL
+    public SinglyLinkedList inOrderSingly() throws TreeException, ListException {
+        SinglyLinkedList list = new SinglyLinkedList();
+        if (isEmpty()) {
+            return list;
+        }
+        inOrder(root, list);
+        return list;
+    }
+    private void inOrder(BTreeNode node, SinglyLinkedList list) throws TreeException, ListException {
+        if (node != null) {
+            inOrder(node.left, list); // Visitar subárbol izquierdo
+
+            // Añadir el dato del nodo actual a la lista
+            // Aquí es donde obtienes el objeto Passenger del nodo BTreeNode.
+
+            list.add(node.getData());
+
+            inOrder(node.right, list); // Visitar subárbol derecho
+        }
+    }
+
+}//fin class AVL
 
 

@@ -13,12 +13,12 @@ import ucr.lab.domain.AirPort;
 import ucr.lab.domain.Flight;
 import ucr.lab.domain.Passenger;
 import ucr.lab.utility.FileReader;
+import ucr.lab.TDA.tree.BTreeNode;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+
 
 import static ucr.lab.utility.Util.compare;
 
@@ -29,8 +29,8 @@ public class UserController {
     @FXML private ComboBox<String> cbSearchDestinationCode;
     @FXML private TableView<Flight> tvAvailableFlights;
     @FXML private TableColumn<Flight, Integer> colFlightNumber;
-    @FXML private TableColumn<Flight, Integer> colOriginCode;
-    @FXML private TableColumn<Flight, Integer> colDestinationCode;
+    @FXML private TableColumn<Flight, String> colOriginCode;
+    @FXML private TableColumn<Flight, String> colDestinationCode;
     @FXML private TableColumn<Flight, LocalDateTime> colDepartureTime;
     @FXML private TableColumn<Flight, Integer> colCapacity;
     @FXML private TableColumn<Flight, Integer> colOccupancy;
@@ -65,8 +65,35 @@ public class UserController {
 
 
         colFlightNumber.setCellValueFactory(new PropertyValueFactory<>("number"));
-        colOriginCode.setCellValueFactory(new PropertyValueFactory<>("originCode"));
-        colDestinationCode.setCellValueFactory(new PropertyValueFactory<>("destinationCode"));
+
+        colOriginCode.setCellValueFactory(cellData -> {
+            Flight flight = cellData.getValue();
+            try {
+                if (allAirports == null || allAirports.isEmpty()) {
+                    return new javafx.beans.property.SimpleStringProperty("Loading...");
+                }
+                String airportName = getAirportNameByCode(flight.getOriginAirportCode());
+                return new javafx.beans.property.SimpleStringProperty(airportName);
+            } catch (ListException e) {
+                appendUserOutput("Error al obtener nombre de aeropuerto de origen: " + e.getMessage());
+                return new javafx.beans.property.SimpleStringProperty("Error");
+            }
+        });
+
+        colDestinationCode.setCellValueFactory(cellData -> {
+            Flight flight = cellData.getValue();
+            try {
+
+                if (allAirports == null || allAirports.isEmpty()) {
+                    return new javafx.beans.property.SimpleStringProperty("Loading...");
+                }
+                String airportName = getAirportNameByCode(flight.getDestinationAirportCode());
+                return new javafx.beans.property.SimpleStringProperty(airportName);
+            } catch (ListException e) {
+                appendUserOutput("Error al obtener nombre de aeropuerto de destino: " + e.getMessage());
+                return new javafx.beans.property.SimpleStringProperty("Error");
+            }
+        });
         colDepartureTime.setCellValueFactory(new PropertyValueFactory<>("departureTimeAsObject"));
         colCapacity.setCellValueFactory(new PropertyValueFactory<>("capacity"));
         colOccupancy.setCellValueFactory(new PropertyValueFactory<>("occupancy"));
@@ -167,7 +194,7 @@ public class UserController {
                 return airport.getName();
             }
         }
-        return "Desconocido"; // Airport not found
+        return "Desconocido";
     }
 
     private void appendUserOutput(String text) {
@@ -189,7 +216,7 @@ public class UserController {
             appendUserOutput("Error al actualizar la tabla de vuelos: " + e.getMessage());
             e.printStackTrace();
         }
-        tvAvailableFlights.setItems(observableFlightList); // Set the ObservableList as the table's items
+        tvAvailableFlights.setItems(observableFlightList);
     }
 
 
@@ -295,16 +322,38 @@ public class UserController {
             int passengerId = Integer.parseInt(passengerIdText);
             appendUserOutput("ID de pasajero ingresado: " + passengerId);
 
-            Passenger passenger = (Passenger) passengerTree.find(new Passenger(passengerId));
-            if (passenger == null) {
+            Object foundObject = passengerTree.find(new Passenger(passengerId));
+            Passenger passenger;
+
+            if (foundObject instanceof Passenger) {
+                passenger = (Passenger) foundObject;
+            } else if (foundObject instanceof BTreeNode) {
+                BTreeNode node = (BTreeNode) foundObject;
+
+                Object nodeData = node.getData();
+                if (nodeData instanceof Passenger) {
+                    passenger = (Passenger) nodeData;
+                } else {
+                    showAlert(Alert.AlertType.ERROR, "Error Interno de Datos", "El nodo del árbol contiene un tipo inesperado: " + (nodeData != null ? nodeData.getClass().getName() : "null"));
+                    appendUserOutput("❌ Error: El nodo del árbol contiene un tipo inesperado: " + (nodeData != null ? nodeData.getClass().getName() : "null"));
+                    return;
+                }
+            }
+            else if (foundObject == null) {
                 showAlert(Alert.AlertType.ERROR, "Pasajero No Encontrado", "No se encontró ningún pasajero con el ID: " + passengerId + ". Por favor, asegúrese de que el pasajero existe.");
                 appendUserOutput("❌ Error: Pasajero con ID " + passengerId + " no encontrado.");
+                return;
+            } else {
+                // Esto debería ser un caso muy raro si el AVLTree solo almacena objetos Passenger.
+                // Indica un posible error interno en AVLTree.find() o en la adición de elementos.
+                showAlert(Alert.AlertType.ERROR, "Error Interno de Datos", "Se recuperó un tipo de dato inesperado para el pasajero. Por favor, contacte a soporte.");
+                appendUserOutput("❌ Error: Tipo de objeto inesperado encontrado en el árbol de pasajeros: " + foundObject.getClass().getName());
                 return;
             }
 
 
-            System.out.println("[DEBUG BuyTicket] Pasajero ID: " + passenger.getId() + ", Nombre: " + passenger.getName());
-            System.out.println("[DEBUG BuyTicket] Vuelo Seleccionado: " + selectedFlight.getNumber() + ", Origen: " + selectedFlight.getOriginAirportCode() + ", Destino: " + selectedFlight.getDestinationAirportCode() + ", Fecha: " + selectedFlight.getDepartureTimeAsObject());
+            System.out.println("Pasajero ID: " + passenger.getId() + ", Nombre: " + passenger.getName());
+            System.out.println("Vuelo Seleccionado: " + selectedFlight.getNumber() + ", Origen: " + selectedFlight.getOriginAirportCode() + ", Destino: " + selectedFlight.getDestinationAirportCode() + ", Fecha: " + selectedFlight.getDepartureTimeAsObject());
 
             if (selectedFlight.getOccupancy() >= selectedFlight.getCapacity()) {
                 showAlert(Alert.AlertType.ERROR, "Vuelo Lleno", "Lo sentimos, el vuelo " + selectedFlight.getNumber() + " ya no tiene asientos disponibles.");
@@ -329,15 +378,15 @@ public class UserController {
                 return;
             }
 
-            // Actualizar ocupación del vuelo
+
             selectedFlight.setOccupancy(selectedFlight.getOccupancy() + 1);
             appendUserOutput("Ocupación del vuelo #" + selectedFlight.getNumber() + " actualizada a: " + selectedFlight.getOccupancy() + "/" + selectedFlight.getCapacity());
 
-            // Agregar vuelo al historial del pasajero
+
             passenger.addFlight(selectedFlight);
             appendUserOutput("Vuelo #" + selectedFlight.getNumber() + " agregado al historial del pasajero " + passenger.getName() + ".");
 
-            // Actualizar vuelo en la lista principal de vuelos (allFlights)
+
             boolean flightUpdatedInList = false;
             if (allFlights != null) {
                 for (int i = 1; i <= allFlights.size(); i++) {
@@ -348,7 +397,7 @@ public class UserController {
                             f.setStatus("Full");
                             appendUserOutput("Estado del vuelo #" + f.getNumber() + " cambiado a 'Full'.");
                         } else if (f.getOccupancy() < f.getCapacity() && f.getStatus().equals("Full")) {
-                            // En caso de que se haya actualizado manualmente, asegurar que no quede en "Full"
+
                             f.setStatus("Available");
                             appendUserOutput("Estado del vuelo #" + f.getNumber() + " cambiado a 'Available'.");
                         }
@@ -412,19 +461,41 @@ public class UserController {
         if (passengerIdText.isEmpty()) {
             showAlert(Alert.AlertType.WARNING, "ID de Pasajero Vacío", "Por favor, ingrese el ID del pasajero.");
             appendUserOutput("ⓘ Error: ID de pasajero no ingresado para embarque.");
-            return;
+            return; // Added missing return statement here
         }
 
         try {
             int passengerId = Integer.parseInt(passengerIdText);
             appendUserOutput("ID de pasajero ingresado: " + passengerId);
 
-            Passenger passenger = (Passenger) passengerTree.find(new Passenger(passengerId));
-            if (passenger == null) {
+
+            Object foundObject = passengerTree.find(new Passenger(passengerId));
+            Passenger passenger;
+
+            if (foundObject instanceof Passenger) {
+                passenger = (Passenger) foundObject;
+            } else if (foundObject instanceof BTreeNode) {
+                BTreeNode node = (BTreeNode) foundObject;
+
+                Object nodeData = node.getData();
+                if (nodeData instanceof Passenger) {
+                    passenger = (Passenger) nodeData;
+                } else {
+                    showAlert(Alert.AlertType.ERROR, "Error Interno de Datos", "El nodo del árbol contiene un tipo inesperado: " + (nodeData != null ? nodeData.getClass().getName() : "null"));
+                    appendUserOutput("❌ Error: El nodo del árbol contiene un tipo inesperado: " + (nodeData != null ? nodeData.getClass().getName() : "null"));
+                    return;
+                }
+            } else if (foundObject == null) {
                 showAlert(Alert.AlertType.ERROR, "Pasajero No Encontrado", "No se encontró ningún pasajero con el ID: " + passengerId + ".");
                 appendUserOutput("❌ Error: Pasajero con ID " + passengerId + " no encontrado para embarque.");
                 return;
+            } else {
+
+                showAlert(Alert.AlertType.ERROR, "Error Interno de Datos", "Se recuperó un tipo de dato inesperado para el pasajero. Por favor, contacte a soporte.");
+                appendUserOutput("❌ Error: Tipo de objeto inesperado encontrado en el árbol de pasajeros: " + foundObject.getClass().getName());
+                return;
             }
+
             appendUserOutput("Pasajero encontrado: " + passenger.getName() + " (ID: " + passenger.getId() + ")");
 
             boolean hasTicketForFlight = false;
@@ -465,11 +536,9 @@ public class UserController {
             FileReader.savePassengers(convertPassengerTreeToArrayList());
             appendUserOutput("Cambios guardados en 'passengers.json'.");
 
-            // Recargar datos para reflejar los cambios
+
             appendUserOutput("Recargando pasajeros para sincronizar la interfaz...");
             loadAllPassengersToTree();
-            // No es necesario recargar vuelos ni actualizar la tabla de vuelos en embarque a menos que el estado del vuelo cambie, lo cual no es directo del embarque.
-            // updateFlightTable(allFlights); // Podrías actualizar la tabla si el estado del vuelo cambiara por el embarque, pero usualmente no es el caso.
 
             showAlert(Alert.AlertType.INFORMATION, "Embarque Exitoso",
                     "El pasajero " + passenger.getName() + " ha sido embarcado exitosamente en el vuelo " + selectedFlight.getNumber() + ".");
@@ -490,13 +559,46 @@ public class UserController {
     private void showAlert(Alert.AlertType type, String title, String message) {
         Alert alert = new Alert(type);
         alert.setTitle(title);
-        alert.setHeaderText(null); // No header text
+        alert.setHeaderText(null);
         alert.setContentText(message);
-        alert.showAndWait(); // Show and wait for user interaction
+        alert.showAndWait();
     }
 
     private List<Passenger> convertPassengerTreeToArrayList() {
-        return null;
+        List<Passenger> passengers = new ArrayList<>();
+        try {
+            if (passengerTree != null && !passengerTree.isEmpty()) {
+
+                SinglyLinkedList treeElements = passengerTree.inOrderSingly();
+                if (treeElements != null) {
+                    for (int i = 1; i <= treeElements.size(); i++) {
+                        Object element = treeElements.get(i);
+                        if (element instanceof Passenger) {
+                            passengers.add((Passenger) element);
+                        } else if (element instanceof BTreeNode) {
+
+                            Object nodeData = ((BTreeNode) element).getData();
+                            if (nodeData instanceof Passenger) {
+                                passengers.add((Passenger) nodeData);
+                            } else {
+
+                                System.err.println("Advertencia: Elemento inesperado en el AVLTree (dentro de BTreeNode): " + (nodeData != null ? nodeData.getClass().getName() : "null"));
+                            }
+                        } else {
+
+                            System.err.println("Advertencia: Elemento inesperado en el AVLTree: " + (element != null ? element.getClass().getName() : "null"));
+                        }
+                    }
+                }
+            }
+        } catch (TreeException e) {
+            appendUserOutput("Error al convertir árbol de pasajeros a lista: " + e.getMessage());
+            e.printStackTrace();
+        } catch (ListException e) {
+            appendUserOutput("Error al iterar sobre lista de árbol de pasajeros: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return passengers;
     }
 
     @FXML
@@ -505,9 +607,9 @@ public class UserController {
         cbSearchDestinationCode.getSelectionModel().clearSelection();
         txtPassengerIdForTicket.clear();
         txtUserOutput.clear();
-        tvAvailableFlights.getSelectionModel().clearSelection(); // Deseleccionar cualquier vuelo en la tabla
+        tvAvailableFlights.getSelectionModel().clearSelection();
 
-        // Opcional: Volver a mostrar todos los vuelos después de limpiar filtros
+
         try {
             updateFlightTable(allFlights);
         } catch (Exception e) {

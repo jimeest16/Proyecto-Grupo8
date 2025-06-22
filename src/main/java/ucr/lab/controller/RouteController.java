@@ -10,9 +10,7 @@ import ucr.lab.TDA.list.ListException;
 import ucr.lab.TDA.list.SinglyLinkedList;
 import ucr.lab.TDA.tree.AVLTree;
 import ucr.lab.TDA.graph.GraphException;
-import ucr.lab.data.FlightManager;
 import ucr.lab.domain.*;
-import ucr.lab.utility.AirPortDatos;
 import ucr.lab.utility.FileReader;
 import ucr.lab.utility.Dijkstra;
 
@@ -21,12 +19,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import ucr.lab.utility.Util;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 import java.util.List;
+import java.util.HashMap;
 
 public class RouteController {
 
@@ -74,6 +73,55 @@ public class RouteController {
     private Random random;
     private GraphicsContext gc;
 
+    private HashMap<Integer, Point2D> airportDisplayPositions;
+
+
+    private class DrawnRouteInfo {
+        Point2D start;
+        Point2D end;
+        int originAirportCode;
+        int destinationAirportCode;
+        double distance;
+
+        public DrawnRouteInfo(Point2D start, Point2D end, int originCode, int destCode, double dist) {
+            this.start = start;
+            this.end = end;
+            this.originAirportCode = originCode;
+            this.destinationAirportCode = destCode;
+            this.distance = dist;
+        }
+
+        public boolean containsPoint(Point2D clickPoint, double tolerance) {
+            double distToStart = clickPoint.distance(start);
+            double distToEnd = clickPoint.distance(end);
+            double lineLength = start.distance(end);
+
+
+            if (lineLength == 0) {
+                return distToStart <= tolerance;
+            }
+
+
+            double minX = Math.min(start.getX(), end.getX()) - tolerance;
+            double maxX = Math.max(start.getX(), end.getX()) + tolerance;
+            double minY = Math.min(start.getY(), end.getY()) - tolerance;
+            double maxY = Math.max(start.getY(), end.getY()) + tolerance;
+
+            if (clickPoint.getX() < minX || clickPoint.getX() > maxX ||
+                    clickPoint.getY() < minY || clickPoint.getY() > maxY) {
+                return false;
+            }
+
+
+            double crossProduct = (end.getX() - start.getX()) * (clickPoint.getY() - start.getY()) -
+                    (end.getY() - start.getY()) * (clickPoint.getX() - start.getX());
+            double distance = Math.abs(crossProduct) / lineLength;
+
+            return distance <= tolerance;
+        }
+    }
+
+
     public RouteController() {
         this.passengerTree = new AVLTree();
         this.avlTree = new AVLTree();
@@ -82,7 +130,8 @@ public class RouteController {
         this.airportGraph = new Dijkstra();
         this.flightsList = new SinglyLinkedList();
         this.random = new Random();
-        this.drawnRoutesInfo = new SinglyLinkedList();
+        this.drawnRoutesInfo = new SinglyLinkedList(); // Initialized
+        this.airportDisplayPositions = new HashMap<>();
     }
 
     @FXML
@@ -102,7 +151,8 @@ public class RouteController {
                 if (newScene != null) {
                     graphCanvas.widthProperty().bind(newScene.widthProperty().multiply(0.4));
                     graphCanvas.heightProperty().bind(newScene.heightProperty().multiply(0.6));
-                    graphCanvas.setOnMouseClicked(event -> handleCanvasClick(event));
+                    // RE-ENABLED and linked to the new handler method
+                    graphCanvas.setOnMouseClicked(this::handleCanvasClick);
 
                     graphCanvas.widthProperty().addListener((o, oldVal, newVal) -> drawGraph(null));
                     graphCanvas.heightProperty().addListener((o, oldVal, newVal) -> drawGraph(null));
@@ -517,6 +567,9 @@ public class RouteController {
 
                 appendRoutesOutput("Ruta encontrada: " + pathString.toString());
                 appendRoutesOutput("Distancia total: " + String.format("%.2f", totalDistance) + " km.");
+
+                drawGraph(actionEvent);
+                highlightPath(shortestPathCodes);
             } else {
                 appendRoutesOutput("No se encontró una ruta de " + getAirportNameByCode(originCode) + " a " + getAirportNameByCode(destinationCode) + ". No hay conexión posible.");
             }
@@ -528,6 +581,58 @@ public class RouteController {
         } catch (Exception e) {
             appendRoutesOutput("Error inesperado al buscar la ruta más corta: " + e.getMessage());
         }
+    }
+
+    private void highlightPath(SinglyLinkedList pathCodes) throws ListException {
+        if (gc == null || pathCodes == null || pathCodes.size() < 2) {
+            return;
+        }
+
+        gc.setStroke(Color.RED);
+        gc.setLineWidth(4);
+
+        try {
+            for (int i = 1; i < pathCodes.size(); i++) {
+                int startCode = (int) pathCodes.get(i);
+                int endCode = (int) pathCodes.get(i + 1);
+
+                Point2D startPos = airportDisplayPositions.get(startCode);
+                Point2D endPos = airportDisplayPositions.get(endCode);
+
+                if (startPos != null && endPos != null) {
+                    gc.strokeLine(startPos.getX(), startPos.getY(), endPos.getX(), endPos.getY());
+                    drawArrowHead(gc, startPos, endPos, Color.RED);
+                }
+            }
+        } catch (ListException e) {
+            System.err.println("Error highlighting path: " + e.getMessage());
+        }
+        gc.setStroke(Color.web("#2196F3"));
+        gc.setLineWidth(1.5);
+    }
+
+    private void drawArrowHead(GraphicsContext gc, Point2D p1, Point2D p2, Color color) {
+        double arrowLength = 10;
+        double arrowAngle = Math.toRadians(20);
+
+        double dx = p2.getX() - p1.getX();
+        double dy = p2.getY() - p1.getY();
+        double angle = Math.atan2(dy, dx);
+
+        gc.save();
+        gc.setStroke(color);
+        gc.setFill(color);
+        gc.setLineWidth(2);
+
+        double x1 = p2.getX() - arrowLength * Math.cos(angle - arrowAngle);
+        double y1 = p2.getY() - arrowLength * Math.sin(angle - arrowAngle);
+        gc.strokeLine(p2.getX(), p2.getY(), x1, y1);
+
+        double x2 = p2.getX() - arrowLength * Math.cos(angle + arrowAngle);
+        double y2 = p2.getY() - arrowLength * Math.sin(angle + arrowAngle);
+        gc.strokeLine(p2.getX(), p2.getY(), x2, y2);
+
+        gc.restore();
     }
 
     @FXML
@@ -544,11 +649,6 @@ public class RouteController {
 
             routeList.clear();
             appendRoutesOutput("Rutas existentes limpiadas para la generación aleatoria.");
-
-            SinglyLinkedList shuffledAirports = new SinglyLinkedList();
-            for(int i=1; i<=airportList.size(); i++) {
-                shuffledAirports.add(airportList.get(i));
-            }
 
             int routesAddedCount = 0;
             int maxRutasPorOrigen = 3;
@@ -621,90 +721,62 @@ public class RouteController {
             appendRoutesOutput("Error inesperado al generar rutas aleatorias: " + e.getMessage());
         }
     }
-
     @FXML
     public void drawGraph(ActionEvent event) {
         if (graphCanvas == null || gc == null) {
-            appendRoutesOutput("Error: El Canvas o su GraphicsContext no están inicializados.");
-            return;
-        }
-
-        if (airportList.isEmpty() || routeList.isEmpty()) {
-            appendRoutesOutput("No hay aeropuertos o rutas para dibujar el grafo.");
-            showAlert("Grafo Vacío", "No hay datos de aeropuertos o rutas.", "Carga aeropuertos y rutas desde un archivo, o genera rutas primero.");
+            appendRoutesOutput("Error: El Canvas o su GraphicsContext no están inicializados. Asegúrate de que graphCanvas está inyectado y gc es inicializado.");
             return;
         }
 
         gc.clearRect(0, 0, graphCanvas.getWidth(), graphCanvas.getHeight());
         appendContentOutput("");
         drawnRoutesInfo.clear();
+        airportDisplayPositions.clear();
 
         double canvasWidth = graphCanvas.getWidth();
         double canvasHeight = graphCanvas.getHeight();
-        double nodeImageSize = 30;
-        double padding = 50;
+        double nodeRadius = 15;
 
-        Image airplaneImage = null;
+
+        Image worldMapImage = null;
         try {
-            airplaneImage = new Image(getClass().getResourceAsStream("/ucr/lab/aeropuerto2.png"));
-            if (airplaneImage.isError()) {
-                appendRoutesOutput("Error al cargar la imagen del avión: " + airplaneImage.getException().getMessage());
-                showAlert("Error de Imagen", "No se pudo cargar la imagen del avión.", "Verifica la ruta y el nombre del archivo de imagen (ej. '/ucr/lab/aeropuerto2.png').");
-                airplaneImage = null;
+            worldMapImage = new Image(getClass().getResourceAsStream("/ucr/lab/mundo.png"));
+            if (worldMapImage.isError()) {
+                appendRoutesOutput("Error al cargar la imagen del mapa mundial: " + worldMapImage.getException().getMessage());
+                worldMapImage = null;
             }
         } catch (Exception e) {
-            appendRoutesOutput("Excepción al cargar la imagen del avión: " + e.getMessage());
-            showAlert("Error de Imagen", "Excepción al cargar la imagen del avión.", "Asegúrate de que la ruta a la imagen sea correcta y exista.");
-            airplaneImage = null;
+            appendRoutesOutput("Excepción al cargar la imagen del mapa mundial: " + e.getMessage());
+            worldMapImage = null;
         }
 
         try {
-            class AirportPositionData {
-                int code;
-                Point2D position;
-
-                public AirportPositionData(int code, Point2D position) {
-                    this.code = code;
-                    this.position = position;
-                }
-            }
-
-            SinglyLinkedList airportDrawingData = new SinglyLinkedList();
-            double usableWidth = canvasWidth - 2 * padding;
-            double usableHeight = canvasHeight - 2 * padding;
-
-            if (usableWidth <= 0 || usableHeight <= 0) {
-                appendRoutesOutput("Canvas es demasiado pequeño para dibujar con el padding especificado.");
+            if (airportList.isEmpty()) {
+                appendRoutesOutput("No hay aeropuertos para dibujar en el grafo.");
                 return;
             }
 
-            for (int i = 1; i <= airportList.size(); i++) {
-                AirPort airport = (AirPort) airportList.get(i);
-                double x = padding + usableWidth * random.nextDouble();
-                double y = padding + usableHeight * random.nextDouble();
-                airportDrawingData.add(new AirportPositionData(airport.getCode(), new Point2D(x, y)));
+            calculateAirportPositions(canvasWidth, canvasHeight, airportList, airportDisplayPositions);
+
+            if (worldMapImage != null) {
+                gc.drawImage(worldMapImage, 0, 0, canvasWidth, canvasHeight);
             }
 
+
             gc.setStroke(Color.web("#2196F3"));
-            gc.setLineWidth(2.5);
+            gc.setLineWidth(1.5);
+
 
             for (int i = 1; i <= routeList.size(); i++) {
                 Route route = (Route) routeList.get(i);
                 int originCode = route.getOriginAirportCode();
 
-                AirportPositionData originData = null;
-                for (int k = 1; k <= airportDrawingData.size(); k++) {
-                    AirportPositionData data = (AirportPositionData) airportDrawingData.get(k);
-                    if (data.code == originCode) {
-                        originData = data;
-                        break;
-                    }
-                }
+                Point2D originPos = airportDisplayPositions.get(originCode);
 
-                if (originData == null) {
+                if (originPos == null) {
+                    appendRoutesOutput("Advertencia: Posición del aeropuerto de origen con código " + originCode + " no encontrada. Saltando ruta.");
                     continue;
                 }
-                Point2D originPos = originData.position;
 
                 SinglyLinkedList destinationList = route.getDestinationList();
                 if (destinationList != null) {
@@ -713,140 +785,191 @@ public class RouteController {
                         int destCode = destination.getAirportCode();
                         double distance = destination.getDistance();
 
-                        AirportPositionData destData = null;
-                        for (int k = 1; k <= airportDrawingData.size(); k++) {
-                            AirportPositionData data = (AirportPositionData) airportDrawingData.get(k);
-                            if (data.code == destCode) {
-                                destData = data;
-                                break;
-                            }
+                        Point2D destPos = airportDisplayPositions.get(destCode);
+
+                        if (destPos != null) {
+
+                            gc.strokeLine(originPos.getX(), originPos.getY(), destPos.getX(), destPos.getY());
+                            drawnRoutesInfo.add(new DrawnRouteInfo(originPos, destPos, originCode, destCode, distance));
+
+
+                            gc.save();
+                            gc.setFill(Color.BLACK);
+                            gc.setFont(new Font("Arial", 10));
+                            double midX = (originPos.getX() + destPos.getX()) / 2;
+                            double midY = (originPos.getY() + destPos.getY()) / 2;
+
+
+                            double angle = Math.atan2(destPos.getY() - originPos.getY(), destPos.getX() - originPos.getX());
+                            double offsetX = Math.cos(angle + Math.PI / 2) * 8;
+                            double offsetY = Math.sin(angle + Math.PI / 2) * 8;
+
+                            gc.fillText(String.format("%.0fkm", distance), midX + offsetX, midY + offsetY);
+                            gc.restore();
+                        } else {
+                            appendRoutesOutput("Advertencia: Posición del aeropuerto de destino con código " + destCode + " no encontrada. Saltando destino en ruta.");
                         }
-
-                        if (destData == null) {
-                            continue;
-                        }
-                        Point2D destPos = destData.position;
-
-                        gc.strokeLine(originPos.getX(), originPos.getY(), destPos.getX(), destPos.getY());
-
-                        gc.setFont(Font.font("Arial", 10));
-                        gc.setFill(Color.DARKBLUE);
-                        gc.fillText(String.format("%.0f km", distance), (originPos.getX() + destPos.getX()) / 2, (originPos.getY() + destPos.getY()) / 2);
-
-                        double angle = Math.atan2(destPos.getY() - originPos.getY(), destPos.getX() - originPos.getX());
-                        double arrowSize = 10;
-                        double x1 = destPos.getX() - arrowSize * Math.cos(angle - Math.PI / 6);
-                        double y1 = destPos.getY() - arrowSize * Math.sin(angle - Math.PI / 6);
-                        double x2 = destPos.getX() - arrowSize * Math.cos(angle + Math.PI / 6);
-                        double y2 = destPos.getY() - arrowSize * Math.sin(angle + Math.PI / 6);
-
-                        gc.strokeLine(destPos.getX(), destPos.getY(), x1, y1);
-                        gc.strokeLine(destPos.getX(), destPos.getY(), x2, y2);
-
-                        drawnRoutesInfo.add(new DrawnRouteData(originPos, destPos, originCode, destCode, distance));
                     }
                 }
             }
 
-            for (int i = 1; i <= airportDrawingData.size(); i++) {
-                AirportPositionData data = (AirportPositionData) airportDrawingData.get(i);
-                int airportCode = data.code;
-                Point2D position = data.position;
-                String airportName = getAirportNameByCode(airportCode);
 
-                if (airplaneImage != null) {
-                    gc.drawImage(airplaneImage, position.getX() - nodeImageSize / 2, position.getY() - nodeImageSize / 2, nodeImageSize, nodeImageSize);
-                } else {
+            for (int i = 1; i <= airportList.size(); i++) {
+                AirPort airport = (AirPort) airportList.get(i);
+                Point2D pos = airportDisplayPositions.get(airport.getCode());
+
+                if (pos != null) {
+
                     gc.setFill(Color.web("#BBDEFB"));
-                    gc.setStroke(Color.web("#0D47A1"));
-                    gc.setLineWidth(2);
-                    gc.fillOval(position.getX() - nodeImageSize / 2, position.getY() - nodeImageSize / 2, nodeImageSize, nodeImageSize);
-                    gc.strokeOval(position.getX() - nodeImageSize / 2, position.getY() - nodeImageSize / 2, nodeImageSize, nodeImageSize);
-                }
+                    gc.setStroke(Color.web("#2196F3"));
+                    gc.setLineWidth(1.5);
+                    gc.fillOval(pos.getX() - nodeRadius, pos.getY() - nodeRadius, nodeRadius * 2, nodeRadius * 2);
+                    gc.strokeOval(pos.getX() - nodeRadius, pos.getY() - nodeRadius, nodeRadius * 2, nodeRadius * 2);
 
-                gc.setFont(Font.font("Arial", 11));
-                gc.setFill(Color.NAVY);
-                gc.fillText(airportName, position.getX() - (airportName.length() * 3), position.getY() - nodeImageSize / 2 - 5);
+
+                    Image airplaneImage = null;
+                    try {
+                        airplaneImage = new Image(getClass().getResourceAsStream("/ucr/lab/aeropuerto2.png"));
+                        if (airplaneImage.isError()) {
+                            appendRoutesOutput("Error al cargar la imagen del avión: " + airplaneImage.getException().getMessage());
+                            showAlert("Error de Imagen", "No se pudo cargar la imagen del avión.", "Verifica la ruta y el nombre del archivo de imagen (ej. '/ucr/lab/aeropuerto2.png').");
+                            airplaneImage = null;
+                        }
+                    } catch (Exception e) {
+                        appendRoutesOutput("Excepción al cargar la imagen del avión: " + e.getMessage());
+                        showAlert("Error de Imagen", "Excepción al cargar la imagen del avión.", "Asegúrate de que la ruta a la imagen sea correcta y exista.");
+                        airplaneImage = null;
+                    }
+
+                    if (airplaneImage != null) {
+
+                        gc.drawImage(airplaneImage, pos.getX() - nodeRadius, pos.getY() - nodeRadius, nodeRadius * 2, nodeRadius * 2);
+                    }
+
+
+                    gc.setFill(Color.BLACK);
+                    gc.setFont(new Font("Arial", 10));
+                    String airportLabel = airport.getCode() + " " + airport.getName();
+                    double textWidth = Util.textWidth(gc.getFont(), airportLabel);
+
+                    gc.fillText(airportLabel, pos.getX() - textWidth / 2, pos.getY() + nodeRadius + 15);
+                } else {
+                    appendRoutesOutput("Advertencia: Posición del aeropuerto con código " + airport.getCode() + " no calculada.");
+                }
             }
 
+            appendRoutesOutput("Grafo de aeropuertos dibujado sobre el mapa mundial con distribución mejorada.");
+
         } catch (ListException e) {
-            appendRoutesOutput("Error al procesar la lista de aeropuertos o rutas: " + e.getMessage());
+            appendRoutesOutput("Error al dibujar el grafo (ListException): " + e.getMessage());
+            e.printStackTrace();
         } catch (Exception e) {
             appendRoutesOutput("Error inesperado al dibujar el grafo: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
-    public void generateReport(ActionEvent actionEvent) throws JRException, IOException {
-        showAlert("Cargando el Reporte...", "Espera un momento","");
+    private void calculateAirportPositions(double canvasWidth, double canvasHeight,
+                                           SinglyLinkedList airportList,
+                                           HashMap<Integer, Point2D> airportDisplayPositions) throws ListException {
+        Random random = new Random();
 
-        String jsonPath = "src/main/resources/data/flight.json";
-        String jrxmlPath = "src/main/resources/jasper/routes.jrxml";
-        String pdf = "src/main/resources/reportes/routes_report.pdf";
+        //Mi logica:
+        // segun cada contienente poner un aeropuerto: estan ubicados lo mas erca posible
+        Region northAmerica = new Region(0.15, 0.45, 0.1, 0.45); // X_min, X_max, Y_min, Y_max
+        Region southAmerica = new Region(0.2, 0.4, 0.5, 0.85);
+        Region europe = new Region(0.45, 0.65, 0.1, 0.4);
+        Region africa = new Region(0.45, 0.65, 0.4, 0.75);
+        Region asia = new Region(0.7, 0.95, 0.2, 0.6);
+        Region australia = new Region(0.8, 0.98, 0.7, 0.95);
 
-        List<Flight>routesList = FileReader.loadFlightsAsListForInternalUse(); //METODO PARA OBTENER las rutas más usadas
 
-        Util.generarReporte(jsonPath,jrxmlPath,pdf, routesList);
+        Region[] regions = {northAmerica, southAmerica, europe, africa, asia, australia};
+        int regionIndex = 0;
 
-    }
 
-    private class DrawnRouteData {
-        Point2D start;
-        Point2D end;
-        int originCode;
-        int destCode;
-        double distance;
+        for (int i = 1; i <= airportList.size(); i++) {
+            AirPort airport = (AirPort) airportList.get(i);
+            if (airport == null) {
 
-        public DrawnRouteData(Point2D start, Point2D end, int originCode, int destCode, double distance) {
-            this.start = start;
-            this.end = end;
-            this.originCode = originCode;
-            this.destCode = destCode;
-            this.distance = distance;
-        }
-
-        public boolean containsPoint(double px, double py, double tolerance) {
-            double lineLength = start.distance(end);
-
-            if (lineLength == 0.0) {
-                return new Point2D(px, py).distance(start) < tolerance;
+                appendRoutesOutput("Advertencia: Objeto aeropuerto nulo en la posición " + i + ". Saltando.");
+                continue;
             }
 
-            double t = ((px - start.getX()) * (end.getX() - start.getX()) +
-                    (py - start.getY()) * (end.getY() - start.getY())) / (lineLength * lineLength);
 
-            t = Math.max(0, Math.min(1, t));
+            Region targetRegion = regions[regionIndex % regions.length];
+            regionIndex++;
 
-            Point2D closest = new Point2D(start.getX() + t * (end.getX() - start.getX()),
-                    start.getY() + t * (end.getY() - start.getY()));
 
-            return new Point2D(px, py).distance(closest) < tolerance;
+            double minX = canvasWidth * targetRegion.xMin;
+            double maxX = canvasWidth * targetRegion.xMax;
+            double minY = canvasHeight * targetRegion.yMin;
+            double maxY = canvasHeight * targetRegion.yMax;
+
+
+            double internalPaddingX = (maxX - minX) * 0.05; // 5% padding
+            double internalPaddingY = (maxY - minY) * 0.05;
+
+            // Ensure padding doesn't make the region invalid
+            double effectiveMinX = minX + internalPaddingX;
+            double effectiveMaxX = maxX - internalPaddingX;
+            double effectiveMinY = minY + internalPaddingY;
+            double effectiveMaxY = maxY - internalPaddingY;
+
+
+            if (effectiveMaxX <= effectiveMinX) effectiveMaxX = effectiveMinX + 1;
+            if (effectiveMaxY <= effectiveMinY) effectiveMaxY = effectiveMinY + 1;
+
+
+            double posX = effectiveMinX + (random.nextDouble() * (effectiveMaxX - effectiveMinX));
+            double posY = effectiveMinY + (random.nextDouble() * (effectiveMaxY - effectiveMinY));
+
+            airportDisplayPositions.put(airport.getCode(), new Point2D(posX, posY));
         }
     }
 
-    private void handleCanvasClick(javafx.scene.input.MouseEvent event) {
-        double clickX = event.getX();
-        double clickY = event.getY();
-        double tolerance = 5.0;
 
+    private static class Region {
+        double xMin, xMax, yMin, yMax;
+
+
+        public Region(double xMin, double xMax, double yMin, double yMax) {
+            this.xMin = xMin;
+            this.xMax = xMax;
+            this.yMin = yMin;
+            this.yMax = yMax;
+        }
+    }
+    private void handleCanvasClick(MouseEvent event) {
+        Point2D clickPoint = new Point2D(event.getX(), event.getY());
+        double clickTolerance = 5;
+
+        DrawnRouteInfo clickedRoute = null;
         try {
             for (int i = 1; i <= drawnRoutesInfo.size(); i++) {
-                DrawnRouteData routeData = (DrawnRouteData) drawnRoutesInfo.get(i);
-                if (routeData.containsPoint(clickX, clickY, tolerance)) {
-                    String originName = getAirportNameByCode(routeData.originCode);
-                    String destName = getAirportNameByCode(routeData.destCode);
-                    String info = "Ruta seleccionada:\n" +
-                            "Origen: " + originName + " (" + routeData.originCode + ")\n" +
-                            "Destino: " + destName + " (" + routeData.destCode + ")\n" +
-                            "Distancia: " + String.format("%.0f", routeData.distance) + " km";
-                    appendContentOutput(info);
-                    return;
+                DrawnRouteInfo info = (DrawnRouteInfo) drawnRoutesInfo.get(i);
+                if (info.containsPoint(clickPoint, clickTolerance)) {
+                    clickedRoute = info;
+                    break;
                 }
             }
-            appendContentOutput("Haz clic en una ruta para ver sus detalles.");
         } catch (ListException e) {
-            System.err.println("Error al iterar sobre drawnRoutesInfo: " + e.getMessage());
+            System.err.println("Error iterating drawnRoutesInfo: " + e.getMessage());
+        }
+
+        if (clickedRoute != null) {
+            String originName = getAirportNameByCode(clickedRoute.originAirportCode);
+            String destinationName = getAirportNameByCode(clickedRoute.destinationAirportCode);
+            String info = String.format("Ruta seleccionada:\nOrigen: %s (%d)\nDestino: %s (%d)\nDistancia: %.0f km",
+                    originName, clickedRoute.originAirportCode,
+                    destinationName, clickedRoute.destinationAirportCode,
+                    clickedRoute.distance);
+            appendContentOutput(info);
+        } else {
+            appendContentOutput("No se detectó una ruta en esta ubicación.");
         }
     }
+
 
     private void showAlert(String title, String header, String content) {
         Platform.runLater(() -> {
@@ -856,5 +979,22 @@ public class RouteController {
             alert.setContentText(content);
             alert.showAndWait();
         });
+    }
+
+    @FXML
+    public void generateReport(ActionEvent actionEvent) throws JRException, IOException {
+        showAlert("Cargando el Reporte...", "Espera un momento","");
+
+        String jsonPath = "src/main/resources/data/flight.json";
+        String jrxmlPath = "src/main/resources/jasper/routes.jrxml";
+        String pdf = "src/main/resources/reportes/routes_report.pdf";
+
+
+        List<Flight> routesList = FileReader.loadFlightsAsListForInternalUse();
+
+
+        Util.generarReporte(jsonPath, jrxmlPath, pdf, routesList);
+
+        showAlert("Reporte Generado", "El reporte de rutas ha sido generado exitosamente.", "Puedes encontrarlo en: " + pdf);
     }
 }

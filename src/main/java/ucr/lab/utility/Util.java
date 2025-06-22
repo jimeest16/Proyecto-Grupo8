@@ -3,6 +3,8 @@ package ucr.lab.utility;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import ucr.lab.TDA.graph.EdgeWeight;
@@ -304,6 +306,11 @@ public class Util {
         return stackList;
     }
 
+    public static double textWidth(Font font, String text) {
+        Text tempText = new Text(text);
+        tempText.setFont(font);
+        return tempText.getLayoutBounds().getWidth();
+    }
     public static class PassengerIdComparator implements Comparator<Passenger> {
         @Override
         public int compare(Passenger p1, Passenger p2) {
