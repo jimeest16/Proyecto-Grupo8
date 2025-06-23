@@ -520,3 +520,80 @@ admin: Vista administrator cargada exitosamente.
 [2025-06-23 09:56:44] System: Estado de vuelo cambiado a completado.
 [2025-06-23 09:56:44] System: Cargando lista de vuelos.
 [2025-06-23 09:56:44] System: Vuelos cargados en el ComboBox.
+cami: Inicio de sesión exitoso como administrator.
+[2025-06-23 10:46:19] Admin: Panel de administración iniciado.
+cami: Vista administrator cargada exitosamente.
+[2025-06-23 10:46:22] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-23 10:46:29] Admin: Pestaña 'Gestionar Usuarios' cargada.
+[2025-06-23 10:46:32] System: FlightController inicializado.
+[2025-06-23 10:46:32] System: Aeropuertos cargados en los ComboBoxes.
+[2025-06-23 10:46:32] System: Carga de todos los vuelos. Cantidad: 9
+[2025-06-23 10:46:32] System: Mostrando lista de vuelos.
+[2025-06-23 10:46:32] Admin: Pestaña 'Gestionar Vuelos' cargada.
+[2025-06-23 10:46:36] Admin: Pestaña 'Gestionar Rutas' cargada.
+[2025-06-23 10:46:39] System: SimulationController inicializado.
+[2025-06-23 10:46:39] System: Cargando lista de vuelos.
+[2025-06-23 10:46:39] System: Vuelos cargados en el ComboBox.
+[2025-06-23 10:46:39] Admin: Pestaña 'Simulate Flight' cargada.
+[2025-06-23 10:46:45] System: Aeropuerto inactivo [7] Aeropuerto de Buenos Aires necesario para iniciar la simulacion.
+[2025-06-23 10:46:53] System: Aeropuerto inactivo [2] John F. Kennedy International Airport necesario para iniciar la simulacion.
+[2025-06-23 10:46:58] System: Aeropuerto inactivo [2] John F. Kennedy International Airport necesario para iniciar la simulacion.
+[2025-06-23 10:47:01] System: Simulacion detenida: El aeropuerto origen no tiene ruta posible hacia el aeropuerto destino.
+[2025-06-23 10:47:04] System: Aeropuerto inactivo [7] Aeropuerto de Buenos Aires necesario para iniciar la simulacion.
+[2025-06-23 10:47:07] System: Aeropuerto inactivo [4] Ciudad Celeste International Airport necesario para iniciar la simulacion.
+[2025-06-23 10:47:11] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-23 10:47:24] Admin: Panel de administración iniciado.
+[2025-06-23 10:47:24] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-23 10:48:26] Admin: Pestaña 'Gestionar Usuarios' cargada.
+[2025-06-23 10:48:33] System: FlightController inicializado.
+[2025-06-23 10:48:33] System: Aeropuertos cargados en los ComboBoxes.
+[2025-06-23 10:48:33] System: Carga de todos los vuelos. Cantidad: 9
+[2025-06-23 10:48:33] System: Mostrando lista de vuelos.
+[2025-06-23 10:48:33] Admin: Pestaña 'Gestionar Vuelos' cargada.
+[2025-06-23 10:48:41] Admin: Pestaña 'Gestionar Rutas' cargada.
+[2025-06-23 10:48:49] System: SimulationController inicializado.
+[2025-06-23 10:48:49] System: Cargando lista de vuelos.
+[2025-06-23 10:48:49] System: Vuelos cargados en el ComboBox.
+[2025-06-23 10:48:49] Admin: Pestaña 'Simulate Flight' cargada.
+[2025-06-23 10:48:53] System: Aeropuerto inactivo [7] Aeropuerto de Buenos Aires necesario para iniciar la simulacion.
+[2025-06-23 10:49:50] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-23 10:49:50] Admin: Pestaña 'Gestionar Usuarios' cargada.
+[2025-06-23 10:49:51] System: FlightController inicializado.
+[2025-06-23 10:49:51] System: Aeropuertos cargados en los ComboBoxes.
+[2025-06-23 10:49:51] System: Carga de todos los vuelos. Cantidad: 9
+[2025-06-23 10:49:51] System: Mostrando lista de vuelos.
+[2025-06-23 10:49:51] Admin: Pestaña 'Gestionar Vuelos' cargada.
+[2025-06-23 10:49:51] Admin: Pestaña 'Gestionar Rutas' cargada.
+[2025-06-23 10:49:51] System: SimulationController inicializado.
+[2025-06-23 10:49:51] System: Cargando lista de vuelos.
+[2025-06-23 10:49:51] System: Vuelos cargados en el ComboBox.
+[2025-06-23 10:49:51] Admin: Pestaña 'Simulate Flight' cargada.
+camila: Inicio de sesión exitoso como user.
+camila: Vista user cargada exitosamente.
+cami: Inicio de sesión exitoso como administrator.
+[2025-06-23 10:52:32] Admin: Panel de administración iniciado.
+cami: Vista administrator cargada exitosamente.
+[2025-06-23 10:52:35] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-23 10:52:42] Admin: Pestaña 'Gestionar Usuarios' cargada.
+[2025-06-23 10:52:47] System: FlightController inicializado.
+[2025-06-23 10:52:47] System: Aeropuertos cargados en los ComboBoxes.
+[2025-06-23 10:52:47] System: Carga de todos los vuelos. Cantidad: 9
+[2025-06-23 10:52:47] System: Mostrando lista de vuelos.
+[2025-06-23 10:52:47] Admin: Pestaña 'Gestionar Vuelos' cargada.
+[2025-06-23 10:52:50] Admin: Pestaña 'Gestionar Rutas' cargada.
+[2025-06-23 10:52:53] System: SimulationController inicializado.
+[2025-06-23 10:52:53] System: Cargando lista de vuelos.
+[2025-06-23 10:52:53] System: Vuelos cargados en el ComboBox.
+[2025-06-23 10:52:53] Admin: Pestaña 'Simulate Flight' cargada.
+[2025-06-23 10:52:56] System: Aeropuerto inactivo [4] Ciudad Celeste International Airport necesario para iniciar la simulacion.
+[2025-06-23 10:53:21] System: FlightController inicializado.
+[2025-06-23 10:53:21] System: Aeropuertos cargados en los ComboBoxes.
+[2025-06-23 10:53:21] System: Carga de todos los vuelos. Cantidad: 9
+[2025-06-23 10:53:21] System: Mostrando lista de vuelos.
+[2025-06-23 10:53:21] Admin: Pestaña 'Gestionar Vuelos' cargada.
+[2025-06-23 10:53:52] System: SimulationController inicializado.
+[2025-06-23 10:53:52] System: Cargando lista de vuelos.
+[2025-06-23 10:53:52] System: Vuelos cargados en el ComboBox.
+[2025-06-23 10:53:52] Admin: Pestaña 'Simulate Flight' cargada.
+[2025-06-23 10:53:56] System: Aeropuerto inactivo [7] Aeropuerto de Buenos Aires necesario para iniciar la simulacion.
+[2025-06-23 10:54:43] System: Aeropuerto inactivo [2] John F. Kennedy International Airport necesario para iniciar la simulacion.
