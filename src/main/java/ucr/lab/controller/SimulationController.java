@@ -5,6 +5,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import ucr.lab.TDA.graph.GraphException;
@@ -12,6 +13,8 @@ import ucr.lab.TDA.list.ListException;
 import ucr.lab.TDA.list.SinglyLinkedList;
 import ucr.lab.TDA.queue.LinkedQueue;
 import ucr.lab.TDA.queue.QueueException;
+import ucr.lab.TDA.stack.LinkedStack;
+import ucr.lab.TDA.stack.StackException;
 import ucr.lab.data.AirportManager;
 import ucr.lab.data.FlightManager;
 import ucr.lab.data.RoutesManager;
@@ -37,12 +40,13 @@ public class SimulationController {
     @FXML
     private AnchorPane ap;
     private Alert alert;
-    private Alert infoAlert;
     private List<Flight> flightsList;
     private LinkedQueue bitacora = new LinkedQueue(); // Bitacora
     private final String RUTA_BITACORA = "bitacora.txt"; // Log
     private User loggedInAdmin;
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    @FXML
+    private TextArea textArea;
 
     private void registrarEnBitacora(String mensaje) {
         String nombre = (loggedInAdmin != null) ? loggedInAdmin.getName() : "System"; // system para la compu
@@ -80,7 +84,6 @@ public class SimulationController {
         loadComboBox();
 
         this.alert = FXUtil.alert("Simulation Flights - Error","");
-        this.infoAlert = FXUtil.confirmationDialog("Simulation Flights - Information");
     }
 
     private void loadComboBox() {
@@ -135,16 +138,37 @@ public class SimulationController {
                             return;
                         }
                     }
-                    drawPath(path);
-                    registrarEnBitacora("Ruta dibujada.");
-                    flight.setStatus("Complete");
-                    FlightManager.getFlights().remove(index);
-                    FlightManager.getFlights().add(flight);
-                    FlightManager.saveFlights();
-                    FlightManager.loadFlights();
-                    registrarEnBitacora("Estado de vuelo cambiado a completado.");
-                    infoAlert.setContentText("¡Vuelo Completado!\n" + flight);
-                    infoAlert.show();
+                    registrarEnBitacora("Iniciando simulacion de vuelo.");
+                    textArea.setText("Iniciando simulacion de vuelo [" + flight.getNumber() + "]");
+                    drawPath(path, () -> {
+                        registrarEnBitacora("Ruta dibujada.");
+                        textArea.appendText("\n\nEl vuelo llegó exitosamente a su destino. Desembarcando pasajeros.");
+
+                        try {
+                            LinkedStack disembarks = new LinkedStack();
+                            for (Object o : flight.getPassengerIDsAsList()) {
+                                disembarks.push(o);
+                                textArea.appendText("\nPasajero [" + o.toString() + "] bajó del avión.");
+                            }
+
+                            flight.setStatus("Complete");
+                            StringBuilder result = new StringBuilder();
+                            for (int i = 1; i <= path.size(); i++) {
+                                result.append(path.getNode(i).data);
+                                if (i < path.size()) result.append(" -> ");
+                            }
+                            flight.setRoute(result.toString());
+                            FlightManager.getFlights().remove(index);
+                            FlightManager.getFlights().add(flight);
+                            FlightManager.saveFlights();
+                            FlightManager.loadFlights();
+                        } catch (ListException | StackException | IOException e) {
+                            registrarEnBitacora("Error inesperado: " + e.getMessage());
+                            throw new RuntimeException(e);
+                        }
+                        registrarEnBitacora("Estado de vuelo cambiado a completado. Ruta de vuelo ingresada.");
+                        textArea.appendText("\n\nVuelo completado!");
+                    });
                     loadComboBox();
                 } else {
                     alert.setContentText("El aeropuerto origen no tiene ruta posible hacia el aeropuerto destino.");
@@ -165,9 +189,9 @@ public class SimulationController {
         }
     }
 
-    private void drawPath (SinglyLinkedList path) throws ListException {
+    private void drawPath (SinglyLinkedList path, Runnable onFinished) throws ListException {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         Image image = new Image(getClass().getResourceAsStream("/ucr/lab/aeropuerto.png"));
-        FXUtil.animateDijkstraPath(gc, path, 80, 100, true, image, 60);
+        FXUtil.animateDijkstraPath(gc, path, 80, 100, true, image, 60, textArea, onFinished);
     }
 }

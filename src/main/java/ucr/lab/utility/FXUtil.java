@@ -4,6 +4,7 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
@@ -68,7 +69,8 @@ public class FXUtil {
         return dialog;
     }
 
-    public static void animateDijkstraPath(GraphicsContext gc, SinglyLinkedList path, double startX, double startY, boolean isAirport, Image airportImage, double imageSize) throws ListException {
+    public static void animateDijkstraPath(GraphicsContext gc, SinglyLinkedList path, double startX, double startY,
+                                           boolean isAirport, Image airportImage, double imageSize, TextArea textArea, Runnable onFinished) throws ListException {
         if (path == null || path.isEmpty() || path.size() < 2) return;
 
         int totalNodes = path.size();
@@ -161,10 +163,27 @@ public class FXUtil {
                                 double yArrow2 = y2 - arrowLength * Math.sin(angle + arrowAngle);
                                 gc.strokeLine(x2, y2, xArrow1, yArrow1);
                                 gc.strokeLine(x2, y2, xArrow2, yArrow2);
+
+                                if (isAirport) {
+                                    try {
+                                        int idx = AirportManager.getAirports().indexOf(new AirPort((int) current));
+                                        AirPort airPort = (AirPort) AirportManager.getAirports().getNode(idx).getData();
+                                        textArea.appendText("\n\nVuelo llegó al aeropuerto:\n " + airPort.getCode() + " | " + airPort.getName());
+                                    } catch (ListException ex) {
+                                        throw new RuntimeException(ex);
+                                    }}
+
                                 progress[0] = 0; // reiniciar para el siguiente segmento
+
+                                // Solo si es el último nodo, ejecutar onFinished
+                                if (index == totalNodes - 1 && onFinished != null)
+                                    onFinished.run();
                             }
                         }));
                         segmentTimeline.play();
+                    } else {
+                        AirPort airPort = (AirPort) AirportManager.getAirports().getFirst();
+                        textArea.appendText("\n\nVuelo salió del aeropuerto:\n " + airPort.getCode() + " | " + airPort.getName());
                     }
 
                     // Mostrar distancia final al último paso
@@ -176,7 +195,6 @@ public class FXUtil {
                         gc.setFont(Font.font("Arial", FontWeight.BOLD, 16));
                         gc.fillText(distanciaTexto, gc.getCanvas().getWidth() - 250, 30);
                     }
-
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -184,7 +202,6 @@ public class FXUtil {
 
             timeline.getKeyFrames().add(keyFrame);
         }
-
         timeline.play();
     }
 }
