@@ -163,6 +163,6 @@ public class SimulationController {
 
     private void drawPath (SinglyLinkedList path) throws ListException {
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        FXUtil.drawDijkstraPath(gc, path, 80, 100, true);
+        FXUtil.animateDijkstraPath(gc, path, 80, 100, true);
     }
 }
