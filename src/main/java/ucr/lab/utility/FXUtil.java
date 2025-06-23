@@ -105,6 +105,7 @@ public class FXUtil {
             if (isAirport) {
                 int index = AirportManager.getAirports().indexOf(new AirPort((int) current));
                 AirPort airPort = (AirPort) AirportManager.getAirports().getNode(index).getData();
+                gc.fillText(""+airPort.getCode(), x - 10, y + 5);
                 gc.fillText(airPort.getName(), x - 30, y + nodeSize / 2 + 15);
             } else {
                 gc.fillText(current.toString(), x - 10, y + 5);
