@@ -269,6 +269,10 @@ public class Util {
                 Flight f1 = (Flight) a; int i1 = f1.getNumber();
                 Flight f2 = (Flight) b; int i2 = f2.getNumber();
                 return i1 < i2 ? -1 : i1 > i2 ? 1 : 0;
+            case "Airport":
+                int a1 = ((AirPort) a).getCode();
+                int a2 = ((AirPort) b).getCode();
+                return a1 < a2 ? -1 : a1 > a2 ? 1 : 0; //0 == equal
         }
         return 2; //Unknown
     }
@@ -281,6 +285,7 @@ public class Util {
         if (a instanceof Vertex && b instanceof Vertex) return "Vertex";
         if (a instanceof Passenger && b instanceof Passenger) return "Passenger";
         if (a instanceof Flight && b instanceof Flight) return "Flight";
+        if(a instanceof AirPort && b instanceof AirPort) return "Airport";
         return "Unknown";
     }
 

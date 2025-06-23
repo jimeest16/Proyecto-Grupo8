@@ -7,7 +7,12 @@ import ucr.lab.TDA.queue.LinkedQueue;
 import ucr.lab.TDA.queue.QueueException;
 import ucr.lab.TDA.stack.LinkedStack;
 import ucr.lab.TDA.stack.StackException;
+import ucr.lab.domain.Destination;
+import ucr.lab.domain.Route;
 import ucr.lab.utility.Util;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DirectedSinglyLinkedListGraph implements Graph{
     public SinglyLinkedList vertexList; //lista enlazada de vértices
@@ -245,21 +250,21 @@ public class DirectedSinglyLinkedListGraph implements Graph{
         return result;
     }
 
-   /*public List<Route> toList() {
+   public List<Route> toList() {
         List<Route> listV = new ArrayList<>();
         Node current = vertexList.getFirstNode();
         while (current != null) {
-            List<EdgeWeight> listEW = new ArrayList<>();
+            SinglyLinkedList listEW = new SinglyLinkedList();
             Vertex vertex = (Vertex)current.data;
             Node current2 = vertex.edgesList.getFirstNode();
             while (current2 != null) {
                 EdgeWeight ew = (EdgeWeight) current2.data;
-                listEW.add(ew);
+                listEW.add(new Destination((int) ew.getEdge(), (double) ew.getWeight()));
                 current2 = current2.next;
             }
             listV.add(new Route((Integer) vertex.data, listEW));
             current = current.next;
         }
         return listV;
-    }*/
+    }
 }
