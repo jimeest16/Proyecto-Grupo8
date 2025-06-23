@@ -29,6 +29,10 @@ public class AirPort {
     public AirPort() {
     }
 
+    public AirPort(int code) {
+        this.code = code;
+    }
+
     //completo este lo usaria flight
     public AirPort(int code, String name, String country, String status, SinglyLinkedList departuresBoard, LinkedQueue waitingQueue) throws QueueException {
         this.code = code;
@@ -123,17 +127,6 @@ public class AirPort {
         return Objects.hash(code, name, country, status, departuresBoard);
     }
 
-    @Override
-    public String toString() {
-        return "AirPort{" +
-                "code=" + code +
-                ", name='" + name + '\'' +
-                ", country='" + country + '\'' +
-                ", active=" + status +
-                ", departuresBoard=" + departuresBoard +
-                '}';
-    }
-
     //para que se lea correctamente la cola de espera
     public void prepareForSerialization() throws QueueException {
         waitingPassengers = new ArrayList<>();
@@ -171,5 +164,10 @@ public class AirPort {
                 }
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        return code + " | " + name + " | " + country + " | " + status;
     }
 }

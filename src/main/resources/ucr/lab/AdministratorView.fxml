@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.layout.AnchorPane?>
 
-<TabPane fx:id="tabPaneMain" prefHeight="580.0" prefWidth="850.0" style="-fx-background-color: #f0f8ff;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.AdminController">
+<TabPane fx:id="tabPanePrincipal" prefHeight="580.0" prefWidth="850.0" style="-fx-background-color: #f0f8ff;" stylesheets="@Style.css" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucr.lab.controller.AdminController">
 
     <tabs>
-        <Tab style="-fx-background-color: #d8e6f0;" text="Welcome">
+        <Tab text="Welcome">
             <content>
                 <VBox spacing="20" style="-fx-background-color: #f0f8ff; -fx-padding: 30 40;">
                     <children>
@@ -147,28 +146,33 @@
             </content>
         </Tab>
 
-        <Tab onSelectionChanged="#airportManager" style="-fx-background-color: #e0f2f7;" text="Manage Airports">
+        <Tab fx:id="airportsTab" onSelectionChanged="#airportManager" text="Manage Airports">
             <content>
                 <AnchorPane fx:id="airportsTabContentPane" />
             </content>
         </Tab>
 
-        <Tab onSelectionChanged="#userManager" style="-fx-background-color: #e0f2f7;" text="Manage Users">
+        <Tab onSelectionChanged="#userManager" text="Manage Users">
             <content>
                 <AnchorPane fx:id="usersTabContentPane" />
             </content>
         </Tab>
 
-        <Tab onSelectionChanged="#flightManager" style="-fx-background-color: #e0f2f7;" text="Manage Flights">
+        <Tab onSelectionChanged="#flightManager" text="Manage Flights">
             <content>
                 <AnchorPane fx:id="flightsTabContentPane" />
             </content>
         </Tab>
 
-        <Tab onSelectionChanged="#routesManager" style="-fx-background-color: #e0f2f7;" text="Manage Routes">
+        <Tab onSelectionChanged="#routesManager" text="Manage Routes">
             <content>
                 <AnchorPane fx:id="routesTabContentPane" />
             </content>
         </Tab>
+      <Tab onSelectionChanged="#simulationManager" text="Simulate Flight">
+        <content>
+          <AnchorPane fx:id="simulationTabContentPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </Tab>
     </tabs>
 </TabPane>

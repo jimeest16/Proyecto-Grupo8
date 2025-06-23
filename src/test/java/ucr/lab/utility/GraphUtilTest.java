@@ -6,6 +6,7 @@ import ucr.lab.TDA.graph.GraphException;
 import ucr.lab.TDA.list.ListException;
 import ucr.lab.TDA.list.SinglyLinkedList;
 import ucr.lab.data.AirportManager;
+import ucr.lab.data.RoutesManager;
 import ucr.lab.domain.AirPort;
 import java.io.IOException;
 import java.util.List;
@@ -44,6 +45,16 @@ class GraphUtilTest {
                 graph.addVertex(airport.getCode());
             GraphUtil.addRandomEdges(graph, 30);
             System.out.println(graph);
+        } catch (IOException | GraphException | ListException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Test
+    void loadRoutes() throws IOException, GraphException, ListException {
+        try {
+            RoutesManager.loadRoutes();
+            System.out.println(RoutesManager.getRoutesGraph());
         } catch (IOException | GraphException | ListException e) {
             throw new RuntimeException(e);
         }

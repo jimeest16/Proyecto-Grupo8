@@ -30,6 +30,7 @@ public class AdminController {
     @FXML private AnchorPane flightsTabContentPane;
     @FXML private AnchorPane routesTabContentPane;
     @FXML private AnchorPane airportsTabContentPane;
+    @FXML private AnchorPane simulationTabContentPane;
 
     private LinkedQueue bitacora = new LinkedQueue();
     private final String RUTA_BITACORA = "bitacora.txt";
@@ -171,6 +172,28 @@ public class AdminController {
             tabPanePrincipal.getSelectionModel().select(airportsTab);
         } else {
             System.out.println("No se encontró el TabPane o la pestaña de aeropuertos.");
+        }
+    }
+
+    @FXML
+    public void simulationManager(Event event) {
+        if (((Tab) event.getSource()).isSelected()) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/ucr/lab/simulation.fxml"));
+                Parent simulationContent = loader.load();
+
+                if (simulationTabContentPane != null) {
+                    simulationTabContentPane.getChildren().setAll(simulationContent);
+                    System.out.println(LocalDateTime.now().format(FORMATTER) + " Pestaña 'Simulate Flight' cargada.");
+                    registrarEnBitacora("Pestaña 'Simulate Flight' cargada.");
+                } else {
+                    System.err.println(LocalDateTime.now().format(FORMATTER) + " simulationsTabContentPane no inicializado.");
+                    registrarEnBitacora("Error: simulationsTabContentPane no inicializado.");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                registrarEnBitacora("Error al cargar 'Simulate Flight': " + e.getMessage());
+            }
         }
     }
 }

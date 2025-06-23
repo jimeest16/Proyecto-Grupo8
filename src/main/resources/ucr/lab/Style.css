@@ -1,0 +1,315 @@
+/* SideBar artificial */
+.menuItem:hover{
+    -fx-border-color: #660099;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.menuImage:hover{
+    -fx-background-color: rgba(0, 0, 0, 0.2);
+    -fx-background-radius: 15;
+}
+
+.sidebarItem:hover{
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-border-color: WHITE;
+    -fx-border-width: 0px 0px 0px 3px;
+}
+
+/* text-field */
+.text-field {
+    -fx-background-color: #f0f8ff;
+    -fx-border-color: #b0d9e8;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 8;
+}
+
+/* button */
+.buttonDefault ,
+.buttonGreen,
+.buttonRed,
+.buttonYellow,
+.buttonBlue{
+    -fx-text-fill: white;
+    -fx-font-weight:  bold;
+    -fx-padding:  10 30;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-effect:  dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.buttonDefault{
+    -fx-background-color: #607D8B;
+}
+
+.buttonDefault:hover{
+    -fx-background-color: derive(#607D8B, 20%);
+}
+
+.buttonBlue{
+    -fx-background-color: #2196F3;
+}
+
+.buttonBlue:hover{
+    -fx-background-color: derive(#2196F3, 20%);
+}
+
+.buttonGreen{
+    -fx-background-color: #4CAF50;
+}
+
+.buttonGreen:hover{
+    -fx-background-color: derive(#4CAF50, 20%);
+}
+
+.buttonRed{
+    -fx-background-color: #F44336;
+}
+
+.buttonRed:hover{
+    -fx-background-color: derive(#F44336, 20%);
+}
+
+.buttonYellow{
+    -fx-background-color: #FFC107;
+}
+
+.buttonYellow:hover{
+    -fx-background-color: derive(#FFC107, 20%);
+}
+
+/* combo-box */
+.combo-box {
+    -fx-background-color: #293237;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5;
+}
+
+.combo-box .arrow-button .arrow {
+    -fx-background-color: white; /* Color de la flecha */
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: white;
+    -fx-font-family: "Arial";
+    -fx-font-weight:  bold;
+    -fx-font-size: 12px;
+}
+
+.combo-box-popup,
+.combo-box-popup .list-view {
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-background-color: white;
+}
+
+.combo-box-popup .list-view .list-cell{
+    -fx-padding: 5;
+    -fx-text-fill: black;
+    -fx-font-weight:  normal;
+    -fx-font-size: 12px;
+}
+
+.combo-box-popup .list-view .list-cell:hover,
+.combo-box-popup .list-view .list-cell:selected{
+    -fx-background-color: #dae6e6;
+    -fx-text-fill: #00a8ff;
+}
+
+.combo-box-popup .scroll-bar,
+.scroll-bar{
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-pref-width: 10px;
+}
+
+.combo-box-popup .scroll-bar .thumb,
+.scroll-bar .thumb{
+    -fx-background-color: #bbbbbb;
+    -fx-background-insets: 2;
+    -fx-background-radius: 4;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.2), 2, 0.5, 0, 0 );
+}
+
+.combo-box-popup .scroll-bar .thumb:hover,
+.scroll-bar .thumb:hover{
+    -fx-background-color: #888888;
+}
+
+/* table */
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+/* formato para las celdas del tableview */
+.table-cell {
+    -fx-padding: 0.5em 0.5em 0.1em 0.3em;
+    -fx-border-color: -fx-box-border -fx-box-border transparent transparent;
+    /*-fx-font: 13px "Segoe UI";*/
+    -fx-font: 16px "Arial";
+    -fx-border-insets: 0;
+    -fx-alignment: CENTER;
+}
+
+/* color de fondo para cuando el raton este sobre la celda */
+.table-cell:hover {
+    -fx-background-color: #9900ff;
+}
+
+/* color para filas vacias,
+// aplicar el mismo color cuando el raton este sobre una celda de una fila vacia
+*/
+.table-row-cell:empty, .table-cell:empty:hover {
+    -fx-background-color: whitesmoke;
+}
+
+/*eliminar borde de celdas en las filas vacias */
+.table-row-cell:empty .table-cell {
+    -fx-border-width: 0px;
+}
+
+/* color de una fila cuando en raton se encuentra sobre la misma */
+.table-view:row-selection .table-row-cell:filled:hover {
+    -fx-background-color: rgba(28, 183, 236, 0.25);
+}
+
+/* color de una fila cuando en raton se encuentra sobre una fila que esta seleccionada */
+.table-view:row-selection .table-row-cell:filled:selected:hover {
+    -fx-background-color: rgba(228, 183, 236, 0.90);
+}
+
+/* color de una fila seleccionada por el usuario */
+.table-view:row-selection .table-row-cell:filled:selected {
+    -fx-background-color: rgba(28, 183, 236, 0.65);
+}
+
+/* eliminar border del table que aparece cuando el mismo tiene el foco */
+.table-view, .table-view:focused {
+    -fx-background-color: transparent, -fx-box-border, -fx-control-inner-background;
+    -fx-background-insets: -1.4, 0, 1;
+    -fx-background-radius: 1.4, 0, 0;
+}
+
+/* centrar y cambiar color de los titulos de columnas */
+.table-view .column-header .label {
+    -fx-text-fill: #52677A;
+    -fx-font: 16px "Arial";
+    -fx-alignment: CENTER;
+}
+
+/* color de fondo del titulo de columna cuando en roton esta sobre ella */
+.table-view .column-header:hover {
+    -fx-background-color: whitesmoke;
+}
+
+/* tamaño, bordes y color de fondo de los titulos */
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: white;
+    /* -fx-size: 45; */
+    -fx-border-color: -fx-box-border;
+    -fx-border-width: 0 1 3 0;
+    -fx-border-insets: 0;
+}
+
+/* hacer transparente el fondo de los titulos */
+.table-view .column-header-background {
+    -fx-background-color: transparent;
+}
+
+/* estilo para el boton que permite ocultar o mostrar las columnas */
+.table-view .show-hide-columns-button {
+    -fx-background-color: white;
+    -fx-border-color: -fx-box-border;
+    -fx-border-insets: 0;
+}
+
+/* date-picker */
+.date-picker > .text-field {
+    -fx-font: 20px "Arial";
+    /*--deriveText: derive(-fx-text-box-border, -10%);
+    --deriveBack: derive(-fx-control-inner-background, -9%);
+    -fx-background-color: linear-gradient(to bottom, var(--deriveText), -fx-text-box-border),
+    linear-gradient(from 0px 0px to 0px 5px, var(--deriveBack), -fx-control-inner-background);*/
+    -fx-background-insets: 1 0 1 1;
+    -fx-background-radius: 2 0 0 2;
+}
+
+.date-picker:focused > .text-field,
+.date-picker > .text-field:focused {
+    /*--deriveBack: derive(-fx-control-inner-background, -9%);
+    -fx-background-color: -fx-control-inner-background,
+    -fx-faint-focus-color,
+    linear-gradient(from 0px 0px to 0px 5px, var(--deriveBack), -fx-control-inner-background);*/
+    -fx-background-insets: 1 0 1 1, 1 0 1 1, 3 2 3 3;
+    -fx-background-radius: 2 0 0 2, 1 0 0 1, 0;
+}
+
+ /* tabPane */
+.tab-pane *.tab-header-area {
+    -fx-alignment: CENTER-RIGHT;
+    -fx-padding: 5 0 0 10;
+}
+
+
+.tab{
+    -fx-background-color: #FFFFFF;
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: #FFFFFF;
+    -fx-padding: 8 18; /* top-bottom, left-right */
+}
+
+.tab .tab-label {
+    -fx-font-family: "Arial";
+    -fx-font-weight:  bold;
+    -fx-font-size: 12px;
+    -fx-background-color: transparent;
+    -fx-alignment: CENTER;
+    -fx-text-fill: #3a3b3e;
+}
+
+.tab-pane:top .tab:selected {
+    -fx-background-color: #ffffff;
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: #4673ff;
+}
+
+.tab:hover {
+    -fx-background-color: #eaeaea;
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: #92dfe1;
+}
+
+.tab-pane *.tab-header-background {
+    -fx-background-color: #dfdede;
+}
+
+.tab:selected .focus-indicator {
+    -fx-focus-color: transparent;
+    -fx-border-color: transparent;
+}
+
+/* customs */
+.infoPanel {
+    -fx-padding: 20;
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-effect:  dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
+}
+
+.infoCard {
+    -fx-padding: 15;
+    -fx-background-color: #f8fcff;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-border-color: #e0f2f7;
+}
+
+.buttonTransparent {
+    -fx-background-color:  white;
+}
+
+.buttonTransparent:hover{
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+}
