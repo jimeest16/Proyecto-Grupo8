@@ -604,3 +604,104 @@ admin: Vista administrator cargada exitosamente.
 [2025-06-23 10:45:39] System: Estado de vuelo cambiado a completado.
 [2025-06-23 10:45:39] System: Cargando lista de vuelos.
 [2025-06-23 10:45:39] System: Vuelos cargados en el ComboBox.
+admin: Inicio de sesión exitoso como administrator.
+[2025-06-23 11:03:52] Admin: Panel de administración iniciado.
+admin: Vista administrator cargada exitosamente.
+[2025-06-23 11:03:54] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-23 11:04:21] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-23 11:04:21] Admin: Pestaña 'Gestionar Usuarios' cargada.
+[2025-06-23 11:04:23] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-23 11:04:38] Admin: Pestaña 'Gestionar Rutas' cargada.
+[2025-06-23 11:04:39] System: FlightController inicializado.
+[2025-06-23 11:04:39] System: Aeropuertos cargados en los ComboBoxes.
+[2025-06-23 11:04:39] System: Carga de todos los vuelos. Cantidad: 9
+[2025-06-23 11:04:39] System: Mostrando lista de vuelos.
+[2025-06-23 11:04:39] Admin: Pestaña 'Gestionar Vuelos' cargada.
+[2025-06-23 11:04:40] System: SimulationController inicializado.
+[2025-06-23 11:04:40] System: Cargando lista de vuelos.
+[2025-06-23 11:04:40] System: Vuelos cargados en el ComboBox.
+[2025-06-23 11:04:40] Admin: Pestaña 'Simulate Flight' cargada.
+[2025-06-23 11:04:42] System: Aeropuerto inactivo [7] Aeropuerto de Buenos Aires necesario para iniciar la simulacion.
+[2025-06-23 11:04:47] Admin: Pestaña 'Gestionar Usuarios' cargada.
+[2025-06-23 11:04:48] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-23 11:05:43] System: SimulationController inicializado.
+[2025-06-23 11:05:43] System: Cargando lista de vuelos.
+[2025-06-23 11:05:43] System: Vuelos cargados en el ComboBox.
+[2025-06-23 11:05:43] Admin: Pestaña 'Simulate Flight' cargada.
+[2025-06-23 11:05:48] Admin: Pestaña 'Gestionar Aeropuertos' cargada.
+[2025-06-23 11:11:06] Admin: Pestaña 'Gestionar Rutas' cargada.
+[2025-06-23 11:11:06] System: SimulationController inicializado.
+[2025-06-23 11:11:06] System: Cargando lista de vuelos.
+[2025-06-23 11:11:06] System: Vuelos cargados en el ComboBox.
+[2025-06-23 11:11:06] Admin: Pestaña 'Simulate Flight' cargada.
+[2025-06-23 11:11:10] System: Aeropuerto inactivo [7] Aeropuerto de Buenos Aires necesario para iniciar la simulacion.
+[2025-06-23 11:11:13] System: Aeropuerto inactivo [7] Aeropuerto de Buenos Aires necesario para iniciar la simulacion.
+[2025-06-23 11:11:18] System: Aeropuerto inactivo [4] Ciudad Celeste International Airport necesario para iniciar la simulacion.
+[2025-06-23 11:11:21] System: Simulacion detenida: El aeropuerto origen no tiene ruta posible hacia el aeropuerto destino.
+[2025-06-23 11:11:27] System: Aeropuerto inactivo [7] Aeropuerto de Buenos Aires necesario para iniciar la simulacion.
+[2025-06-23 11:11:29] System: Aeropuerto inactivo [4] Ciudad Celeste International Airport necesario para iniciar la simulacion.
+[2025-06-23 11:12:26] System: FlightController inicializado.
+[2025-06-23 11:12:26] System: Aeropuertos cargados en los ComboBoxes.
+[2025-06-23 11:12:26] System: Carga de todos los vuelos. Cantidad: 9
+[2025-06-23 11:12:26] System: Mostrando lista de vuelos.
+[2025-06-23 11:12:26] Admin: Pestaña 'Gestionar Vuelos' cargada.
+[2025-06-23 11:12:30] Admin: Pestaña 'Gestionar Rutas' cargada.
+[2025-06-23 11:13:00] System: FlightController inicializado.
+[2025-06-23 11:13:00] System: Aeropuertos cargados en los ComboBoxes.
+[2025-06-23 11:13:00] System: Carga de todos los vuelos. Cantidad: 9
+[2025-06-23 11:13:00] System: Mostrando lista de vuelos.
+[2025-06-23 11:13:00] Admin: Pestaña 'Gestionar Vuelos' cargada.
+[2025-06-23 11:13:02] System: SimulationController inicializado.
+[2025-06-23 11:13:02] System: Cargando lista de vuelos.
+[2025-06-23 11:13:02] System: Vuelos cargados en el ComboBox.
+[2025-06-23 11:13:02] Admin: Pestaña 'Simulate Flight' cargada.
+[2025-06-23 11:13:03] Admin: Pestaña 'Gestionar Rutas' cargada.
+[2025-06-23 11:13:05] System: FlightController inicializado.
+[2025-06-23 11:13:05] System: Aeropuertos cargados en los ComboBoxes.
+[2025-06-23 11:13:05] System: Carga de todos los vuelos. Cantidad: 9
+[2025-06-23 11:13:05] System: Mostrando lista de vuelos.
+[2025-06-23 11:13:05] Admin: Pestaña 'Gestionar Vuelos' cargada.
+admin: Inicio de sesión exitoso como administrator.
+[2025-06-23 16:01:59] Admin: Panel de administración iniciado.
+admin: Vista administrator cargada exitosamente.
+[2025-06-23 16:02:00] System: SimulationController inicializado.
+[2025-06-23 16:02:00] System: Cargando lista de vuelos.
+[2025-06-23 16:02:00] System: Vuelos cargados en el ComboBox.
+[2025-06-23 16:02:00] Admin: Pestaña 'Simulate Flight' cargada.
+[2025-06-23 16:02:03] System: Ruta dibujada.
+[2025-06-23 16:02:03] System: Estado de vuelo cambiado a completado.
+[2025-06-23 16:02:03] System: Cargando lista de vuelos.
+[2025-06-23 16:02:03] System: Vuelos cargados en el ComboBox.
+admin: Inicio de sesión exitoso como administrator.
+[2025-06-23 16:03:14] Admin: Panel de administración iniciado.
+admin: Vista administrator cargada exitosamente.
+[2025-06-23 16:03:16] System: SimulationController inicializado.
+[2025-06-23 16:03:16] System: Cargando lista de vuelos.
+[2025-06-23 16:03:16] System: Vuelos cargados en el ComboBox.
+[2025-06-23 16:03:16] Admin: Pestaña 'Simulate Flight' cargada.
+[2025-06-23 16:03:20] System: Ruta dibujada.
+[2025-06-23 16:03:20] System: Estado de vuelo cambiado a completado.
+[2025-06-23 16:03:21] System: Cargando lista de vuelos.
+[2025-06-23 16:03:21] System: Vuelos cargados en el ComboBox.
+admin: Inicio de sesión exitoso como administrator.
+[2025-06-23 16:04:27] Admin: Panel de administración iniciado.
+admin: Vista administrator cargada exitosamente.
+[2025-06-23 16:04:28] System: SimulationController inicializado.
+[2025-06-23 16:04:28] System: Cargando lista de vuelos.
+[2025-06-23 16:04:28] System: Vuelos cargados en el ComboBox.
+[2025-06-23 16:04:28] Admin: Pestaña 'Simulate Flight' cargada.
+[2025-06-23 16:04:31] System: Ruta dibujada.
+[2025-06-23 16:04:31] System: Estado de vuelo cambiado a completado.
+[2025-06-23 16:04:31] System: Cargando lista de vuelos.
+[2025-06-23 16:04:31] System: Vuelos cargados en el ComboBox.
+admin: Inicio de sesión exitoso como administrator.
+[2025-06-23 16:07:13] Admin: Panel de administración iniciado.
+admin: Vista administrator cargada exitosamente.
+[2025-06-23 16:07:14] System: SimulationController inicializado.
+[2025-06-23 16:07:14] System: Cargando lista de vuelos.
+[2025-06-23 16:07:14] System: Vuelos cargados en el ComboBox.
+[2025-06-23 16:07:14] Admin: Pestaña 'Simulate Flight' cargada.
+[2025-06-23 16:07:16] System: Ruta dibujada.
+[2025-06-23 16:07:16] System: Estado de vuelo cambiado a completado.
+[2025-06-23 16:07:16] System: Cargando lista de vuelos.
+[2025-06-23 16:07:16] System: Vuelos cargados en el ComboBox.

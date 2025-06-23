@@ -5,6 +5,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import ucr.lab.TDA.graph.GraphException;
 import ucr.lab.TDA.list.ListException;
@@ -36,6 +37,7 @@ public class SimulationController {
     @FXML
     private AnchorPane ap;
     private Alert alert;
+    private Alert infoAlert;
     private List<Flight> flightsList;
     private LinkedQueue bitacora = new LinkedQueue(); // Bitacora
     private final String RUTA_BITACORA = "bitacora.txt"; // Log
@@ -78,6 +80,7 @@ public class SimulationController {
         loadComboBox();
 
         this.alert = FXUtil.alert("Simulation Flights - Error","");
+        this.infoAlert = FXUtil.confirmationDialog("Simulation Flights - Information");
     }
 
     private void loadComboBox() {
@@ -140,6 +143,8 @@ public class SimulationController {
                     FlightManager.saveFlights();
                     FlightManager.loadFlights();
                     registrarEnBitacora("Estado de vuelo cambiado a completado.");
+                    infoAlert.setContentText("¡Vuelo Completado!\n" + flight);
+                    infoAlert.show();
                     loadComboBox();
                 } else {
                     alert.setContentText("El aeropuerto origen no tiene ruta posible hacia el aeropuerto destino.");
@@ -162,6 +167,7 @@ public class SimulationController {
 
     private void drawPath (SinglyLinkedList path) throws ListException {
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        FXUtil.animateDijkstraPath(gc, path, 80, 100, true);
+        Image image = new Image(getClass().getResourceAsStream("/ucr/lab/aeropuerto.png"));
+        FXUtil.animateDijkstraPath(gc, path, 80, 100, true, image, 60);
     }
 }

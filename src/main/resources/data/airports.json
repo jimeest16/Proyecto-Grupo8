@@ -99,100 +99,29 @@
   },
   {
     "code": 2,
-    "name": "John F. Kennedy International Airport",
+    "name": "John F. Kennedy International",
     "country": "USA",
-    "status": "Inactivo",
+    "status": "Activo",
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
-          "departureTime": "2025-06-22T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
+          "number": 101,
+          "originAirportCode": 1,
+          "destinationAirportCode": 2,
+          "departureTime": "2025-06-16T10:30:00",
+          "capacity": 150,
+          "occupancy": 0,
           "status": "ON TIME",
           "passengerIDs": {
             "sorted": false,
-            "count": 0.0
+            "count": 0
           },
           "route": "",
           "porcentajeOccupancy": 0.0
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
-            "departureTime": "2025-06-24T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": "",
-            "porcentajeOccupancy": 0.0
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
-              "departureTime": "2025-06-26T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": "",
-              "porcentajeOccupancy": 0.0
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
-                "departureTime": "2025-06-23T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": "",
-                "porcentajeOccupancy": 0.0
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
-                  "departureTime": "2025-06-25T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": "",
-                  "porcentajeOccupancy": 0.0
-                }
-              }
-            }
-          }
         }
       },
       "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
+      "count": 1
     }
   },
   {
@@ -1869,16 +1798,16 @@
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 104,
-          "originAirportCode": 4,
-          "destinationAirportCode": 5,
+          "number": 104.0,
+          "originAirportCode": 4.0,
+          "destinationAirportCode": 5.0,
           "departureTime": "2025-06-17T09:15:00",
-          "capacity": 120,
-          "occupancy": 0,
+          "capacity": 120.0,
+          "occupancy": 0.0,
           "status": "BOARDING",
           "passengerIDs": {
             "sorted": false,
-            "count": 0
+            "count": 0.0
           },
           "route": "",
           "porcentajeOccupancy": 0.0
@@ -1886,6 +1815,9 @@
       },
       "sorted": false,
       "count": 1
+    },
+    "waitingQueue": {
+      "counter": 0
     }
   }
 ]

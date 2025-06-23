@@ -68,7 +68,7 @@ public class FXUtil {
         return dialog;
     }
 
-    public static void animateDijkstraPath(GraphicsContext gc, SinglyLinkedList path, double startX, double startY, boolean isAirport) throws ListException {
+    public static void animateDijkstraPath(GraphicsContext gc, SinglyLinkedList path, double startX, double startY, boolean isAirport, Image airportImage, double imageSize) throws ListException {
         if (path == null || path.isEmpty() || path.size() < 2) return;
 
         int totalNodes = path.size();
@@ -103,17 +103,21 @@ public class FXUtil {
                     Object current = path.getNode(index).data;
 
                     // Dibuja nodo
-                    gc.setFill(Color.LIGHTBLUE);
-                    gc.fillOval(x[index] - nodeSize / 2, y[index] - nodeSize / 2, nodeSize, nodeSize);
-                    gc.setStroke(Color.BLACK);
-                    gc.strokeOval(x[index] - nodeSize / 2, y[index] - nodeSize / 2, nodeSize, nodeSize);
-
+                    if (isAirport) {
+                        gc.drawImage(airportImage, x[index] - imageSize / 2, y[index] - imageSize / 2, imageSize, imageSize);
+                        gc.setFill(Color.BLACK);
+                    } else {
+                        gc.setFill(Color.LIGHTBLUE);
+                        gc.fillOval(x[index] - nodeSize / 2, y[index] - nodeSize / 2, nodeSize, nodeSize);
+                        gc.setStroke(Color.BLACK);
+                        gc.strokeOval(x[index] - nodeSize / 2, y[index] - nodeSize / 2, nodeSize, nodeSize);
+                    }
                     gc.setFill(Color.BLACK);
                     if (isAirport) {
                         int idx = AirportManager.getAirports().indexOf(new AirPort((int) current));
                         AirPort airPort = (AirPort) AirportManager.getAirports().getNode(idx).getData();
-                        gc.fillText("" + airPort.getCode(), x[index] - 10, y[index] + 5);
-                        gc.fillText(airPort.getName(), x[index] - 30, y[index] + nodeSize / 2 + 15);
+                        //gc.fillText("" + airPort.getCode(), x[index] - 10, y[index] + 5);
+                        gc.fillText(airPort.getName(), x[index] - 30, y[index] + imageSize / 2 + 15);
                     } else {
                         gc.fillText(current.toString(), x[index] - 10, y[index] + 5);
                     }
