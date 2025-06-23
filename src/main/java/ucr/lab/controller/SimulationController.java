@@ -37,7 +37,6 @@ public class SimulationController {
     private AnchorPane ap;
     private Alert alert;
     private List<Flight> flightsList;
-    private List<AirPort> airportList;
     private LinkedQueue bitacora = new LinkedQueue(); // Bitacora
     private final String RUTA_BITACORA = "bitacora.txt"; // Log
     private User loggedInAdmin;
@@ -63,8 +62,8 @@ public class SimulationController {
     public void initialize() throws ListException {
         try {
             FlightManager.loadFlights();
-            AirportManager.loadAirports();
             RoutesManager.loadRoutes();
+            AirportManager.loadAirports();
         } catch (IOException e) {
             registrarEnBitacora("Error durante la inicialización de SimulationController: " + e.getMessage());
             throw new RuntimeException(e);
@@ -73,7 +72,6 @@ public class SimulationController {
             throw new RuntimeException(e);
         }
         this.flightsList = FlightManager.getFlights().toList();
-        this.airportList = AirportManager.getAirports().toList();
 
         registrarEnBitacora("SimulationController inicializado.");
 
@@ -122,7 +120,8 @@ public class SimulationController {
                 Flight flight = FlightManager.getFlights().getFlight(index-1);
                 if (GraphUtil.isReachable(RoutesManager.getRoutesGraph(), flight.getOriginAirportCode(), flight.getDestinationAirportCode())) {
                     SinglyLinkedList path = GraphUtil.dijkstra(flight.getOriginAirportCode(), flight.getDestinationAirportCode(), RoutesManager.getRoutesGraph());
-                    int size = path.size()-1;
+                    int size = path.size();
+                    AirportManager.loadAirports();
                     for (int i = 1; i < size; i++) {
                         int index2 = AirportManager.getAirports().indexOf(new AirPort((Integer) path.get(i)));
                         AirPort airPort = (AirPort) AirportManager.getAirports().getNode(index2).data;
@@ -163,6 +162,6 @@ public class SimulationController {
 
     private void drawPath (SinglyLinkedList path) throws ListException {
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        FXUtil.drawDijkstraPath(gc, path, 80, 100, true);
+        FXUtil.animateDijkstraPath(gc, path, 80, 100, true);
     }
 }
