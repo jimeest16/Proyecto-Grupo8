@@ -26,12 +26,12 @@
       <children>
          <VBox alignment="CENTER" spacing="6">
             <children>
-               <Text fill="#2a6e9a" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestión de Aeropuertos">
+               <Text fill="#2a6e9a" strokeType="OUTSIDE" strokeWidth="0.0" text="Airport Management">
                   <font>
                      <Font name="Segoe UI Black" size="30.0" />
                   </font>
                </Text>
-               <Text fill="#5a5a5a" strokeType="OUTSIDE" strokeWidth="0.0" text="Administra los aeropuertos para una experiencia de vuelo inolvidable!">
+               <Text fill="#5a5a5a" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage airports for an unforgettable flight experience!">
                   <font>
                      <Font name="Segoe UI Semibold" size="16.0" />
                   </font>
@@ -44,17 +44,17 @@
                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
             </padding>
             <children>
-               <Button fx:id="btCrear" onAction="#createAirport" prefHeight="32.0" prefWidth="160.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 6 20; -fx-border-radius: 6; -fx-background-radius: 6; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0, 0, 1);" text="Crear Aeropuerto">
+               <Button fx:id="btCrear" onAction="#createAirport" prefHeight="32.0" prefWidth="160.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 6 20; -fx-border-radius: 6; -fx-background-radius: 6; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0, 0, 1);" text="Create Airport">
                   <font>
                      <Font size="13.0" />
                   </font>
                </Button>
-               <Button fx:id="btCrear2" onAction="#updateAirport" prefHeight="32.0" prefWidth="180.0" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 6 20; -fx-border-radius: 6; -fx-background-radius: 6; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0, 0, 1);" text="Modificar Aeropuerto">
+               <Button fx:id="btCrear2" onAction="#updateAirport" prefHeight="32.0" prefWidth="180.0" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 6 20; -fx-border-radius: 6; -fx-background-radius: 6; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0, 0, 1);" text="Modify Airport">
                   <font>
                      <Font size="13.0" />
                   </font>
                </Button>
-               <Button fx:id="btCrear1" onAction="#onGenerarReporteClick" prefHeight="32.0" prefWidth="180.0" style="-fx-background-color: #607D8B; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 6 20; -fx-border-radius: 6; -fx-background-radius: 6; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0, 0, 1);" text="Generar Reporte">
+               <Button fx:id="btCrear1" onAction="#onGenerarReporteClick" prefHeight="32.0" prefWidth="180.0" style="-fx-background-color: #607D8B; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 6 20; -fx-border-radius: 6; -fx-background-radius: 6; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0, 0, 1);" text="Generate Report">
                   <font>
                      <Font size="13.0" />
                   </font>
@@ -68,7 +68,7 @@
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </padding>
                <children>
-                  <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Información del Aeropuerto" />
+                  <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Airport information" />
                   <GridPane hgap="10" vgap="10">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -82,20 +82,20 @@
                         <RowConstraints minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Label style="-fx-font-size: 14px; -fx-text-fill: #666666;" text="ID Aeropuerto:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                        <TextField fx:id="tfID" promptText="Ej: 1001" style="-fx-font-size: 13px; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Label style="-fx-font-size: 14px; -fx-text-fill: #666666;" text="Airport ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <TextField fx:id="tfID" promptText="Ex: 1001" style="-fx-font-size: 13px; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-                        <Label style="-fx-font-size: 14px; -fx-text-fill: #666666;" text="Nombre:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                        <TextField fx:id="tfNombre" promptText="Ej: Juan Santamaría Intl." style="-fx-font-size: 13px; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label style="-fx-font-size: 14px; -fx-text-fill: #666666;" text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <TextField fx:id="tfNombre" promptText="Ex: Juan Santamaría Intl." style="-fx-font-size: 13px; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                        <Label style="-fx-font-size: 14px; -fx-text-fill: #666666;" text="País:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                        <TextField fx:id="tfPais" promptText="Ej: Costa Rica" style="-fx-font-size: 13px; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label style="-fx-font-size: 14px; -fx-text-fill: #666666;" text="Country:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <TextField fx:id="tfPais" promptText="Ex: Costa Rica" style="-fx-font-size: 13px; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-                        <Label style="-fx-font-size: 14px; -fx-text-fill: #666666;" text="Estado:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                        <ComboBox fx:id="mEstado" prefWidth="210.0" promptText="Seleccione Estado" style="-fx-font-size: 13px; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label style="-fx-font-size: 14px; -fx-text-fill: #666666;" text="Status:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <ComboBox fx:id="mEstado" prefWidth="210.0" promptText="Select State" style="-fx-font-size: 13px; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-                        <Label style="-fx-font-size: 14px; -fx-text-fill: #666666;" text="Reg. Salidas:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                        <ComboBox fx:id="mSalidas" prefWidth="210.0" promptText="Seleccione Registro de Salidas" style="-fx-font-size: 13px; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label style="-fx-font-size: 14px; -fx-text-fill: #666666;" text="Departures:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <ComboBox fx:id="mSalidas" prefWidth="210.0" promptText="Select Departure" style="-fx-font-size: 13px; -fx-background-color: #f0f8ff; -fx-border-color: #b0d9e8; -fx-border-radius: 5; -fx-background-radius: 5;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      </children>
                   </GridPane>
                </children>
@@ -108,10 +108,10 @@
                <children>
                   <HBox alignment="CENTER_LEFT" spacing="15">
                      <children>
-                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Aeropuertos Registrados" />
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Registered Airports" />
                         <HBox alignment="CENTER_RIGHT" spacing="8" HBox.hgrow="ALWAYS">
                            <children>
-                              <RadioButton fx:id="rbActivos" text="Activos">
+                              <RadioButton fx:id="rbActivos" text="Active">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="airportFilterGroup" />
                                  </toggleGroup>
@@ -119,7 +119,7 @@
                                     <Font name="Segoe UI Regular" size="13.0" />
                                  </font>
                               </RadioButton>
-                              <RadioButton fx:id="rbInactivos" text="Inactivos" toggleGroup="$airportFilterGroup">
+                              <RadioButton fx:id="rbInactivos" text="Inactive" toggleGroup="$airportFilterGroup">
                                  <font>
                                     <Font name="Segoe UI Regular" size="13.0" />
                                  </font>
@@ -131,10 +131,10 @@
                   <TableView fx:id="tvAirports" prefHeight="270.0" prefWidth="450.0" VBox.vgrow="ALWAYS">
                      <columns>
                         <TableColumn fx:id="cID" prefWidth="60.0" text="ID" />
-                        <TableColumn fx:id="cNombre" prefWidth="100.0" text="Nombre" />
-                        <TableColumn fx:id="cPais" prefWidth="90.0" text="País" />
-                        <TableColumn fx:id="cEstado" minWidth="0.0" prefWidth="100.0" text="Estado" />
-                        <TableColumn fx:id="cRegistro" minWidth="0.0" prefWidth="140.0" text="Reg. Salidas" />
+                        <TableColumn fx:id="cNombre" prefWidth="100.0" text="Name" />
+                        <TableColumn fx:id="cPais" prefWidth="90.0" text="Country" />
+                        <TableColumn fx:id="cEstado" minWidth="0.0" prefWidth="100.0" text="Status" />
+                        <TableColumn fx:id="cRegistro" minWidth="0.0" prefWidth="140.0" text="Departure Board" />
                      </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
