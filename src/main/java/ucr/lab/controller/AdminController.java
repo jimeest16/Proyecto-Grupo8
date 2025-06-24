@@ -32,6 +32,8 @@ public class AdminController {
     @FXML private AnchorPane airportsTabContentPane;
     @FXML private AnchorPane simulationTabContentPane;
 
+    private FlightController flightController;
+
     private LinkedQueue bitacora = new LinkedQueue();
     private final String RUTA_BITACORA = "bitacora.txt";
     private User loggedInAdmin;
@@ -101,6 +103,8 @@ public class AdminController {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/ucr/lab/FlightManagerView.fxml"));
                 Parent flightContent = loader.load();
+                flightController = loader.getController();
+                flightController.setMainController(this); // Inyección de controlador principal
 
                 if (flightsTabContentPane != null) {
                     flightsTabContentPane.getChildren().setAll(flightContent);
@@ -195,5 +199,9 @@ public class AdminController {
                 registrarEnBitacora("Error al cargar 'Simulate Flight': " + e.getMessage());
             }
         }
+    }
+
+    public void seleccionarTab(int index) {
+        tabPanePrincipal.getSelectionModel().select(index);
     }
 }

@@ -54,6 +54,9 @@ public class FlightController {
     @FXML
     private TextArea txtFlightOutput;
 
+
+    private AdminController mainController;
+
     private LinkedQueue bitacora = new LinkedQueue(); // Bitacora
     private final String RUTA_BITACORA = "bitacora.txt"; // Log
     private User loggedInAdmin;
@@ -63,6 +66,9 @@ public class FlightController {
 
     }
 
+    public void setMainController(AdminController mainController) {
+        this.mainController = mainController;
+    }
 
     private void registrarEnBitacora(String mensaje) {
         String nombre = (loggedInAdmin != null) ? loggedInAdmin.getName() : "System"; // system para la compu
@@ -333,6 +339,8 @@ public class FlightController {
 
     public void simulateFlight(ActionEvent event) {
         // Implementation for simulateFlight remains unchanged
+        if (mainController != null)
+            mainController.seleccionarTab(5);
         registrarEnBitacora("Simulación de vuelo iniciada.");
     }
 
