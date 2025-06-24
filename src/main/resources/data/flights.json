@@ -38,7 +38,7 @@
   "capacity" : 200,
   "occupancy" : 31,
   "status" : "Complete",
-  "route" : "14-1",
+  "route" : "14 -> 5 -> 1 -> Distancia total: 1665.2800000000002",
   "availableRoutes" : null,
   "porcentajeOccupancy" : 0.155,
   "departureDate" : "2025-06-19T15:56:00.1091625",
@@ -98,7 +98,7 @@
   "capacity" : 200,
   "occupancy" : 30,
   "status" : "Complete",
-  "route" : "14-1",
+  "route" : "14 -> 5 -> 1 -> Distancia total: 1665.2800000000002",
   "availableRoutes" : null,
   "porcentajeOccupancy" : 0.15,
   "departureDate" : "2025-06-19T15:56:00.1091625",
@@ -141,5 +141,29 @@
   "flightNumber" : 15,
   "originAirportCode" : 1,
   "destinationAirportCode" : 7,
+  "passengerIDs" : [ ]
+}, {
+  "capacity" : 100,
+  "occupancy" : 0,
+  "status" : "Complete",
+  "route" : "1 -> 2 -> Distancia total: 1228.59",
+  "availableRoutes" : null,
+  "porcentajeOccupancy" : 0.0,
+  "departureDate" : "2025-06-23T12:00:00",
+  "flightNumber" : 102,
+  "originAirportCode" : 1,
+  "destinationAirportCode" : 2,
+  "passengerIDs" : [ ]
+}, {
+  "capacity" : 110,
+  "occupancy" : 0,
+  "status" : "Complete",
+  "route" : "2 -> 4 -> 6 -> Distancia total: 1049.09",
+  "availableRoutes" : null,
+  "porcentajeOccupancy" : 0.0,
+  "departureDate" : "2025-06-23T03:50:00",
+  "flightNumber" : 103,
+  "originAirportCode" : 2,
+  "destinationAirportCode" : 6,
   "passengerIDs" : [ ]
 } ]

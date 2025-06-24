@@ -354,21 +354,21 @@ public class FileReader {
         File fileA = new File(FILE_AIRPORT);
 
         try {
-            // 1) Leer lista de vuelos
+            // Leer lista de vuelos
             List<Flight> flights = mapper.readValue(
                     fileF, new TypeReference<List<Flight>>() {}
             );
 
-            // 2) Leer lista de aeropuertos con tu helper
+            //Leer lista de aeropuertos
             AirPortDatos datos = new AirPortDatos(fileA);
             @SuppressWarnings("unchecked")
             List<AirPort> airports = datos.getAllAirPorts("todos");
 
-            // 3) Mapear aeropuertos por código
+            // Mapear aeropuertos por código
             Map<Integer, AirPort> airportMap = airports.stream()
                     .collect(Collectors.toMap(AirPort::getCode, Function.identity()));
 
-            // 4) Enriquecer cada vuelo
+            // Enriquecer cada vuelo
             for (Flight f : flights) {
                 AirPort ori = airportMap.get(f.getOriginAirportCode());
                 AirPort dst = airportMap.get(f.getDestinationAirportCode());

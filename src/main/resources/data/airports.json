@@ -7,80 +7,80 @@
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
+          "number": 101,
+          "originAirportCode": 1,
+          "destinationAirportCode": 2,
           "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
+          "capacity": 150,
+          "occupancy": 0,
           "status": "ON TIME",
           "passengerIDs": {
             "sorted": false,
-            "count": 0.0
+            "count": 0
           },
           "route": "",
           "porcentajeOccupancy": 0.0
         },
         "next": {
           "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
+            "number": 102,
+            "originAirportCode": 1,
+            "destinationAirportCode": 3,
             "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
+            "capacity": 200,
+            "occupancy": 0,
             "status": "DELAYED",
             "passengerIDs": {
               "sorted": false,
-              "count": 0.0
+              "count": 0
             },
             "route": "",
             "porcentajeOccupancy": 0.0
           },
           "next": {
             "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
+              "number": 103,
+              "originAirportCode": 1,
+              "destinationAirportCode": 4,
               "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
+              "capacity": 180,
+              "occupancy": 0,
               "status": "CANCELLED",
               "passengerIDs": {
                 "sorted": false,
-                "count": 0.0
+                "count": 0
               },
               "route": "",
               "porcentajeOccupancy": 0.0
             },
             "next": {
               "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
+                "number": 104,
+                "originAirportCode": 1,
+                "destinationAirportCode": 5,
                 "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
+                "capacity": 120,
+                "occupancy": 0,
                 "status": "BOARDING",
                 "passengerIDs": {
                   "sorted": false,
-                  "count": 0.0
+                  "count": 0
                 },
                 "route": "",
                 "porcentajeOccupancy": 0.0
               },
               "next": {
                 "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
+                  "number": 105,
+                  "originAirportCode": 1,
+                  "destinationAirportCode": 6,
                   "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
+                  "capacity": 130,
+                  "occupancy": 0,
                   "status": "FINAL CALL",
                   "passengerIDs": {
                     "sorted": false,
-                    "count": 0.0
+                    "count": 0
                   },
                   "route": "",
                   "porcentajeOccupancy": 0.0
@@ -94,7 +94,72 @@
       "count": 5
     },
     "waitingQueue": {
-      "counter": 0
+      "front": {
+        "data": {
+          "id": 1,
+          "name": "Camila",
+          "nationality": "Costarricense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 2,
+            "name": "Mateo",
+            "nationality": "Mexicano",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "flightCount": 0,
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 3,
+              "name": "Sara",
+              "nationality": "Colombiana",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "flightCount": 0,
+              "state": "Active"
+            },
+            "next": {
+              "data": {
+                "id": 4,
+                "name": "John",
+                "nationality": "Estadounidense",
+                "flightHistory": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "flightCount": 0,
+                "state": "Active"
+              }
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 4,
+          "name": "John",
+          "nationality": "Estadounidense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        }
+      },
+      "counter": 4
     }
   },
   {
@@ -105,80 +170,80 @@
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
+          "number": 101,
+          "originAirportCode": 1,
+          "destinationAirportCode": 2,
           "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
+          "capacity": 150,
+          "occupancy": 0,
           "status": "ON TIME",
           "passengerIDs": {
             "sorted": false,
-            "count": 0.0
+            "count": 0
           },
           "route": "",
           "porcentajeOccupancy": 0.0
         },
         "next": {
           "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
+            "number": 102,
+            "originAirportCode": 1,
+            "destinationAirportCode": 3,
             "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
+            "capacity": 200,
+            "occupancy": 0,
             "status": "DELAYED",
             "passengerIDs": {
               "sorted": false,
-              "count": 0.0
+              "count": 0
             },
             "route": "",
             "porcentajeOccupancy": 0.0
           },
           "next": {
             "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
+              "number": 103,
+              "originAirportCode": 1,
+              "destinationAirportCode": 4,
               "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
+              "capacity": 180,
+              "occupancy": 0,
               "status": "CANCELLED",
               "passengerIDs": {
                 "sorted": false,
-                "count": 0.0
+                "count": 0
               },
               "route": "",
               "porcentajeOccupancy": 0.0
             },
             "next": {
               "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
+                "number": 104,
+                "originAirportCode": 1,
+                "destinationAirportCode": 5,
                 "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
+                "capacity": 120,
+                "occupancy": 0,
                 "status": "BOARDING",
                 "passengerIDs": {
                   "sorted": false,
-                  "count": 0.0
+                  "count": 0
                 },
                 "route": "",
                 "porcentajeOccupancy": 0.0
               },
               "next": {
                 "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
+                  "number": 105,
+                  "originAirportCode": 1,
+                  "destinationAirportCode": 6,
                   "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
+                  "capacity": 130,
+                  "occupancy": 0,
                   "status": "FINAL CALL",
                   "passengerIDs": {
                     "sorted": false,
-                    "count": 0.0
+                    "count": 0
                   },
                   "route": "",
                   "porcentajeOccupancy": 0.0
@@ -192,7 +257,72 @@
       "count": 5
     },
     "waitingQueue": {
-      "counter": 0
+      "front": {
+        "data": {
+          "id": 1,
+          "name": "Camila",
+          "nationality": "Costarricense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 2,
+            "name": "Mateo",
+            "nationality": "Mexicano",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "flightCount": 0,
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 3,
+              "name": "Sara",
+              "nationality": "Colombiana",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "flightCount": 0,
+              "state": "Active"
+            },
+            "next": {
+              "data": {
+                "id": 4,
+                "name": "John",
+                "nationality": "Estadounidense",
+                "flightHistory": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "flightCount": 0,
+                "state": "Active"
+              }
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 4,
+          "name": "John",
+          "nationality": "Estadounidense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        }
+      },
+      "counter": 4
     }
   },
   {
@@ -203,80 +333,80 @@
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
+          "number": 101,
+          "originAirportCode": 1,
+          "destinationAirportCode": 2,
           "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
+          "capacity": 150,
+          "occupancy": 0,
           "status": "ON TIME",
           "passengerIDs": {
             "sorted": false,
-            "count": 0.0
+            "count": 0
           },
           "route": "",
           "porcentajeOccupancy": 0.0
         },
         "next": {
           "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
+            "number": 102,
+            "originAirportCode": 1,
+            "destinationAirportCode": 3,
             "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
+            "capacity": 200,
+            "occupancy": 0,
             "status": "DELAYED",
             "passengerIDs": {
               "sorted": false,
-              "count": 0.0
+              "count": 0
             },
             "route": "",
             "porcentajeOccupancy": 0.0
           },
           "next": {
             "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
+              "number": 103,
+              "originAirportCode": 1,
+              "destinationAirportCode": 4,
               "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
+              "capacity": 180,
+              "occupancy": 0,
               "status": "CANCELLED",
               "passengerIDs": {
                 "sorted": false,
-                "count": 0.0
+                "count": 0
               },
               "route": "",
               "porcentajeOccupancy": 0.0
             },
             "next": {
               "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
+                "number": 104,
+                "originAirportCode": 1,
+                "destinationAirportCode": 5,
                 "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
+                "capacity": 120,
+                "occupancy": 0,
                 "status": "BOARDING",
                 "passengerIDs": {
                   "sorted": false,
-                  "count": 0.0
+                  "count": 0
                 },
                 "route": "",
                 "porcentajeOccupancy": 0.0
               },
               "next": {
                 "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
+                  "number": 105,
+                  "originAirportCode": 1,
+                  "destinationAirportCode": 6,
                   "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
+                  "capacity": 130,
+                  "occupancy": 0,
                   "status": "FINAL CALL",
                   "passengerIDs": {
                     "sorted": false,
-                    "count": 0.0
+                    "count": 0
                   },
                   "route": "",
                   "porcentajeOccupancy": 0.0
@@ -290,7 +420,72 @@
       "count": 5
     },
     "waitingQueue": {
-      "counter": 0
+      "front": {
+        "data": {
+          "id": 1,
+          "name": "Camila",
+          "nationality": "Costarricense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 2,
+            "name": "Mateo",
+            "nationality": "Mexicano",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "flightCount": 0,
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 3,
+              "name": "Sara",
+              "nationality": "Colombiana",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "flightCount": 0,
+              "state": "Active"
+            },
+            "next": {
+              "data": {
+                "id": 4,
+                "name": "John",
+                "nationality": "Estadounidense",
+                "flightHistory": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "flightCount": 0,
+                "state": "Active"
+              }
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 4,
+          "name": "John",
+          "nationality": "Estadounidense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        }
+      },
+      "counter": 4
     }
   },
   {
@@ -301,80 +496,80 @@
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
+          "number": 101,
+          "originAirportCode": 1,
+          "destinationAirportCode": 2,
           "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
+          "capacity": 150,
+          "occupancy": 0,
           "status": "ON TIME",
           "passengerIDs": {
             "sorted": false,
-            "count": 0.0
+            "count": 0
           },
           "route": "",
           "porcentajeOccupancy": 0.0
         },
         "next": {
           "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
+            "number": 102,
+            "originAirportCode": 1,
+            "destinationAirportCode": 3,
             "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
+            "capacity": 200,
+            "occupancy": 0,
             "status": "DELAYED",
             "passengerIDs": {
               "sorted": false,
-              "count": 0.0
+              "count": 0
             },
             "route": "",
             "porcentajeOccupancy": 0.0
           },
           "next": {
             "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
+              "number": 103,
+              "originAirportCode": 1,
+              "destinationAirportCode": 4,
               "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
+              "capacity": 180,
+              "occupancy": 0,
               "status": "CANCELLED",
               "passengerIDs": {
                 "sorted": false,
-                "count": 0.0
+                "count": 0
               },
               "route": "",
               "porcentajeOccupancy": 0.0
             },
             "next": {
               "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
+                "number": 104,
+                "originAirportCode": 1,
+                "destinationAirportCode": 5,
                 "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
+                "capacity": 120,
+                "occupancy": 0,
                 "status": "BOARDING",
                 "passengerIDs": {
                   "sorted": false,
-                  "count": 0.0
+                  "count": 0
                 },
                 "route": "",
                 "porcentajeOccupancy": 0.0
               },
               "next": {
                 "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
+                  "number": 105,
+                  "originAirportCode": 1,
+                  "destinationAirportCode": 6,
                   "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
+                  "capacity": 130,
+                  "occupancy": 0,
                   "status": "FINAL CALL",
                   "passengerIDs": {
                     "sorted": false,
-                    "count": 0.0
+                    "count": 0
                   },
                   "route": "",
                   "porcentajeOccupancy": 0.0
@@ -388,7 +583,59 @@
       "count": 5
     },
     "waitingQueue": {
-      "counter": 0
+      "front": {
+        "data": {
+          "id": 5,
+          "name": "Ana",
+          "nationality": "Argentina",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 6,
+            "name": "Hiroshi",
+            "nationality": "Japonés",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "flightCount": 0,
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 7,
+              "name": "Marie",
+              "nationality": "Francesa",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "flightCount": 0,
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 7,
+          "name": "Marie",
+          "nationality": "Francesa",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        }
+      },
+      "counter": 3
     }
   },
   {
@@ -399,80 +646,80 @@
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
+          "number": 101,
+          "originAirportCode": 1,
+          "destinationAirportCode": 2,
           "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
+          "capacity": 150,
+          "occupancy": 0,
           "status": "ON TIME",
           "passengerIDs": {
             "sorted": false,
-            "count": 0.0
+            "count": 0
           },
           "route": "",
           "porcentajeOccupancy": 0.0
         },
         "next": {
           "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
+            "number": 102,
+            "originAirportCode": 1,
+            "destinationAirportCode": 3,
             "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
+            "capacity": 200,
+            "occupancy": 0,
             "status": "DELAYED",
             "passengerIDs": {
               "sorted": false,
-              "count": 0.0
+              "count": 0
             },
             "route": "",
             "porcentajeOccupancy": 0.0
           },
           "next": {
             "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
+              "number": 103,
+              "originAirportCode": 1,
+              "destinationAirportCode": 4,
               "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
+              "capacity": 180,
+              "occupancy": 0,
               "status": "CANCELLED",
               "passengerIDs": {
                 "sorted": false,
-                "count": 0.0
+                "count": 0
               },
               "route": "",
               "porcentajeOccupancy": 0.0
             },
             "next": {
               "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
+                "number": 104,
+                "originAirportCode": 1,
+                "destinationAirportCode": 5,
                 "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
+                "capacity": 120,
+                "occupancy": 0,
                 "status": "BOARDING",
                 "passengerIDs": {
                   "sorted": false,
-                  "count": 0.0
+                  "count": 0
                 },
                 "route": "",
                 "porcentajeOccupancy": 0.0
               },
               "next": {
                 "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
+                  "number": 105,
+                  "originAirportCode": 1,
+                  "destinationAirportCode": 6,
                   "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
+                  "capacity": 130,
+                  "occupancy": 0,
                   "status": "FINAL CALL",
                   "passengerIDs": {
                     "sorted": false,
-                    "count": 0.0
+                    "count": 0
                   },
                   "route": "",
                   "porcentajeOccupancy": 0.0
@@ -486,7 +733,59 @@
       "count": 5
     },
     "waitingQueue": {
-      "counter": 0
+      "front": {
+        "data": {
+          "id": 5,
+          "name": "Ana",
+          "nationality": "Argentina",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 6,
+            "name": "Hiroshi",
+            "nationality": "Japonés",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "flightCount": 0,
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 7,
+              "name": "Marie",
+              "nationality": "Francesa",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "flightCount": 0,
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 7,
+          "name": "Marie",
+          "nationality": "Francesa",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        }
+      },
+      "counter": 3
     }
   },
   {
@@ -497,80 +796,80 @@
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
+          "number": 101,
+          "originAirportCode": 1,
+          "destinationAirportCode": 2,
           "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
+          "capacity": 150,
+          "occupancy": 0,
           "status": "ON TIME",
           "passengerIDs": {
             "sorted": false,
-            "count": 0.0
+            "count": 0
           },
           "route": "",
           "porcentajeOccupancy": 0.0
         },
         "next": {
           "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
+            "number": 102,
+            "originAirportCode": 1,
+            "destinationAirportCode": 3,
             "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
+            "capacity": 200,
+            "occupancy": 0,
             "status": "DELAYED",
             "passengerIDs": {
               "sorted": false,
-              "count": 0.0
+              "count": 0
             },
             "route": "",
             "porcentajeOccupancy": 0.0
           },
           "next": {
             "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
+              "number": 103,
+              "originAirportCode": 1,
+              "destinationAirportCode": 4,
               "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
+              "capacity": 180,
+              "occupancy": 0,
               "status": "CANCELLED",
               "passengerIDs": {
                 "sorted": false,
-                "count": 0.0
+                "count": 0
               },
               "route": "",
               "porcentajeOccupancy": 0.0
             },
             "next": {
               "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
+                "number": 104,
+                "originAirportCode": 1,
+                "destinationAirportCode": 5,
                 "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
+                "capacity": 120,
+                "occupancy": 0,
                 "status": "BOARDING",
                 "passengerIDs": {
                   "sorted": false,
-                  "count": 0.0
+                  "count": 0
                 },
                 "route": "",
                 "porcentajeOccupancy": 0.0
               },
               "next": {
                 "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
+                  "number": 105,
+                  "originAirportCode": 1,
+                  "destinationAirportCode": 6,
                   "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
+                  "capacity": 130,
+                  "occupancy": 0,
                   "status": "FINAL CALL",
                   "passengerIDs": {
                     "sorted": false,
-                    "count": 0.0
+                    "count": 0
                   },
                   "route": "",
                   "porcentajeOccupancy": 0.0
@@ -584,244 +883,209 @@
       "count": 5
     },
     "waitingQueue": {
-      "counter": 0
+      "front": {
+        "data": {
+          "id": 5,
+          "name": "Ana",
+          "nationality": "Argentina",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 6,
+            "name": "Hiroshi",
+            "nationality": "Japonés",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "flightCount": 0,
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 7,
+              "name": "Marie",
+              "nationality": "Francesa",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "flightCount": 0,
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 7,
+          "name": "Marie",
+          "nationality": "Francesa",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        }
+      },
+      "counter": 3
     }
   },
   {
     "code": 7,
     "name": "Aeropuerto de Buenos Aires",
     "country": "ARGENTINA",
-    "status": "Activo",
+    "status": "Inactivo",
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 1,
-          "originAirportCode": 12,
-          "destinationAirportCode": 9,
-          "departureTime": "2025-06-19T15:56:00.1091625",
+          "number": 101,
+          "originAirportCode": 1,
+          "destinationAirportCode": 2,
+          "departureTime": "2025-06-23T10:30:00",
           "capacity": 150,
-          "occupancy": 70,
-          "status": "Complete",
+          "occupancy": 0,
+          "status": "ON TIME",
           "passengerIDs": {
-            "first": {
-              "data": 100000001,
+            "sorted": false,
+            "count": 0
+          },
+          "route": "",
+          "porcentajeOccupancy": 0.0
+        },
+        "next": {
+          "data": {
+            "number": 102,
+            "originAirportCode": 1,
+            "destinationAirportCode": 3,
+            "departureTime": "2025-06-25T14:00:00",
+            "capacity": 200,
+            "occupancy": 0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0
+            },
+            "route": "",
+            "porcentajeOccupancy": 0.0
+          },
+          "next": {
+            "data": {
+              "number": 103,
+              "originAirportCode": 1,
+              "destinationAirportCode": 4,
+              "departureTime": "2025-06-27T08:45:00",
+              "capacity": 180,
+              "occupancy": 0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0
+              },
+              "route": "",
+              "porcentajeOccupancy": 0.0
+            },
+            "next": {
+              "data": {
+                "number": 104,
+                "originAirportCode": 1,
+                "destinationAirportCode": 5,
+                "departureTime": "2025-06-24T09:15:00",
+                "capacity": 120,
+                "occupancy": 0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "route": "",
+                "porcentajeOccupancy": 0.0
+              },
               "next": {
-                "data": 100000002,
-                "next": {
-                  "data": 100000003,
-                  "next": {
-                    "data": 100000004,
-                    "next": {
-                      "data": 100000005,
-                      "next": {
-                        "data": 100000006,
-                        "next": {
-                          "data": 100000007,
-                          "next": {
-                            "data": 100000008,
-                            "next": {
-                              "data": 100000009,
-                              "next": {
-                                "data": 100000010,
-                                "next": {
-                                  "data": 100000011,
-                                  "next": {
-                                    "data": 100000012,
-                                    "next": {
-                                      "data": 100000013,
-                                      "next": {
-                                        "data": 100000014,
-                                        "next": {
-                                          "data": 100000015,
-                                          "next": {
-                                            "data": 100000016,
-                                            "next": {
-                                              "data": 100000017,
-                                              "next": {
-                                                "data": 100000018,
-                                                "next": {
-                                                  "data": 100000019,
-                                                  "next": {
-                                                    "data": 100000020,
-                                                    "next": {
-                                                      "data": 100000021,
-                                                      "next": {
-                                                        "data": 100000022,
-                                                        "next": {
-                                                          "data": 100000023,
-                                                          "next": {
-                                                            "data": 100000024,
-                                                            "next": {
-                                                              "data": 100000025,
-                                                              "next": {
-                                                                "data": 100000026,
-                                                                "next": {
-                                                                  "data": 100000027,
-                                                                  "next": {
-                                                                    "data": 100000028,
-                                                                    "next": {
-                                                                      "data": 100000029,
-                                                                      "next": {
-                                                                        "data": 100000030,
-                                                                        "next": {
-                                                                          "data": 100000031,
-                                                                          "next": {
-                                                                            "data": 100000032,
-                                                                            "next": {
-                                                                              "data": 100000033,
-                                                                              "next": {
-                                                                                "data": 100000034,
-                                                                                "next": {
-                                                                                  "data": 100000035,
-                                                                                  "next": {
-                                                                                    "data": 100000036,
-                                                                                    "next": {
-                                                                                      "data": 100000037,
-                                                                                      "next": {
-                                                                                        "data": 100000038,
-                                                                                        "next": {
-                                                                                          "data": 100000039,
-                                                                                          "next": {
-                                                                                            "data": 100000040,
-                                                                                            "next": {
-                                                                                              "data": 100000041,
-                                                                                              "next": {
-                                                                                                "data": 100000042,
-                                                                                                "next": {
-                                                                                                  "data": 100000043,
-                                                                                                  "next": {
-                                                                                                    "data": 100000044,
-                                                                                                    "next": {
-                                                                                                      "data": 100000045,
-                                                                                                      "next": {
-                                                                                                        "data": 100000046,
-                                                                                                        "next": {
-                                                                                                          "data": 100000047,
-                                                                                                          "next": {
-                                                                                                            "data": 100000048,
-                                                                                                            "next": {
-                                                                                                              "data": 100000049,
-                                                                                                              "next": {
-                                                                                                                "data": 100000050,
-                                                                                                                "next": {
-                                                                                                                  "data": 100000051,
-                                                                                                                  "next": {
-                                                                                                                    "data": 100000052,
-                                                                                                                    "next": {
-                                                                                                                      "data": 100000053,
-                                                                                                                      "next": {
-                                                                                                                        "data": 100000054,
-                                                                                                                        "next": {
-                                                                                                                          "data": 100000055,
-                                                                                                                          "next": {
-                                                                                                                            "data": 100000056,
-                                                                                                                            "next": {
-                                                                                                                              "data": 100000057,
-                                                                                                                              "next": {
-                                                                                                                                "data": 100000058,
-                                                                                                                                "next": {
-                                                                                                                                  "data": 100000059,
-                                                                                                                                  "next": {
-                                                                                                                                    "data": 100000060,
-                                                                                                                                    "next": {
-                                                                                                                                      "data": 100000061,
-                                                                                                                                      "next": {
-                                                                                                                                        "data": 100000062,
-                                                                                                                                        "next": {
-                                                                                                                                          "data": 100000063,
-                                                                                                                                          "next": {
-                                                                                                                                            "data": 100000064,
-                                                                                                                                            "next": {
-                                                                                                                                              "data": 100000065,
-                                                                                                                                              "next": {
-                                                                                                                                                "data": 100000066,
-                                                                                                                                                "next": {
-                                                                                                                                                  "data": 100000067,
-                                                                                                                                                  "next": {
-                                                                                                                                                    "data": 100000068,
-                                                                                                                                                    "next": {
-                                                                                                                                                      "data": 100000069,
-                                                                                                                                                      "next": {
-                                                                                                                                                        "data": 100000070
-                                                                                                                                                      }
-                                                                                                                                                    }
-                                                                                                                                                  }
-                                                                                                                                                }
-                                                                                                                                              }
-                                                                                                                                            }
-                                                                                                                                          }
-                                                                                                                                        }
-                                                                                                                                      }
-                                                                                                                                    }
-                                                                                                                                  }
-                                                                                                                                }
-                                                                                                                              }
-                                                                                                                            }
-                                                                                                                          }
-                                                                                                                        }
-                                                                                                                      }
-                                                                                                                    }
-                                                                                                                  }
-                                                                                                                }
-                                                                                                              }
-                                                                                                            }
-                                                                                                          }
-                                                                                                        }
-                                                                                                      }
-                                                                                                    }
-                                                                                                  }
-                                                                                                }
-                                                                                              }
-                                                                                            }
-                                                                                          }
-                                                                                        }
-                                                                                      }
-                                                                                    }
-                                                                                  }
-                                                                                }
-                                                                              }
-                                                                            }
-                                                                          }
-                                                                        }
-                                                                      }
-                                                                    }
-                                                                  }
-                                                                }
-                                                              }
-                                                            }
-                                                          }
-                                                        }
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
+                "data": {
+                  "number": 105,
+                  "originAirportCode": 1,
+                  "destinationAirportCode": 6,
+                  "departureTime": "2025-06-26T16:20:00",
+                  "capacity": 130,
+                  "occupancy": 0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0
+                  },
+                  "route": "",
+                  "porcentajeOccupancy": 0.0
                 }
               }
-            },
-            "sorted": false,
-            "count": 70
-          },
-          "route": "12-9",
-          "porcentajeOccupancy": 0.4666666666666667
+            }
+          }
         }
       },
       "sorted": false,
-      "count": 1
+      "count": 5
+    },
+    "waitingQueue": {
+      "front": {
+        "data": {
+          "id": 5,
+          "name": "Ana",
+          "nationality": "Argentina",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 6,
+            "name": "Hiroshi",
+            "nationality": "Japonés",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "flightCount": 0,
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 7,
+              "name": "Marie",
+              "nationality": "Francesa",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "flightCount": 0,
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 7,
+          "name": "Marie",
+          "nationality": "Francesa",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        }
+      },
+      "counter": 3
     }
   },
   {
@@ -832,80 +1096,80 @@
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
+          "number": 101,
+          "originAirportCode": 1,
+          "destinationAirportCode": 2,
           "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
+          "capacity": 150,
+          "occupancy": 0,
           "status": "ON TIME",
           "passengerIDs": {
             "sorted": false,
-            "count": 0.0
+            "count": 0
           },
           "route": "",
           "porcentajeOccupancy": 0.0
         },
         "next": {
           "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
+            "number": 102,
+            "originAirportCode": 1,
+            "destinationAirportCode": 3,
             "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
+            "capacity": 200,
+            "occupancy": 0,
             "status": "DELAYED",
             "passengerIDs": {
               "sorted": false,
-              "count": 0.0
+              "count": 0
             },
             "route": "",
             "porcentajeOccupancy": 0.0
           },
           "next": {
             "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
+              "number": 103,
+              "originAirportCode": 1,
+              "destinationAirportCode": 4,
               "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
+              "capacity": 180,
+              "occupancy": 0,
               "status": "CANCELLED",
               "passengerIDs": {
                 "sorted": false,
-                "count": 0.0
+                "count": 0
               },
               "route": "",
               "porcentajeOccupancy": 0.0
             },
             "next": {
               "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
+                "number": 104,
+                "originAirportCode": 1,
+                "destinationAirportCode": 5,
                 "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
+                "capacity": 120,
+                "occupancy": 0,
                 "status": "BOARDING",
                 "passengerIDs": {
                   "sorted": false,
-                  "count": 0.0
+                  "count": 0
                 },
                 "route": "",
                 "porcentajeOccupancy": 0.0
               },
               "next": {
                 "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
+                  "number": 105,
+                  "originAirportCode": 1,
+                  "destinationAirportCode": 6,
                   "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
+                  "capacity": 130,
+                  "occupancy": 0,
                   "status": "FINAL CALL",
                   "passengerIDs": {
                     "sorted": false,
-                    "count": 0.0
+                    "count": 0
                   },
                   "route": "",
                   "porcentajeOccupancy": 0.0
@@ -919,7 +1183,59 @@
       "count": 5
     },
     "waitingQueue": {
-      "counter": 0
+      "front": {
+        "data": {
+          "id": 5,
+          "name": "Ana",
+          "nationality": "Argentina",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 6,
+            "name": "Hiroshi",
+            "nationality": "Japonés",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "flightCount": 0,
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 7,
+              "name": "Marie",
+              "nationality": "Francesa",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "flightCount": 0,
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 7,
+          "name": "Marie",
+          "nationality": "Francesa",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        }
+      },
+      "counter": 3
     }
   },
   {
@@ -930,80 +1246,80 @@
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
+          "number": 101,
+          "originAirportCode": 1,
+          "destinationAirportCode": 2,
           "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
+          "capacity": 150,
+          "occupancy": 0,
           "status": "ON TIME",
           "passengerIDs": {
             "sorted": false,
-            "count": 0.0
+            "count": 0
           },
           "route": "",
           "porcentajeOccupancy": 0.0
         },
         "next": {
           "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
+            "number": 102,
+            "originAirportCode": 1,
+            "destinationAirportCode": 3,
             "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
+            "capacity": 200,
+            "occupancy": 0,
             "status": "DELAYED",
             "passengerIDs": {
               "sorted": false,
-              "count": 0.0
+              "count": 0
             },
             "route": "",
             "porcentajeOccupancy": 0.0
           },
           "next": {
             "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
+              "number": 103,
+              "originAirportCode": 1,
+              "destinationAirportCode": 4,
               "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
+              "capacity": 180,
+              "occupancy": 0,
               "status": "CANCELLED",
               "passengerIDs": {
                 "sorted": false,
-                "count": 0.0
+                "count": 0
               },
               "route": "",
               "porcentajeOccupancy": 0.0
             },
             "next": {
               "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
+                "number": 104,
+                "originAirportCode": 1,
+                "destinationAirportCode": 5,
                 "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
+                "capacity": 120,
+                "occupancy": 0,
                 "status": "BOARDING",
                 "passengerIDs": {
                   "sorted": false,
-                  "count": 0.0
+                  "count": 0
                 },
                 "route": "",
                 "porcentajeOccupancy": 0.0
               },
               "next": {
                 "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
+                  "number": 105,
+                  "originAirportCode": 1,
+                  "destinationAirportCode": 6,
                   "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
+                  "capacity": 130,
+                  "occupancy": 0,
                   "status": "FINAL CALL",
                   "passengerIDs": {
                     "sorted": false,
-                    "count": 0.0
+                    "count": 0
                   },
                   "route": "",
                   "porcentajeOccupancy": 0.0
@@ -1017,7 +1333,72 @@
       "count": 5
     },
     "waitingQueue": {
-      "counter": 0
+      "front": {
+        "data": {
+          "id": 1,
+          "name": "Camila",
+          "nationality": "Costarricense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 2,
+            "name": "Mateo",
+            "nationality": "Mexicano",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "flightCount": 0,
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 3,
+              "name": "Sara",
+              "nationality": "Colombiana",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "flightCount": 0,
+              "state": "Active"
+            },
+            "next": {
+              "data": {
+                "id": 4,
+                "name": "John",
+                "nationality": "Estadounidense",
+                "flightHistory": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "flightCount": 0,
+                "state": "Active"
+              }
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 4,
+          "name": "John",
+          "nationality": "Estadounidense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        }
+      },
+      "counter": 4
     }
   },
   {
@@ -1028,80 +1409,80 @@
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
+          "number": 101,
+          "originAirportCode": 1,
+          "destinationAirportCode": 2,
           "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
+          "capacity": 150,
+          "occupancy": 0,
           "status": "ON TIME",
           "passengerIDs": {
             "sorted": false,
-            "count": 0.0
+            "count": 0
           },
           "route": "",
           "porcentajeOccupancy": 0.0
         },
         "next": {
           "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
+            "number": 102,
+            "originAirportCode": 1,
+            "destinationAirportCode": 3,
             "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
+            "capacity": 200,
+            "occupancy": 0,
             "status": "DELAYED",
             "passengerIDs": {
               "sorted": false,
-              "count": 0.0
+              "count": 0
             },
             "route": "",
             "porcentajeOccupancy": 0.0
           },
           "next": {
             "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
+              "number": 103,
+              "originAirportCode": 1,
+              "destinationAirportCode": 4,
               "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
+              "capacity": 180,
+              "occupancy": 0,
               "status": "CANCELLED",
               "passengerIDs": {
                 "sorted": false,
-                "count": 0.0
+                "count": 0
               },
               "route": "",
               "porcentajeOccupancy": 0.0
             },
             "next": {
               "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
+                "number": 104,
+                "originAirportCode": 1,
+                "destinationAirportCode": 5,
                 "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
+                "capacity": 120,
+                "occupancy": 0,
                 "status": "BOARDING",
                 "passengerIDs": {
                   "sorted": false,
-                  "count": 0.0
+                  "count": 0
                 },
                 "route": "",
                 "porcentajeOccupancy": 0.0
               },
               "next": {
                 "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
+                  "number": 105,
+                  "originAirportCode": 1,
+                  "destinationAirportCode": 6,
                   "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
+                  "capacity": 130,
+                  "occupancy": 0,
                   "status": "FINAL CALL",
                   "passengerIDs": {
                     "sorted": false,
-                    "count": 0.0
+                    "count": 0
                   },
                   "route": "",
                   "porcentajeOccupancy": 0.0
@@ -1115,7 +1496,72 @@
       "count": 5
     },
     "waitingQueue": {
-      "counter": 0
+      "front": {
+        "data": {
+          "id": 1,
+          "name": "Camila",
+          "nationality": "Costarricense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 2,
+            "name": "Mateo",
+            "nationality": "Mexicano",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "flightCount": 0,
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 3,
+              "name": "Sara",
+              "nationality": "Colombiana",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "flightCount": 0,
+              "state": "Active"
+            },
+            "next": {
+              "data": {
+                "id": 4,
+                "name": "John",
+                "nationality": "Estadounidense",
+                "flightHistory": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "flightCount": 0,
+                "state": "Active"
+              }
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 4,
+          "name": "John",
+          "nationality": "Estadounidense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        }
+      },
+      "counter": 4
     }
   },
   {
@@ -1126,80 +1572,80 @@
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
+          "number": 101,
+          "originAirportCode": 1,
+          "destinationAirportCode": 2,
           "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
+          "capacity": 150,
+          "occupancy": 0,
           "status": "ON TIME",
           "passengerIDs": {
             "sorted": false,
-            "count": 0.0
+            "count": 0
           },
           "route": "",
           "porcentajeOccupancy": 0.0
         },
         "next": {
           "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
+            "number": 102,
+            "originAirportCode": 1,
+            "destinationAirportCode": 3,
             "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
+            "capacity": 200,
+            "occupancy": 0,
             "status": "DELAYED",
             "passengerIDs": {
               "sorted": false,
-              "count": 0.0
+              "count": 0
             },
             "route": "",
             "porcentajeOccupancy": 0.0
           },
           "next": {
             "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
+              "number": 103,
+              "originAirportCode": 1,
+              "destinationAirportCode": 4,
               "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
+              "capacity": 180,
+              "occupancy": 0,
               "status": "CANCELLED",
               "passengerIDs": {
                 "sorted": false,
-                "count": 0.0
+                "count": 0
               },
               "route": "",
               "porcentajeOccupancy": 0.0
             },
             "next": {
               "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
+                "number": 104,
+                "originAirportCode": 1,
+                "destinationAirportCode": 5,
                 "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
+                "capacity": 120,
+                "occupancy": 0,
                 "status": "BOARDING",
                 "passengerIDs": {
                   "sorted": false,
-                  "count": 0.0
+                  "count": 0
                 },
                 "route": "",
                 "porcentajeOccupancy": 0.0
               },
               "next": {
                 "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
+                  "number": 105,
+                  "originAirportCode": 1,
+                  "destinationAirportCode": 6,
                   "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
+                  "capacity": 130,
+                  "occupancy": 0,
                   "status": "FINAL CALL",
                   "passengerIDs": {
                     "sorted": false,
-                    "count": 0.0
+                    "count": 0
                   },
                   "route": "",
                   "porcentajeOccupancy": 0.0
@@ -1213,7 +1659,72 @@
       "count": 5
     },
     "waitingQueue": {
-      "counter": 0
+      "front": {
+        "data": {
+          "id": 1,
+          "name": "Camila",
+          "nationality": "Costarricense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 2,
+            "name": "Mateo",
+            "nationality": "Mexicano",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "flightCount": 0,
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 3,
+              "name": "Sara",
+              "nationality": "Colombiana",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "flightCount": 0,
+              "state": "Active"
+            },
+            "next": {
+              "data": {
+                "id": 4,
+                "name": "John",
+                "nationality": "Estadounidense",
+                "flightHistory": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "flightCount": 0,
+                "state": "Active"
+              }
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 4,
+          "name": "John",
+          "nationality": "Estadounidense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        }
+      },
+      "counter": 4
     }
   },
   {
@@ -1224,80 +1735,80 @@
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
+          "number": 101,
+          "originAirportCode": 1,
+          "destinationAirportCode": 2,
           "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
+          "capacity": 150,
+          "occupancy": 0,
           "status": "ON TIME",
           "passengerIDs": {
             "sorted": false,
-            "count": 0.0
+            "count": 0
           },
           "route": "",
           "porcentajeOccupancy": 0.0
         },
         "next": {
           "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
+            "number": 102,
+            "originAirportCode": 1,
+            "destinationAirportCode": 3,
             "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
+            "capacity": 200,
+            "occupancy": 0,
             "status": "DELAYED",
             "passengerIDs": {
               "sorted": false,
-              "count": 0.0
+              "count": 0
             },
             "route": "",
             "porcentajeOccupancy": 0.0
           },
           "next": {
             "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
+              "number": 103,
+              "originAirportCode": 1,
+              "destinationAirportCode": 4,
               "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
+              "capacity": 180,
+              "occupancy": 0,
               "status": "CANCELLED",
               "passengerIDs": {
                 "sorted": false,
-                "count": 0.0
+                "count": 0
               },
               "route": "",
               "porcentajeOccupancy": 0.0
             },
             "next": {
               "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
+                "number": 104,
+                "originAirportCode": 1,
+                "destinationAirportCode": 5,
                 "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
+                "capacity": 120,
+                "occupancy": 0,
                 "status": "BOARDING",
                 "passengerIDs": {
                   "sorted": false,
-                  "count": 0.0
+                  "count": 0
                 },
                 "route": "",
                 "porcentajeOccupancy": 0.0
               },
               "next": {
                 "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
+                  "number": 105,
+                  "originAirportCode": 1,
+                  "destinationAirportCode": 6,
                   "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
+                  "capacity": 130,
+                  "occupancy": 0,
                   "status": "FINAL CALL",
                   "passengerIDs": {
                     "sorted": false,
-                    "count": 0.0
+                    "count": 0
                   },
                   "route": "",
                   "porcentajeOccupancy": 0.0
@@ -1311,7 +1822,72 @@
       "count": 5
     },
     "waitingQueue": {
-      "counter": 0
+      "front": {
+        "data": {
+          "id": 1,
+          "name": "Camila",
+          "nationality": "Costarricense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 2,
+            "name": "Mateo",
+            "nationality": "Mexicano",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "flightCount": 0,
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 3,
+              "name": "Sara",
+              "nationality": "Colombiana",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "flightCount": 0,
+              "state": "Active"
+            },
+            "next": {
+              "data": {
+                "id": 4,
+                "name": "John",
+                "nationality": "Estadounidense",
+                "flightHistory": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "flightCount": 0,
+                "state": "Active"
+              }
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 4,
+          "name": "John",
+          "nationality": "Estadounidense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        }
+      },
+      "counter": 4
     }
   },
   {
@@ -1322,80 +1898,80 @@
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
+          "number": 101,
+          "originAirportCode": 1,
+          "destinationAirportCode": 2,
           "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
+          "capacity": 150,
+          "occupancy": 0,
           "status": "ON TIME",
           "passengerIDs": {
             "sorted": false,
-            "count": 0.0
+            "count": 0
           },
           "route": "",
           "porcentajeOccupancy": 0.0
         },
         "next": {
           "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
+            "number": 102,
+            "originAirportCode": 1,
+            "destinationAirportCode": 3,
             "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
+            "capacity": 200,
+            "occupancy": 0,
             "status": "DELAYED",
             "passengerIDs": {
               "sorted": false,
-              "count": 0.0
+              "count": 0
             },
             "route": "",
             "porcentajeOccupancy": 0.0
           },
           "next": {
             "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
+              "number": 103,
+              "originAirportCode": 1,
+              "destinationAirportCode": 4,
               "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
+              "capacity": 180,
+              "occupancy": 0,
               "status": "CANCELLED",
               "passengerIDs": {
                 "sorted": false,
-                "count": 0.0
+                "count": 0
               },
               "route": "",
               "porcentajeOccupancy": 0.0
             },
             "next": {
               "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
+                "number": 104,
+                "originAirportCode": 1,
+                "destinationAirportCode": 5,
                 "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
+                "capacity": 120,
+                "occupancy": 0,
                 "status": "BOARDING",
                 "passengerIDs": {
                   "sorted": false,
-                  "count": 0.0
+                  "count": 0
                 },
                 "route": "",
                 "porcentajeOccupancy": 0.0
               },
               "next": {
                 "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
+                  "number": 105,
+                  "originAirportCode": 1,
+                  "destinationAirportCode": 6,
                   "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
+                  "capacity": 130,
+                  "occupancy": 0,
                   "status": "FINAL CALL",
                   "passengerIDs": {
                     "sorted": false,
-                    "count": 0.0
+                    "count": 0
                   },
                   "route": "",
                   "porcentajeOccupancy": 0.0
@@ -1409,7 +1985,72 @@
       "count": 5
     },
     "waitingQueue": {
-      "counter": 0
+      "front": {
+        "data": {
+          "id": 1,
+          "name": "Camila",
+          "nationality": "Costarricense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 2,
+            "name": "Mateo",
+            "nationality": "Mexicano",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "flightCount": 0,
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 3,
+              "name": "Sara",
+              "nationality": "Colombiana",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "flightCount": 0,
+              "state": "Active"
+            },
+            "next": {
+              "data": {
+                "id": 4,
+                "name": "John",
+                "nationality": "Estadounidense",
+                "flightHistory": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "flightCount": 0,
+                "state": "Active"
+              }
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 4,
+          "name": "John",
+          "nationality": "Estadounidense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        }
+      },
+      "counter": 4
     }
   },
   {
@@ -1420,80 +2061,80 @@
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
+          "number": 101,
+          "originAirportCode": 1,
+          "destinationAirportCode": 2,
           "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
+          "capacity": 150,
+          "occupancy": 0,
           "status": "ON TIME",
           "passengerIDs": {
             "sorted": false,
-            "count": 0.0
+            "count": 0
           },
           "route": "",
           "porcentajeOccupancy": 0.0
         },
         "next": {
           "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
+            "number": 102,
+            "originAirportCode": 1,
+            "destinationAirportCode": 3,
             "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
+            "capacity": 200,
+            "occupancy": 0,
             "status": "DELAYED",
             "passengerIDs": {
               "sorted": false,
-              "count": 0.0
+              "count": 0
             },
             "route": "",
             "porcentajeOccupancy": 0.0
           },
           "next": {
             "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
+              "number": 103,
+              "originAirportCode": 1,
+              "destinationAirportCode": 4,
               "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
+              "capacity": 180,
+              "occupancy": 0,
               "status": "CANCELLED",
               "passengerIDs": {
                 "sorted": false,
-                "count": 0.0
+                "count": 0
               },
               "route": "",
               "porcentajeOccupancy": 0.0
             },
             "next": {
               "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
+                "number": 104,
+                "originAirportCode": 1,
+                "destinationAirportCode": 5,
                 "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
+                "capacity": 120,
+                "occupancy": 0,
                 "status": "BOARDING",
                 "passengerIDs": {
                   "sorted": false,
-                  "count": 0.0
+                  "count": 0
                 },
                 "route": "",
                 "porcentajeOccupancy": 0.0
               },
               "next": {
                 "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
+                  "number": 105,
+                  "originAirportCode": 1,
+                  "destinationAirportCode": 6,
                   "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
+                  "capacity": 130,
+                  "occupancy": 0,
                   "status": "FINAL CALL",
                   "passengerIDs": {
                     "sorted": false,
-                    "count": 0.0
+                    "count": 0
                   },
                   "route": "",
                   "porcentajeOccupancy": 0.0
@@ -1507,7 +2148,72 @@
       "count": 5
     },
     "waitingQueue": {
-      "counter": 0
+      "front": {
+        "data": {
+          "id": 1,
+          "name": "Camila",
+          "nationality": "Costarricense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 2,
+            "name": "Mateo",
+            "nationality": "Mexicano",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "flightCount": 0,
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 3,
+              "name": "Sara",
+              "nationality": "Colombiana",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "flightCount": 0,
+              "state": "Active"
+            },
+            "next": {
+              "data": {
+                "id": 4,
+                "name": "John",
+                "nationality": "Estadounidense",
+                "flightHistory": {
+                  "sorted": false,
+                  "count": 0
+                },
+                "flightCount": 0,
+                "state": "Active"
+              }
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 4,
+          "name": "John",
+          "nationality": "Estadounidense",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        }
+      },
+      "counter": 4
     }
   },
   {
@@ -1518,80 +2224,80 @@
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
+          "number": 101,
+          "originAirportCode": 1,
+          "destinationAirportCode": 2,
           "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
+          "capacity": 150,
+          "occupancy": 0,
           "status": "ON TIME",
           "passengerIDs": {
             "sorted": false,
-            "count": 0.0
+            "count": 0
           },
           "route": "",
           "porcentajeOccupancy": 0.0
         },
         "next": {
           "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
+            "number": 102,
+            "originAirportCode": 1,
+            "destinationAirportCode": 3,
             "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
+            "capacity": 200,
+            "occupancy": 0,
             "status": "DELAYED",
             "passengerIDs": {
               "sorted": false,
-              "count": 0.0
+              "count": 0
             },
             "route": "",
             "porcentajeOccupancy": 0.0
           },
           "next": {
             "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
+              "number": 103,
+              "originAirportCode": 1,
+              "destinationAirportCode": 4,
               "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
+              "capacity": 180,
+              "occupancy": 0,
               "status": "CANCELLED",
               "passengerIDs": {
                 "sorted": false,
-                "count": 0.0
+                "count": 0
               },
               "route": "",
               "porcentajeOccupancy": 0.0
             },
             "next": {
               "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
+                "number": 104,
+                "originAirportCode": 1,
+                "destinationAirportCode": 5,
                 "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
+                "capacity": 120,
+                "occupancy": 0,
                 "status": "BOARDING",
                 "passengerIDs": {
                   "sorted": false,
-                  "count": 0.0
+                  "count": 0
                 },
                 "route": "",
                 "porcentajeOccupancy": 0.0
               },
               "next": {
                 "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
+                  "number": 105,
+                  "originAirportCode": 1,
+                  "destinationAirportCode": 6,
                   "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
+                  "capacity": 130,
+                  "occupancy": 0,
                   "status": "FINAL CALL",
                   "passengerIDs": {
                     "sorted": false,
-                    "count": 0.0
+                    "count": 0
                   },
                   "route": "",
                   "porcentajeOccupancy": 0.0
@@ -1605,7 +2311,59 @@
       "count": 5
     },
     "waitingQueue": {
-      "counter": 0
+      "front": {
+        "data": {
+          "id": 8,
+          "name": "Mohamed",
+          "nationality": "Egipcio",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 9,
+            "name": "Julia",
+            "nationality": "Italiana",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "flightCount": 0,
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 10,
+              "name": "David",
+              "nationality": "Alemán",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "flightCount": 0,
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 10,
+          "name": "David",
+          "nationality": "Alemán",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        }
+      },
+      "counter": 3
     }
   },
   {
@@ -1616,80 +2374,80 @@
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
+          "number": 101,
+          "originAirportCode": 1,
+          "destinationAirportCode": 2,
           "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
+          "capacity": 150,
+          "occupancy": 0,
           "status": "ON TIME",
           "passengerIDs": {
             "sorted": false,
-            "count": 0.0
+            "count": 0
           },
           "route": "",
           "porcentajeOccupancy": 0.0
         },
         "next": {
           "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
+            "number": 102,
+            "originAirportCode": 1,
+            "destinationAirportCode": 3,
             "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
+            "capacity": 200,
+            "occupancy": 0,
             "status": "DELAYED",
             "passengerIDs": {
               "sorted": false,
-              "count": 0.0
+              "count": 0
             },
             "route": "",
             "porcentajeOccupancy": 0.0
           },
           "next": {
             "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
+              "number": 103,
+              "originAirportCode": 1,
+              "destinationAirportCode": 4,
               "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
+              "capacity": 180,
+              "occupancy": 0,
               "status": "CANCELLED",
               "passengerIDs": {
                 "sorted": false,
-                "count": 0.0
+                "count": 0
               },
               "route": "",
               "porcentajeOccupancy": 0.0
             },
             "next": {
               "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
+                "number": 104,
+                "originAirportCode": 1,
+                "destinationAirportCode": 5,
                 "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
+                "capacity": 120,
+                "occupancy": 0,
                 "status": "BOARDING",
                 "passengerIDs": {
                   "sorted": false,
-                  "count": 0.0
+                  "count": 0
                 },
                 "route": "",
                 "porcentajeOccupancy": 0.0
               },
               "next": {
                 "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
+                  "number": 105,
+                  "originAirportCode": 1,
+                  "destinationAirportCode": 6,
                   "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
+                  "capacity": 130,
+                  "occupancy": 0,
                   "status": "FINAL CALL",
                   "passengerIDs": {
                     "sorted": false,
-                    "count": 0.0
+                    "count": 0
                   },
                   "route": "",
                   "porcentajeOccupancy": 0.0
@@ -1703,7 +2461,59 @@
       "count": 5
     },
     "waitingQueue": {
-      "counter": 0
+      "front": {
+        "data": {
+          "id": 8,
+          "name": "Mohamed",
+          "nationality": "Egipcio",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 9,
+            "name": "Julia",
+            "nationality": "Italiana",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "flightCount": 0,
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 10,
+              "name": "David",
+              "nationality": "Alemán",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "flightCount": 0,
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 10,
+          "name": "David",
+          "nationality": "Alemán",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        }
+      },
+      "counter": 3
     }
   },
   {
@@ -1714,80 +2524,80 @@
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
+          "number": 101,
+          "originAirportCode": 1,
+          "destinationAirportCode": 2,
           "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
+          "capacity": 150,
+          "occupancy": 0,
           "status": "ON TIME",
           "passengerIDs": {
             "sorted": false,
-            "count": 0.0
+            "count": 0
           },
           "route": "",
           "porcentajeOccupancy": 0.0
         },
         "next": {
           "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
+            "number": 102,
+            "originAirportCode": 1,
+            "destinationAirportCode": 3,
             "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
+            "capacity": 200,
+            "occupancy": 0,
             "status": "DELAYED",
             "passengerIDs": {
               "sorted": false,
-              "count": 0.0
+              "count": 0
             },
             "route": "",
             "porcentajeOccupancy": 0.0
           },
           "next": {
             "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
+              "number": 103,
+              "originAirportCode": 1,
+              "destinationAirportCode": 4,
               "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
+              "capacity": 180,
+              "occupancy": 0,
               "status": "CANCELLED",
               "passengerIDs": {
                 "sorted": false,
-                "count": 0.0
+                "count": 0
               },
               "route": "",
               "porcentajeOccupancy": 0.0
             },
             "next": {
               "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
+                "number": 104,
+                "originAirportCode": 1,
+                "destinationAirportCode": 5,
                 "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
+                "capacity": 120,
+                "occupancy": 0,
                 "status": "BOARDING",
                 "passengerIDs": {
                   "sorted": false,
-                  "count": 0.0
+                  "count": 0
                 },
                 "route": "",
                 "porcentajeOccupancy": 0.0
               },
               "next": {
                 "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
+                  "number": 105,
+                  "originAirportCode": 1,
+                  "destinationAirportCode": 6,
                   "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
+                  "capacity": 130,
+                  "occupancy": 0,
                   "status": "FINAL CALL",
                   "passengerIDs": {
                     "sorted": false,
-                    "count": 0.0
+                    "count": 0
                   },
                   "route": "",
                   "porcentajeOccupancy": 0.0
@@ -1801,7 +2611,59 @@
       "count": 5
     },
     "waitingQueue": {
-      "counter": 0
+      "front": {
+        "data": {
+          "id": 8,
+          "name": "Mohamed",
+          "nationality": "Egipcio",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 9,
+            "name": "Julia",
+            "nationality": "Italiana",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "flightCount": 0,
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 10,
+              "name": "David",
+              "nationality": "Alemán",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "flightCount": 0,
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 10,
+          "name": "David",
+          "nationality": "Alemán",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        }
+      },
+      "counter": 3
     }
   },
   {
@@ -1812,80 +2674,80 @@
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
+          "number": 101,
+          "originAirportCode": 1,
+          "destinationAirportCode": 2,
           "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
+          "capacity": 150,
+          "occupancy": 0,
           "status": "ON TIME",
           "passengerIDs": {
             "sorted": false,
-            "count": 0.0
+            "count": 0
           },
           "route": "",
           "porcentajeOccupancy": 0.0
         },
         "next": {
           "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
+            "number": 102,
+            "originAirportCode": 1,
+            "destinationAirportCode": 3,
             "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
+            "capacity": 200,
+            "occupancy": 0,
             "status": "DELAYED",
             "passengerIDs": {
               "sorted": false,
-              "count": 0.0
+              "count": 0
             },
             "route": "",
             "porcentajeOccupancy": 0.0
           },
           "next": {
             "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
+              "number": 103,
+              "originAirportCode": 1,
+              "destinationAirportCode": 4,
               "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
+              "capacity": 180,
+              "occupancy": 0,
               "status": "CANCELLED",
               "passengerIDs": {
                 "sorted": false,
-                "count": 0.0
+                "count": 0
               },
               "route": "",
               "porcentajeOccupancy": 0.0
             },
             "next": {
               "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
+                "number": 104,
+                "originAirportCode": 1,
+                "destinationAirportCode": 5,
                 "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
+                "capacity": 120,
+                "occupancy": 0,
                 "status": "BOARDING",
                 "passengerIDs": {
                   "sorted": false,
-                  "count": 0.0
+                  "count": 0
                 },
                 "route": "",
                 "porcentajeOccupancy": 0.0
               },
               "next": {
                 "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
+                  "number": 105,
+                  "originAirportCode": 1,
+                  "destinationAirportCode": 6,
                   "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
+                  "capacity": 130,
+                  "occupancy": 0,
                   "status": "FINAL CALL",
                   "passengerIDs": {
                     "sorted": false,
-                    "count": 0.0
+                    "count": 0
                   },
                   "route": "",
                   "porcentajeOccupancy": 0.0
@@ -1899,7 +2761,59 @@
       "count": 5
     },
     "waitingQueue": {
-      "counter": 0
+      "front": {
+        "data": {
+          "id": 8,
+          "name": "Mohamed",
+          "nationality": "Egipcio",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 9,
+            "name": "Julia",
+            "nationality": "Italiana",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "flightCount": 0,
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 10,
+              "name": "David",
+              "nationality": "Alemán",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "flightCount": 0,
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 10,
+          "name": "David",
+          "nationality": "Alemán",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        }
+      },
+      "counter": 3
     }
   },
   {
@@ -1910,80 +2824,80 @@
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
+          "number": 101,
+          "originAirportCode": 1,
+          "destinationAirportCode": 2,
           "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
+          "capacity": 150,
+          "occupancy": 0,
           "status": "ON TIME",
           "passengerIDs": {
             "sorted": false,
-            "count": 0.0
+            "count": 0
           },
           "route": "",
           "porcentajeOccupancy": 0.0
         },
         "next": {
           "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
+            "number": 102,
+            "originAirportCode": 1,
+            "destinationAirportCode": 3,
             "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
+            "capacity": 200,
+            "occupancy": 0,
             "status": "DELAYED",
             "passengerIDs": {
               "sorted": false,
-              "count": 0.0
+              "count": 0
             },
             "route": "",
             "porcentajeOccupancy": 0.0
           },
           "next": {
             "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
+              "number": 103,
+              "originAirportCode": 1,
+              "destinationAirportCode": 4,
               "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
+              "capacity": 180,
+              "occupancy": 0,
               "status": "CANCELLED",
               "passengerIDs": {
                 "sorted": false,
-                "count": 0.0
+                "count": 0
               },
               "route": "",
               "porcentajeOccupancy": 0.0
             },
             "next": {
               "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
+                "number": 104,
+                "originAirportCode": 1,
+                "destinationAirportCode": 5,
                 "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
+                "capacity": 120,
+                "occupancy": 0,
                 "status": "BOARDING",
                 "passengerIDs": {
                   "sorted": false,
-                  "count": 0.0
+                  "count": 0
                 },
                 "route": "",
                 "porcentajeOccupancy": 0.0
               },
               "next": {
                 "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
+                  "number": 105,
+                  "originAirportCode": 1,
+                  "destinationAirportCode": 6,
                   "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
+                  "capacity": 130,
+                  "occupancy": 0,
                   "status": "FINAL CALL",
                   "passengerIDs": {
                     "sorted": false,
-                    "count": 0.0
+                    "count": 0
                   },
                   "route": "",
                   "porcentajeOccupancy": 0.0
@@ -1997,7 +2911,59 @@
       "count": 5
     },
     "waitingQueue": {
-      "counter": 0
+      "front": {
+        "data": {
+          "id": 8,
+          "name": "Mohamed",
+          "nationality": "Egipcio",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 9,
+            "name": "Julia",
+            "nationality": "Italiana",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "flightCount": 0,
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 10,
+              "name": "David",
+              "nationality": "Alemán",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "flightCount": 0,
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 10,
+          "name": "David",
+          "nationality": "Alemán",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        }
+      },
+      "counter": 3
     }
   },
   {
@@ -2008,80 +2974,80 @@
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
+          "number": 101,
+          "originAirportCode": 1,
+          "destinationAirportCode": 2,
           "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
+          "capacity": 150,
+          "occupancy": 0,
           "status": "ON TIME",
           "passengerIDs": {
             "sorted": false,
-            "count": 0.0
+            "count": 0
           },
           "route": "",
           "porcentajeOccupancy": 0.0
         },
         "next": {
           "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
+            "number": 102,
+            "originAirportCode": 1,
+            "destinationAirportCode": 3,
             "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
+            "capacity": 200,
+            "occupancy": 0,
             "status": "DELAYED",
             "passengerIDs": {
               "sorted": false,
-              "count": 0.0
+              "count": 0
             },
             "route": "",
             "porcentajeOccupancy": 0.0
           },
           "next": {
             "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
+              "number": 103,
+              "originAirportCode": 1,
+              "destinationAirportCode": 4,
               "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
+              "capacity": 180,
+              "occupancy": 0,
               "status": "CANCELLED",
               "passengerIDs": {
                 "sorted": false,
-                "count": 0.0
+                "count": 0
               },
               "route": "",
               "porcentajeOccupancy": 0.0
             },
             "next": {
               "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
+                "number": 104,
+                "originAirportCode": 1,
+                "destinationAirportCode": 5,
                 "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
+                "capacity": 120,
+                "occupancy": 0,
                 "status": "BOARDING",
                 "passengerIDs": {
                   "sorted": false,
-                  "count": 0.0
+                  "count": 0
                 },
                 "route": "",
                 "porcentajeOccupancy": 0.0
               },
               "next": {
                 "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
+                  "number": 105,
+                  "originAirportCode": 1,
+                  "destinationAirportCode": 6,
                   "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
+                  "capacity": 130,
+                  "occupancy": 0,
                   "status": "FINAL CALL",
                   "passengerIDs": {
                     "sorted": false,
-                    "count": 0.0
+                    "count": 0
                   },
                   "route": "",
                   "porcentajeOccupancy": 0.0
@@ -2095,7 +3061,59 @@
       "count": 5
     },
     "waitingQueue": {
-      "counter": 0
+      "front": {
+        "data": {
+          "id": 8,
+          "name": "Mohamed",
+          "nationality": "Egipcio",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        },
+        "next": {
+          "data": {
+            "id": 9,
+            "name": "Julia",
+            "nationality": "Italiana",
+            "flightHistory": {
+              "sorted": false,
+              "count": 0
+            },
+            "flightCount": 0,
+            "state": "Active"
+          },
+          "next": {
+            "data": {
+              "id": 10,
+              "name": "David",
+              "nationality": "Alemán",
+              "flightHistory": {
+                "sorted": false,
+                "count": 0
+              },
+              "flightCount": 0,
+              "state": "Active"
+            }
+          }
+        }
+      },
+      "rear": {
+        "data": {
+          "id": 10,
+          "name": "David",
+          "nationality": "Alemán",
+          "flightHistory": {
+            "sorted": false,
+            "count": 0
+          },
+          "flightCount": 0,
+          "state": "Active"
+        }
+      },
+      "counter": 3
     }
   }
 ]

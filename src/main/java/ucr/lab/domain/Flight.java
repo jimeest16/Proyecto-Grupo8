@@ -1,8 +1,10 @@
 package ucr.lab.domain;
 
 import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import ucr.lab.TDA.list.SinglyLinkedList;
 import ucr.lab.TDA.list.ListException;
+import ucr.lab.utility.Reader.SinglyListDeserializer;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -21,7 +23,7 @@ public class Flight {
     private int capacity;
     private int occupancy;
     private String status;
-
+   // @JsonDeserialize(using = SinglyListDeserializer.class)
     private SinglyLinkedList passengerIDs;
     private String route;
     SinglyLinkedList availableRoutes;

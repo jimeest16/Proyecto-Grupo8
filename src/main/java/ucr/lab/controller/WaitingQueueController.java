@@ -13,10 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -35,6 +32,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class WaitingQueueController {
     @FXML
@@ -51,23 +49,58 @@ public class WaitingQueueController {
     private AirPort aeropuerto;
     private Flight vuelo;
     private LinkedQueue colaPasajeros;
-
+    ObjectMapper mapper;
+    @FXML
+    private ComboBox<Flight> cbFlight;
+    ObservableList<Flight> observableListFlights;
     @javafx.fxml.FXML
     public void initialize() throws IOException, QueueException {
         //Instanciar y serializar la cola de Pasajeros
-        ObjectMapper mapper = JacksonProvider.get();
+        this.mapper = JacksonProvider.get();
         mapper.registerModule(new JavaTimeModule());
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         File file = new File("src/main/resources/data/airports.json");
-        actualizarCola();
 
-}
-    public void setDatos(AirPort aeropuerto, Flight vuelo) throws QueueException {
-        this.aeropuerto = aeropuerto;
-        this.vuelo = vuelo;
-        actualizarCola();
-        labelAirport.setText(aeropuerto.getName());//colocar el nombre del aeropuerto arriba
+        // Este listener se dispara cada vez cambia la selección
+        cbFlight.getSelectionModel()
+                .selectedItemProperty()
+                .addListener((obs, oldFlight, newFlight) -> {
+                    if (newFlight != null) {
+                        vuelo = newFlight;
+                        try {
+                            actualizarCola();
+                        } catch (QueueException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
+
     }
+    public void setDatos(AirPort aeropuerto, Flight vueloInicial) throws QueueException {
+        this.aeropuerto = aeropuerto;
+        labelAirport.setText(aeropuerto.getName());
+
+        // Poblamos la lista de vuelos disponibles
+        List<Flight> lista = Util.getDeparturesList();
+
+        cbFlight.setItems(FXCollections.observableList(aeropuerto.getDeparturesBoard().toList()));
+        // Seleccionamos el vuelo que te pasaron al método (puede ser null)
+        if (vueloInicial != null) {
+            cbFlight.getSelectionModel().select(vueloInicial);
+            this.vuelo = vueloInicial;
+        }
+        // Si no pasaron ninguno, opcionalmente selecciona el primero
+        else if (!lista.isEmpty()) {
+            cbFlight.getSelectionModel().selectFirst();
+            this.vuelo = cbFlight.getValue();//aquí lo lee como map entonces convertir a Flight arriba
+
+        }
+        // Actualizar
+        actualizarCola();
+        labelAirport.setText(aeropuerto.getName());
+    }
+
     private void actualizarCola() throws QueueException {
         if (aeropuerto == null) {
             return;
@@ -98,8 +131,6 @@ public class WaitingQueueController {
                 int id = ((Number) map.get("id")).intValue();
                 String name = (String) map.get("name");
                 String nationality = (String) map.get("nationality");
-                //SinglyLinkedList flightHistory = (SinglyLinkedList) map.get("flightHistory");
-                //String state= (String) map.get("state") ;
 
                 p = new Passenger(id, name, nationality);
 
@@ -116,7 +147,6 @@ public class WaitingQueueController {
             nodo = nodo.next;
         }
 
-        // Asignar texto en UI thread
         Runnable update = () -> {
             textAreaPassangers.setText(datos.toString());
         };
@@ -155,14 +185,12 @@ public class WaitingQueueController {
         while (!cola.isEmpty() && vuelo.getOccupancy() < vuelo.getCapacity()) {
             Passenger pasajero = (Passenger) cola.deQueue();
             listaPasajerosAbordando.add(pasajero);
-            vuelo.addPassengerID(pasajero.getId());
+            vuelo.addPassengerID(pasajero.getId());//agregarlos a la lista de ids de pasajeros del vuelo
             pasajero.addFlight(vuelo);
-            //pasajero.addToFlightHistory(vueloAsignado);
             embarcados++;
             vuelo.setOccupancy(embarcados);
             System.out.println(vuelo);
         }
-        //vuelo.setPassengerIDs(listaPasajerosAbordando); //agregarlos a la lista de ids de pasajeros del vuelo
 
         if (embarcados != 0) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -175,8 +203,6 @@ public class WaitingQueueController {
         }
 
         textAreaPassangers.clear();
-
-
         actualizarVista();
     }
     public void convertirMapToPassenger() throws QueueException {
@@ -231,4 +257,5 @@ public class WaitingQueueController {
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
+
 }
