@@ -23,6 +23,7 @@ import javafx.scene.input.MouseEvent;
 import ucr.lab.utility.Util;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.Random;
 import java.util.List;
 import java.util.HashMap;
@@ -990,7 +991,7 @@ public class RouteController {
         String pdf = "src/main/resources/reportes/routes_report.pdf";
 
 
-        List<Flight> routesList = FileReader.loadFlightsAsListForInternalUse();
+        List<Flight> routesList = FileReader.loadReportRoutes();
 
 
         Util.generarReporte(jsonPath, jrxmlPath, pdf, routesList);

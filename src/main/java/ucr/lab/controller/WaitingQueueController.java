@@ -145,7 +145,6 @@ public class WaitingQueueController {
         }
     }
     public void embarcarPasajeros() throws QueueException {
-
         convertirMapToPassenger();
         LinkedQueue cola = aeropuerto.getWaitingQueue();//con pasajeros en lista de espera
         int embarcados = 0;
@@ -167,10 +166,12 @@ public class WaitingQueueController {
 
         if (embarcados != 0) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Abordaje");
-            alert.setHeaderText(embarcados + " pasajeros fueron abordados.");
-            alert.setContentText("Vuelo actualizado: \n"+"La lista de identificaciones del vuelo es: "+ vuelo.getPassengerIDs().toList());//se puede mejorar la salida
+            alert.setTitle("Boarding");
+            alert.setHeaderText(embarcados + " passengers were boarded.");
+            alert.setContentText("Flight updated: \n"+"The list of passenger IDs for the flight is: "+ vuelo.getPassengerIDs().toList());//se puede mejorar la salida
             alert.showAndWait();
+        }else{
+            mostrarAlerta("Atención","No hay pasajeros en la cola de espera.\n Regresa y selecciona otro aeropuerto.", Alert.AlertType.INFORMATION);
         }
 
         textAreaPassangers.clear();

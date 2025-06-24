@@ -101,95 +101,237 @@
     "code": 2,
     "name": "John F. Kennedy International Airport",
     "country": "USA",
-    "status": "Inactivo",
+    "status": "Activo",
     "departuresBoard": {
       "first": {
         "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
-          "departureTime": "2025-06-23T10:30:00",
+          "number": 1.0,
+          "originAirportCode": 12.0,
+          "destinationAirportCode": 9.0,
+          "departureTime": "2025-06-19T15:56:00.1091625",
           "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
+          "occupancy": 70.0,
+          "status": "Complete",
           "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": "",
-          "porcentajeOccupancy": 0.0
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
-            "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": "",
-            "porcentajeOccupancy": 0.0
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
-              "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": "",
-              "porcentajeOccupancy": 0.0
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
-                "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": "",
-                "porcentajeOccupancy": 0.0
-              },
+            "first": {
+              "data": 1.00000001E8,
               "next": {
-                "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
-                  "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": "",
-                  "porcentajeOccupancy": 0.0
+                "data": 1.00000002E8,
+                "next": {
+                  "data": 1.00000003E8,
+                  "next": {
+                    "data": 1.00000004E8,
+                    "next": {
+                      "data": 1.00000005E8,
+                      "next": {
+                        "data": 1.00000006E8,
+                        "next": {
+                          "data": 1.00000007E8,
+                          "next": {
+                            "data": 1.00000008E8,
+                            "next": {
+                              "data": 1.00000009E8,
+                              "next": {
+                                "data": 1.0000001E8,
+                                "next": {
+                                  "data": 1.00000011E8,
+                                  "next": {
+                                    "data": 1.00000012E8,
+                                    "next": {
+                                      "data": 1.00000013E8,
+                                      "next": {
+                                        "data": 1.00000014E8,
+                                        "next": {
+                                          "data": 1.00000015E8,
+                                          "next": {
+                                            "data": 1.00000016E8,
+                                            "next": {
+                                              "data": 1.00000017E8,
+                                              "next": {
+                                                "data": 1.00000018E8,
+                                                "next": {
+                                                  "data": 1.00000019E8,
+                                                  "next": {
+                                                    "data": 1.0000002E8,
+                                                    "next": {
+                                                      "data": 1.00000021E8,
+                                                      "next": {
+                                                        "data": 1.00000022E8,
+                                                        "next": {
+                                                          "data": 1.00000023E8,
+                                                          "next": {
+                                                            "data": 1.00000024E8,
+                                                            "next": {
+                                                              "data": 1.00000025E8,
+                                                              "next": {
+                                                                "data": 1.00000026E8,
+                                                                "next": {
+                                                                  "data": 1.00000027E8,
+                                                                  "next": {
+                                                                    "data": 1.00000028E8,
+                                                                    "next": {
+                                                                      "data": 1.00000029E8,
+                                                                      "next": {
+                                                                        "data": 1.0000003E8,
+                                                                        "next": {
+                                                                          "data": 1.00000031E8,
+                                                                          "next": {
+                                                                            "data": 1.00000032E8,
+                                                                            "next": {
+                                                                              "data": 1.00000033E8,
+                                                                              "next": {
+                                                                                "data": 1.00000034E8,
+                                                                                "next": {
+                                                                                  "data": 1.00000035E8,
+                                                                                  "next": {
+                                                                                    "data": 1.00000036E8,
+                                                                                    "next": {
+                                                                                      "data": 1.00000037E8,
+                                                                                      "next": {
+                                                                                        "data": 1.00000038E8,
+                                                                                        "next": {
+                                                                                          "data": 1.00000039E8,
+                                                                                          "next": {
+                                                                                            "data": 1.0000004E8,
+                                                                                            "next": {
+                                                                                              "data": 1.00000041E8,
+                                                                                              "next": {
+                                                                                                "data": 1.00000042E8,
+                                                                                                "next": {
+                                                                                                  "data": 1.00000043E8,
+                                                                                                  "next": {
+                                                                                                    "data": 1.00000044E8,
+                                                                                                    "next": {
+                                                                                                      "data": 1.00000045E8,
+                                                                                                      "next": {
+                                                                                                        "data": 1.00000046E8,
+                                                                                                        "next": {
+                                                                                                          "data": 1.00000047E8,
+                                                                                                          "next": {
+                                                                                                            "data": 1.00000048E8,
+                                                                                                            "next": {
+                                                                                                              "data": 1.00000049E8,
+                                                                                                              "next": {
+                                                                                                                "data": 1.0000005E8,
+                                                                                                                "next": {
+                                                                                                                  "data": 1.00000051E8,
+                                                                                                                  "next": {
+                                                                                                                    "data": 1.00000052E8,
+                                                                                                                    "next": {
+                                                                                                                      "data": 1.00000053E8,
+                                                                                                                      "next": {
+                                                                                                                        "data": 1.00000054E8,
+                                                                                                                        "next": {
+                                                                                                                          "data": 1.00000055E8,
+                                                                                                                          "next": {
+                                                                                                                            "data": 1.00000056E8,
+                                                                                                                            "next": {
+                                                                                                                              "data": 1.00000057E8,
+                                                                                                                              "next": {
+                                                                                                                                "data": 1.00000058E8,
+                                                                                                                                "next": {
+                                                                                                                                  "data": 1.00000059E8,
+                                                                                                                                  "next": {
+                                                                                                                                    "data": 1.0000006E8,
+                                                                                                                                    "next": {
+                                                                                                                                      "data": 1.00000061E8,
+                                                                                                                                      "next": {
+                                                                                                                                        "data": 1.00000062E8,
+                                                                                                                                        "next": {
+                                                                                                                                          "data": 1.00000063E8,
+                                                                                                                                          "next": {
+                                                                                                                                            "data": 1.00000064E8,
+                                                                                                                                            "next": {
+                                                                                                                                              "data": 1.00000065E8,
+                                                                                                                                              "next": {
+                                                                                                                                                "data": 1.00000066E8,
+                                                                                                                                                "next": {
+                                                                                                                                                  "data": 1.00000067E8,
+                                                                                                                                                  "next": {
+                                                                                                                                                    "data": 1.00000068E8,
+                                                                                                                                                    "next": {
+                                                                                                                                                      "data": 1.00000069E8,
+                                                                                                                                                      "next": {
+                                                                                                                                                        "data": 1.0000007E8
+                                                                                                                                                      }
+                                                                                                                                                    }
+                                                                                                                                                  }
+                                                                                                                                                }
+                                                                                                                                              }
+                                                                                                                                            }
+                                                                                                                                          }
+                                                                                                                                        }
+                                                                                                                                      }
+                                                                                                                                    }
+                                                                                                                                  }
+                                                                                                                                }
+                                                                                                                              }
+                                                                                                                            }
+                                                                                                                          }
+                                                                                                                        }
+                                                                                                                      }
+                                                                                                                    }
+                                                                                                                  }
+                                                                                                                }
+                                                                                                              }
+                                                                                                            }
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    }
+                                                                                                  }
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
-            }
-          }
+            },
+            "sorted": false,
+            "count": 70.0
+          },
+          "route": "12-9",
+          "porcentajeOccupancy": 0.4666666666666667
         }
       },
       "sorted": false,
-      "count": 5
+      "count": 1
     },
     "waitingQueue": {
       "counter": 0
@@ -297,300 +439,6 @@
     "code": 4,
     "name": "Ciudad Celeste International Airport",
     "country": "TERRANOVA",
-    "status": "Inactivo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
-          "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": "",
-          "porcentajeOccupancy": 0.0
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
-            "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": "",
-            "porcentajeOccupancy": 0.0
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
-              "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": "",
-              "porcentajeOccupancy": 0.0
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
-                "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": "",
-                "porcentajeOccupancy": 0.0
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
-                  "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": "",
-                  "porcentajeOccupancy": 0.0
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 5,
-    "name": "Narita International Airport",
-    "country": "JAPAN",
-    "status": "Activo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
-          "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": "",
-          "porcentajeOccupancy": 0.0
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
-            "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": "",
-            "porcentajeOccupancy": 0.0
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
-              "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": "",
-              "porcentajeOccupancy": 0.0
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
-                "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": "",
-                "porcentajeOccupancy": 0.0
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
-                  "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": "",
-                  "porcentajeOccupancy": 0.0
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 6,
-    "name": "Frankfurt Airport",
-    "country": "GERMANY",
-    "status": "Activo",
-    "departuresBoard": {
-      "first": {
-        "data": {
-          "number": 101.0,
-          "originAirportCode": 1.0,
-          "destinationAirportCode": 2.0,
-          "departureTime": "2025-06-23T10:30:00",
-          "capacity": 150.0,
-          "occupancy": 0.0,
-          "status": "ON TIME",
-          "passengerIDs": {
-            "sorted": false,
-            "count": 0.0
-          },
-          "route": "",
-          "porcentajeOccupancy": 0.0
-        },
-        "next": {
-          "data": {
-            "number": 102.0,
-            "originAirportCode": 1.0,
-            "destinationAirportCode": 3.0,
-            "departureTime": "2025-06-25T14:00:00",
-            "capacity": 200.0,
-            "occupancy": 0.0,
-            "status": "DELAYED",
-            "passengerIDs": {
-              "sorted": false,
-              "count": 0.0
-            },
-            "route": "",
-            "porcentajeOccupancy": 0.0
-          },
-          "next": {
-            "data": {
-              "number": 103.0,
-              "originAirportCode": 1.0,
-              "destinationAirportCode": 4.0,
-              "departureTime": "2025-06-27T08:45:00",
-              "capacity": 180.0,
-              "occupancy": 0.0,
-              "status": "CANCELLED",
-              "passengerIDs": {
-                "sorted": false,
-                "count": 0.0
-              },
-              "route": "",
-              "porcentajeOccupancy": 0.0
-            },
-            "next": {
-              "data": {
-                "number": 104.0,
-                "originAirportCode": 1.0,
-                "destinationAirportCode": 5.0,
-                "departureTime": "2025-06-24T09:15:00",
-                "capacity": 120.0,
-                "occupancy": 0.0,
-                "status": "BOARDING",
-                "passengerIDs": {
-                  "sorted": false,
-                  "count": 0.0
-                },
-                "route": "",
-                "porcentajeOccupancy": 0.0
-              },
-              "next": {
-                "data": {
-                  "number": 105.0,
-                  "originAirportCode": 1.0,
-                  "destinationAirportCode": 6.0,
-                  "departureTime": "2025-06-26T16:20:00",
-                  "capacity": 130.0,
-                  "occupancy": 0.0,
-                  "status": "FINAL CALL",
-                  "passengerIDs": {
-                    "sorted": false,
-                    "count": 0.0
-                  },
-                  "route": "",
-                  "porcentajeOccupancy": 0.0
-                }
-              }
-            }
-          }
-        }
-      },
-      "sorted": false,
-      "count": 5
-    },
-    "waitingQueue": {
-      "counter": 0
-    }
-  },
-  {
-    "code": 7,
-    "name": "Aeropuerto de Buenos Aires",
-    "country": "ARGENTINA",
     "status": "Activo",
     "departuresBoard": {
       "first": {
@@ -822,6 +670,442 @@
       },
       "sorted": false,
       "count": 1
+    }
+  },
+  {
+    "code": 5,
+    "name": "Narita International Airport",
+    "country": "JAPAN",
+    "status": "Activo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101.0,
+          "originAirportCode": 1.0,
+          "destinationAirportCode": 2.0,
+          "departureTime": "2025-06-23T10:30:00",
+          "capacity": 150.0,
+          "occupancy": 0.0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0.0
+          },
+          "route": "",
+          "porcentajeOccupancy": 0.0
+        },
+        "next": {
+          "data": {
+            "number": 102.0,
+            "originAirportCode": 1.0,
+            "destinationAirportCode": 3.0,
+            "departureTime": "2025-06-25T14:00:00",
+            "capacity": 200.0,
+            "occupancy": 0.0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0.0
+            },
+            "route": "",
+            "porcentajeOccupancy": 0.0
+          },
+          "next": {
+            "data": {
+              "number": 103.0,
+              "originAirportCode": 1.0,
+              "destinationAirportCode": 4.0,
+              "departureTime": "2025-06-27T08:45:00",
+              "capacity": 180.0,
+              "occupancy": 0.0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0.0
+              },
+              "route": "",
+              "porcentajeOccupancy": 0.0
+            },
+            "next": {
+              "data": {
+                "number": 104.0,
+                "originAirportCode": 1.0,
+                "destinationAirportCode": 5.0,
+                "departureTime": "2025-06-24T09:15:00",
+                "capacity": 120.0,
+                "occupancy": 0.0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0.0
+                },
+                "route": "",
+                "porcentajeOccupancy": 0.0
+              },
+              "next": {
+                "data": {
+                  "number": 105.0,
+                  "originAirportCode": 1.0,
+                  "destinationAirportCode": 6.0,
+                  "departureTime": "2025-06-26T16:20:00",
+                  "capacity": 130.0,
+                  "occupancy": 0.0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0.0
+                  },
+                  "route": "",
+                  "porcentajeOccupancy": 0.0
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "counter": 0
+    }
+  },
+  {
+    "code": 6,
+    "name": "Frankfurt Airport",
+    "country": "GERMANY",
+    "status": "Activo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 101.0,
+          "originAirportCode": 1.0,
+          "destinationAirportCode": 2.0,
+          "departureTime": "2025-06-23T10:30:00",
+          "capacity": 150.0,
+          "occupancy": 0.0,
+          "status": "ON TIME",
+          "passengerIDs": {
+            "sorted": false,
+            "count": 0.0
+          },
+          "route": "",
+          "porcentajeOccupancy": 0.0
+        },
+        "next": {
+          "data": {
+            "number": 102.0,
+            "originAirportCode": 1.0,
+            "destinationAirportCode": 3.0,
+            "departureTime": "2025-06-25T14:00:00",
+            "capacity": 200.0,
+            "occupancy": 0.0,
+            "status": "DELAYED",
+            "passengerIDs": {
+              "sorted": false,
+              "count": 0.0
+            },
+            "route": "",
+            "porcentajeOccupancy": 0.0
+          },
+          "next": {
+            "data": {
+              "number": 103.0,
+              "originAirportCode": 1.0,
+              "destinationAirportCode": 4.0,
+              "departureTime": "2025-06-27T08:45:00",
+              "capacity": 180.0,
+              "occupancy": 0.0,
+              "status": "CANCELLED",
+              "passengerIDs": {
+                "sorted": false,
+                "count": 0.0
+              },
+              "route": "",
+              "porcentajeOccupancy": 0.0
+            },
+            "next": {
+              "data": {
+                "number": 104.0,
+                "originAirportCode": 1.0,
+                "destinationAirportCode": 5.0,
+                "departureTime": "2025-06-24T09:15:00",
+                "capacity": 120.0,
+                "occupancy": 0.0,
+                "status": "BOARDING",
+                "passengerIDs": {
+                  "sorted": false,
+                  "count": 0.0
+                },
+                "route": "",
+                "porcentajeOccupancy": 0.0
+              },
+              "next": {
+                "data": {
+                  "number": 105.0,
+                  "originAirportCode": 1.0,
+                  "destinationAirportCode": 6.0,
+                  "departureTime": "2025-06-26T16:20:00",
+                  "capacity": 130.0,
+                  "occupancy": 0.0,
+                  "status": "FINAL CALL",
+                  "passengerIDs": {
+                    "sorted": false,
+                    "count": 0.0
+                  },
+                  "route": "",
+                  "porcentajeOccupancy": 0.0
+                }
+              }
+            }
+          }
+        }
+      },
+      "sorted": false,
+      "count": 5
+    },
+    "waitingQueue": {
+      "counter": 0
+    }
+  },
+  {
+    "code": 7,
+    "name": "Aeropuerto de Buenos Aires",
+    "country": "ARGENTINA",
+    "status": "Activo",
+    "departuresBoard": {
+      "first": {
+        "data": {
+          "number": 1.0,
+          "originAirportCode": 12.0,
+          "destinationAirportCode": 9.0,
+          "departureTime": "2025-06-19T15:56:00.1091625",
+          "capacity": 150.0,
+          "occupancy": 70.0,
+          "status": "Active",
+          "passengerIDs": {
+            "first": {
+              "data": 1.00000001E8,
+              "next": {
+                "data": 1.00000002E8,
+                "next": {
+                  "data": 1.00000003E8,
+                  "next": {
+                    "data": 1.00000004E8,
+                    "next": {
+                      "data": 1.00000005E8,
+                      "next": {
+                        "data": 1.00000006E8,
+                        "next": {
+                          "data": 1.00000007E8,
+                          "next": {
+                            "data": 1.00000008E8,
+                            "next": {
+                              "data": 1.00000009E8,
+                              "next": {
+                                "data": 1.0000001E8,
+                                "next": {
+                                  "data": 1.00000011E8,
+                                  "next": {
+                                    "data": 1.00000012E8,
+                                    "next": {
+                                      "data": 1.00000013E8,
+                                      "next": {
+                                        "data": 1.00000014E8,
+                                        "next": {
+                                          "data": 1.00000015E8,
+                                          "next": {
+                                            "data": 1.00000016E8,
+                                            "next": {
+                                              "data": 1.00000017E8,
+                                              "next": {
+                                                "data": 1.00000018E8,
+                                                "next": {
+                                                  "data": 1.00000019E8,
+                                                  "next": {
+                                                    "data": 1.0000002E8,
+                                                    "next": {
+                                                      "data": 1.00000021E8,
+                                                      "next": {
+                                                        "data": 1.00000022E8,
+                                                        "next": {
+                                                          "data": 1.00000023E8,
+                                                          "next": {
+                                                            "data": 1.00000024E8,
+                                                            "next": {
+                                                              "data": 1.00000025E8,
+                                                              "next": {
+                                                                "data": 1.00000026E8,
+                                                                "next": {
+                                                                  "data": 1.00000027E8,
+                                                                  "next": {
+                                                                    "data": 1.00000028E8,
+                                                                    "next": {
+                                                                      "data": 1.00000029E8,
+                                                                      "next": {
+                                                                        "data": 1.0000003E8,
+                                                                        "next": {
+                                                                          "data": 1.00000031E8,
+                                                                          "next": {
+                                                                            "data": 1.00000032E8,
+                                                                            "next": {
+                                                                              "data": 1.00000033E8,
+                                                                              "next": {
+                                                                                "data": 1.00000034E8,
+                                                                                "next": {
+                                                                                  "data": 1.00000035E8,
+                                                                                  "next": {
+                                                                                    "data": 1.00000036E8,
+                                                                                    "next": {
+                                                                                      "data": 1.00000037E8,
+                                                                                      "next": {
+                                                                                        "data": 1.00000038E8,
+                                                                                        "next": {
+                                                                                          "data": 1.00000039E8,
+                                                                                          "next": {
+                                                                                            "data": 1.0000004E8,
+                                                                                            "next": {
+                                                                                              "data": 1.00000041E8,
+                                                                                              "next": {
+                                                                                                "data": 1.00000042E8,
+                                                                                                "next": {
+                                                                                                  "data": 1.00000043E8,
+                                                                                                  "next": {
+                                                                                                    "data": 1.00000044E8,
+                                                                                                    "next": {
+                                                                                                      "data": 1.00000045E8,
+                                                                                                      "next": {
+                                                                                                        "data": 1.00000046E8,
+                                                                                                        "next": {
+                                                                                                          "data": 1.00000047E8,
+                                                                                                          "next": {
+                                                                                                            "data": 1.00000048E8,
+                                                                                                            "next": {
+                                                                                                              "data": 1.00000049E8,
+                                                                                                              "next": {
+                                                                                                                "data": 1.0000005E8,
+                                                                                                                "next": {
+                                                                                                                  "data": 1.00000051E8,
+                                                                                                                  "next": {
+                                                                                                                    "data": 1.00000052E8,
+                                                                                                                    "next": {
+                                                                                                                      "data": 1.00000053E8,
+                                                                                                                      "next": {
+                                                                                                                        "data": 1.00000054E8,
+                                                                                                                        "next": {
+                                                                                                                          "data": 1.00000055E8,
+                                                                                                                          "next": {
+                                                                                                                            "data": 1.00000056E8,
+                                                                                                                            "next": {
+                                                                                                                              "data": 1.00000057E8,
+                                                                                                                              "next": {
+                                                                                                                                "data": 1.00000058E8,
+                                                                                                                                "next": {
+                                                                                                                                  "data": 1.00000059E8,
+                                                                                                                                  "next": {
+                                                                                                                                    "data": 1.0000006E8,
+                                                                                                                                    "next": {
+                                                                                                                                      "data": 1.00000061E8,
+                                                                                                                                      "next": {
+                                                                                                                                        "data": 1.00000062E8,
+                                                                                                                                        "next": {
+                                                                                                                                          "data": 1.00000063E8,
+                                                                                                                                          "next": {
+                                                                                                                                            "data": 1.00000064E8,
+                                                                                                                                            "next": {
+                                                                                                                                              "data": 1.00000065E8,
+                                                                                                                                              "next": {
+                                                                                                                                                "data": 1.00000066E8,
+                                                                                                                                                "next": {
+                                                                                                                                                  "data": 1.00000067E8,
+                                                                                                                                                  "next": {
+                                                                                                                                                    "data": 1.00000068E8,
+                                                                                                                                                    "next": {
+                                                                                                                                                      "data": 1.00000069E8,
+                                                                                                                                                      "next": {
+                                                                                                                                                        "data": 1.0000007E8
+                                                                                                                                                      }
+                                                                                                                                                    }
+                                                                                                                                                  }
+                                                                                                                                                }
+                                                                                                                                              }
+                                                                                                                                            }
+                                                                                                                                          }
+                                                                                                                                        }
+                                                                                                                                      }
+                                                                                                                                    }
+                                                                                                                                  }
+                                                                                                                                }
+                                                                                                                              }
+                                                                                                                            }
+                                                                                                                          }
+                                                                                                                        }
+                                                                                                                      }
+                                                                                                                    }
+                                                                                                                  }
+                                                                                                                }
+                                                                                                              }
+                                                                                                            }
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    }
+                                                                                                  }
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "sorted": false,
+            "count": 70.0
+          },
+          "route": "12-9",
+          "porcentajeOccupancy": 0.4666666666666667
+        }
+      },
+      "sorted": false,
+      "count": 1
+    },
+    "waitingQueue": {
+      "counter": 0
     }
   },
   {

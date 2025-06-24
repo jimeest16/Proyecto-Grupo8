@@ -19,7 +19,7 @@
                 <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font size="18" isBold="true"/>
                 </textElement>
-                <text><![CDATA[Flight Report]]></text>
+                <text><![CDATA[Routes Report]]></text>
             </staticText>
         </band>
     </title>
@@ -27,21 +27,21 @@
     <columnHeader>
         <band height="25">
             <staticText>
-                <reportElement x="0" y="0" width="180" height="25" backcolor="#DDDDDD" mode="Opaque"/>
+                <reportElement x="0" y="0" width="280" height="25" backcolor="#DDDDDD" mode="Opaque"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle" />
                 <text><![CDATA[Route]]></text>
             </staticText>
 
             <staticText>
-                <reportElement x="180" y="0" width="165" height="25" backcolor="#DDDDDD" mode="Opaque"/>
+                <reportElement x="380" y="0" width="65" height="25" backcolor="#DDDDDD" mode="Opaque"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle" />
-                <text><![CDATA[Origin Airport Code]]></text>
+                <text><![CDATA[Origin Airport]]></text>
             </staticText>
 
             <staticText>
-                <reportElement x="345" y="0" width="170" height="25" backcolor="#DDDDDD" mode="Opaque"/>
+                <reportElement x="475" y="0" width="70" height="25" backcolor="#DDDDDD" mode="Opaque"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle" />
-                <text><![CDATA[Destination Airport Code]]></text>
+                <text><![CDATA[Destination Airport]]></text>
             </staticText>
         </band>
     </columnHeader>
@@ -49,19 +49,19 @@
     <detail>
         <band height="20">
             <textField>
-                <reportElement x="0" y="0" width="180" height="20"/>
+                <reportElement x="0" y="0" width="280" height="20"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{route}]]></textFieldExpression>
             </textField>
 
             <textField>
-                <reportElement x="180" y="0" width="165" height="20"/>
+                <reportElement x="380" y="0" width="65" height="20"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{originAirportCode}]]></textFieldExpression>
             </textField>
 
             <textField>
-                <reportElement x="345" y="0" width="170" height="20"/>
+                <reportElement x="475" y="0" width="70" height="20"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle"/>
                 <textFieldExpression><![CDATA[$F{destinationAirportCode}]]></textFieldExpression>
             </textField>

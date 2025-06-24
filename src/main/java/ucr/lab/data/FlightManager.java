@@ -35,6 +35,15 @@ public class FlightManager {
         saveFlights();
     }
 
+    public boolean buscar(int id) throws ListException {
+        if (!flights.isEmpty()){
+             for (int i = 0; i < flights.size(); i++) {
+                return flights.contains(getFlights().getFlight(i).getNumber() == id);
+            }
+    }
+       return false;
+    }
+
     public static CircularDoublyLinkedList getFlights() {
         return flights;
     }

@@ -61,6 +61,7 @@ class AirPortDatosTest {
         lista.add(flight3);
         lista.add(flight4);
         lista.add(flight5);
+        System.out.println(lista);
 
         LinkedQueue colaPasajeros1 = new LinkedQueue();
         LinkedQueue colaPasajeros2 = new LinkedQueue();

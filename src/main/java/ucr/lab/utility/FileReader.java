@@ -12,13 +12,14 @@ import ucr.lab.TDA.list.CircularDoublyLinkedList;
 import ucr.lab.TDA.list.CircularLinkedList;
 import ucr.lab.TDA.list.ListException;
 import ucr.lab.TDA.list.SinglyLinkedList;
+import ucr.lab.data.FlightManager;
 import ucr.lab.domain.*;
 import java.io.File;
 import java.io.IOException;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class FileReader {
 
@@ -331,6 +332,63 @@ public class FileReader {
             return new ArrayList<>();
         }
     }
+
+    public static List<Flight> loadReportRoutes1() {
+        File fileR = new File(FILE_ROUTES);
+        File fileF = new File(FILE_FLIGHTS);
+        File fileA = new File(FILE_AIRPORT);
+        FlightManager data = new FlightManager();
+
+        try {
+            if (!fileF.exists() || fileF.length() == 0) return new ArrayList<>();
+            return mapper.readValue(fileF, new TypeReference<List<Flight>>() {});
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    public static List<Flight> loadReportRoutes() {
+        File fileF = new File(FILE_FLIGHTS);
+        File fileA = new File(FILE_AIRPORT);
+
+        try {
+            // 1) Leer lista de vuelos
+            List<Flight> flights = mapper.readValue(
+                    fileF, new TypeReference<List<Flight>>() {}
+            );
+
+            // 2) Leer lista de aeropuertos con tu helper
+            AirPortDatos datos = new AirPortDatos(fileA);
+            @SuppressWarnings("unchecked")
+            List<AirPort> airports = datos.getAllAirPorts("todos");
+
+            // 3) Mapear aeropuertos por código
+            Map<Integer, AirPort> airportMap = airports.stream()
+                    .collect(Collectors.toMap(AirPort::getCode, Function.identity()));
+
+            // 4) Enriquecer cada vuelo
+            for (Flight f : flights) {
+                AirPort ori = airportMap.get(f.getOriginAirportCode());
+                AirPort dst = airportMap.get(f.getDestinationAirportCode());
+
+                String oriName = (ori != null ? ori.getName() : "Desconocido");
+                String dstName = (dst != null ? dst.getName() : "Desconocido");
+
+                // Aquí rellenas el campo 'route' que ya tienes en Flight
+                f.setRoute(oriName + " – " + dstName);
+
+            }
+
+            return flights;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return Collections.emptyList();
+        }
+    }
+
 
 
     public static SinglyLinkedList loadRoutes() {

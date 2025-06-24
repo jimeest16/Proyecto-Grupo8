@@ -179,10 +179,20 @@ public class FlightController {
 
             FlightManager.add(newFlight);
             flightsList.add(newFlight);
+
+            //add flight to airports related
+            SinglyLinkedList vuelos = new SinglyLinkedList();
+            vuelos.add(newFlight);
+            airportList.get(originCode).setDeparturesBoard(vuelos);
+            airportList.get(destinationCode).setDeparturesBoard(vuelos);
+
             appendFlightOutput("Vuelo " + flightNumber + " creado exitosamente.");
             registrarEnBitacora("Vuelo " + flightNumber + " creado exitosamente.");
             clearFlightFields();
             loadAllFlights(false);
+
+
+
 
         } catch (NumberFormatException e) {
             String errorMessage = "Error: El número de vuelo y la capacidad deben ser números válidos. " + e.getMessage();

@@ -207,7 +207,7 @@ public class AirPortController {
                             System.out.println(LocalDateTime.now().format(FORMATTER) + " DEBUG: vuelo encontrado = " + vuelo);
                             openWaitingQueueView(event, airport,vuelo);
                         } else {
-                            FXUtil.alert("Advertencia", "Este aeropuerto no tiene vuelos disponibles.").showAndWait();
+                            FXUtil.alert("Warning", "This airport has no available flights.").showAndWait();
                         }
 
 
@@ -342,7 +342,7 @@ public class AirPortController {
 
 
         if (idText.isEmpty() || name.isEmpty() || country.isEmpty() || status == null || selectedDeparture == null) {
-            FXUtil.alert("Error", "Todos los campos son obligatorios para actualizar un aeropuerto.").showAndWait();
+            FXUtil.alert("Error", "All fields are required to update an airport.").showAndWait();
             return;
         }
 
@@ -352,7 +352,7 @@ public class AirPortController {
             AirPort originalAirport = data.buscarAirPort(code);
 
             if (originalAirport == null) {
-                FXUtil.alert("Error", "No se encontró ningún aeropuerto con la identificación: " + code + ".").showAndWait();
+                FXUtil.alert("Error", "No airports were found with the identification: " + code + ".").showAndWait();
                 return;
             }
 
@@ -363,7 +363,7 @@ public class AirPortController {
             boolean success = data.actualizar(originalAirport, updatedAirport);
 
             if (success) {
-                FXUtil.confirmationDialog("¡Aeropuerto actualizado exitosamente!").showAndWait();
+                FXUtil.confirmationDialog("Airport successfully upgraded!").showAndWait();
                 cleanFields();
                 updateObservableList(); // Actualiza la tabla
                 currentAirportToEdit = null; // Exit update mode
@@ -571,7 +571,7 @@ public class AirPortController {
         // Compilar el archivo .jrxml
         JasperReport report = JasperCompileManager.compileReport(jrxmlPath);
 
-        // Crear fuente de datos desde la lista de clientes
+        // Crear fuente de datos desde la lista de
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(airPorts);
 
         Map<String, Object> parameters = new HashMap<>(); // Parámetros opcionales

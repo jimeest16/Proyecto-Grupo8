@@ -47,7 +47,7 @@ public class Util {
 
     /// airports list
     private static ObservableList<AirPort> airPortList = FXCollections.observableArrayList(); //lista para airports
-    private static ObservableList<Flight> departuresList = FXCollections.observableArrayList(); //lista de salidad
+    private static ObservableList<Flight> departuresList = FXCollections.observableArrayList(); //lista de salidas vuelos
     private static ObservableList<Passenger> passengersList = FXCollections.observableArrayList(); //lista de la cola de espera
     //constructor estatico, inicializador estatico
 
@@ -94,7 +94,7 @@ public class Util {
     //LISTA DEPARTURES
     public static ObservableList<Flight> getDeparturesList() {
         try {
-            File file = new File("src/main/resources/data/departures.json");
+            File file = new File("src/main/resources/data/flights.json");
             DeparturesDatos departuresDatos = new DeparturesDatos(file); // archivo json
             java.util.List<Flight> listaDesdeArchivo = departuresDatos.getAllDepartures(); // carga desde archivo
 
@@ -103,7 +103,7 @@ public class Util {
             list.addAll(listaDesdeArchivo); // añade la nueva información
             return list;
         } catch (IOException e) {
-            FXUtil.alert("Error", "Could not load airport data").showAndWait();
+            FXUtil.alert("Error", "Could not load flight data").showAndWait();
             return FXCollections.observableArrayList(); // retorna lista vacía en caso de error
         }
 
